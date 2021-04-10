@@ -1,7 +1,12 @@
 import React from 'react'
 import '../styles/globals.css'
 
-const MyApp = ({ Component, pageProps }) => {
+interface IProps {
+  Component: any
+  pageProps: any
+}
+
+const MyApp = ({ Component, pageProps }: IProps) => {
   return <Component {...pageProps} />
 }
 
