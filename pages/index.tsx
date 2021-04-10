@@ -11,6 +11,7 @@ const IndexPage = () => (
       </Link>
     </p>
     <Test />
+    <div>これはテストでスゥゥゥ！！！</div>
   </Layout>
 )
 
