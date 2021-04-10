@@ -1,12 +1,8 @@
 import React from 'react'
+import { AppProps } from 'next/app';
 import '../styles/globals.css'
 
-interface IProps {
-  Component: any
-  pageProps: any
-}
-
-const MyApp = ({ Component, pageProps }: IProps) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return <Component {...pageProps} />
 }
 
