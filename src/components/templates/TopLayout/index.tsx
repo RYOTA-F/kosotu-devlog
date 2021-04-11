@@ -4,6 +4,8 @@
  * @package Component
  */
 import React from 'react'
+/* component */
+import Header from '@/components/organisms/Header'
 
 /**
  * container
@@ -12,7 +14,10 @@ import React from 'react'
  */
 const TopLayout: React.FC = () => {
   return (
-    <div>TopLayout</div>
+    <>
+      <Header />
+      <div>TopLayout</div>
+    </>
   )
 }
 
