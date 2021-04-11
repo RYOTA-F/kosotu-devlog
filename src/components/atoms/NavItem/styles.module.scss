@@ -1,0 +1,12 @@
+.container {
+  width: 20%;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  font-family: var(--f-main);
+}
+
+.title {
+  cursor: pointer;
+  user-select: none;
+}
