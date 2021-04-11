@@ -5,7 +5,7 @@
  */
 import React from 'react'
 /* styles */
-// import styles from './styles.module.scss'
+import styles from './styles.module.scss'
 
 /**
  * container
@@ -14,7 +14,10 @@ import React from 'react'
  */
 const Header: React.FC = () => {
   return (
-    <div>Header</div>
+    <div className={styles.container}>
+      <div className={styles.top}/>
+
+    </div>
   )
 }
 

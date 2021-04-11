@@ -16,7 +16,6 @@ const TopLayout: React.FC = () => {
   return (
     <>
       <Header />
-      <div>TopLayout</div>
     </>
   )
 }

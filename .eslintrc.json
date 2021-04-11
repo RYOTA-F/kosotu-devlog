@@ -8,7 +8,8 @@
   },
   "rules": {
     "react/prop-types": "off",
-    "@typescript-eslint/no-empty-interface": 0
+    "@typescript-eslint/no-empty-interface": 0,
+    "@typescript-eslint/no-var-requires": false
   },
   "settings": {
     "react": {
