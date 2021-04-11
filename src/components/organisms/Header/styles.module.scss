@@ -4,10 +4,11 @@
   left: 0;
   right: 0;
   z-index: 10;
+  border-bottom: 1px solid var(--c-line);
 }
 
 .top {
-  height: 48px;
+  height: 32px;
   background: var(--c-main);
 }
 

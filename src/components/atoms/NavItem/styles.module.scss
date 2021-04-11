@@ -1,12 +1,13 @@
 .container {
   width: 20%;
-  height: 32px;
+  height: 48px;
   text-align: center;
-  line-height: 32px;
+  line-height: 48px;
   font-family: var(--f-main);
 }
 
 .title {
   cursor: pointer;
   user-select: none;
+  color: var(--c-main);
 }
