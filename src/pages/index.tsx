@@ -1,8 +1,12 @@
+/**
+ * Topページ
+ * @package pages
+ */
 import React from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <>
     <div className={styles.container}>
