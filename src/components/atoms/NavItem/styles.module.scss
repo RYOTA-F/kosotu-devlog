@@ -9,5 +9,11 @@
 .title {
   cursor: pointer;
   user-select: none;
-  color: var(--c-main);
+  transition: all 0.5s;
+  color: #ffffff;
+
+  &:hover {
+    text-decoration: underline;
+    transform: translate(0, 5px);
+  }
 }

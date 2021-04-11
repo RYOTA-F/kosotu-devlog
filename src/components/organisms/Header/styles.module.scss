@@ -5,15 +5,16 @@
   right: 0;
   z-index: 10;
   border-bottom: 1px solid var(--c-line);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .top {
   height: 32px;
-  background: var(--c-main);
 }
 
 .nav_links {
   display: flex;
   justify-content: space-between;
   padding: 0% 10%;
+  background: var(--c-main);
 }
