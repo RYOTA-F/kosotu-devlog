@@ -38,8 +38,8 @@ const Header: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.top} />
       <div className={styles.nav_links}>
-        {navLinks.map((v) => (
-          <NavItem title={v.title} link={v.link}/>
+        {navLinks.map((v, i) => (
+          <NavItem key={i} title={v.title} link={v.link}/>
         ))}
       </div>
     </div>
