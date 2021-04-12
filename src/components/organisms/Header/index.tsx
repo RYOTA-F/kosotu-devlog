@@ -22,25 +22,30 @@ const Header: React.FC = () => {
     },
     {
       title: 'バックエンド',
-      link: '/category/front-end'
+      link: '/category/back-end'
     },
     {
       title: 'プロフィール',
-      link: '/category/front-end'
+      link: '/category/profile'
     },
     {
       title: 'お問い合わせ',
-      link: '/category/front-end'
+      link: '/category/contact'
     },
   ]
+  
 
   return (
     <div className={styles.container}>
-      <div className={styles.top} />
+      <div className={styles.top}>
+        {'高卒Webエンジニアのぼやき'}
+      </div>
       <div className={styles.nav_links}>
-        {navLinks.map((v, i) => (
-          <NavItem key={i} title={v.title} link={v.link}/>
-        ))}
+        {
+          navLinks.map((v, i) => (
+            <NavItem key={i} title={v.title} link={v.link} />
+          ))
+        }
       </div>
     </div>
   )
