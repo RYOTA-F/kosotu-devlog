@@ -6,6 +6,8 @@
 import React from 'react'
 /* component */
 import Header from '@/components/organisms/Header'
+/* styles*/
+import styles from './styles.module.scss'
 
 /**
  * container
@@ -16,6 +18,11 @@ const TopLayout: React.FC = () => {
   return (
     <>
       <Header />
+      <div className={styles.main_container}>
+        <div className={styles.demo}>
+
+        </div>
+      </div>
     </>
   )
 }
