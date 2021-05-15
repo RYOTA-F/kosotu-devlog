@@ -5,8 +5,11 @@
 import React from 'react'
 /* component */
 import BaseLayout from '@/components/organisms/BaseLayout'
+import SideProfile from '@/components/organisms/SideProfile'
 /* constants */
 /* types */
+/* styles */
+import styles from './styles.module.scss'
 
 /**
  * container
@@ -16,7 +19,9 @@ import BaseLayout from '@/components/organisms/BaseLayout'
 const TopLayout: React.FC = () => {
   return (
     <BaseLayout>
-      <div>テスト</div>
+      <div className={styles.sideBar}>
+        <SideProfile />
+      </div>
     </BaseLayout>
   )
 }
