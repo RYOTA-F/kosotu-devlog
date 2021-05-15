@@ -15,9 +15,9 @@ import BaseLayout from '@/components/organisms/BaseLayout'
  */
 const TopLayout: React.FC = () => {
   return (
-    <>
-      <BaseLayout />
-    </>
+    <BaseLayout>
+      <div>テスト</div>
+    </BaseLayout>
   )
 }
 

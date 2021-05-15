@@ -33,7 +33,6 @@ const Header: React.FC = () => {
       link: '/category/contact'
     },
   ]
-  
 
   return (
     <div className={styles.container}>

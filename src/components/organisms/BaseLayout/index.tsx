@@ -12,7 +12,7 @@ import styles from './styles.module.scss'
 /**
  * Props
  */
-export type TProps = {
+export type BaseLayoutProps = {
   children: React.ReactNode
 }
 
@@ -21,13 +21,13 @@ export type TProps = {
  * @param props
  * @returns
  */
-const BaseLayout: React.FC = () => {
+const BaseLayout: React.FC<BaseLayoutProps> = (props: BaseLayoutProps) => {
   
   return (
     <>
       <Header />
       <div className={styles.headerSpace} />
-      <div className={styles.dummy}></div>
+      { props.children}
       <Footer />
     </>
   )
