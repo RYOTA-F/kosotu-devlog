@@ -1,17 +1,17 @@
 /**
- * organisms/Header
- * Organisms
+ * Organisms/Header
  * @package Component
  */
 import React from 'react'
 /* components */
 import NavItem from '@/components/atoms/NavItem'
+/* constants */
+import { BASE_TITLE } from '@/constants/config'
 /* styles */
 import styles from './styles.module.scss'
 
 /**
- * container
- * @param
+ * @param none
  * @returns
  */
 const Header: React.FC = () => {
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        {'高卒Webエンジニアのぼやき'}
+        {BASE_TITLE}
       </div>
       <div className={styles.nav_links}>
         {

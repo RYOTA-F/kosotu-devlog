@@ -1,13 +1,12 @@
 /**
- * templates/TopLayout
- * Templates
+ * Templates/TopLayout
  * @package Component
  */
 import React from 'react'
 /* component */
-import Header from '@/components/organisms/Header'
-/* styles*/
-import styles from './styles.module.scss'
+import BaseLayout from '@/components/organisms/BaseLayout'
+/* constants */
+/* types */
 
 /**
  * container
@@ -17,12 +16,7 @@ import styles from './styles.module.scss'
 const TopLayout: React.FC = () => {
   return (
     <>
-      <Header />
-      <div className={styles.main_container}>
-        <div className={styles.demo}>
-
-        </div>
-      </div>
+      <BaseLayout />
     </>
   )
 }

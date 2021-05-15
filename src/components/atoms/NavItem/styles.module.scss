@@ -15,7 +15,7 @@
   cursor: pointer;
   user-select: none;
   transition: all 0.5s;
-  color: #ffffff;
+  color: var(--c-text);
 
   &:hover {
     text-decoration: underline;

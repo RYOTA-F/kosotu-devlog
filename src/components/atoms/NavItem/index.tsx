@@ -1,6 +1,5 @@
 /**
- * atoms/LinkItem
- * Atoms
+ * Atoms/LinkItem
  * @package Component
  */
 import React from 'react'
