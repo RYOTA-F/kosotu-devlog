@@ -7,6 +7,7 @@ import React from 'react'
 import BaseLayout from '@/components/organisms/BaseLayout'
 import SideProfile from '@/components/organisms/SideProfile'
 import SideCategories from '@/components/organisms/SideCategories'
+import SideRecentPosts from '@/components/organisms/SideRecentPosts'
 /* styles */
 import styles from './styles.module.scss'
 
@@ -21,6 +22,7 @@ const TopLayout: React.FC = () => {
       <div className={styles.sideBar}>
         <SideProfile />
         <SideCategories />
+        <SideRecentPosts />
       </div>
     </BaseLayout>
   )
