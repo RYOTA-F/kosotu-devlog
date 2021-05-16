@@ -1,0 +1,18 @@
+.container {
+  height: 40px;
+  align-items: center;
+  display: flex;
+}
+
+.title {
+  margin-left: 12px;
+  color: var(--c-discription);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.5s;
+
+  &:hover {
+    text-decoration: underline;
+    transform: translate(0, 5px);
+  }
+}

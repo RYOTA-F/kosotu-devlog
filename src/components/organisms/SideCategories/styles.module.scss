@@ -1,0 +1,15 @@
+.container {
+  margin: 20px;
+}
+
+.listTitle {
+  line-height: 32px;
+  text-align: center;
+  border-radius: 2px;
+  color: var(--c-text);
+  background-color: var(--c-main);
+}
+
+.linkItem {
+  border-bottom: 1px solid var(--c-sub-text);
+}

@@ -12,7 +12,7 @@ import { PROFILE_AVATER, PROFILE_MAIN, PROFILE_DISCRIPTION, PROFILE_SNS } from '
 import styles from './styles.module.scss'
 
 /**
- * @param props TProps
+ * @param none
  * @returns
  */
 const SideProfile: React.FC = () => {

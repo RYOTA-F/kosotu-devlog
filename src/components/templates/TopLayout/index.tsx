@@ -6,14 +6,13 @@ import React from 'react'
 /* component */
 import BaseLayout from '@/components/organisms/BaseLayout'
 import SideProfile from '@/components/organisms/SideProfile'
-/* constants */
-/* types */
+import SideCategories from '@/components/organisms/SideCategories'
 /* styles */
 import styles from './styles.module.scss'
 
 /**
  * container
- * @param prop
+ * @param none
  * @returns
  */
 const TopLayout: React.FC = () => {
@@ -21,6 +20,7 @@ const TopLayout: React.FC = () => {
     <BaseLayout>
       <div className={styles.sideBar}>
         <SideProfile />
+        <SideCategories />
       </div>
     </BaseLayout>
   )
