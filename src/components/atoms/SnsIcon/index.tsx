@@ -41,11 +41,11 @@ const SnsIcon: React.FC<IconProps> = (props: IconProps) => {
         </a>
       )
       break
-    case 'qiita':
+    case 'zenn':
       icon = (
-        <a className={styles.qiita} target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M0 0L0 132L1 132C2.30836 68.6109 68.6111 2.30859 132 1C121.496 -3.40756 103.42 0 92 0L0 0z"/>
+        <a className={styles.zenn} target="_blank">
+          <svg viewBox="0 0 88.3 88.3" width="24" height="24">
+            <path d="M2.4 83.3h17c.9 0 1.7-.5 2.2-1.2L68.4 5.2c.6-1-.1-2.2-1.3-2.2H51c-.8 0-1.5.4-1.9 1.1L1.6 81.9c-.3.6.1 1.4.8 1.4zM61 82.1l22.1-35.5c.7-1.1-.1-2.5-1.4-2.5h-16c-.6 0-1.2.3-1.5.8L41.5 81.2c-.6.9.1 2.1 1.2 2.1H59c.8 0 1.6-.4 2-1.2z"></path>
           </svg>
         </a>
       )

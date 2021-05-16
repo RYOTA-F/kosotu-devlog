@@ -38,8 +38,12 @@ export const PROFILE_SNS = [
     sns: 'github',
     link: 'https://github.com/RyotaFujishima',
   },
+  // {
+  //   sns: 'qiita',
+  //   link: 'https://qiita.com/WEBERYOTA',
+  // },
   {
-    sns: 'qiita',
-    link: 'https://qiita.com/WEBERYOTA',
+    sns: 'zenn',
+    link: 'https://zenn.dev/ryotaf',
   },
 ]
