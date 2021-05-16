@@ -25,14 +25,14 @@ const SideCategories: React.FC = () => {
   ]
 
   return (
-    <div className={styles.container}>
+    <>
       <div className={styles.listTitle}>カテゴリー</div>
       { categories.map((v, i) =>
         <div key={i} className={styles.linkItem}>
           <PostLinkItem title={v.title} link={v.link} />
         </div>
       )}
-    </div>
+    </>
   )
 }
 
