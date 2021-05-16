@@ -51,6 +51,11 @@ const SideProfile: React.FC = () => {
       <hr className={styles.border} />
 
       {/* SNS */}
+      <div className={styles.followMe}>
+        <div>\</div>
+        <div>Follow me</div>
+        <div>/</div>
+      </div>
       <div className={styles.sns}>
         {PROFILE_SNS.map((v, i) =>
           <SnsIcon key={i} sns={v.sns} link_url={v.link} />

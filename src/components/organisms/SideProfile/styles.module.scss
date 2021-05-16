@@ -48,7 +48,15 @@
   }
 }
 
+.followMe {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  color: var(--c-discription);
+}
+
 .sns {
+  margin-top: 10px;
   padding: 0 20px;
   display: flex;
   justify-content: space-around;
