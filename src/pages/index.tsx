@@ -20,13 +20,10 @@ type TopPageProps = {
 }
 
 const TopPage: NextPage<TopPageProps> = (props: TopPageProps) => {
-  const { blogList, totalCount } = props
-
-  console.log(blogList)
-  console.log(totalCount)
+  const { blogList } = props
 
   return (
-    <TopLayout />
+    <TopLayout blogList={blogList}/>
   )
 }
 

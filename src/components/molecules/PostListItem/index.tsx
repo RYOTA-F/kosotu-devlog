@@ -7,7 +7,7 @@ import Image from 'next/image'
 /* components */
 import CategoryItem from '@/components/atoms/CategoryItem'
 /* types */
-import { CategoryItemProps } from '@/components/atoms/CategoryItem'
+import { CategoryType } from '@/types/category'
 /* styles */
 import styles from './styles.module.scss'
 
@@ -15,11 +15,11 @@ import styles from './styles.module.scss'
  * props
  */
 export type PostListItemParams = {
-  id: number
+  id: string
   title: string
   discription: string
   thumbmail_url: string
-  categories: CategoryItemProps[]
+  categories: CategoryType[]
   created_time: string
 }
 
@@ -28,6 +28,18 @@ export type PostListItemParams = {
  * @returns
  */
 const PostListItem: React.FC<PostListItemParams> = (props: PostListItemParams) => {
+  let category_area
+
+  if (props.categories ) {
+    category_area = (
+      props.categories.map(v =>
+        <div key={v.id} className={styles.content__categoryItem}>
+          <CategoryItem id={v.id} name={v.name} />
+        </div>
+      )
+    )
+  } 
+  
   return (
     <div className={styles.container}>
       <div className={styles.thumbnail}>
@@ -44,11 +56,7 @@ const PostListItem: React.FC<PostListItemParams> = (props: PostListItemParams) =
         <h3 className={styles.content__title}>{props.title}</h3>
         <div className={styles.content__discription}>{props.discription}</div>
         <div className={styles.content__category}>
-          {props.categories.map(v =>
-            <div key={v.id} className={styles.content__categoryItem}>
-              <CategoryItem id={v.id} name={v.name} />
-            </div>
-          )}
+          {category_area}
         </div>
         <div className={styles.content__time}>{props.created_time}</div>
       </div>

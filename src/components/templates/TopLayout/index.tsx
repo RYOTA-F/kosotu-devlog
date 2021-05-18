@@ -9,20 +9,29 @@ import PostList from '@/components/organisms/PostLIst'
 import SideProfile from '@/components/organisms/SideProfile'
 import SideCategories from '@/components/organisms/SideCategories'
 import SideRecentPosts from '@/components/organisms/SideRecentPosts'
+/* types */
+import {BlogItemType} from '@/types/blog'
 /* styles */
 import styles from './styles.module.scss'
+
+/**
+ * props
+ */
+type TopLayoutProps = {
+  blogList: BlogItemType[]
+}
 
 /**
  * container
  * @param none
  * @returns
  */
-const TopLayout: React.FC = () => {
+const TopLayout: React.FC<TopLayoutProps> = (props: TopLayoutProps) => {
   return (
     <BaseLayout>
       <div className={styles.container}>
         <div className={styles.postList}>
-          <PostList />
+          <PostList blogList={props.blogList} />
         </div>
         <div className={styles.sideBar}>
           <SideProfile />
