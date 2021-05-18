@@ -9,7 +9,8 @@
   "rules": {
     "react/prop-types": "off",
     "@typescript-eslint/no-empty-interface": 0,
-    "@typescript-eslint/no-var-requires": "off"
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   },
   "settings": {
     "react": {

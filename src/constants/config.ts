@@ -47,3 +47,8 @@ export const PROFILE_SNS = [
     link: 'https://zenn.dev/ryotaf',
   },
 ]
+
+/**
+ * 1ページあたりのブログ表示数
+ */
+export const BLOG_SHOW_COUNT = 8
