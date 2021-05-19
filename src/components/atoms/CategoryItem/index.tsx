@@ -13,7 +13,7 @@ import styles from './styles.module.scss'
  * props
  */
 export type CategoryItemProps = {
-  id: string
+  // id: string
   name: string
 }
 

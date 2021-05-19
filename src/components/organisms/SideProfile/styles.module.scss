@@ -20,6 +20,12 @@
 
   &__pic {
     border-radius: 50%;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(0.95, 0.95);
+      transition: 0.5s all;
+    }
   }
 }
 
@@ -69,4 +75,12 @@
   padding: 0 10px;
   display: flex;
   justify-content: space-around;
+
+  &__icon {
+    &:hover {
+      cursor: pointer;
+      transform: scale(0.9, 0.9);
+      transition: 0.5s all;
+    }
+  }
 }

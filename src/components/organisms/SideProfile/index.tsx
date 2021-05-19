@@ -60,7 +60,9 @@ const SideProfile: React.FC = () => {
         </div>
         <div className={styles.sns}>
           {PROFILE_SNS.map((v, i) =>
-            <SnsIcon key={i} sns={v.sns} link_url={v.link} />
+            <div key={i} className={styles.sns__icon}>
+              <SnsIcon sns={v.sns} link_url={v.link} />
+            </div>
           )}
         </div>
       </div>

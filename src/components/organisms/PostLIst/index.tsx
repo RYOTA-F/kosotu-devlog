@@ -5,7 +5,6 @@
 import React from 'react'
 /* components */
 import PostListItem from '@/components/molecules/PostListItem'
-/* constants */
 /* types */
 import { BlogItemType } from '@/types/blog'
 /* styles */
@@ -14,7 +13,7 @@ import styles from './styles.module.scss'
 /**
  * props
  */
- type PostList = {
+type PostListType = {
   blogList: BlogItemType[]
 }
 
@@ -22,7 +21,7 @@ import styles from './styles.module.scss'
  * @param props PostList
  * @returns
  */
-const PostList: React.FC<PostList> = (props: PostList) => {
+const PostList: React.FC<PostListType> = (props: PostListType) => {
   return (
     <div className={styles.container}>
       {props.blogList.map(v =>
@@ -31,7 +30,7 @@ const PostList: React.FC<PostList> = (props: PostList) => {
           id={v.id}
           title={v.title}
           discription={v.description}
-          thumbmail_url={v.image.url}
+          image={v.image}
           categories={v.categories}
           created_time={v.createdAt}
         />
