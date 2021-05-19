@@ -30,9 +30,9 @@ const TopLayout: React.FC<TopLayoutProps> = (props: TopLayoutProps) => {
   return (
     <BaseLayout>
       <div className={styles.container}>
-        <div className={styles.postList}>
+        <article className={styles.postList}>
           <PostList blogList={props.blogList} />
-        </div>
+        </article>
         <div className={styles.sideBar}>
           <SideProfile />
           <div className={styles.sideBar__item}>

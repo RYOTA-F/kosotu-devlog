@@ -4,6 +4,7 @@
 */
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 /* components */
 import CategoryItem from '@/components/atoms/CategoryItem'
 import DateTime from '@/components/atoms/DateTime'
@@ -42,26 +43,28 @@ const PostListItem: React.FC<PostListItemParams> = (props: PostListItemParams) =
   } 
   
   return (
-    <div className={styles.container}>
-      <div className={styles.image}>
-        <Image
-          src={props.image.url}
-          alt="Thumbnail Picture"
-          width={320 * 2}
-          height={180 * 2}
-        />
-      </div>
-      <div className={styles.content}>
-        <h3 className={styles.content__title}>{props.title}</h3>
-        <div className={styles.content__discription}>{props.discription}</div>
-        <div className={styles.content__category}>
-          {category_area}
+    <Link href="/[blogId]" as={`/${props.id}`}>
+      <div className={styles.container}>
+        <div className={styles.image}>
+          <Image
+            src={props.image.url}
+            alt="Thumbnail Picture"
+            width={320 * 2}
+            height={180 * 2}
+          />
         </div>
-        <div className={styles.content__time}>
-          <DateTime date_time={props.created_time} />
+        <div className={styles.content}>
+          <h3 className={styles.content__title}>{props.title}</h3>
+          <div className={styles.content__discription}>{props.discription}</div>
+          <div className={styles.content__category}>
+            {category_area}
+          </div>
+          <div className={styles.content__time}>
+            <DateTime date_time={props.created_time} />
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

@@ -6,7 +6,7 @@
 import globalAxios from '@/config/globalAxios'
 /* constants */
 import { BLOG_SHOW_COUNT } from '@/constants/config'
-import { initBlogData } from '@/constants/initState'
+import { initBlogItem, initBlogData } from '@/constants/initState'
 /* types */
 import { BlogDataType } from '@/types/blog'
 
@@ -37,4 +37,26 @@ export const getBlogs = async (offset: number) => {
   }
 
   return blogData
+}
+
+/**
+ * ブログ詳細記事取得
+ * @param id string
+ * @param draftKey string
+ * @returns blogDetail BlogItemType
+ */
+export const getBlogById = async (id: string) => {
+  let blogDetail = initBlogItem
+
+  console.log('BASE_URL', BASE_URL)
+
+  try {
+    const res = await globalAxios.get(`${BASE_URL}${id}`)
+
+    blogDetail = res.data
+  } catch (error) {
+    throw new Error('API Error: getBlogBy')
+  }
+
+  return blogDetail
 }
