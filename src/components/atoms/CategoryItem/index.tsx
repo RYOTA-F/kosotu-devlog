@@ -24,7 +24,6 @@ export type CategoryItemProps = {
  */
 const CategoryItem: React.FC<CategoryItemProps> = (props: CategoryItemProps) => {
   const { size } = props
-  console.log(size)
   
   return (
     <div className={styles.container}>

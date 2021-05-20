@@ -5,6 +5,7 @@
 import React from 'react'
 import Image from 'next/image'
 /* components */
+import BlogArticleText from '@/components/organisms/BlogArticeText'
 import CategoryItem from '@/components/atoms/CategoryItem'
 import DateTime from '@/components/atoms/DateTime'
 /* constants */
@@ -44,6 +45,7 @@ const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
       <div className={styles.image}>
         <Image
           src={blogItem.image.url}
+          alt="Picture"
           width={blogItem.image.width * 2}
           height={blogItem.image.height *2 }
         />
@@ -59,6 +61,7 @@ const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
             <DateTime date_time={blogItem.createdAt} />
           </div>
         </div>
+        <BlogArticleText blogItemText={blogItem.body}/>
       </main>
     </section>
   )

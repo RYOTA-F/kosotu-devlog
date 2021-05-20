@@ -48,8 +48,6 @@ export const getBlogs = async (offset: number) => {
 export const getBlogById = async (id: string) => {
   let blogDetail = initBlogItem
 
-  console.log('BASE_URL', BASE_URL)
-
   try {
     const res = await globalAxios.get(`${BASE_URL}${id}`)
 

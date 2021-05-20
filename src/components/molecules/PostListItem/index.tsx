@@ -36,7 +36,7 @@ const PostListItem: React.FC<PostListItemParams> = (props: PostListItemParams) =
     category_area = (
       props.categories.map((v, i) =>
         <div key={i} className={styles.content__categoryItem}>
-          <CategoryItem name={v} />
+          <CategoryItem name={v} size={'normal'} />
         </div>
       )
     )
