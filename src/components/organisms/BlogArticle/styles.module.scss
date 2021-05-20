@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.categoryArea {
+  display: flex;
+  align-items: center;
+}
+
+.category {
+  display: flex;
+  margin: 20px;
+
+  &__item:not(:first-child) {
+    margin-left: 10px;
+  }
+}
+
+.time {
+  margin-left: auto;
+  padding-right: 60px;
+}

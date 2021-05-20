@@ -4,6 +4,28 @@
 export const BASE_TITLE = 'RYOTABLOG'
 
 /**
+ * ヘッダーリンク
+ */
+export const HEADER_LINK = [
+  {
+    title: 'front-eng',
+    link: '/category/front-end',
+  },
+  {
+    title: 'back-end',
+    link: '/category/back-end',
+  },
+  {
+    title: 'プロフィール',
+    link: '/category/profile',
+  },
+  {
+    title: 'お問い合わせ',
+    link: '/category/contact',
+  },
+]
+
+/**
  * アバター
  */
 export const PROFILE_AVATER = '/avatar.jpg'

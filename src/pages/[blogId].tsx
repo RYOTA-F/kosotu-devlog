@@ -7,10 +7,13 @@ import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 /* components */
 import BlogArticleLayout from '@/components/templates/BlogArticleLayout'
 /* constants */
+import { BLOG_SHOW_COUNT } from '@/constants/config'
+/* logic */
+import { createPageArray } from '@/logic/CommonLogic'
 /* types */
 /* styles */
 /* services */
-import { getBlogById } from '@/service/blogs'
+import { getBlogs, getBlogById } from '@/service/blogs'
 import { BlogItemType } from '@/types/blog'
 
 /**
@@ -26,7 +29,7 @@ type BlogArticlePageProps = {
  */
 const BlogArticlePage: NextPage<BlogArticlePageProps> = (props: BlogArticlePageProps) => {
   const { blogItem } = props
-
+  
   return (
     <BlogArticleLayout blogItem={blogItem}/>
   )
@@ -38,10 +41,22 @@ const BlogArticlePage: NextPage<BlogArticlePageProps> = (props: BlogArticlePageP
  */
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths: string[] = []
+  const { totalCount } = await getBlogs(0)
+
+  // ページ番号の配列を作成
+  const pageCountArray = createPageArray(totalCount)
+
+  for await (const pageNum of pageCountArray) {
+    const offset = (pageNum - 1) * BLOG_SHOW_COUNT
+    const blogData = await getBlogs(offset)
+    blogData.blogList.forEach((blog) => {
+      paths.push(`/${blog.id}`)
+    })
+  }
 
   return {
     paths,
-    fallback: true
+    fallback: true, // プレビューのためtrueに設定
   }
 }
 

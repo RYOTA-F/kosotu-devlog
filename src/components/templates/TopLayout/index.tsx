@@ -5,7 +5,7 @@
 import React from 'react'
 /* component */
 import BaseLayout from '@/components/organisms/BaseLayout'
-import PostList from '@/components/organisms/PostLIst'
+import BlogList from '@/components/organisms/BlogList'
 import SideProfile from '@/components/organisms/SideProfile'
 import SideCategories from '@/components/organisms/SideCategories'
 import SideRecentPosts from '@/components/organisms/SideRecentPosts'
@@ -27,11 +27,13 @@ type TopLayoutProps = {
  * @returns
  */
 const TopLayout: React.FC<TopLayoutProps> = (props: TopLayoutProps) => {
+  const { blogList } = props
+  
   return (
     <BaseLayout>
       <div className={styles.container}>
         <article className={styles.postList}>
-          <PostList blogList={props.blogList} />
+          <BlogList blogList={blogList} />
         </article>
         <div className={styles.sideBar}>
           <SideProfile />

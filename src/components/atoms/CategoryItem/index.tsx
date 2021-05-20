@@ -15,6 +15,7 @@ import styles from './styles.module.scss'
 export type CategoryItemProps = {
   // id: string
   name: string
+  size: string
 }
 
 /**
@@ -22,6 +23,9 @@ export type CategoryItemProps = {
  * @returns
  */
 const CategoryItem: React.FC<CategoryItemProps> = (props: CategoryItemProps) => {
+  const { size } = props
+  console.log(size)
+  
   return (
     <div className={styles.container}>
       {props.name}

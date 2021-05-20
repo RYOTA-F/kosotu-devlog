@@ -34,11 +34,17 @@
     margin-top: 16px;
     font-size: 0.75rem;
     color: var(--c-discription);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 
   &__category {
     display: flex;
-    margin-top: 32px;
+    margin-top: 10px;
 
     &Item:not(:first-child) {
       margin-left: 10px;

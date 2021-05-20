@@ -1,5 +1,5 @@
 /**
-* Organisms/PostList
+* Organisms/BlogList
 * @package Component
 */
 import React from 'react'
@@ -13,15 +13,15 @@ import styles from './styles.module.scss'
 /**
  * props
  */
-type PostListType = {
+type BlogListType = {
   blogList: BlogItemType[]
 }
 
 /**
- * @param props PostList
+ * @param props BlogList
  * @returns
  */
-const PostList: React.FC<PostListType> = (props: PostListType) => {
+const BlogList: React.FC<BlogListType> = (props: BlogListType) => {
   return (
     <div className={styles.container}>
       {props.blogList.map(v =>
@@ -39,4 +39,4 @@ const PostList: React.FC<PostListType> = (props: PostListType) => {
   )
 }
 
-export default PostList
+export default BlogList

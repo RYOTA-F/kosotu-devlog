@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
   return (
     <div className={styles.container}>
       <ul className={styles.lists}>
-        <Link href={''}>
+        <Link href={'/'}>
           <li className={styles.list}>HOME</li>
         </Link>
         <li className={styles.after}>|</li>

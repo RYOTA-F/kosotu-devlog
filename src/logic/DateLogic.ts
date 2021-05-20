@@ -14,5 +14,5 @@ dayjs.locale(`ja`)
  * @returns
  */
 export const showDateTime = (date: string) => {
-  return dayjs(date).format('YYYY年M月D日')
+  return dayjs(date).format('YYYY年M月D日 hh:mm')
 }

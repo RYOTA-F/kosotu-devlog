@@ -1,8 +1,8 @@
 .container {
-  line-height: 20px;
-  padding: 3.2px;
+  line-height: 24px;
+  padding: 4px;
   border-radius: 5px;
   font-size: 0.875rem;
-  color: var(--c-sub);
-  border: 1px solid var(--c-sub);
+  background-color: var(--c-sub);
+  color: var(--c-text-w);
 }

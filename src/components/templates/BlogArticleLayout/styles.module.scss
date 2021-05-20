@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  margin: 40px 10% 20px;
+}
+
+.postItem {
+  width: 100%;
+  margin: 0 20px 0;
+}
+
+.sideBar {
+  width: 340px;
+  margin: 0 20px 0;
+
+  &__item {
+    margin-top: 20px;
+  }
+}
