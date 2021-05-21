@@ -10,6 +10,11 @@
     cursor: pointer;
     transform: scale(1.02, 1.02);
     transition: 0.5s all;
+
+    .image {
+      opacity: 0.8;
+      filter: brightness(105%);
+    }
   }
 }
 
@@ -53,8 +58,9 @@
   }
 
   &__time {
-    margin: 8px 24px 0 0;
-    text-align: right;
+    width: 150px;
+    margin: 8px 0 0 auto;
+
     font-size: 0.875rem;
     color: var(--c-discription);
   }

@@ -3,10 +3,7 @@
 * @package Component
 */
 import React from 'react'
-import 'highlight.js/styles/shades-of-purple.css'
-/* components */
-/* constants */
-/* types */
+import 'highlight.js/styles/atom-one-dark.css'
 /* styles */
 import styles from './styles.module.scss'
 
@@ -23,6 +20,7 @@ type BlogArticeText = {
  */
 const BlogArticeText: React.FC<BlogArticeText> = (props: BlogArticeText) => {
   const { blogItemText } = props
+  
   return (
     <div
       className={styles.contents}

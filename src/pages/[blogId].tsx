@@ -4,6 +4,8 @@
 */
 import React from 'react'
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
+import cheerio from 'cheerio'
+import hljs from 'highlight.js'
 /* components */
 import BlogArticleLayout from '@/components/templates/BlogArticleLayout'
 /* constants */
@@ -28,10 +30,10 @@ type BlogArticlePageProps = {
  * @returns
  */
 const BlogArticlePage: NextPage<BlogArticlePageProps> = (props: BlogArticlePageProps) => {
-  const { blogItem } = props
+  const { blogItem, highlightedBody } = props
   
   return (
-    <BlogArticleLayout blogItem={blogItem}/>
+    <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} />
   )
 }
 
@@ -75,8 +77,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
   try {
     const blogDetailData = await getBlogById(blogId)
 
+    const $ = cheerio.load(blogDetailData.body)
+    $('pre code').each((_, elm) => {
+      const result = hljs.highlightAuto($(elm).text())
+      $(elm).html(result.value)
+      $(elm).addClass('hljs')
+    })
+
+    console.log($.html())
+
     const props = {
-      blogItem: blogDetailData
+      blogItem: blogDetailData,
+      highlightedBody:$.html()
     }
   
     return { props }

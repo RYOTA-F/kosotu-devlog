@@ -20,6 +20,7 @@ import styles from './styles.module.scss'
  */
 type BlogArticleLayoutProps = {
   blogItem: BlogItemType
+  highlightedBody: string
 }
 
 /**
@@ -27,13 +28,13 @@ type BlogArticleLayoutProps = {
  * @returns
  */
 const BlogArticleLayout: React.FC<BlogArticleLayoutProps> = (props: BlogArticleLayoutProps) => {
-  const { blogItem } = props
+  const { blogItem, highlightedBody } = props
   
   return (
     <BaseLayout>
       <div className={styles.container}>
         <article className={styles.postItem}>
-          <BlogArticle blogItem={blogItem} />
+          <BlogArticle blogItem={blogItem} highlightedBody={highlightedBody} />
         </article>
         <div className={styles.sideBar}>
           <SideProfile />

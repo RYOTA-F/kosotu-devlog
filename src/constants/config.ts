@@ -8,11 +8,11 @@ export const BASE_TITLE = 'RYOTABLOG'
  */
 export const HEADER_LINK = [
   {
-    title: 'front-eng',
+    title: 'フロントエンド',
     link: '/category/front-end',
   },
   {
-    title: 'back-end',
+    title: 'フロントエンド',
     link: '/category/back-end',
   },
   {
@@ -20,8 +20,8 @@ export const HEADER_LINK = [
     link: '/category/profile',
   },
   {
-    title: 'お問い合わせ',
-    link: '/category/contact',
+    title: '当ブログについて',
+    link: '/category/blog',
   },
 ]
 

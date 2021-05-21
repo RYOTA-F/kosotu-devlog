@@ -7,8 +7,7 @@ import Image from 'next/image'
 /* components */
 import BlogArticleText from '@/components/organisms/BlogArticeText'
 import CategoryItem from '@/components/atoms/CategoryItem'
-import DateTime from '@/components/atoms/DateTime'
-/* constants */
+import DateItem from '@/components/atoms/DateItem'
 /* types */
 import { BlogItemType } from '@/types/blog'
 /* styles */
@@ -19,6 +18,7 @@ import styles from './styles.module.scss'
  */
 type BlogArticleType = {
   blogItem: BlogItemType
+  highlightedBody: string
 }
 
 /**
@@ -26,7 +26,7 @@ type BlogArticleType = {
  * @returns
  */
 const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
-  const { blogItem } = props
+  const { blogItem, highlightedBody } = props
 
   let category_area
 
@@ -58,10 +58,10 @@ const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
             {category_area}
           </div>
           <div className={styles.time}>
-            <DateTime date_time={blogItem.createdAt} />
+            <DateItem date_time={blogItem.createdAt} />
           </div>
         </div>
-        <BlogArticleText blogItemText={blogItem.body}/>
+        <BlogArticleText blogItemText={highlightedBody}/>
       </main>
     </section>
   )

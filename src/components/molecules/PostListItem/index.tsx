@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 /* components */
 import CategoryItem from '@/components/atoms/CategoryItem'
-import DateTime from '@/components/atoms/DateTime'
+import DateItem from '@/components/atoms/DateItem'
 /* types */
 import { ImageType } from '@/types/image'
 /* styles */
@@ -60,7 +60,7 @@ const PostListItem: React.FC<PostListItemParams> = (props: PostListItemParams) =
             {category_area}
           </div>
           <div className={styles.content__time}>
-            <DateTime date_time={props.created_time} />
+            <DateItem date_time={props.created_time} />
           </div>
         </div>
       </div>
