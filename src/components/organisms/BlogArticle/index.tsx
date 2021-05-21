@@ -8,6 +8,7 @@ import Image from 'next/image'
 import BlogArticleText from '@/components/organisms/BlogArticeText'
 import CategoryItem from '@/components/atoms/CategoryItem'
 import DateItem from '@/components/atoms/DateItem'
+import TableOfContents from '@/components/organisms/TableOfContents'
 /* types */
 import { BlogItemType } from '@/types/blog'
 /* styles */
@@ -53,14 +54,13 @@ const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
 
       <main>
         <h2 className={styles.title}>{blogItem.title}</h2>
-        <div className={styles.categoryArea}>
-          <div className={styles.category}>
-            {category_area}
-          </div>
-          <div className={styles.time}>
-            <DateItem date_time={blogItem.createdAt} />
-          </div>
+        <div className={styles.category}>
+          {category_area}
         </div>
+        <div className={styles.time}>
+          <DateItem date_time={blogItem.createdAt} />
+        </div>
+        <TableOfContents />
         <BlogArticleText blogItemText={highlightedBody}/>
       </main>
     </section>

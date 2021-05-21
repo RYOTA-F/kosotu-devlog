@@ -23,7 +23,7 @@ const BlogArticeText: React.FC<BlogArticeText> = (props: BlogArticeText) => {
   
   return (
     <div
-      className={styles.contents}
+      className={styles.container}
       dangerouslySetInnerHTML={{
         __html: blogItemText,
       }}

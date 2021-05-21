@@ -15,21 +15,18 @@
   text-align: center;
 }
 
-.categoryArea {
-  display: flex;
-  align-items: center;
-}
-
 .category {
   display: flex;
-  margin: 20px;
+  justify-content: center;
+  margin-top: 20px;
 
   &__item:not(:first-child) {
-    margin-left: 10px;
+    margin-left: 16px;
   }
 }
 
 .time {
+  width: 200px;
+  margin-right: 20px;
   margin-left: auto;
-  padding-right: 60px;
 }
