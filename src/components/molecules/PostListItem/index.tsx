@@ -9,6 +9,7 @@ import Link from 'next/link'
 import CategoryItem from '@/components/atoms/CategoryItem'
 import DateItem from '@/components/atoms/DateItem'
 /* types */
+import { CategoryType } from '@/types/category'
 import { ImageType } from '@/types/image'
 /* styles */
 import styles from './styles.module.scss'
@@ -21,7 +22,7 @@ export type PostListItemParams = {
   title: string
   discription: string
   image: ImageType
-  categories: string[]
+  categories: CategoryType[]
   created_time: string
 }
 
@@ -36,7 +37,7 @@ const PostListItem: React.FC<PostListItemParams> = (props: PostListItemParams) =
     category_area = (
       props.categories.map((v, i) =>
         <div key={i} className={styles.content__categoryItem}>
-          <CategoryItem name={v} size={'normal'} />
+          <CategoryItem id={v.id} name={v.name} size={'normal'} />
         </div>
       )
     )

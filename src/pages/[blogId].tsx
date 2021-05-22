@@ -23,6 +23,7 @@ import { BlogItemType } from '@/types/blog'
  */
 type BlogArticlePageProps = {
   blogItem: BlogItemType
+  highlightedBody: string
 }
 
 /**
@@ -58,7 +59,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true, // プレビューのためtrueに設定
+    fallback: true,
   }
 }
 

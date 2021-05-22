@@ -9,19 +9,13 @@ import { TABLE_OF_CONTENTENS, testTOC } from '@/constants/test'
 import styles from './styles.module.scss'
 
 /**
- * props
- */
-type TProps = {
-}
-
-/**
  * @param props TProps
  * @returns
  */
 const TableOfContents: React.FC = () => {
   return (
     <div className={styles.container}>
-      <h4>目次</h4>
+      <h4 className={styles.title}>目次</h4>
       <ul className={styles.lists}>
         {TABLE_OF_CONTENTENS.map((v: testTOC) => {
           const border = '-'

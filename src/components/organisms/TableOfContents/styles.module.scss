@@ -1,14 +1,23 @@
 .container {
   width: 80%;
   margin: 20px auto 0;
-  padding: 20px;
   border-radius: 10px;
   background-color: var(--c-smoke);
   filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
 }
 
+.title {
+  height: 32px;
+  line-height: 32px;
+  font-size: 0.875rem;
+  text-align: center;
+  color: var(--c-text-w);
+  background-color: var(--c-main);
+  border-radius: 10px 10px 0 0;
+}
+
 .lists {
-  margin-top: 12px;
+  padding: 20px;
 
   li {
     padding: 8px;

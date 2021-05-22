@@ -22,9 +22,11 @@ type BlogListType = {
  * @returns
  */
 const BlogList: React.FC<BlogListType> = (props: BlogListType) => {
+  const { blogList } = props
+
   return (
     <div className={styles.container}>
-      {props.blogList.map(v =>
+      {blogList.map(v =>
         <PostListItem
           key={v.id}
           id={v.id}

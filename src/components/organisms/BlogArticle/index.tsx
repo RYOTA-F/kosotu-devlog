@@ -33,9 +33,9 @@ const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
 
   if (blogItem.categories.length) {
     category_area = (
-      blogItem.categories.map((v, i) => (
-        <div key={i} className={styles.category__item}>
-          <CategoryItem name={v} size={'big'} />
+      blogItem.categories.map(v => (
+        <div key={v.id} className={styles.category__item}>
+          <CategoryItem id={v.id} name={v.name} size={'big'} />
         </div>
       ))
     )

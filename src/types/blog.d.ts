@@ -3,6 +3,7 @@
  * @package types
  */
 /*types */
+import { CategoryType } from './category'
 import { ImageType } from './image'
 
 /**
@@ -18,7 +19,7 @@ export interface BlogItemType {
   description: string
   body: string
   image: ImageType
-  categories: string[]
+  categories: CategoryType[]
 }
 
 /**
