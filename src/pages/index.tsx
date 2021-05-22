@@ -8,8 +8,10 @@ import { NextPage, GetStaticProps } from 'next'
 import TopLayout from '@/components/templates/TopLayout'
 /* service */
 import { getBlogs } from '@/service/blogs'
+import { getCategories } from '@/service/categories'
 /* types */
 import { BlogItemType } from '@/types/blog'
+import { CategoryType } from '@/types/category'
 
 /**
  * props
@@ -17,13 +19,14 @@ import { BlogItemType } from '@/types/blog'
 type TopPageProps = {
   blogList: BlogItemType[]
   totalCount: number
+  categories: CategoryType[]
 }
 
 const TopPage: NextPage<TopPageProps> = (props: TopPageProps) => {
-  const { blogList } = props
+  const { blogList, categories } = props
 
   return (
-    <TopLayout blogList={blogList}/>
+    <TopLayout blogList={blogList} categories={categories} />
   )
 }
 
@@ -34,10 +37,13 @@ const TopPage: NextPage<TopPageProps> = (props: TopPageProps) => {
 export const getStaticProps: GetStaticProps= async () => {
   // ブログ一覧データ取得
   const blogData = await getBlogs(0)
+  // カテゴリー一覧データ取得
+  const categoryData = await getCategories()
 
   const props = {
     blogList: blogData.blogList,
     totalCount: blogData.totalCount,
+    categories: categoryData
   }
 
   return { props }

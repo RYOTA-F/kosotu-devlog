@@ -41,9 +41,10 @@ export const initBlogData: BlogDataType = {
  */
 export const initCategoryData: CategoryType = {
   id: '',
-  name: '',
   createdAt: '',
   updatedAt: '',
   publishedAt: '',
   revisedAt: '',
+  name: '',
+  posts: [],
 }

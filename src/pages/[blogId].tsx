@@ -12,11 +12,13 @@ import BlogArticleLayout from '@/components/templates/BlogArticleLayout'
 import { BLOG_SHOW_COUNT } from '@/constants/config'
 /* logic */
 import { createPageArray } from '@/logic/CommonLogic'
-/* types */
 /* styles */
 /* services */
 import { getBlogs, getBlogById } from '@/service/blogs'
+import { getCategories } from '@/service/categories'
+/* types */
 import { BlogItemType } from '@/types/blog'
+import { CategoryType } from '@/types/category'
 
 /**
  * props
@@ -24,6 +26,7 @@ import { BlogItemType } from '@/types/blog'
 type BlogArticlePageProps = {
   blogItem: BlogItemType
   highlightedBody: string
+  categories: CategoryType[]
 }
 
 /**
@@ -31,10 +34,10 @@ type BlogArticlePageProps = {
  * @returns
  */
 const BlogArticlePage: NextPage<BlogArticlePageProps> = (props: BlogArticlePageProps) => {
-  const { blogItem, highlightedBody } = props
+  const { blogItem, highlightedBody, categories } = props
   
   return (
-    <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} />
+    <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} categories={categories} />
   )
 }
 
@@ -77,6 +80,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   try {
     const blogDetailData = await getBlogById(blogId)
+    const categoryData = await getCategories()
 
     const $ = cheerio.load(blogDetailData.body)
     $('pre code').each((_, elm) => {
@@ -85,18 +89,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
       $(elm).addClass('hljs')
     })
 
-    console.log($.html())
-
     const props = {
       blogItem: blogDetailData,
-      highlightedBody:$.html()
+      highlightedBody: $.html(),
+      categories: categoryData
     }
   
     return { props }
   } catch (error) {
     return { notFound: true }
   }
-  
 }
 
 export default BlogArticlePage
