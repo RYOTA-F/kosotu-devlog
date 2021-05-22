@@ -5,7 +5,7 @@
 import React from 'react'
 import Image from 'next/image'
 /* components */
-import BlogArticleText from '@/components/organisms/BlogArticeText'
+import BlogArticleText from '@/components/molecules/BlogArticeText'
 /* constants */
 /* types */
 import { ProfileType } from '@/types/profile'
