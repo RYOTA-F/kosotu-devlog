@@ -9,19 +9,19 @@ export const BASE_TITLE = 'RYOTABLOG'
 export const HEADER_LINK = [
   {
     title: 'フロントエンド',
-    link: '/category/front-end',
+    link: '/front-end',
   },
   {
     title: 'フロントエンド',
-    link: '/category/back-end',
+    link: '/back-end',
   },
   {
     title: 'プロフィール',
-    link: '/category/profile',
+    link: '/profile',
   },
   {
     title: '当ブログについて',
-    link: '/category/blog',
+    link: '/blog',
   },
 ]
 

@@ -15,12 +15,12 @@ import { CategoryType } from '@/types/category'
 const BASE_URL = `${process.env.BASE_END_POINT}categories/`
 
 /**
- * ブログ一覧取得
+ * カテゴリー一覧取得
  * @param offset number
  * @returns blogData BlogDataType
  */
 export const getCategories = async () => {
-  let categories: CategoryType = initCategoryData
+  let categories: CategoryType[] = []
 
   try {
     const res = await globalAxios.get(BASE_URL)
