@@ -3,6 +3,7 @@
  * @package Component
  */
 import React from 'react'
+import Link from 'next/link'
 /* components */
 import NavItem from '@/components/atoms/NavItem'
 /* constants */
@@ -18,7 +19,9 @@ const Header: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        {BASE_TITLE}
+        <Link href="/">
+          {BASE_TITLE}
+        </Link>
       </div>
       <div className={styles.nav_links}>
         {

@@ -11,6 +11,13 @@ export const TABLE_OF_CONTENTENS = [
   },
   {
     id: 3,
-    type: 'h1',
+    type: 'h3',
+    name: 'テスト3',
   },
 ]
+
+export type testTOC = {
+  id: number
+  type: string
+  name: string
+}
