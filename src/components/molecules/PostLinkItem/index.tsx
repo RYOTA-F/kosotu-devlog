@@ -15,6 +15,7 @@ import styles from './styles.module.scss'
 type PostLinkItemProps = {
   title: string
   link: string
+  count: number
 }
 
 /**
@@ -26,7 +27,7 @@ const PostLinkItem: React.FC<PostLinkItemProps> = (props: PostLinkItemProps) => 
     <Link href={props.link}>
       <div className={styles.container}>
         <AllowRightIcon />
-        <div className={styles.title}>{props.title}</div>
+        <div className={styles.title}>{props.title} ({props.count})</div>
       </div>
     </Link>
   )

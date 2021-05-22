@@ -29,7 +29,7 @@ const SideCategories: React.FC<SideCategoriesProps> = (props: SideCategoriesProp
       <div className={styles.listTitle}>カテゴリー</div>
       { categories.map((v, i) =>
         <div key={i} className={styles.linkItem}>
-          <PostLinkItem title={v.name} link={v.id} />
+          <PostLinkItem title={v.name} link={v.id} count={v.posts.length} />
         </div>
       )}
     </>
