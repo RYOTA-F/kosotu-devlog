@@ -10,6 +10,7 @@ import SideCategories from '@/components/organisms/SideCategories'
 import ProfileArticle from '@/components/organisms/ProfileArticle'
 /* constants */
 /* types */
+import { TableOfContentType } from '@/types/blog'
 import { CategoryType } from '@/types/category'
 import { ProfileType } from '@/types/profile'
 /* styles */
@@ -21,6 +22,7 @@ import styles from './styles.module.scss'
 type ProfileLayoutProps = {
   profile: ProfileType
   highlightedBody: string,
+  tableOfContents: TableOfContentType[],
   categories: CategoryType[]
 }
 
@@ -29,13 +31,13 @@ type ProfileLayoutProps = {
  * @returns
  */
 const ProfileLayout: React.FC<ProfileLayoutProps> = (props: ProfileLayoutProps) => {
-  const { profile, highlightedBody, categories } = props
+  const { profile, highlightedBody, tableOfContents, categories } = props
 
   return (
     <BaseLayout>
       <div className={styles.container}>
         <article className={styles.profile}>
-          <ProfileArticle profile={profile} highlightedBody={highlightedBody} />
+          <ProfileArticle profile={profile} highlightedBody={highlightedBody} tableOfContents={tableOfContents} />
         </article>
         <div className={styles.sideBar}>
           <SideProfile />

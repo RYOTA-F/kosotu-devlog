@@ -4,11 +4,16 @@
 
 .title {
   line-height: 50px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   border-bottom: 2px solid var(--c-smoke);
+  color: var(--c-text);
 }
 
 .image {
   text-align: center;
   margin: 20px auto 0;
+}
+
+.discription {
+  padding-left: 40px;
 }

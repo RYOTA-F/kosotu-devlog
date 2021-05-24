@@ -6,8 +6,9 @@ import React from 'react'
 import Image from 'next/image'
 /* components */
 import BlogArticleText from '@/components/molecules/BlogArticeText'
-/* constants */
+import TableOfContents from '@/components/organisms/TableOfContents'
 /* types */
+import { TableOfContentType } from '@/types/blog'
 import { ProfileType } from '@/types/profile'
 /* styles */
 import styles from './styles.module.scss'
@@ -18,6 +19,7 @@ import styles from './styles.module.scss'
 type ProfileArticleProps = {
   profile: ProfileType
   highlightedBody: string,
+  tableOfContents: TableOfContentType[]
 }
 
 /**
@@ -25,7 +27,7 @@ type ProfileArticleProps = {
  * @returns
  */
 const ProfileArticle: React.FC<ProfileArticleProps> = (props: ProfileArticleProps) => {
-  const { profile, highlightedBody } = props
+  const { profile, highlightedBody, tableOfContents } = props
   
   return (
     <section className={styles.container}>
@@ -34,12 +36,16 @@ const ProfileArticle: React.FC<ProfileArticleProps> = (props: ProfileArticleProp
         <Image
           src={profile.image.url}
           alt="Picture"
-          width={profile.image.width * 1.5}
-          height={profile.image.height * 1.5}
+          width={profile.image.width * 1.25}
+          height={profile.image.height * 1.25}
         />
       </div>
 
       <main>
+        <div className={styles.discription}>
+          <BlogArticleText blogItemText={profile.discription}/> 
+        </div>
+        <TableOfContents tableOfContents={tableOfContents} />
         <BlogArticleText blogItemText={highlightedBody}/>
       </main>
     </section>

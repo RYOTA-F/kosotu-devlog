@@ -9,6 +9,7 @@ import hljs from 'highlight.js'
 /* components */
 import ProfileLayout from '@/components/templates/ProfileLayout'
 /* types */
+import { TableOfContentType } from '@/types/blog'
 import { ProfileType } from '@/types/profile'
 import { CategoryType } from '@/types/category' 
 /* services */
@@ -22,14 +23,15 @@ import { getCategories } from '@/service/categories'
 type ProfilePageProps = {
   profile: ProfileType
   highlightedBody: string,
+  tableOfContents: TableOfContentType[],
   categories: CategoryType[]
 }
 
 const ProfilePage: NextPage<ProfilePageProps> = (props: ProfilePageProps) => {
-  const { profile, highlightedBody, categories } = props
+  const { profile, highlightedBody, tableOfContents, categories } = props
 
   return (
-    <ProfileLayout profile={profile} highlightedBody={highlightedBody} categories={categories} />
+    <ProfileLayout profile={profile} highlightedBody={highlightedBody} tableOfContents={tableOfContents} categories={categories} />
   )
 }
 
@@ -50,9 +52,20 @@ export const getStaticProps: GetStaticProps = async () => {
     $(elm).addClass('hljs')
   })
 
+  // 目次作成
+  const headings = $('h1, h2, h3').toArray()
+  const tableOfContents: TableOfContentType[] = headings.map((data: any) => {
+    return {
+      text: String(data.children[0].data),
+      id: data.attribs.id,
+      name: data.name,
+    }
+  })
+  
   const props: ProfilePageProps = {
     profile: profile,
     highlightedBody: $.html(),
+    tableOfContents,
     categories: categoryData
   }
 

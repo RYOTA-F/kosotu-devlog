@@ -1,6 +1,7 @@
 .container {
   letter-spacing: 0.1em;
   width: 100%;
+  color: var(--c-text);
 
   h1 {
     margin: 40px 0 0;
@@ -14,38 +15,20 @@
   }
 
   h2 {
-    margin-top: 40px;
+    margin: 20px 20px 0;
+    padding-left: 20px;
     letter-spacing: 0.1em;
     border-bottom: 2px solid var();
     filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
-    padding: 0 0 0.5em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--c-border-list);
   }
 
   h3 {
     margin: 30px 0 12px;
     font-size: 1.4rem;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-  }
-
-  h4 {
-    margin: 30px 0 12px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-  }
-
-  h5 {
-    margin: 30px 0 12px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-  }
-
-  h6 {
-    margin: 30px 0 12px;
     font-weight: bold;
     letter-spacing: 0.1em;
   }
@@ -71,84 +54,38 @@
     }
   }
 
-  ol {
-    position: relative;
-    // counter-reset: my-counter;
-    padding: 20px 30px;
-    border: 3px solid var(--c-point);
-    line-height: 2.4;
-
-    &::before {
-      position: absolute;
-      content: '';
-      margin: 0 auto;
-      width: 99%;
-      min-height: 97%;
-      top: 3px;
-      left: 3px;
-      // border: 1px solid var(--c-point);
-    }
-
-    li {
-      font-weight: bold;
-      margin-left: 30px;
-      position: relative;
-
-      &:before {
-        // content: counter(my-counter);
-        // counter-increment: my-counter;
-        background-color: var(--c-main);
-        border: 1px solid;
-        border-radius: 50%;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 26px;
-        width: 26px;
-        color: #ffffff;
-        font-size: 0.75rem;
-        line-height: 1;
-        position: absolute;
-        top: 6px;
-        left: -40px;
-      }
-    }
-  }
-
   ul {
+    margin: 20px;
+    padding: 20px 40px;
     position: relative;
-    // counter-reset: my-counter;
-    padding: 20px 30px;
-    // border: 3px solid var(--c-point);
-    line-height: 2.4;
+    counter-reset: my-counter;
+    border-radius: 20px;
+    background-color: #fff9df;
 
     &::before {
       position: absolute;
       content: '';
       margin: 0 auto;
-      width: 99%;
+      width: 80%;
       min-height: 97%;
       top: 3px;
       left: 3px;
-      // border: 1px solid var(--c-point);
     }
 
     li {
-      font-weight: bold;
+      line-height: 32px;
       margin-left: 30px;
       position: relative;
 
       &:before {
-        content: '';
+        content: '・';
+        font-weight: bold;
         position: absolute;
         display: inline-block;
-        // background-image: url(../../../../svgs/check.svg);
-        background-size: contain;
-        vertical-align: middle;
+        text-align: center;
         height: 32px;
+        line-height: 32px;
         width: 32px;
-        top: 2px;
         left: -41px;
       }
     }
