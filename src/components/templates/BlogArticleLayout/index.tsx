@@ -10,7 +10,7 @@ import SideProfile from '@/components/organisms/SideProfile'
 import SideCategories from '@/components/organisms/SideCategories'
 /* constants */
 /* types */
-import { BlogItemType } from '@/types/blog'
+import { BlogItemType, TableOfContentType } from '@/types/blog'
 import { CategoryType } from '@/types/category'
 /* styles */
 import styles from './styles.module.scss'
@@ -21,6 +21,7 @@ import styles from './styles.module.scss'
 type BlogArticleLayoutProps = {
   blogItem: BlogItemType
   highlightedBody: string
+  tableOfContents: TableOfContentType[]
   categories: CategoryType[]
 }
 
@@ -29,13 +30,13 @@ type BlogArticleLayoutProps = {
  * @returns
  */
 const BlogArticleLayout: React.FC<BlogArticleLayoutProps> = (props: BlogArticleLayoutProps) => {
-  const { blogItem, highlightedBody, categories } = props
+  const { blogItem, highlightedBody, tableOfContents, categories } = props
   
   return (
     <BaseLayout>
       <div className={styles.container}>
         <article className={styles.postItem}>
-          <BlogArticle blogItem={blogItem} highlightedBody={highlightedBody} />
+          <BlogArticle blogItem={blogItem} highlightedBody={highlightedBody} tableOfContents={tableOfContents} />
         </article>
         <div className={styles.sideBar}>
           <SideProfile />

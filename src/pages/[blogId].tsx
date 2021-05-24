@@ -12,12 +12,11 @@ import BlogArticleLayout from '@/components/templates/BlogArticleLayout'
 import { BLOG_SHOW_COUNT } from '@/constants/config'
 /* logic */
 import { createPageArray } from '@/logic/CommonLogic'
-/* styles */
 /* services */
 import { getBlogs, getBlogById } from '@/service/blogs'
 import { getCategories } from '@/service/categories'
 /* types */
-import { BlogItemType } from '@/types/blog'
+import { BlogItemType, TableOfContentType } from '@/types/blog'
 import { CategoryType } from '@/types/category'
 
 /**
@@ -26,6 +25,7 @@ import { CategoryType } from '@/types/category'
 type BlogArticlePageProps = {
   blogItem: BlogItemType
   highlightedBody: string
+  tableOfContents: TableOfContentType[]
   categories: CategoryType[]
 }
 
@@ -34,10 +34,10 @@ type BlogArticlePageProps = {
  * @returns
  */
 const BlogArticlePage: NextPage<BlogArticlePageProps> = (props: BlogArticlePageProps) => {
-  const { blogItem, highlightedBody, categories } = props
+  const { blogItem, highlightedBody, tableOfContents, categories } = props
   
   return (
-    <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} categories={categories} />
+    <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} tableOfContents={tableOfContents} categories={categories} />
   )
 }
 
@@ -82,6 +82,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const blogDetailData = await getBlogById(blogId)
     const categoryData = await getCategories()
 
+    // シンタックスハイライトの適用
     const $ = cheerio.load(blogDetailData.body)
     $('pre code').each((_, elm) => {
       const result = hljs.highlightAuto($(elm).text())
@@ -89,9 +90,20 @@ export const getStaticProps: GetStaticProps = async (context) => {
       $(elm).addClass('hljs')
     })
 
+    // 目次作成
+    const headings = $('h1, h2, h3').toArray()
+    const tableOfContents: TableOfContentType[] = headings.map((data: any) => {
+      return {
+        text: String(data.children[0].data),
+        id: data.attribs.id,
+        name: data.name,
+      }
+    })
+
     const props = {
       blogItem: blogDetailData,
       highlightedBody: $.html(),
+      tableOfContents: tableOfContents,
       categories: categoryData
     }
   

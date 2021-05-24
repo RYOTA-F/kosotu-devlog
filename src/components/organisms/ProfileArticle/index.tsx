@@ -26,7 +26,6 @@ type ProfileArticleProps = {
  */
 const ProfileArticle: React.FC<ProfileArticleProps> = (props: ProfileArticleProps) => {
   const { profile, highlightedBody } = props
-  console.log(highlightedBody)
   
   return (
     <section className={styles.container}>

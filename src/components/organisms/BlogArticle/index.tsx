@@ -10,7 +10,7 @@ import CategoryItem from '@/components/atoms/CategoryItem'
 import DateItem from '@/components/atoms/DateItem'
 import TableOfContents from '@/components/organisms/TableOfContents'
 /* types */
-import { BlogItemType } from '@/types/blog'
+import { BlogItemType, TableOfContentType } from '@/types/blog'
 /* styles */
 import styles from './styles.module.scss'
 
@@ -20,6 +20,7 @@ import styles from './styles.module.scss'
 type BlogArticleType = {
   blogItem: BlogItemType
   highlightedBody: string
+  tableOfContents: TableOfContentType[]
 }
 
 /**
@@ -27,7 +28,7 @@ type BlogArticleType = {
  * @returns
  */
 const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
-  const { blogItem, highlightedBody } = props
+  const { blogItem, highlightedBody, tableOfContents } = props
 
   let category_area
 
@@ -60,7 +61,7 @@ const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
         <div className={styles.time}>
           <DateItem date_time={blogItem.createdAt} />
         </div>
-        <TableOfContents />
+        <TableOfContents tableOfContents={tableOfContents} />
         <BlogArticleText blogItemText={highlightedBody}/>
       </main>
     </section>
