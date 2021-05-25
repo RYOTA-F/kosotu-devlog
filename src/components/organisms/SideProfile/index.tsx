@@ -4,6 +4,7 @@
 */
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 /* components */
 import SnsIcon from '@/components/atoms/SnsIcon'
 /* constsnts */
@@ -22,13 +23,15 @@ const SideProfile: React.FC = () => {
       <div className={styles.container}>
         {/* アバター */}
         <div className={styles.avatar}>
-          <Image
-            className={styles.avatar__pic}
-            src={PROFILE_AVATER}
-            alt="Avatar"
-            width={100}
-            height={100}
-          />
+          <Link href={"/profile"}>
+            <Image
+              className={styles.avatar__pic}
+              src={PROFILE_AVATER}
+              alt="Avatar"
+              width={100}
+              height={100}
+            />
+          </Link>
         </div>
 
         <hr className={styles.border} />

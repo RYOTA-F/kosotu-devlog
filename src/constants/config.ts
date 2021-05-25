@@ -20,8 +20,8 @@ export const HEADER_LINK = [
     link: '/profile',
   },
   {
-    title: '当ブログについて',
-    link: '/blog',
+    title: 'RYOTABLOGについて',
+    link: '/about',
   },
 ]
 

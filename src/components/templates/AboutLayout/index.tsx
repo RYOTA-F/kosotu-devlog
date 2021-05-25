@@ -1,42 +1,43 @@
 /**
-* Templates/ProfileLayout
+* Templates/AboutLayout
 * @package Component
 */
 import React from 'react'
 /* components */
+import AboutArticle from '@/components/organisms/AboutArticle'
 import BaseLayout from '@/components/organisms/BaseLayout'
 import SideProfile from '@/components/organisms/SideProfile'
 import SideCategories from '@/components/organisms/SideCategories'
-import ProfileArticle from '@/components/organisms/ProfileArticle'
+/* constants */
 /* types */
 import { TableOfContentType } from '@/types/blog'
 import { CategoryType } from '@/types/category'
-import { ProfileType } from '@/types/profile'
+import { AboutType } from '@/types/about'
 /* styles */
 import styles from './styles.module.scss'
 
 /**
  * props
  */
-type ProfileLayoutProps = {
-  profile: ProfileType
+type AboutLayoutProps = {
+  about: AboutType,
   highlightedBody: string,
   tableOfContents: TableOfContentType[],
   categories: CategoryType[]
 }
 
 /**
- * @param props ProfileLayoutProps
+ * @param props TProps
  * @returns
  */
-const ProfileLayout: React.FC<ProfileLayoutProps> = (props: ProfileLayoutProps) => {
-  const { profile, highlightedBody, tableOfContents, categories } = props
+const AboutLayout: React.FC<AboutLayoutProps> = (props: AboutLayoutProps) => {
+  const { about, highlightedBody, tableOfContents, categories } = props
 
   return (
     <BaseLayout>
       <div className={styles.container}>
-        <article className={styles.profile}>
-          <ProfileArticle profile={profile} highlightedBody={highlightedBody} tableOfContents={tableOfContents} />
+        <article className={styles.about}>
+          <AboutArticle about={about} highlightedBody={highlightedBody} tableOfContents={tableOfContents} />
         </article>
         <div className={styles.sideBar}>
           <SideProfile />
@@ -49,4 +50,4 @@ const ProfileLayout: React.FC<ProfileLayoutProps> = (props: ProfileLayoutProps) 
   )
 }
 
-export default ProfileLayout
+export default AboutLayout

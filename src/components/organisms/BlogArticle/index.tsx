@@ -61,7 +61,9 @@ const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
         <div className={styles.time}>
           <DateItem date_time={blogItem.createdAt} />
         </div>
-        <TableOfContents tableOfContents={tableOfContents} />
+        <div className={styles.table}>
+          <TableOfContents tableOfContents={tableOfContents} />
+        </div>
         <BlogArticleText blogItemText={highlightedBody}/>
       </main>
     </section>

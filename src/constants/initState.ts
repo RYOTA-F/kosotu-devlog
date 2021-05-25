@@ -3,6 +3,7 @@ import { BlogItemType, BlogDataType } from '@/types/blog'
 import { CategoryType } from '@/types/category'
 import { ImageType } from '@/types/image'
 import { ProfileType } from '@/types/profile'
+import { AboutType } from '@/types/about'
 
 /**
  * initImageState
@@ -58,6 +59,20 @@ export const initProfileData: ProfileType = {
   updatedAt: '',
   publishedAt: '',
   revisedAt: '',
+  discription: '',
+  body: '',
+  image: initImageState,
+}
+
+/**
+ * initAboutData
+ */
+export const initAboutData: AboutType = {
+  createdAt: '',
+  updatedAt: '',
+  publishedAt: '',
+  revisedAt: '',
+  title: '',
   discription: '',
   body: '',
   image: initImageState,
