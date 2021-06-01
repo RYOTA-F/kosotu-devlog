@@ -32,15 +32,15 @@ const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
 
   let category_area
 
-  if (blogItem.categories.length) {
-    category_area = (
-      blogItem.categories.map(v => (
-        <div key={v.id} className={styles.category__item}>
-          <CategoryItem id={v.id} name={v.name} size={'big'} />
-        </div>
-      ))
-    )
-  }
+  // if (blogItem.categories.length) {
+  //   category_area = (
+  //     blogItem.categories.map(v => (
+  //       <div key={v.id} className={styles.category__item}>
+  //         <CategoryItem id={v.id} name={v.name} size={'big'} />
+  //       </div>
+  //     ))
+  //   )
+  // }
 
   return (
     <section className={styles.container}>
