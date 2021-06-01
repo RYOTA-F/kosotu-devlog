@@ -29,7 +29,7 @@ const SideRecentPosts: React.FC = () => {
       <div className={styles.listTitle}>最近の投稿</div>
       { recent_posts.map((v, i) =>
         <div key={i} className={styles.linkItem}>
-          <PostLinkItem title={v.title} link={v.link} />
+          <div>テスト</div>
         </div>
       )}
     </>
