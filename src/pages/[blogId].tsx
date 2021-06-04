@@ -98,10 +98,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     // 目次作成
     const headings = $('h1, h2, h3').toArray()
-    const tableOfContents: TableOfContentType[] = headings.map((data: any) => {
+    const tableOfContents: TableOfContentType[] = headings.map((data: cheerio.Element) => {
       return {
+        // @ts-ignore
         text: String(data.children[0].data),
+        //@ts-ignore
         id: data.attribs.id,
+        //@ts-ignore
         name: data.name,
       }
     })
