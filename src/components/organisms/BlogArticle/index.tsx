@@ -46,13 +46,13 @@ const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
   return (
     <section className={styles.container}>
       <div className={styles.image}>
-        <div>画像</div>
-        {/* <Image
+        {/* <div>画像</div> */}
+        <Image
           src={blogItem.image.url}
           alt="Picture"
           width={blogItem.image.width * 2}
           height={blogItem.image.height *2 }
-        /> */}
+        />
       </div>
 
       <main>
