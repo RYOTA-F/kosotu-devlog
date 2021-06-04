@@ -29,7 +29,9 @@ type BlogArticleType = {
  */
 const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
   const { blogItem, highlightedBody, tableOfContents } = props
-  console.log(blogItem, highlightedBody, tableOfContents)
+  console.log(blogItem.image.url)
+  console.log(blogItem.image.width)
+  console.log(blogItem.image.height)
 
   let category_area
 
@@ -46,13 +48,13 @@ const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
   return (
     <section className={styles.container}>
       <div className={styles.image}>
-        {/* <div>画像</div> */}
-        <Image
+        <div>画像</div>
+        {/* <Image
           src={blogItem.image.url}
           alt="Picture"
           width={blogItem.image.width * 2}
           height={blogItem.image.height *2 }
-        />
+        /> */}
       </div>
 
       <main>
