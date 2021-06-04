@@ -37,7 +37,13 @@ const BlogArticlePage: NextPage<BlogArticlePageProps> = (props: BlogArticlePageP
   const { blogItem, highlightedBody, tableOfContents, categories } = props
   
   return (
-    <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} tableOfContents={tableOfContents} categories={categories} />
+    <>
+      {!blogItem ? (
+        <div>ページが存在しないs</div>
+      ) : (  
+        <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} tableOfContents={tableOfContents} categories={categories} />
+      )}
+    </>
   )
 }
 
