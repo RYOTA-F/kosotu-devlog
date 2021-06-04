@@ -29,6 +29,7 @@ type BlogArticleType = {
  */
 const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
   const { blogItem, highlightedBody, tableOfContents } = props
+  console.log(blogItem, highlightedBody, tableOfContents)
 
   let category_area
 
@@ -45,26 +46,31 @@ const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
   return (
     <section className={styles.container}>
       <div className={styles.image}>
-        <Image
+        <div>画像</div>
+        {/* <Image
           src={blogItem.image.url}
           alt="Picture"
           width={blogItem.image.width * 2}
           height={blogItem.image.height *2 }
-        />
+        /> */}
       </div>
 
       <main>
-        <h2 className={styles.title}>{blogItem.title}</h2>
+        {/* <h2 className={styles.title}>{blogItem.title}</h2> */}
+        <div>タイトル</div>
         <div className={styles.category}>
           {category_area}
         </div>
         <div className={styles.time}>
-          <DateItem date_time={blogItem.createdAt} />
+          <div>日付</div>
+          {/* <DateItem date_time={blogItem.createdAt} /> */}
         </div>
         <div className={styles.table}>
-          <TableOfContents tableOfContents={tableOfContents} />
+          <div>目次</div>
+          {/* <TableOfContents tableOfContents={tableOfContents} /> */}
         </div>
-        <BlogArticleText blogItemText={highlightedBody}/>
+        <div>本文</div>
+        {/* <BlogArticleText blogItemText={highlightedBody}/> */}
       </main>
     </section>
   )
