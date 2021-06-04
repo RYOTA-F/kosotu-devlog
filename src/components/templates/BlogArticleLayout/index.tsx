@@ -31,12 +31,14 @@ type BlogArticleLayoutProps = {
  */
 const BlogArticleLayout: React.FC<BlogArticleLayoutProps> = (props: BlogArticleLayoutProps) => {
   const { blogItem, highlightedBody, tableOfContents, categories } = props
+  console.log(blogItem, highlightedBody, tableOfContents, categories)
   
   return (
     <BaseLayout>
       <div className={styles.container}>
         <article className={styles.postItem}>
-          <BlogArticle blogItem={blogItem} highlightedBody={highlightedBody} tableOfContents={tableOfContents} />
+          <div>BlogArticle</div>
+          {/* <BlogArticle blogItem={blogItem} highlightedBody={highlightedBody} tableOfContents={tableOfContents} /> */}
         </article>
         <div className={styles.sideBar}>
           <SideProfile />
