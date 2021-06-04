@@ -31,7 +31,6 @@ type BlogArticleLayoutProps = {
  */
 const BlogArticleLayout: React.FC<BlogArticleLayoutProps> = (props: BlogArticleLayoutProps) => {
   const { blogItem, highlightedBody, tableOfContents, categories } = props
-  console.log(categories)
   
   return (
     <BaseLayout>
@@ -43,7 +42,7 @@ const BlogArticleLayout: React.FC<BlogArticleLayoutProps> = (props: BlogArticleL
           <SideProfile />
           <div className={styles.sideBar__item}>
             {/* <div>サイドカテゴリー</div> */}
-            <SideCategories categories={categories} />
+            {/* <SideCategories categories={categories} /> */}
           </div>
         </div>
       </div>
