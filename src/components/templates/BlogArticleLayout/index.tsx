@@ -43,7 +43,8 @@ const BlogArticleLayout: React.FC<BlogArticleLayoutProps> = (props: BlogArticleL
         <div className={styles.sideBar}>
           <SideProfile />
           <div className={styles.sideBar__item}>
-            <SideCategories categories={categories} />
+            <div>サイドカテゴリー</div>
+            {/* <SideCategories categories={categories} /> */}
           </div>
         </div>
       </div>
