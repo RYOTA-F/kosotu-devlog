@@ -35,12 +35,9 @@ type BlogArticlePageProps = {
  */
 const BlogArticlePage: NextPage<BlogArticlePageProps> = (props: BlogArticlePageProps) => {
   const { blogItem, highlightedBody, tableOfContents, categories } = props
-  console.log(blogItem, highlightedBody, tableOfContents, categories)
   
   return (
-    <div>テスト</div>
-
-    // <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} tableOfContents={tableOfContents} categories={categories} />
+    <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} tableOfContents={tableOfContents} categories={categories} />
   )
 }
 
