@@ -34,10 +34,12 @@ type BlogArticlePageProps = {
  * @returns
  */
 const BlogArticlePage: NextPage<BlogArticlePageProps> = (props: BlogArticlePageProps) => {
-  const { blogItem, highlightedBody, tableOfContents, categories } = props
+  // const { blogItem, highlightedBody, tableOfContents, categories } = props
   
   return (
-    <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} tableOfContents={tableOfContents} categories={categories} />
+    <div>テスト</div>
+
+    // <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} tableOfContents={tableOfContents} categories={categories} />
   )
 }
 
@@ -45,72 +47,72 @@ const BlogArticlePage: NextPage<BlogArticlePageProps> = (props: BlogArticlePageP
  * getStaticPaths
  * @returns 
  */
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths: string[] = []
-  const { totalCount } = await getBlogs(0)
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const paths: string[] = []
+//   const { totalCount } = await getBlogs(0)
 
-  // ページ番号の配列を作成
-  const pageCountArray = createPageArray(totalCount)
+//   // ページ番号の配列を作成
+//   const pageCountArray = createPageArray(totalCount)
 
-  for await (const pageNum of pageCountArray) {
-    const offset = (pageNum - 1) * BLOG_SHOW_COUNT
-    const blogData = await getBlogs(offset)
-    blogData.blogList.forEach((blog) => {
-      paths.push(`/${blog.id}`)
-    })
-  }
+//   for await (const pageNum of pageCountArray) {
+//     const offset = (pageNum - 1) * BLOG_SHOW_COUNT
+//     const blogData = await getBlogs(offset)
+//     blogData.blogList.forEach((blog) => {
+//       paths.push(`/${blog.id}`)
+//     })
+//   }
 
-  return {
-    paths,
-    fallback: true,
-  }
-}
+//   return {
+//     paths,
+//     fallback: true,
+//   }
+// }
 
 /**
  * getStaticProps
  * @returns
  */
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { params } = context
-  let blogId = ''
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   const { params } = context
+//   let blogId = ''
 
-  if (params?.blogId && typeof params.blogId === 'string') {
-    blogId = params.blogId
-  }
+//   if (params?.blogId && typeof params.blogId === 'string') {
+//     blogId = params.blogId
+//   }
 
-  try {
-    const blogDetailData = await getBlogById(blogId)
-    const categoryData = await getCategories()
+//   try {
+//     const blogDetailData = await getBlogById(blogId)
+//     const categoryData = await getCategories()
 
-    // シンタックスハイライトの適用
-    const $ = cheerio.load(blogDetailData.body)
-    $('pre code').each((_, elm) => {
-      const result = hljs.highlightAuto($(elm).text())
-      $(elm).html(result.value)
-      $(elm).addClass('hljs')
-    })
+//     // シンタックスハイライトの適用
+//     const $ = cheerio.load(blogDetailData.body)
+//     $('pre code').each((_, elm) => {
+//       const result = hljs.highlightAuto($(elm).text())
+//       $(elm).html(result.value)
+//       $(elm).addClass('hljs')
+//     })
 
-    // 目次作成
-    const headings = $('h1, h2, h3').toArray()
-    const tableOfContents: TableOfContentType[] = headings.map((data: any) => {
-      return {
-        text: String(data.children[0].data),
-        id: data.attribs.id,
-        name: data.name,
-      }
-    })
+//     // 目次作成
+//     const headings = $('h1, h2, h3').toArray()
+//     const tableOfContents: TableOfContentType[] = headings.map((data: any) => {
+//       return {
+//         text: String(data.children[0].data),
+//         id: data.attribs.id,
+//         name: data.name,
+//       }
+//     })
 
-    const props = {
-      blogItem: blogDetailData,
-      highlightedBody: $.html(),
-      tableOfContents: tableOfContents,
-      categories: categoryData
-    }
+//     const props = {
+//       blogItem: blogDetailData,
+//       highlightedBody: $.html(),
+//       tableOfContents: tableOfContents,
+//       categories: categoryData
+//     }
   
-    return { props }
-  } catch (error) {
-    return { notFound: true }
-  }
-}
+//     return { props }
+//   } catch (error) {
+//     return { notFound: true }
+//   }
+// }
 
 export default BlogArticlePage
