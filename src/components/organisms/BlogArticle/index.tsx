@@ -10,7 +10,7 @@ import CategoryItem from '@/components/atoms/CategoryItem'
 import DateItem from '@/components/atoms/DateItem'
 import TableOfContents from '@/components/organisms/TableOfContents'
 /* types */
-import { BlogItemType, TableOfContentType } from '@/types/blog'
+import { TableOfContentType, BlogItemType } from '@/types/blog'
 /* styles */
 import styles from './styles.module.scss'
 

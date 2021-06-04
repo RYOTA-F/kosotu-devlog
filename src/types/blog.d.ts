@@ -10,6 +10,8 @@ import { ImageType } from './image'
  * BlogItemType
  */
 export interface BlogItemType {
+  image: ImageType
+  categories: CategoryType[]
   id: string
   createdAt: string
   updatedAt: string
@@ -18,8 +20,6 @@ export interface BlogItemType {
   title: string
   description: string
   body: string
-  image: ImageType
-  categories: CategoryType[]
 }
 
 /**
