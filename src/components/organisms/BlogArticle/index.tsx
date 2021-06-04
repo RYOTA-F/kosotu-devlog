@@ -29,7 +29,7 @@ type BlogArticleType = {
  */
 const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
   const { blogItem, highlightedBody, tableOfContents } = props
-  console.log(blogItem, highlightedBody, tableOfContents)
+  // console.log(blogItem, highlightedBody, tableOfContents)
 
   let category_area
 
