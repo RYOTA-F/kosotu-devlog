@@ -29,6 +29,9 @@ type BlogArticleType = {
  */
 const BlogArticle: React.FC<BlogArticleType> = (props: BlogArticleType) => {
   const { blogItem, highlightedBody, tableOfContents } = props
+  console.log('Organisms', blogItem)
+  console.log('Organisms', highlightedBody)
+  console.log('Organisms', tableOfContents)
   let category_area
 
   // if (blogItem.categories.length) {
