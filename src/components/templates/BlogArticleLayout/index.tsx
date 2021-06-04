@@ -31,6 +31,7 @@ type BlogArticleLayoutProps = {
  */
 const BlogArticleLayout: React.FC<BlogArticleLayoutProps> = (props: BlogArticleLayoutProps) => {
   const { blogItem, highlightedBody, tableOfContents, categories } = props
+  console.log('Layout', blogItem)
   
   return (
     <BaseLayout>
