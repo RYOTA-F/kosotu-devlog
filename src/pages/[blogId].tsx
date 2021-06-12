@@ -35,6 +35,8 @@ type BlogArticlePageProps = {
  */
 const BlogArticlePage: NextPage<BlogArticlePageProps> = (props: BlogArticlePageProps) => {
   const { blogItem, highlightedBody, tableOfContents, categories } = props
+
+  console.log(blogItem)
   
   return (
     <>
