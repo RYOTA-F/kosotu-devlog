@@ -38,11 +38,11 @@ const BlogArticlePage: NextPage<BlogArticlePageProps> = (props: BlogArticlePageP
   
   return (
     <>
-      {!blogItem ? (
-        <div>ページが存在しないs</div>
-      ) : (  
+      {/* {!blogItem ? (
+        <div>ページが存在しません</div>
+      ) : (   */}
         <BlogArticleLayout blogItem={blogItem} highlightedBody={highlightedBody} tableOfContents={tableOfContents} categories={categories} />
-      )}
+      {/* )} */}
     </>
   )
 }
