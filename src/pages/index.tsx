@@ -25,25 +25,26 @@ type TopPageProps = {
 const TopPage: NextPage<TopPageProps> = (props: TopPageProps) => {
   const { blogList, categories } = props
 
-  return (
-    <TopLayout blogList={blogList} categories={categories} />
-  )
+  return <TopLayout blogList={blogList} categories={categories} />
 }
 
 /**
- * getStaticPsops
+ * getStaticProps
  * @returns
  */
-export const getStaticProps: GetStaticProps= async () => {
+export const getStaticProps: GetStaticProps = async () => {
   // ブログ一覧データ取得
-  const blogData = await getBlogs(0)
+  // const blogData = await getBlogs(0)
   // カテゴリー一覧データ取得
-  const categoryData = await getCategories()
+  // const categoryData = await getCategories()
 
   const props = {
-    blogList: blogData.blogList,
-    totalCount: blogData.totalCount,
-    categories: categoryData
+    blogList: [],
+    totalCount: [],
+    categories: [],
+    // blogList: blogData.blogList,
+    // totalCount: blogData.totalCount,
+    // categories: categoryData
   }
 
   return { props }
