@@ -9,8 +9,8 @@
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest --watch",
-    "test:ci": "jest",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "test:coverage": "jest --collectCoverage",
     "test:verbose": "jest --verbose"
   },

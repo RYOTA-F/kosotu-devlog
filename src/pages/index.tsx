@@ -1,7 +1,5 @@
 /* Layouts */
-import DefaultLayout from '../layouts/DefaultLayout'
-/* Styles */
-import styles from './styles/index.module.css'
+import DefaultLayout from '@/layouts/DefaultLayout'
 
 const Home = () => {
   return <DefaultLayout>Home</DefaultLayout>

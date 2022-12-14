@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react'
 /* Sections */
-import Header from '../../sections/Header'
-import Footer from '../../sections/Footer'
+import Header from '@/sections/Header'
+import Footer from '@/sections/Footer'
 
 export interface IDefaultLayout {
   children: ReactNode
