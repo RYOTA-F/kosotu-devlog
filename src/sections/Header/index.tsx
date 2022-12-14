@@ -1,9 +1,7 @@
 import { FC } from 'react'
-/* styles */
-import styles from './index.module.css'
 
 const Header: FC = () => {
-  return <div className={styles.header}>Header</div>
+  return <div>Header</div>
 }
 
 export default Header

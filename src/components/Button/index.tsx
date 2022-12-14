@@ -1,6 +1,6 @@
 import { ReactNode, FC } from 'react'
 /* styles */
-import style from './index.module.css'
+import { ButtonWrapper } from './index.styles'
 
 export const ARIA_LABEL = {
   BUTTON: 'button',
@@ -13,13 +13,9 @@ export interface IButton {
 
 const Button: FC<IButton> = ({ children, onClick }) => {
   return (
-    <button
-      onClick={onClick}
-      className={style.button}
-      aria-label={ARIA_LABEL.BUTTON}
-    >
+    <ButtonWrapper onClick={onClick} aria-label={ARIA_LABEL.BUTTON}>
       {children}
-    </button>
+    </ButtonWrapper>
   )
 }
 
