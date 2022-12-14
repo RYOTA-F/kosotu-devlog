@@ -1,5 +1,10 @@
 import { ReactNode, FC } from 'react'
+/* styles */
 import style from './index.module.css'
+
+export const ARIA_LABEL = {
+  BUTTON: 'button',
+}
 
 export interface IButton {
   children: ReactNode
@@ -8,7 +13,11 @@ export interface IButton {
 
 const Button: FC<IButton> = ({ children, onClick }) => {
   return (
-    <button onClick={onClick} className={style.button}>
+    <button
+      onClick={onClick}
+      className={style.button}
+      aria-label={ARIA_LABEL.BUTTON}
+    >
       {children}
     </button>
   )
