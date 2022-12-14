@@ -1,4 +1,5 @@
 import { ReactNode, FC } from 'react'
+import style from './index.module.css'
 
 export interface IButton {
   children: ReactNode
@@ -7,7 +8,7 @@ export interface IButton {
 
 const Button: FC<IButton> = ({ children, onClick }) => {
   return (
-    <button onClick={onClick} className="button">
+    <button onClick={onClick} className={style.button}>
       {children}
     </button>
   )
