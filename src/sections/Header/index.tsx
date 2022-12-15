@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
 /* Const */
-import { SITE, PAGE, MENU_LIST } from '@/src/const'
+import { SITE, PAGE, MENU_LIST } from '../../const'
 /* Styles */
 import {
   HeaderWrapper,

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 /* Const */
-import { COLOR, HEADER, SIZE } from '@/src/const'
+import { COLOR, HEADER, SIZE } from '../../const'
 
 export const HeaderWrapper = styled.header`
   display: flex;
