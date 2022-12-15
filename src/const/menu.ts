@@ -16,7 +16,7 @@ export const SUB_MENU = {
   },
   TERMS_OF_SERVICE: {
     LABEL: '利用規約',
-    URL: '/terms-of -service',
+    URL: '/terms-of-service',
   },
 } as const
 
