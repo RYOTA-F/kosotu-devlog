@@ -22,7 +22,7 @@ export const MenuItem = styled.li`
     text-decoration: none;
   }
 
-  &:first-child {
+  &:first-of-type {
     border-left: 1px solid ${COLOR.GRAY_SCALE.WHITE};
   }
 `
