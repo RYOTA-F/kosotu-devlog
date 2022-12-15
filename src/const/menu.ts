@@ -1,22 +1,24 @@
+import { PAGE } from './page'
+
 export const GROBAL_MENU = {
   PROFILE: {
     LABEL: 'プロフィール',
-    URL: '/profile',
+    URL: PAGE.PROFILE,
   },
   SITE_MAP: {
     LABEL: 'サイトマップ',
-    URL: '/sitemap',
+    URL: PAGE.SITE_MAP,
   },
 } as const
 
 export const SUB_MENU = {
   PRIVACY_POLICY: {
     LABEL: 'プライバシーポリシー',
-    URL: '/privacy-policy',
+    URL: PAGE.PRIVACY_POLICY,
   },
   TERMS_OF_SERVICE: {
     LABEL: '利用規約',
-    URL: '/terms-of-service',
+    URL: PAGE.TERMS_OF_SERVICE,
   },
 } as const
 
