@@ -2,6 +2,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 /* Const */
 import { SITE, PAGE, MENU_LIST } from '@/const/index'
+import { ARIA_LABEL } from './const'
 /* Styles */
 import {
   HeaderWrapper,
@@ -13,15 +14,15 @@ import {
 
 const Header: FC = () => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper aria-label={ARIA_LABEL.HEADER}>
       <Link href={PAGE.ROOT}>
         <Title>{SITE.TITLE}</Title>
       </Link>
 
       <MenuList>
         {MENU_LIST.map((v) => (
-          <MenuItem>
-            <Link key={v.URL} href={v.URL}>
+          <MenuItem key={v.URL}>
+            <Link href={v.URL}>
               <MenuLabel>{v.LABEL}</MenuLabel>
             </Link>
           </MenuItem>
@@ -32,3 +33,4 @@ const Header: FC = () => {
 }
 
 export default Header
+export * from './const'
