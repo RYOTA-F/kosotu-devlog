@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import Link from 'next/link'
 /* Const */
-import { FOOTER, SUB_MENU_LIST } from '@/const/index'
-import { ARIA_LABEL } from './const'
+import { SUB_MENU_LIST } from '@/const/index'
+import { FOOTER, ARIA_LABEL } from './const'
 /* Styles */
 import {
   FooterWrapper,
