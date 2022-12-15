@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
 /* Const */
-import { SITE, PAGE, MENU_LIST } from '@/const/index'
+import { SITE, PAGE, GROBAL_MENU_LIST } from '@/const/index'
 import { ARIA_LABEL } from './const'
 /* Styles */
 import {
@@ -20,7 +20,7 @@ const Header: FC = () => {
       </Link>
 
       <MenuList>
-        {MENU_LIST.map((v) => (
+        {GROBAL_MENU_LIST.map((v) => (
           <MenuItem key={v.URL}>
             <Link href={v.URL}>
               <MenuLabel>{v.LABEL}</MenuLabel>

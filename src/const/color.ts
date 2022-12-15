@@ -1,5 +1,6 @@
 const GRAY_SCALE = {
   WHITE: '#fff',
+  SUB: '#5e6c77',
 } as const
 
 const BLUE_GROUP = {
