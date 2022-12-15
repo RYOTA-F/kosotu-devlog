@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react'
-import Button, { IButton } from './'
+import Button, { IButton } from '.'
 import { action } from '@storybook/addon-actions'
 
 export default {
-  title: 'Components/Button',
+  title: 'Atoms/Button',
   component: Button,
 }
 

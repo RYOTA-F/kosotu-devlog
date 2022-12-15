@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import Button, { IButton, ARIA_LABEL } from './'
+import Button, { IButton, ARIA_LABEL } from '.'
 
 describe('Button', () => {
   const defaultProps: IButton = {
