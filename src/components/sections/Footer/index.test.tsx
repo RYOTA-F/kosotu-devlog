@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import Footer, { ARIA_LABEL } from './'
+import Footer, { ARIA_LABEL } from '.'
 
 describe('Footer', () => {
   beforeEach(() => {

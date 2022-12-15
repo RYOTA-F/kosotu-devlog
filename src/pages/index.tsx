@@ -1,5 +1,5 @@
 /* Layouts */
-import DefaultLayout from '@/layouts/DefaultLayout'
+import DefaultLayout from '@/components/layouts/DefaultLayout'
 
 const Home = () => {
   return <DefaultLayout>Home</DefaultLayout>
