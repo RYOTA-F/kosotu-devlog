@@ -1,3 +1,4 @@
+export * from './author'
 export * from './color'
 export * from './menu'
 export * from './page'

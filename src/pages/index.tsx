@@ -1,8 +1,9 @@
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
+/* Components */
 
 const Home = () => {
-  return <DefaultLayout>Home</DefaultLayout>
+  return <DefaultLayout>テスト</DefaultLayout>
 }
 
 export default Home
