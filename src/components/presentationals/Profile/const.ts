@@ -9,6 +9,8 @@ export const IMAGE = {
   HEIGHT: 120,
 } as const
 
+export const BUTTON_LABEL = 'プロフィール' as const
+
 export const DESCRIPTION = [
   {
     LABEL: 'キャリア',

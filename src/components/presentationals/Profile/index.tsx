@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Button from '@/components/atoms/Button'
 /* Const */
 import { AUTHOR, PAGE } from '@/const/index'
-import { ARIA_LABEL, IMAGE, DESCRIPTION } from './const'
+import { ARIA_LABEL, IMAGE, DESCRIPTION, BUTTON_LABEL } from './const'
 /* Styles */
 import {
   ProfileWrapper,
@@ -53,7 +53,7 @@ const Profile: FC = () => {
       </DescriptionWrapper>
 
       <ButtonWrapper>
-        <Button onClick={onClickProfile}>プロフィール</Button>
+        <Button onClick={onClickProfile}>{BUTTON_LABEL}</Button>
       </ButtonWrapper>
     </ProfileWrapper>
   )
