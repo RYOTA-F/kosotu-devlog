@@ -10,6 +10,7 @@ const GRAY_SCALE = {
 
 const BLUE_GROUP = {
   MAIN: '#709dd8',
+  SUB: '#a4cafe',
 } as const
 
 export const COLOR = {

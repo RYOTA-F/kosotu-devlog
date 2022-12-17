@@ -6,14 +6,16 @@ import { IMAGE } from './const'
 export const ProfileWrapper = styled.div`
   padding: ${SIZE.SPACE.X16};
   border: 1px solid ${COLOR.GRAY_SCALE.GRAY.BORDER_1};
+  text-align: center;
 `
 
-export const ImageWrapper = styled.div`
+export const ImageWrapper = styled.button`
   height: ${IMAGE.HEIGHT}px;
   width: ${IMAGE.WIDTH}px;
   border-radius: 50%;
   overflow: hidden;
-  margin: 0 auto;
+  border: none;
+  cursor: pointer;
 `
 
 export const Name = styled.span`
@@ -34,6 +36,7 @@ export const DescriptionWrapper = styled.div`
   margin-top: ${SIZE.SPACE.X24};
   color: ${COLOR.GRAY_SCALE.GRAY.TEXT_1};
   font-size: ${SIZE.FONT.X14};
+  text-align: left;
 `
 
 export const DescriptionList = styled.ul`
@@ -58,4 +61,8 @@ export const DescriptionItem = styled.li`
   ::before {
     content: '・ ';
   }
+`
+
+export const ButtonWrapper = styled.div`
+  margin-top: ${SIZE.SPACE.X20};
 `

@@ -20,8 +20,9 @@
       "@/src/*": ["*"],
       "@/components/*": ["components/*"],
       "@/const/*": ["const/*"],
-      "@/layouts/*": ["layouts/*"],
-      "@/sections/*": ["sections/*"]
+      "@/layouts/*": ["components/layouts/*"],
+      "@/sections/*": ["components/sections/*"],
+      "@/types/*": ["types/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

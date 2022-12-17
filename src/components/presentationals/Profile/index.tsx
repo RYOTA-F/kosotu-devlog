@@ -1,7 +1,9 @@
 import { FC } from 'react'
 import Image from 'next/image'
+/* Components */
+import Button from '@/components/atoms/Button'
 /* Const */
-import { AUTHOR } from '@/const/index'
+import { AUTHOR, PAGE } from '@/const/index'
 import { ARIA_LABEL, IMAGE, DESCRIPTION } from './const'
 /* Styles */
 import {
@@ -14,12 +16,16 @@ import {
   DescriptionLabel,
   DescriptionItemList,
   DescriptionItem,
+  ButtonWrapper,
 } from './index.styles'
 
 const Profile: FC = () => {
+  /** プロフィール をクリック */
+  const onClickProfile = () => (window.location.href = PAGE.PROFILE)
+
   return (
     <ProfileWrapper aria-label={ARIA_LABEL.PROFILE}>
-      <ImageWrapper>
+      <ImageWrapper onClick={onClickProfile}>
         <Image
           src={IMAGE.PATH}
           alt={IMAGE.ALT}
@@ -45,6 +51,10 @@ const Profile: FC = () => {
           </DescriptionList>
         ))}
       </DescriptionWrapper>
+
+      <ButtonWrapper>
+        <Button onClick={onClickProfile}>プロフィール</Button>
+      </ButtonWrapper>
     </ProfileWrapper>
   )
 }
