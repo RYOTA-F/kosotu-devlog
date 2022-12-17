@@ -4,7 +4,7 @@ import Link from 'next/link'
 /* Components */
 import { TimeSvg } from '@/components/atoms/Svg'
 /* Const */
-import { SIZE } from '@/src/const'
+import { ARIA_LABEL } from './const'
 /* Styles */
 import {
   BlogCardWrapper,
@@ -20,7 +20,7 @@ const TIME_ICON_SIZE = 12 as const
 
 const BlogCard: FC<IBlogCard> = ({ title, thumbnail, url, publishedAt }) => {
   return (
-    <BlogCardWrapper>
+    <BlogCardWrapper aria-label={ARIA_LABEL.BLOG_CARD}>
       <Link href={url}>
         <Image
           src={thumbnail.url}
@@ -41,3 +41,4 @@ const BlogCard: FC<IBlogCard> = ({ title, thumbnail, url, publishedAt }) => {
 }
 
 export default BlogCard
+export * from './const'
