@@ -37,6 +37,7 @@ export const CopyContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: ${SIZE.SPACE.X12};
 `
 
 export const CopyMark = styled.span`
