@@ -3,15 +3,13 @@ import type { GetStaticProps, NextPage } from 'next'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
 import BlogCardList from '@/components/assembles/BlogCardList'
+import { defaultProps } from '@/components/assembles/BlogCardList/__mocks__'
 /* Types */
 import { IBlog } from '@/types/index'
 
 interface IHome {
   contents: IBlog[]
 }
-
-/* Mocks */
-import { listMock } from './__mocks__'
 
 const Home: NextPage<IHome> = ({ contents }) => {
   return (
@@ -22,7 +20,7 @@ const Home: NextPage<IHome> = ({ contents }) => {
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const contents = listMock
+  const contents = defaultProps.blogList
 
   return {
     props: {
