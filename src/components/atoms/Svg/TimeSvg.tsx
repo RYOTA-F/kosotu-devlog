@@ -1,6 +1,6 @@
 import { FC } from 'react'
 /* Const */
-import { COLOR } from '@/src/const'
+import { COLOR } from '@/const/index'
 /* Types */
 import { ISvgDefaultProps } from './types'
 
@@ -17,9 +17,9 @@ const TimeSvg: FC<ISvgDefaultProps> = ({
       viewBox="0 0 24 24"
       fill="none"
       stroke={color}
-      stroke-width="2.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <circle cx="12" cy="12" r="10" />
       <polyline points="12 6 12 12 16 14" />

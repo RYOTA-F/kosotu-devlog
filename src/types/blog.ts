@@ -2,10 +2,10 @@ export interface IBlog {
   title: string
   thumbnail: IBlogThumbnail
   url: string
-  createdAt: string
-  updatedAt: string
+  // createdAt: string
+  // updatedAt: string
   publishedAt: string
-  revisedAt: string
+  // revisedAt: string
 }
 
 export interface IBlogThumbnail {

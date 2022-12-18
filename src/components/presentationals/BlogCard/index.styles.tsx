@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 /* Const */
-import { COLOR, SIZE } from '@/src/const'
+import { COLOR, SIZE } from '@/const/index'
 
 export const BlogCardWrapper = styled.div`
   cursor: pointer;
@@ -17,7 +17,7 @@ export const BlogCardWrapper = styled.div`
       height: 100%;
       aspect-ratio: auto;
 
-      :hover {
+      &:hover {
         transform: scale(1.05);
         transition: 0.3s all;
       }

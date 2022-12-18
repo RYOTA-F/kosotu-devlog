@@ -14,7 +14,7 @@ import {
   Date,
 } from './index.styles'
 /* Types */
-import { IBlogCard } from '@/types/blog'
+import { IBlogCard } from '@/src/types/blog'
 
 const TIME_ICON_SIZE = 12 as const
 

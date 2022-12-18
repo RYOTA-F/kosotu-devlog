@@ -1,4 +1,4 @@
-import { IBlogCard } from '@/types/blog'
+import { IBlogCard } from '@/src/types/blog'
 
 export const defaultProps: IBlogCard = {
   title: '【テスト】テストタイトル',

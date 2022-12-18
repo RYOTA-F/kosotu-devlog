@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 /* Const */
-import { COLOR } from '@/src/const'
+import { COLOR } from '@/const/index'
 /* Types */
 import { CollorPattern } from '@/types/index'
 
