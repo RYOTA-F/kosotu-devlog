@@ -5,6 +5,10 @@ export interface IBlogsApiResponse {
   limit: number
 }
 
+export interface IBlogDetailApiResponse {
+  contents: IBlog
+}
+
 export interface IBlog {
   id: string
   title: string

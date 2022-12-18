@@ -1,5 +1,6 @@
 export const PAGE = {
   ROOT: '/',
+  BLOG: '/blog',
   PROFILE: '/profile',
   SITE_MAP: '/sitemap',
   PRIVACY_POLICY: '/privacy-policy',

@@ -2,6 +2,7 @@ import { FC } from 'react'
 /* Components */
 import BlogCard from '@/components/presentationals/BlogCard'
 /* Const */
+import { PAGE } from '@/const/index'
 import { ARIA_LABEL } from './const'
 /* Styles */
 import {
@@ -24,7 +25,7 @@ const BlogCardList: FC<IBlogCardList> = ({ contents }) => {
           <BlogCardWrapper key={v.title}>
             <BlogCard
               title={v.title}
-              url={`/${v.id}`}
+              url={`${PAGE.BLOG}/${v.id}`}
               image={v.image}
               publishedAt={v.publishedAt}
             />
