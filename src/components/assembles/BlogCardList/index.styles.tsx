@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const BlogCardListWrapper = styled.section``
+export const BlogCardListWrapper = styled.article``
 
 export const BlogCardItems = styled.ul`
   display: flex;

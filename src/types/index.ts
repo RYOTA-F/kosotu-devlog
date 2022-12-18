@@ -1,2 +1,2 @@
-export * from './blog'
+export * from './microCMS/blog'
 export * from './colorPettern'

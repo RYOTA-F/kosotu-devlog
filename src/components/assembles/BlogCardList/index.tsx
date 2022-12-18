@@ -10,7 +10,7 @@ import {
   BlogCardWrapper,
 } from './index.styles'
 /* Types */
-import { IBlog } from '@/types/blog'
+import { IBlog } from '@/types/index'
 
 export interface IBlogCardList {
   blogList: IBlog[]
