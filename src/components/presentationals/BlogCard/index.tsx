@@ -17,22 +17,23 @@ import {
 import { IBlogCard } from '@/types/index'
 
 const TIME_ICON_SIZE = 12 as const
+const IMAGE_ALT = 'Thumbnail'
 
-const BlogCard: FC<IBlogCard> = ({ title, thumbnail, url, publishedAt }) => {
+const BlogCard: FC<IBlogCard> = ({ title, url, image, publishedAt }) => {
   return (
     <BlogCardWrapper aria-label={ARIA_LABEL.BLOG_CARD}>
       <Link href={url}>
         <Image
-          src={thumbnail.url}
-          alt={thumbnail.alt}
-          width={thumbnail.width}
-          height={thumbnail.height}
+          src={image.url}
+          alt={IMAGE_ALT}
+          width={image.width}
+          height={image.height}
         />
         <ContentWrapper>
           <Title>{title}</Title>
           <DateWrapper>
             <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
-            <Date>{publishedAt}</Date>
+            <Date dateTime={publishedAt}>{publishedAt.slice(0, 10)}</Date>
           </DateWrapper>
         </ContentWrapper>
       </Link>

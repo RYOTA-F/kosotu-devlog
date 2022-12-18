@@ -14,13 +14,13 @@ interface IHome {
 const Home: NextPage<IHome> = ({ contents }) => {
   return (
     <DefaultLayout>
-      <BlogCardList blogList={contents} />
+      <BlogCardList contents={contents} />
     </DefaultLayout>
   )
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const contents = defaultProps.blogList
+  const contents = defaultProps.contents
 
   return {
     props: {

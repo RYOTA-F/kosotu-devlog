@@ -13,19 +13,19 @@ import {
 import { IBlog } from '@/types/index'
 
 export interface IBlogCardList {
-  blogList: IBlog[]
+  contents: IBlog[]
 }
 
-const BlogCardList: FC<IBlogCardList> = ({ blogList }) => {
+const BlogCardList: FC<IBlogCardList> = ({ contents }) => {
   return (
     <BlogCardListWrapper aria-label={ARIA_LABEL.BLOG_CARD_LIST}>
       <BlogCardItems>
-        {blogList.map((v) => (
+        {contents.map((v) => (
           <BlogCardWrapper key={v.title}>
             <BlogCard
               title={v.title}
-              url={v.url}
-              thumbnail={v.thumbnail}
+              url={`/${v.id}`}
+              image={v.image}
               publishedAt={v.publishedAt}
             />
           </BlogCardWrapper>
