@@ -1,3 +1,10 @@
+export interface IBlogsApiResponse {
+  contents: IBlog[]
+  totalCount: number
+  offset: number
+  limit: number
+}
+
 export interface IBlog {
   id: string
   title: string

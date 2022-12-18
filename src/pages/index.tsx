@@ -1,11 +1,12 @@
 import type { GetStaticProps, NextPage } from 'next'
+/* Client */
+import { client } from '@/lib/client'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
 import BlogCardList from '@/components/assembles/BlogCardList'
-import { defaultProps } from '@/components/assembles/BlogCardList/__mocks__'
 /* Types */
-import { IBlog } from '@/types/index'
+import { IBlogsApiResponse, IBlog } from '@/types/index'
 
 interface IHome {
   contents: IBlog[]
@@ -19,12 +20,12 @@ const Home: NextPage<IHome> = ({ contents }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = () => {
-  const contents = defaultProps.contents
+export const getStaticProps: GetStaticProps = async () => {
+  const blogs = await client.get<IBlogsApiResponse>({ endpoint: 'blogs' })
 
   return {
     props: {
-      contents,
+      contents: blogs.contents,
     },
   }
 }

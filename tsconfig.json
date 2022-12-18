@@ -20,6 +20,7 @@
       "@/src/*": ["*"],
       "@/components/*": ["components/*"],
       "@/const/*": ["const/*"],
+      "@/lib/*": ["lib/*"],
       "@/layouts/*": ["components/layouts/*"],
       "@/sections/*": ["components/sections/*"],
       "@/types/*": ["types/*"]
