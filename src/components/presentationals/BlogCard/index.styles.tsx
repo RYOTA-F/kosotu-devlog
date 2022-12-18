@@ -8,19 +8,20 @@ export const BlogCardWrapper = styled.div`
 
   :hover {
     opacity: 0.7;
+
+    & a > img {
+      transform: scale(1.05);
+      transition: 0.3s all;
+    }
   }
 
   & a {
     text-decoration: none;
+
     & img {
       width: 100%;
       height: 100%;
       aspect-ratio: auto;
-
-      &:hover {
-        transform: scale(1.05);
-        transition: 0.3s all;
-      }
     }
   }
 `

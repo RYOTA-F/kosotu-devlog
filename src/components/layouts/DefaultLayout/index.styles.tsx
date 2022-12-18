@@ -11,5 +11,6 @@ export const MainWrapper = styled.div`
 export const Main = styled.main``
 
 export const Aside = styled.aside`
-  width: 300px;
+  margin-left: ${SIZE.SPACE.X24};
+  min-width: 300px;
 `
