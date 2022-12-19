@@ -1,4 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import cheerio from 'cheerio'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/base16/horizon-dark.css'
 /* Client */
 import { client } from '@/lib/client'
 /* Components */
@@ -25,7 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const blog = await client.get<IBlogsApiResponse>({
     endpoint: API.BLOGS.END_POINT,
   })
-  const paths = blog.contents.map(({ id }) => `${PAGE.BLOG}/${id}`)
+  const paths = blog.contents.map(({ id }) => `${PAGE.BLOGS}/${id}`)
 
   return {
     paths,
@@ -49,9 +52,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
     queries: { ids: id },
   })
 
+  const $ = cheerio.load(contents[0].body, { _useHtmlParser2: true })
+  $('pre > code').each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text())
+    $(elm).html(result.value)
+    $(elm).addClass('hljs')
+  })
+
   return {
     props: {
-      contents,
+      contents: {
+        ...contents,
+        body: $.html(),
+      },
     },
   }
 }

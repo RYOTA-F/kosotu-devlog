@@ -25,7 +25,7 @@ const BlogCardList: FC<IBlogCardList> = ({ contents }) => {
           <BlogCardWrapper key={v.title}>
             <BlogCard
               title={v.title}
-              url={`${PAGE.BLOG}/${v.id}`}
+              url={`${PAGE.BLOGS}/${v.id}`}
               image={v.image}
               publishedAt={v.publishedAt}
             />

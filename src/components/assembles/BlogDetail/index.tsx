@@ -1,6 +1,7 @@
 import { FC } from 'react'
 /* Components */
 import BlogDetailHeader from '@/components/presentationals/BlogDetailHeader'
+import BlogBody from '@/components/presentationals/BlogBody'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Styles */
@@ -11,7 +12,7 @@ import { IBlog } from '@/types/index'
 const BlogDetail: FC<IBlog> = ({
   title,
   description,
-  // body,
+  body,
   image,
   // publishedAt,
   // categories,
@@ -19,6 +20,7 @@ const BlogDetail: FC<IBlog> = ({
   return (
     <BlogDetailWrapper aria-label={ARIA_LABEL.BLOG_DETAIL}>
       <BlogDetailHeader title={title} description={description} image={image} />
+      <BlogBody body={body} />
     </BlogDetailWrapper>
   )
 }
