@@ -5,6 +5,7 @@ const GRAY_SCALE = {
     TEXT_1: '#5e6c77',
     TEXT_2: '#7E8992',
     TEXT_3: '#808080',
+    TEXT_4: '#63707b',
     BORDER_1: '#e2e2e2',
   },
 } as const
