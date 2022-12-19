@@ -6,7 +6,7 @@ export interface IBlogsApiResponse {
 }
 
 export interface IBlogDetailApiResponse {
-  contents: IBlog
+  contents: IBlog[]
 }
 
 export interface IBlog {

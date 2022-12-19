@@ -1,21 +1,19 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Client */
 import { client } from '@/lib/client'
+/* Components */
+import BlogDetail from '@/components/assembles/BlogDetail'
 /* Const */
 import { API, PAGE } from '@/const/index'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Types */
-import { IBlog, IBlogsApiResponse, IBlogDetailApiResponse } from '@/types/index'
+import { IBlogsApiResponse, IBlogDetailApiResponse } from '@/types/index'
 
-interface IBlogPage {
-  contents: IBlog
-}
-
-const BlogPage: NextPage<IBlogPage> = () => {
+const BlogPage: NextPage<IBlogDetailApiResponse> = ({ contents }) => {
   return (
     <DefaultLayout>
-      <div>Blog</div>
+      <BlogDetail {...contents[0]} />
     </DefaultLayout>
   )
 }
