@@ -2,8 +2,8 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import cheerio from 'cheerio'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/base16/monokai.css'
-/* Client */
-import { client } from '@/lib/client'
+/* Lib */
+import { client } from '@/lib/microCMS'
 /* Components */
 import BlogDetail from '@/components/assembles/BlogDetail'
 /* Const */
