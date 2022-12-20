@@ -8,7 +8,8 @@ import {
   Title,
   ImageWrapper,
   WelcomeMessageWrapper,
-  WelcomeMessageParagraph,
+  WelcomeMessage,
+  WelcomeMessageDescription,
 } from './index.styles'
 /* Types */
 import { IBlog } from '@/types/index'
@@ -38,13 +39,9 @@ const BlogDetailHeader: FC<TBlogDetailHeader> = ({
         />
       </ImageWrapper>
       <WelcomeMessageWrapper>
-        <WelcomeMessageParagraph>
-          {BLOG_DETAIL.WELCOME_MESSAGE}
-        </WelcomeMessageParagraph>
-        <WelcomeMessageParagraph>
-          {BLOG_DETAIL.THANKS_MESSAGE}
-        </WelcomeMessageParagraph>
-        <WelcomeMessageParagraph>{description}</WelcomeMessageParagraph>
+        <WelcomeMessage>{BLOG_DETAIL.WELCOME_MESSAGE}</WelcomeMessage>
+        <WelcomeMessage>{BLOG_DETAIL.THANKS_MESSAGE}</WelcomeMessage>
+        <WelcomeMessageDescription>{description}</WelcomeMessageDescription>
       </WelcomeMessageWrapper>
     </BlogDetailHeaderWrapper>
   )

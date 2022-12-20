@@ -17,8 +17,14 @@ export const WelcomeMessageWrapper = styled.div`
   margin-top: ${SIZE.SPACE.X32};
 `
 
-export const WelcomeMessageParagraph = styled.p`
+export const WelcomeMessage = styled.p`
   :not(:first-of-type) {
     margin-top: ${SIZE.SPACE.X12};
   }
+`
+
+export const WelcomeMessageDescription = styled.p`
+  margin-top: ${SIZE.SPACE.X16};
+  white-space: pre-wrap;
+  line-height: 2.2;
 `
