@@ -8,7 +8,7 @@ export default {
 }
 
 const defaultProps: IButton = {
-  children: <p>クリック</p>,
+  children: 'クリック',
   onClick: action('onClick'),
 }
 

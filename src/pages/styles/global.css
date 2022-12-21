@@ -16,8 +16,19 @@ button {
 ul {
   margin: 0;
   padding: 0;
+  list-style: none;
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 li {
+  margin: 0;
+}
+
+figure {
   margin: 0;
 }

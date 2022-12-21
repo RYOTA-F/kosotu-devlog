@@ -16,6 +16,13 @@ export const ImageWrapper = styled.button`
   overflow: hidden;
   border: none;
   cursor: pointer;
+
+  :hover {
+    img {
+      transform: scale(1.07);
+      transition: 0.4s all;
+    }
+  }
 `
 
 export const Name = styled.span`
