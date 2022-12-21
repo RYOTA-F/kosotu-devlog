@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import { IBlog } from '@/types/index'
 
 import BlogDetail from '.'
-import { defaultProps } from '@/components/presentationals/BlogCard/__mocks__'
+import { defaultProps } from './__mocks__'
 
 export default {
   title: 'Assembles/BlogDetail',
