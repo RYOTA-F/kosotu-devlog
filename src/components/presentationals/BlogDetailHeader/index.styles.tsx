@@ -9,8 +9,25 @@ export const Title = styled.h1`
   font-size: ${SIZE.FONT.X24};
 `
 
+export const DataWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: ${SIZE.SPACE.X16};
+`
+
+export const DateWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: ${SIZE.SPACE.X32};
+`
+export const Date = styled.time`
+  margin-left: ${SIZE.SPACE.X4};
+  color: ${COLOR.GRAY_SCALE.GRAY.TEXT_3};
+  font-size: ${SIZE.FONT.X10};
+`
+
 export const ImageWrapper = styled.figure`
-  margin-top: ${SIZE.SPACE.X32};
+  margin-top: ${SIZE.SPACE.X20};
 `
 
 export const WelcomeMessageWrapper = styled.div`

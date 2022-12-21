@@ -1,11 +1,16 @@
 import { FC } from 'react'
 import Image from 'next/image'
+/* Components */
+import { TimeSvg } from '@/components/atoms/Svg'
 /* Const */
-import { BLOG_DETAIL, ARIA_LABEL } from './const'
+import { BLOG_DETAIL, ARIA_LABEL, TIME_ICON_SIZE } from './const'
 /* Styles */
 import {
   BlogDetailHeaderWrapper,
   Title,
+  DataWrapper,
+  DateWrapper,
+  Date,
   ImageWrapper,
   WelcomeMessageWrapper,
   WelcomeMessage,
@@ -20,16 +25,32 @@ const IMAGE = {
   HEIGHT: 474,
 } as const
 
-export type TBlogDetailHeader = Pick<IBlog, 'title' | 'description' | 'image'>
+export type TBlogDetailHeader = Pick<
+  IBlog,
+  'title' | 'description' | 'image' | 'publishedAt' | 'categories'
+>
 
 const BlogDetailHeader: FC<TBlogDetailHeader> = ({
   title,
   description,
   image,
+  publishedAt,
+  categories,
 }) => {
   return (
     <BlogDetailHeaderWrapper aria-label={ARIA_LABEL.BLOG_DETAIL_HEADER}>
       <Title>{title}</Title>
+
+      <DataWrapper>
+        {categories.map((v) => (
+          <span key={v.id}>{v.name}</span>
+        ))}
+        <DateWrapper>
+          <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
+          <Date dateTime={publishedAt}>{publishedAt.slice(0, 10)}</Date>
+        </DateWrapper>
+      </DataWrapper>
+
       <ImageWrapper>
         <Image
           src={image.url}

@@ -9,4 +9,20 @@ export const defaultProps: TBlogDetailHeader = {
     height: 1080,
     width: 1920,
   },
+  categories: [
+    {
+      id: 'golang',
+      createdAt: '2022-12-18T06:39:05.212Z',
+      updatedAt: '2022-12-18T06:39:29.309Z',
+      publishedAt: '2022-12-18T06:39:05.212Z',
+      revisedAt: '2022-12-18T06:39:05.212Z',
+      name: 'Golang',
+      posts: [
+        {
+          id: 'go-echo',
+        },
+      ],
+    },
+  ],
+  publishedAt: '2022-12-18T06:38:48.487Z',
 }

@@ -14,12 +14,18 @@ const BlogDetail: FC<IBlog> = ({
   description,
   body,
   image,
-  // publishedAt,
-  // categories,
+  publishedAt,
+  categories,
 }) => {
   return (
     <BlogDetailWrapper aria-label={ARIA_LABEL.BLOG_DETAIL}>
-      <BlogDetailHeader title={title} description={description} image={image} />
+      <BlogDetailHeader
+        title={title}
+        description={description}
+        image={image}
+        categories={categories}
+        publishedAt={publishedAt}
+      />
       <BlogBody body={body} />
     </BlogDetailWrapper>
   )

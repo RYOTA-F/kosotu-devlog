@@ -6,3 +6,5 @@ export const BLOG_DETAIL = {
 export const ARIA_LABEL = {
   BLOG_DETAIL_HEADER: 'blogDetailHeader',
 } as const
+
+export const TIME_ICON_SIZE = 12 as const
