@@ -2,6 +2,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 /* Components */
 import { TimeSvg } from '@/components/atoms/Svg'
+import CategoryList from '@/components/presentationals/CategoryList'
 /* Const */
 import { BLOG_DETAIL, ARIA_LABEL, TIME_ICON_SIZE } from './const'
 /* Styles */
@@ -42,9 +43,7 @@ const BlogDetailHeader: FC<TBlogDetailHeader> = ({
       <Title>{title}</Title>
 
       <DataWrapper>
-        {categories.map((v) => (
-          <span key={v.id}>{v.name}</span>
-        ))}
+        <CategoryList categories={categories} />
         <DateWrapper>
           <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
           <Date dateTime={publishedAt}>{publishedAt.slice(0, 10)}</Date>

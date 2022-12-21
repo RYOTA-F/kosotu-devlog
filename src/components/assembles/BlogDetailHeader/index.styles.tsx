@@ -19,11 +19,13 @@ export const DateWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: ${SIZE.SPACE.X32};
+  margin-bottom: ${SIZE.SPACE.X4};
 `
+
 export const Date = styled.time`
   margin-left: ${SIZE.SPACE.X4};
   color: ${COLOR.GRAY_SCALE.GRAY.TEXT_3};
-  font-size: ${SIZE.FONT.X10};
+  font-size: ${SIZE.FONT.X16};
 `
 
 export const ImageWrapper = styled.figure`
