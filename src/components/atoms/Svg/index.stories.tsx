@@ -1,19 +1,24 @@
+import { FC } from 'react'
 import { Story } from '@storybook/react'
 
-import TimeSvg from './TimeSvg'
+import { TimeSvg } from './'
+import { defaultProps } from './__mocks__'
 import { ISvgDefaultProps } from './types'
 
-const defaultProps: ISvgDefaultProps = {
-  width: 40,
-  height: 40,
+const Svg: FC<ISvgDefaultProps> = ({ width, height }) => {
+  return (
+    <>
+      <TimeSvg width={width} height={height} />
+    </>
+  )
 }
 
 export default {
   title: 'Atoms/Svg',
-  component: TimeSvg,
+  component: Svg,
 }
 
-const Template: Story<ISvgDefaultProps> = (args) => <TimeSvg {...args} />
+const Template: Story<ISvgDefaultProps> = (args) => <Svg {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = defaultProps
