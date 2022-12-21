@@ -1,4 +1,4 @@
-import { TBlogDetailHeader } from '../'
+import { TBlogDetailHeader } from '..'
 
 export const defaultProps: TBlogDetailHeader = {
   title: 'Golangフレームワーク【Echo】を使ってみた',

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 /* Components */
-import BlogDetailHeader from '@/components/presentationals/BlogDetailHeader'
+import BlogDetailHeader from '@/components/assembles/BlogDetailHeader'
 import BlogBody from '@/components/presentationals/BlogBody'
 /* Const */
 import { ARIA_LABEL } from './const'

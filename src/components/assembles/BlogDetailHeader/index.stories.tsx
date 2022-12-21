@@ -5,7 +5,7 @@ import BlogDetailHeader, { TBlogDetailHeader } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Presentationals/BlogDetailHeader',
+  title: 'Assembles/BlogDetailHeader',
   component: BlogDetailHeader,
 }
 
