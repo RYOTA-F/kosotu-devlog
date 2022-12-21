@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react'
 
-import CategoryItem from '.'
+import CategoryItem, { ICategoryItem } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
@@ -8,6 +8,7 @@ export default {
   component: CategoryItem,
 }
 
-const Template: Story = () => <CategoryItem {...defaultProps} />
+const Template: Story<ICategoryItem> = (args) => <CategoryItem {...args} />
 
 export const Normal = Template.bind({})
+Normal.args = defaultProps

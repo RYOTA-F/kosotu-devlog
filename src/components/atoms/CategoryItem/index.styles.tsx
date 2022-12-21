@@ -9,7 +9,6 @@ export const CategoryItemWrapper = styled.div`
   overflow: hidden;
   background-color: ${COLOR.BLUE_GROUP.MAIN};
   border-radius: 5px;
-  font-weight: bold;
 
   a {
     text-decoration: none;

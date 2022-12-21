@@ -7,12 +7,16 @@ import { CategoryItemWrapper } from './index.styles'
 /* Types */
 import { IBlogCaterory } from '@/types/index'
 
-export const ARIA_LABEL = 'categoryItem'
+export const ARIA_LABEL = 'categoryItem' as const
 
-const CategoryItem: FC<IBlogCaterory> = ({ id, name }) => {
+export interface ICategoryItem {
+  category: IBlogCaterory
+}
+
+const CategoryItem: FC<ICategoryItem> = ({ category }) => {
   return (
     <CategoryItemWrapper aria-label={ARIA_LABEL}>
-      <Link href={`${PAGE.CATEGORIES}/${id}`}>{name}</Link>
+      <Link href={`${PAGE.CATEGORIES}/${category.id}`}>{category.name}</Link>
     </CategoryItemWrapper>
   )
 }
