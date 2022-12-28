@@ -1,17 +1,10 @@
 import { FC } from 'react'
 /* Components */
-import { H4 } from '@/components/atoms/Heading'
+import { H1, H4 } from '@/components/atoms/Heading'
 /* Const */
 import { DISCLAIMER, ARIA_LABEL } from './const'
 /* Styles */
-import {
-  Wrapper,
-  H1,
-  Description,
-  Content,
-  List,
-  ListItem,
-} from './index.styles'
+import { Wrapper, Description, Content, List, ListItem } from './index.styles'
 
 const Disclaimer: FC = () => {
   return (

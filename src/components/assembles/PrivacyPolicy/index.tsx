@@ -1,12 +1,11 @@
 import { FC } from 'react'
 /* Components */
-import { H4 } from '@/components/atoms/Heading'
+import { H1, H4 } from '@/components/atoms/Heading'
 /* Const */
 import { PRIVACY_POLICY, ARIA_LABEL } from './const'
 /* Styles */
 import {
   Wrapper,
-  H1,
   Description,
   Content,
   List,

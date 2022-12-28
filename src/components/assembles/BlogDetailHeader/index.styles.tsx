@@ -5,7 +5,7 @@ import { COLOR, SIZE } from '@/const/index'
 export const BlogDetailHeaderWrapper = styled.section``
 
 export const Title = styled.h1`
-  color: ${COLOR.GRAY_SCALE.GRAY.TEXT_3};
+  color: ${COLOR.GRAY_SCALE.GRAY.TEXT_1};
   font-size: ${SIZE.FONT.X24};
 `
 
