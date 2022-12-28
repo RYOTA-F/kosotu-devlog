@@ -5,10 +5,10 @@ export const GROBAL_MENU = {
     LABEL: 'プロフィール',
     URL: PAGE.PROFILE,
   },
-  SITE_MAP: {
-    LABEL: 'サイトマップ',
-    URL: PAGE.SITE_MAP,
-  },
+  // SITE_MAP: {
+  //   LABEL: 'サイトマップ',
+  //   URL: PAGE.SITE_MAP,
+  // },
 } as const
 
 export const SUB_MENU = {
