@@ -1,3 +1,1 @@
-export const defaultProps = {
-  children: 'テスト',
-}
+export const defaultProps = 'テスト'
