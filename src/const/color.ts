@@ -8,12 +8,14 @@ const GRAY_SCALE = {
     TEXT_3: '#808080',
     TEXT_4: '#63707b',
     BORDER_1: '#e2e2e2',
+    H4: '#f7f7f7',
   },
 } as const
 
 const BLUE_GROUP = {
   MAIN: '#709dd8',
   SUB: '#a4cafe',
+  LINK: '#1176d4',
 } as const
 
 const YELLOW_GROUP = {
