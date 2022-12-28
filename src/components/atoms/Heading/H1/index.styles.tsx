@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import { COLOR, SIZE } from '@/const/index'
 
 export const Wrapper = styled.h1`
+  margin-bottom: ${SIZE.SPACE.X60};
   padding-left: ${SIZE.SPACE.X16};
   color: ${COLOR.GRAY_SCALE.GRAY.TEXT_1};
   font-size: ${SIZE.FONT.X24};
