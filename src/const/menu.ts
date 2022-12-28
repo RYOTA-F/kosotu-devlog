@@ -17,8 +17,8 @@ export const SUB_MENU = {
     URL: PAGE.PRIVACY_POLICY,
   },
   TERMS_OF_SERVICE: {
-    LABEL: '利用規約',
-    URL: PAGE.TERMS_OF_SERVICE,
+    LABEL: '免責事項',
+    URL: PAGE.DISCLAIMER,
   },
 } as const
 
