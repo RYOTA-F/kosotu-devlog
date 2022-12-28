@@ -8,7 +8,9 @@ export const MainWrapper = styled.div`
   padding: ${SIZE.SPACE.X60} 10%;
 `
 
-export const Main = styled.main``
+export const Main = styled.main`
+  width: 100%;
+`
 
 export const Aside = styled.aside`
   margin-left: ${SIZE.SPACE.X24};

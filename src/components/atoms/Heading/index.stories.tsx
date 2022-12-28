@@ -4,7 +4,7 @@ import { H4 } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Presentationals/H4',
+  title: 'Atoms/Heading',
   component: H4,
 }
 

@@ -1,6 +1,7 @@
 const GRAY_SCALE = {
   WHITE: '#fff',
   BLACK: '#333333',
+  SUB: '#5e6c77',
   GRAY: {
     TEXT_1: '#5e6c77',
     TEXT_2: '#7E8992',
@@ -14,6 +15,7 @@ const GRAY_SCALE = {
 const BLUE_GROUP = {
   MAIN: '#709dd8',
   SUB: '#a4cafe',
+  LINK: '#1176d4',
 } as const
 
 const YELLOW_GROUP = {
