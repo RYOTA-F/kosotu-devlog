@@ -20,6 +20,7 @@ export interface IBlog {
   publishedAt: string
   revisedAt: string
   categories: IBlogCaterory[]
+  oldPublishedAt?: string
 }
 
 export interface IBlogImage {

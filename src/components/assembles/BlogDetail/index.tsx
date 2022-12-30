@@ -15,6 +15,7 @@ const BlogDetail: FC<IBlog> = ({
   body,
   image,
   publishedAt,
+  oldPublishedAt,
   categories,
 }) => {
   return (
@@ -24,7 +25,7 @@ const BlogDetail: FC<IBlog> = ({
         description={description}
         image={image}
         categories={categories}
-        publishedAt={publishedAt}
+        publishedAt={oldPublishedAt ? oldPublishedAt : publishedAt}
       />
       <BlogBody body={body} />
     </BlogDetailWrapper>
