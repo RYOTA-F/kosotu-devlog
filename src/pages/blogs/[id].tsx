@@ -1,7 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import cheerio from 'cheerio'
 import hljs from 'highlight.js'
-import 'highlight.js/styles/base16/monokai.css'
+import 'highlight.js/styles/base16/edge-dark.css'
 /* Lib */
 import { client } from '@/lib/microCMS'
 /* Components */
