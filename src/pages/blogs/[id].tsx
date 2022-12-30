@@ -79,6 +79,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         createdAt: contents[0].createdAt,
         updatedAt: contents[0].updatedAt,
         publishedAt: contents[0].publishedAt,
+        oldPublishedAt: contents[0].oldPublishedAt,
         revisedAt: contents[0].revisedAt,
         categories: contents[0].categories,
       },
