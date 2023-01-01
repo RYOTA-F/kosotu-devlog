@@ -72,9 +72,11 @@ const BlogDetailHeader: FC<TBlogDetailHeader> = ({
         <WelcomeMessageDescription>{description}</WelcomeMessageDescription>
       </WelcomeMessageWrapper>
 
-      <TableOfContentsWrapper>
-        <TableOfContents tableOfContents={tableOfContents} />
-      </TableOfContentsWrapper>
+      {tableOfContents.length && (
+        <TableOfContentsWrapper>
+          <TableOfContents tableOfContents={tableOfContents} />
+        </TableOfContentsWrapper>
+      )}
     </BlogDetailHeaderWrapper>
   )
 }
