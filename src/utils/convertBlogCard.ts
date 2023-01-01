@@ -7,6 +7,8 @@ export const convertBlogCardData = (
   body: IBlog['body'],
   blogCardData: IBlogCardData[]
 ) => {
+  if (!blogCardData.length) return body
+
   let convertAfterBody = body
 
   for (let i = 0; i < blogCardData.length; i++) {
