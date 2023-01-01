@@ -20,10 +20,12 @@
       "@/src/*": ["*"],
       "@/components/*": ["components/*"],
       "@/const/*": ["const/*"],
+      "@/hooks/*": ["hooks/*"],
       "@/lib/*": ["lib/*"],
       "@/layouts/*": ["components/layouts/*"],
       "@/sections/*": ["components/sections/*"],
-      "@/types/*": ["types/*"]
+      "@/types/*": ["types/*"],
+      "@/utils/*": ["utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

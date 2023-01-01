@@ -4,10 +4,10 @@ import 'highlight.js/styles/base16/edge-dark.css'
 import { ARIA_LABEL } from './const'
 /* Styles */
 import { BlogBodyWrapper } from './index.styles'
+/* Types */
+import { IBlog } from '@/types/index'
 
-export interface IBlogBody {
-  body: string
-}
+export type IBlogBody = Pick<IBlog, 'body'>
 
 const BlogBody: FC<IBlogBody> = ({ body }) => {
   return (

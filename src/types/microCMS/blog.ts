@@ -9,6 +9,13 @@ export interface IBlogDetailApiResponse {
   contents: IBlog[]
 }
 
+export interface IBlogCardData {
+  title: string
+  description: string
+  image: string
+  url: string
+}
+
 export interface IBlog {
   id: string
   title: string
