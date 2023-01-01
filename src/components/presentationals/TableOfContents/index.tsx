@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { Link } from 'react-scroll' // eslint-disable-line import/named
 /* Components */
 import { ListSvg } from '@/components/atoms/Svg'
 /* Const */
@@ -11,10 +12,10 @@ import {
   List,
   ListH2,
   ListH3,
-  ListLink,
+  LinkText,
 } from './index.styles'
 /* Types */
-import { IBlog } from '@/types/index'
+import { IBlog, IBlogTableOfContents } from '@/types/index'
 
 export interface ITableOfContents {
   tableOfContents: IBlog['tableOfContents']
@@ -32,22 +33,25 @@ const TableOfContents: FC<ITableOfContents> = ({ tableOfContents }) => {
       <List>
         {tableOfContents.map((v) => {
           if (v.type === TOC.H2)
-            return (
-              <ListH2 key={v.id}>
-                <ListLink href={`#${v.id}`}>{v.text}</ListLink>
-              </ListH2>
-            )
+            return <ListH2 key={v.id}>{LinkItem(v)}</ListH2>
           if (v.type === TOC.H3)
-            return (
-              <ListH3 key={v.id}>
-                <ListLink href={`#${v.id}`}>{v.text}</ListLink>
-              </ListH3>
-            )
+            return <ListH3 key={v.id}>{LinkItem(v)}</ListH3>
         })}
       </List>
     </Wrapper>
   )
 }
+
+const LinkItem = (item: IBlogTableOfContents) => (
+  <Link
+    to={item.id}
+    smooth={TOC.LINK.SMOOTH}
+    duration={TOC.LINK.DURATION}
+    offset={TOC.LINK.OFFSET}
+  >
+    <LinkText>{item.text}</LinkText>
+  </Link>
+)
 
 export default TableOfContents
 export * from './const'

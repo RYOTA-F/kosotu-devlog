@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   })
 
   // 投稿本文をパース
-  const body = perseBlogBody(contents[0].body)
+  const { body, tableOfContents } = perseBlogBody(contents[0].body)
   // ブログカード情報を取得
   const blogCardData = await getBlogCardDatas(contents[0].body)
   // リンクをブログカードに変換
@@ -81,6 +81,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
           : '',
         revisedAt: contents[0].revisedAt,
         categories: contents[0].categories,
+        tableOfContents: tableOfContents,
       },
     },
   }

@@ -2,7 +2,11 @@
 import cheerio from 'cheerio'
 import hljs from 'highlight.js'
 /* Types */
-import { IBlog, IBlogCardData } from '@/types/microCMS/blog'
+import {
+  IBlog,
+  IBlogCardData,
+  IBlogTableOfContents,
+} from '@/types/microCMS/blog'
 
 /**
  * 投稿本文をパース
@@ -10,14 +14,23 @@ import { IBlog, IBlogCardData } from '@/types/microCMS/blog'
 export const perseBlogBody = (contents: IBlog['body']) => {
   const $ = cheerio.load(contents, { _useHtmlParser2: true })
 
-  // pre > code タグをパース
+  // コードブロックをパース
   $('pre code').each((_, element) => {
     const result = hljs.highlightAuto($(element).text())
     $(element).html(result.value)
     $(element).addClass('hljs')
   })
 
-  return $.html()
+  // 目次を取得
+  const tableOfContents: IBlogTableOfContents[] = $('h2, h3')
+    .toArray()
+    .map((element: cheerio.Element) => ({
+      id: element.attribs.id,
+      text: element.children[0].data,
+      type: element.name,
+    }))
+
+  return { body: $.html(), tableOfContents }
 }
 
 /**

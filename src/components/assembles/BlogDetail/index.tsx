@@ -17,6 +17,7 @@ const BlogDetail: FC<IBlog> = ({
   publishedAt,
   oldPublishedAt,
   categories,
+  tableOfContents,
 }) => {
   return (
     <BlogDetailWrapper aria-label={ARIA_LABEL.BLOG_DETAIL}>
@@ -26,6 +27,7 @@ const BlogDetail: FC<IBlog> = ({
         image={image}
         categories={categories}
         publishedAt={oldPublishedAt ? oldPublishedAt : publishedAt}
+        tableOfContents={tableOfContents}
       />
       <BlogBody body={body} />
     </BlogDetailWrapper>

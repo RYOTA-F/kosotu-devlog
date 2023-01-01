@@ -47,12 +47,11 @@ export const ListItem = styled.li`
   }
 `
 
-export const ListLink = styled.a`
-  color: ${COLOR.GRAY_SCALE.GRAY.TEXT_1};
-  text-decoration: none;
-
+export const LinkText = styled.span`
   :hover {
+    cursor: pointer;
     opacity: 0.6;
+    text-decoration: underline;
   }
 `
 
