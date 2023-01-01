@@ -77,7 +77,9 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
           }
           return metaData
         })
-        .catch((_) => null)
+        .catch((e) => {
+          return e as Error
+        })
       return metas
     })
   )
