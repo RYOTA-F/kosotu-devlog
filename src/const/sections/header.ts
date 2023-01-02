@@ -1,3 +1,3 @@
 export const HEADER = {
-  HEIGHT: 80,
+  HEIGHT: 72,
 } as const

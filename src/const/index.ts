@@ -5,5 +5,6 @@ export * from './menu'
 export * from './page'
 export * from './site'
 export * from './size'
+export * from './twitter'
 /* Sections */
 export * from './sections/header'
