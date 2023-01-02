@@ -73,3 +73,7 @@ export const DescriptionItem = styled.li`
 export const ButtonWrapper = styled.div`
   margin-top: ${SIZE.SPACE.X20};
 `
+
+export const IconWrapper = styled.div`
+  margin-top: ${SIZE.SPACE.X20};
+`

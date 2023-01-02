@@ -1,3 +1,6 @@
+/* Const */
+import { COLOR } from '@/const/index'
+
 export const ARIA_LABEL = {
   PROFILE: 'profile',
 } as const
@@ -29,3 +32,9 @@ export const DESCRIPTION = [
     ITEMS: ['TSLab 運営', 'Developers Guild 運営'],
   },
 ] as const
+
+export const ICON = {
+  COLOR: COLOR.GRAY_SCALE.GRAY.TEXT_1,
+  HEIGHT: 14,
+  WIDTH: 14,
+} as const
