@@ -3,6 +3,7 @@ import Image from 'next/image'
 /* Components */
 import { TimeSvg } from '@/components/atoms/Svg'
 import CategoryList from '@/components/presentationals/CategoryList'
+import TableOfContents from '@/components/presentationals/TableOfContents'
 /* Const */
 import { BLOG_DETAIL, ARIA_LABEL, TIME_ICON_SIZE } from './const'
 /* Styles */
@@ -16,6 +17,7 @@ import {
   WelcomeMessageWrapper,
   WelcomeMessage,
   WelcomeMessageDescription,
+  TableOfContentsWrapper,
 } from './index.styles'
 /* Types */
 import { IBlog } from '@/types/index'
@@ -28,7 +30,12 @@ const IMAGE = {
 
 export type TBlogDetailHeader = Pick<
   IBlog,
-  'title' | 'description' | 'image' | 'publishedAt' | 'categories'
+  | 'title'
+  | 'description'
+  | 'image'
+  | 'publishedAt'
+  | 'categories'
+  | 'tableOfContents'
 >
 
 const BlogDetailHeader: FC<TBlogDetailHeader> = ({
@@ -37,6 +44,7 @@ const BlogDetailHeader: FC<TBlogDetailHeader> = ({
   image,
   publishedAt,
   categories,
+  tableOfContents,
 }) => {
   return (
     <BlogDetailHeaderWrapper aria-label={ARIA_LABEL.BLOG_DETAIL_HEADER}>
@@ -63,6 +71,12 @@ const BlogDetailHeader: FC<TBlogDetailHeader> = ({
         <WelcomeMessage>{BLOG_DETAIL.THANKS_MESSAGE}</WelcomeMessage>
         <WelcomeMessageDescription>{description}</WelcomeMessageDescription>
       </WelcomeMessageWrapper>
+
+      {tableOfContents.length && (
+        <TableOfContentsWrapper>
+          <TableOfContents tableOfContents={tableOfContents} />
+        </TableOfContentsWrapper>
+      )}
     </BlogDetailHeaderWrapper>
   )
 }

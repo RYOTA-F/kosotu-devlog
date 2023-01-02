@@ -1,9 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import cheerio from 'cheerio'
-import hljs from 'highlight.js'
-import 'highlight.js/styles/base16/monokai.css'
 /* Lib */
 import { client } from '@/lib/microCMS'
+import { perseBlogBody, getBlogCardDatas, perseLink } from '@/lib/cheerio'
 /* Components */
 import BlogDetail from '@/components/assembles/BlogDetail'
 /* Const */
@@ -58,15 +56,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     queries: { ids: id },
   })
 
-  // HTMLをパース
-  const $ = cheerio.load(contents[0].body, { _useHtmlParser2: true })
-
-  // pre > code タグをパース
-  $('pre code').each((_, element) => {
-    const result = hljs.highlightAuto($(element).text())
-    $(element).html(result.value)
-    $(element).addClass('hljs')
-  })
+  // 投稿本文をパース
+  const { body, tableOfContents } = perseBlogBody(contents[0].body)
+  // ブログカード情報を取得
+  const blogCardData = await getBlogCardDatas(contents[0].body)
+  // リンクをパース
+  const convertLinkBody = perseLink(body, blogCardData)
 
   return {
     props: {
@@ -74,7 +69,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         id: contents[0].id,
         title: contents[0].title,
         description: contents[0].description,
-        body: $.html(),
+        body: convertLinkBody,
         image: contents[0].image,
         createdAt: contents[0].createdAt,
         updatedAt: contents[0].updatedAt,
@@ -84,6 +79,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
           : '',
         revisedAt: contents[0].revisedAt,
         categories: contents[0].categories,
+        tableOfContents: tableOfContents,
       },
     },
   }
