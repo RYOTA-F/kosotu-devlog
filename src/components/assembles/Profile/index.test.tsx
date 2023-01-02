@@ -12,4 +12,11 @@ describe('Profile', () => {
     const profileElement = screen.getByLabelText(ARIA_LABEL.PROFILE)
     expect(profileElement).toBeInTheDocument()
   })
+
+  test.todo('概要')
+  test.todo('目的')
+  test.todo('技術スタック')
+  test.todo('フロントエンド')
+  test.todo('バックエンド')
+  test.todo('インフラ')
 })

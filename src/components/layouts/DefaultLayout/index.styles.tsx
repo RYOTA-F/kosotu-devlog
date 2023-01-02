@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 /* Const */
-import { SIZE } from '@/src/const'
+import { SIZE } from '@/const/index'
 
 export const MainWrapper = styled.div`
   display: flex;

@@ -13,4 +13,6 @@ describe('CategoryList', () => {
     const categoryListElement = screen.getByLabelText(ARIA_LABEL)
     expect(categoryListElement).toBeInTheDocument()
   })
+
+  test.todo('categories の数だけ CategoryItem が描画される')
 })

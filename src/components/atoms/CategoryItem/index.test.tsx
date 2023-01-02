@@ -13,4 +13,6 @@ describe('CategoryItem', () => {
     const categoryItemElement = screen.getByLabelText(ARIA_LABEL)
     expect(categoryItemElement).toBeInTheDocument()
   })
+
+  test.todo('Link をクリックすると カテゴリページに遷移する')
 })

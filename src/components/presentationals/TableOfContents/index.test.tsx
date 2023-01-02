@@ -13,4 +13,8 @@ describe('TableOfContents', () => {
     const tableOfContentsElement = screen.getByLabelText(ARIA_LABEL)
     expect(tableOfContentsElement).toBeInTheDocument()
   })
+
+  test.todo('リンククリック')
+  test.todo('H2スタイル')
+  test.todo('H3スタイル')
 })
