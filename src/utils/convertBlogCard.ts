@@ -25,7 +25,7 @@ export const convertBlogCardData = (
  * 変換前のaタグを取得
  */
 const getConvertBeforeLinkTag = (url: string) => {
-  return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a><br>`
+  return `<br><a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a><br>`
 }
 
 /**
@@ -34,21 +34,6 @@ const getConvertBeforeLinkTag = (url: string) => {
 const getConvertAfterLinkTag = (blogCardData: IBlogCardData) => {
   const baseClassName = 'blogCard'
 
-  return `
-  <a href="${
-    blogCardData.url
-  }" target="_blank" rel="noopener noreferrer" class="${baseClassName}">
-    <img src="${blogCardData.image}" class="${baseClassName}__img" />
-    <div class="${baseClassName}__content">
-      <p class="${baseClassName}__title">
-        ${blogCardData.title}
-      </p>
-      ${
-        blogCardData.description
-          ? `<span class="${baseClassName}__description">${blogCardData.description}</span>`
-          : `<span class="${baseClassName}__description"></span>`
-      }
-    </div>
-  </a>
-`
+  // prettier-ignore
+  return `<a href="${blogCardData.url}" target="_blank" rel="noopener noreferrer" class="${baseClassName}"><img src="${blogCardData.image}" class="${baseClassName}__img" /><div class="${baseClassName}__content"><p class="${baseClassName}__title">${blogCardData.title}</p>${blogCardData.description? `<span class="${baseClassName}__description">${blogCardData.description}</span>`: `<span class="${baseClassName}__description"></span>`}</div></a>`
 }

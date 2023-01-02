@@ -5,9 +5,11 @@ import { COLOR, SIZE } from '@/const/index'
 export const blogCard = css`
   .blogCard {
     display: flex;
-    padding: ${SIZE.SPACE.X24};
+    justify-content: center;
+    padding: ${SIZE.SPACE.X12};
     border-radius: 2px;
     box-shadow: 0 1px 3px 1px rgb(0 0 0 / 8%);
+    color: ${COLOR.BLUE_GROUP.MAIN};
 
     &__img {
       width: 20%;

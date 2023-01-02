@@ -1,15 +1,13 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Lib */
 import { client } from '@/lib/microCMS'
-import { perseBlogBody, getBlogCardDatas } from '@/lib/cheerio'
+import { perseBlogBody, getBlogCardDatas, perseLink } from '@/lib/cheerio'
 /* Components */
 import BlogDetail from '@/components/assembles/BlogDetail'
 /* Const */
 import { API, PAGE } from '@/const/index'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
-/* Utils */
-import { convertBlogCardData } from '@/utils/convertBlogCard'
 /* Types */
 import { IBlog, IBlogsApiResponse, IBlogDetailApiResponse } from '@/types/index'
 
@@ -62,8 +60,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { body, tableOfContents } = perseBlogBody(contents[0].body)
   // ブログカード情報を取得
   const blogCardData = await getBlogCardDatas(contents[0].body)
-  // リンクをブログカードに変換
-  const convertLinkTagBody = convertBlogCardData(body, blogCardData)
+  // リンクをパース
+  const convertLinkBody = perseLink(body, blogCardData)
 
   return {
     props: {
@@ -71,7 +69,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         id: contents[0].id,
         title: contents[0].title,
         description: contents[0].description,
-        body: convertLinkTagBody,
+        body: convertLinkBody,
         image: contents[0].image,
         createdAt: contents[0].createdAt,
         updatedAt: contents[0].updatedAt,

@@ -53,11 +53,9 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
 
   const temps = await Promise.all(
     convertLinks.map(async (link) => {
-      //fetchでurl先のhtmlデータを取得
       const metas = await fetch(link.url as string)
         .then((res) => res.text())
         .then((text) => {
-          //各サイトのmetaタグの情報をすべてmetasの配列に
           const $ = cheerio.load(text)
           const metas = $('meta').toArray()
           const metaData: IBlogCardData = {
@@ -66,7 +64,6 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
             description: '',
             image: '',
           }
-          //各サイトのmeta情報で、title,description,imageのurlだけ取り出す
           for (let i = 0; i < metas.length; i++) {
             if (metas[i].attribs?.property === 'og:title')
               metaData.title = metas[i].attribs.content
@@ -85,4 +82,21 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
   )
 
   return temps.filter((temp) => temp !== undefined) as IBlogCardData[]
+}
+
+/**
+ * aタグをパース
+ */
+export const perseLink = (
+  contents: IBlog['body'],
+  blogCardData: IBlogCardData[]
+) => {
+  const $ = cheerio.load(contents, { _useHtmlParser2: true })
+
+  $('a').each((i, element) => {
+    $(element).text(blogCardData[i].title)
+    $(element).addClass('blogCard')
+  })
+
+  return $.html()
 }
