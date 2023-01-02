@@ -27,7 +27,7 @@ const BlogCardList: FC<IBlogCardList> = ({ contents }) => {
               title={v.title}
               url={`${PAGE.BLOGS}/${v.id}`}
               image={v.image}
-              publishedAt={v.publishedAt}
+              publishedAt={v.oldPublishedAt ? v.oldPublishedAt : v.publishedAt}
             />
           </BlogCardWrapper>
         ))}

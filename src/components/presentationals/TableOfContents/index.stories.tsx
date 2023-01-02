@@ -1,17 +1,16 @@
 import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
-
-import BlogBody, { IBlogBody } from './'
+import TableOfContents, { ITableOfContents } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Presentationals/BlogBody',
-  component: BlogBody,
+  title: 'Presentationals/TableOfContents',
+  component: TableOfContents,
 }
 
-const Template: Story<IBlogBody> = (args) => (
+const Template: Story<ITableOfContents> = (args) => (
   <Container>
-    <BlogBody {...args} />
+    <TableOfContents {...args} />
   </Container>
 )
 

@@ -9,6 +9,19 @@ export interface IBlogDetailApiResponse {
   contents: IBlog[]
 }
 
+export interface IBlogCardData {
+  title: string
+  description: string
+  image: string
+  url: string
+}
+
+export interface IBlogTableOfContents {
+  id: string
+  text: string
+  type: string
+}
+
 export interface IBlog {
   id: string
   title: string
@@ -20,6 +33,8 @@ export interface IBlog {
   publishedAt: string
   revisedAt: string
   categories: IBlogCaterory[]
+  oldPublishedAt?: string
+  tableOfContents: IBlogTableOfContents[]
 }
 
 export interface IBlogImage {

@@ -11,6 +11,7 @@ export const CategoryItemWrapper = styled.div`
   border-radius: 5px;
   border: 1px solid transparent;
   box-sizing: border-box;
+  font-size: ${SIZE.FONT.X14};
   transition: 0.4s;
 
   a {

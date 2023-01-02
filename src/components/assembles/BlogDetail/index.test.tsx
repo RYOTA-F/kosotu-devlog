@@ -2,11 +2,11 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import BlogDetail, { ARIA_LABEL } from '.'
-import { defaultProps } from '@/components/assembles/BlogCardList/__mocks__'
+import { defaultProps } from './__mocks__'
 
 describe('BlogDetail', () => {
   beforeEach(() => {
-    render(<BlogDetail {...defaultProps.contents[0]} />)
+    render(<BlogDetail {...defaultProps} />)
   })
 
   test('描画される', () => {

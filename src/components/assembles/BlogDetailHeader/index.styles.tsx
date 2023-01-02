@@ -47,3 +47,8 @@ export const WelcomeMessageDescription = styled.p`
   white-space: pre-wrap;
   line-height: 2.2;
 `
+
+export const TableOfContentsWrapper = styled.div`
+  width: 90%;
+  margin: ${SIZE.SPACE.X32} auto;
+`
