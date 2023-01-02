@@ -1,7 +1,14 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import { TimeSvg, TIME_SVG_ARIA_LABEL, ListSvg, LIST_SVG_ARIA_LABEL } from '.'
+import {
+  TimeSvg,
+  TIME_SVG_ARIA_LABEL,
+  ListSvg,
+  LIST_SVG_ARIA_LABEL,
+  TwitterSvg,
+  TWITTER_SVG_ARIA_LABEL,
+} from '.'
 import { defaultProps } from './__mocks__'
 
 describe('Svg', () => {
@@ -20,6 +27,15 @@ describe('Svg', () => {
 
       const listSvgElement = screen.getByLabelText(LIST_SVG_ARIA_LABEL)
       expect(listSvgElement).toBeInTheDocument()
+    })
+  })
+
+  describe('TwitterSvg', () => {
+    test('描画される', () => {
+      render(<TwitterSvg {...defaultProps} />)
+
+      const twitterSvgElement = screen.getByLabelText(TWITTER_SVG_ARIA_LABEL)
+      expect(twitterSvgElement).toBeInTheDocument()
     })
   })
 })

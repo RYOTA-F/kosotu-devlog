@@ -1,7 +1,11 @@
 import { ReactNode } from 'react'
 import { Story } from '@storybook/react'
 
-import { TimeSvg as _TimeSvg, ListSvg as _ListSvg } from './'
+import {
+  TimeSvg as _TimeSvg,
+  ListSvg as _ListSvg,
+  TwitterSvg as _TwitterSvg,
+} from './'
 import { defaultProps } from './__mocks__'
 
 const Svg = ({ children }: { children: ReactNode }) => <>{children}</>
@@ -18,3 +22,6 @@ TimeSvg.args = { children: <_TimeSvg {...defaultProps} /> }
 
 export const ListSvg = Template.bind({})
 ListSvg.args = { children: <_ListSvg {...defaultProps} /> }
+
+export const TwitterSvg = Template.bind({})
+TwitterSvg.args = { children: <_TwitterSvg {...defaultProps} /> }
