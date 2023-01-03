@@ -15,6 +15,10 @@ export const DataWrapper = styled.div`
   margin-top: ${SIZE.SPACE.X16};
 `
 
+export const TagListWrapper = styled.div`
+  margin-left: ${SIZE.SPACE.X20};
+`
+
 export const DateWrapper = styled.div`
   display: flex;
   align-items: center;

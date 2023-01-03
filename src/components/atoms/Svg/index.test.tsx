@@ -2,8 +2,12 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import {
+  FolderSvg,
+  FOLDER_SVG_ARIA_LABEL,
   HomeSvg,
   HOME_SVG_ARIA_LABEL,
+  TagSvg,
+  TAG_SVG_ARIA_LABEL,
   TimeSvg,
   TIME_SVG_ARIA_LABEL,
   ListSvg,
@@ -14,12 +18,30 @@ import {
 import { defaultProps } from './__mocks__'
 
 describe('Svg', () => {
+  describe('FolderSvg', () => {
+    test('描画される', () => {
+      render(<FolderSvg {...defaultProps} />)
+
+      const folderSvgElement = screen.getByLabelText(FOLDER_SVG_ARIA_LABEL)
+      expect(folderSvgElement).toBeInTheDocument()
+    })
+  })
+
   describe('HomeSvg', () => {
     test('描画される', () => {
       render(<HomeSvg {...defaultProps} />)
 
       const homeSvgElement = screen.getByLabelText(HOME_SVG_ARIA_LABEL)
       expect(homeSvgElement).toBeInTheDocument()
+    })
+  })
+
+  describe('TagSvg', () => {
+    test('描画される', () => {
+      render(<TagSvg {...defaultProps} />)
+
+      const tagSvgElement = screen.getByLabelText(TAG_SVG_ARIA_LABEL)
+      expect(tagSvgElement).toBeInTheDocument()
     })
   })
 

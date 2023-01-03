@@ -79,6 +79,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
           : '',
         revisedAt: contents[0].revisedAt,
         categories: contents[0].categories,
+        tags: contents[0].tags,
         tableOfContents,
         breadCrumb,
       },

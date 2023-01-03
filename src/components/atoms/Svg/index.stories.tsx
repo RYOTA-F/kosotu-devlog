@@ -2,7 +2,9 @@ import { ReactNode } from 'react'
 import { Story } from '@storybook/react'
 
 import {
+  FolderSvg as _FolderSvg,
   HomeSvg as _HomeSvg,
+  TagSvg as _TagSvg,
   TimeSvg as _TimeSvg,
   ListSvg as _ListSvg,
   TwitterSvg as _TwitterSvg,
@@ -18,8 +20,14 @@ export default {
 
 const Template: Story<{ children: ReactNode }> = (args) => <Svg {...args} />
 
+export const FolderSvg = Template.bind({})
+FolderSvg.args = { children: <_FolderSvg {...defaultProps} /> }
+
 export const HomeSvg = Template.bind({})
 HomeSvg.args = { children: <_HomeSvg {...defaultProps} /> }
+
+export const TagSvg = Template.bind({})
+TagSvg.args = { children: <_TagSvg {...defaultProps} /> }
 
 export const TimeSvg = Template.bind({})
 TimeSvg.args = { children: <_TimeSvg {...defaultProps} /> }
