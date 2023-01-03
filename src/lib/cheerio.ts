@@ -11,7 +11,10 @@ import {
 /**
  * 投稿本文をパース
  */
-export const perseBlogBody = (contents: IBlog['body']) => {
+export const perseBlogBody = (
+  contents: IBlog['body'],
+  blogCardData: IBlogCardData[]
+) => {
   const $ = cheerio.load(contents, { _useHtmlParser2: true })
 
   // コードブロックをパース
@@ -19,6 +22,11 @@ export const perseBlogBody = (contents: IBlog['body']) => {
     const result = hljs.highlightAuto($(element).text())
     $(element).html(result.value)
     $(element).addClass('hljs')
+  })
+
+  // リンクタグをパース
+  $('a').each((i, element) => {
+    $(element).replaceWith(getBlogCardDom(i, blogCardData))
   })
 
   // 目次を取得
@@ -85,35 +93,26 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
 }
 
 /**
- * aタグをパース
+ *  ブログカードのDOMを取得
  */
-export const perseLink = (
-  contents: IBlog['body'],
-  blogCardData: IBlogCardData[]
-) => {
+const getBlogCardDom = (index: number, blogCardData: IBlogCardData[]) => {
   const CLASS_NAME_BASE = 'blogCard' as const
   const NO_IMAGE_PATH = '/images/noimage.webp' as const
 
-  const $ = cheerio.load(contents, { _useHtmlParser2: true })
-
-  $('a').each((i, element) => {
-    // prettier-ignore
-    $(element).replaceWith(`
-      <a href="${blogCardData[i].url}" target="_blank" rel="noopener noreferrer" class="${CLASS_NAME_BASE}">
-        ${blogCardData[i].image
-          ? `<img src="${blogCardData[i].image}" class="${CLASS_NAME_BASE}__img" />`
-          : `<img src="${NO_IMAGE_PATH}" class="${CLASS_NAME_BASE}__img" />`}
-        <span class="${CLASS_NAME_BASE}__content">
-          <span class="${CLASS_NAME_BASE}__title">
-            ${blogCardData[i].title ? `${blogCardData[i].title}` : ''}
-          </span>
-          <span class="${CLASS_NAME_BASE}__description">
-            ${blogCardData[i].description ? `${blogCardData[i].description}` : ''}
-          </span>
+  // prettier-ignore
+  return `
+    <a href="${blogCardData[index].url}" target="_blank" rel="noopener noreferrer" class="${CLASS_NAME_BASE}">
+      ${blogCardData[index].image
+        ? `<img src="${blogCardData[index].image}" class="${CLASS_NAME_BASE}__img" />`
+        : `<img src="${NO_IMAGE_PATH}" class="${CLASS_NAME_BASE}__img" />`}
+      <span class="${CLASS_NAME_BASE}__content">
+        <span class="${CLASS_NAME_BASE}__title">
+          ${blogCardData[index].title ? `${blogCardData[index].title}` : ''}
         </span>
-      </a>
-    `)
-  })
-
-  return $.html()
+        <span class="${CLASS_NAME_BASE}__description">
+          ${blogCardData[index].description ? `${blogCardData[index].description}` : ''}
+        </span>
+      </span>
+    </a>
+  `
 }

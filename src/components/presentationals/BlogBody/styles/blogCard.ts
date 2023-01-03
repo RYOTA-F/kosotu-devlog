@@ -5,6 +5,7 @@ import { COLOR, SIZE } from '@/const/index'
 export const blogCard = css`
   .blogCard {
     display: flex;
+    align-items: center;
     padding: ${SIZE.SPACE.X24};
     border-radius: 2px;
     color: ${COLOR.BLUE_GROUP.MAIN};
@@ -44,8 +45,9 @@ export const blogCard = css`
       -webkit-line-clamp: 2;
       overflow: hidden;
       margin-top: ${SIZE.SPACE.X12};
-      color: ${COLOR.GRAY_SCALE.GRAY.TEXT_1};
-      line-height: 1.5;
+      color: ${COLOR.GRAY_SCALE.GRAY.TEXT_3};
+      font-size: ${SIZE.FONT.X14};
+      line-height: 1;
     }
   }
 `
