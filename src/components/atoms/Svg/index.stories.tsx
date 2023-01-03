@@ -3,6 +3,7 @@ import { Story } from '@storybook/react'
 
 import {
   HomeSvg as _HomeSvg,
+  TagSvg as _TagSvg,
   TimeSvg as _TimeSvg,
   ListSvg as _ListSvg,
   TwitterSvg as _TwitterSvg,
@@ -20,6 +21,9 @@ const Template: Story<{ children: ReactNode }> = (args) => <Svg {...args} />
 
 export const HomeSvg = Template.bind({})
 HomeSvg.args = { children: <_HomeSvg {...defaultProps} /> }
+
+export const TagSvg = Template.bind({})
+TagSvg.args = { children: <_TagSvg {...defaultProps} /> }
 
 export const TimeSvg = Template.bind({})
 TimeSvg.args = { children: <_TimeSvg {...defaultProps} /> }

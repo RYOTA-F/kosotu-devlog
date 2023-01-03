@@ -4,6 +4,8 @@ import '@testing-library/jest-dom/extend-expect'
 import {
   HomeSvg,
   HOME_SVG_ARIA_LABEL,
+  TagSvg,
+  TAG_SVG_ARIA_LABEL,
   TimeSvg,
   TIME_SVG_ARIA_LABEL,
   ListSvg,
@@ -20,6 +22,15 @@ describe('Svg', () => {
 
       const homeSvgElement = screen.getByLabelText(HOME_SVG_ARIA_LABEL)
       expect(homeSvgElement).toBeInTheDocument()
+    })
+  })
+
+  describe('TagSvg', () => {
+    test('描画される', () => {
+      render(<TagSvg {...defaultProps} />)
+
+      const tagSvgElement = screen.getByLabelText(TAG_SVG_ARIA_LABEL)
+      expect(tagSvgElement).toBeInTheDocument()
     })
   })
 
