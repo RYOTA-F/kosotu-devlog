@@ -5,8 +5,13 @@ export interface IBlogsApiResponse {
   limit: number
 }
 
+export type TBlogDetailApiResponseContents = Omit<
+  IBlog,
+  'tableOfContents' | 'breadCrumb'
+>
+
 export interface IBlogDetailApiResponse {
-  contents: IBlog[]
+  contents: TBlogDetailApiResponseContents[]
 }
 
 export interface IBlogCardData {
@@ -23,6 +28,14 @@ export interface IBlogTableOfContents {
   type: string
 }
 
+export interface IBlogBreadCrumb {
+  categoryParentId: string
+  categoryParentName: string
+  categoryChildId: string
+  categoryChildName: string
+  blogTitle: string
+}
+
 export interface IBlog {
   id: string
   title: string
@@ -36,6 +49,7 @@ export interface IBlog {
   categories: IBlogCaterory[]
   oldPublishedAt?: string
   tableOfContents: IBlogTableOfContents[]
+  breadCrumb: IBlogBreadCrumb
 }
 
 export interface IBlogImage {
@@ -51,6 +65,7 @@ export interface IBlogCaterory {
   publishedAt: string
   revisedAt: string
   name: string
+  parent: string[]
   posts: {
     id: string
   }[]
