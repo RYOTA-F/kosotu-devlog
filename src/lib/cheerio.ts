@@ -7,14 +7,13 @@ import {
   IBlogCardData,
   IBlogTableOfContents,
 } from '@/types/microCMS/blog'
+/* Utils */
+import { getBlogCardDom } from '@/utils/blogCard'
 
 /**
  * 投稿本文をパース
  */
-export const perseBlogBody = (
-  contents: IBlog['body'],
-  blogCardData: IBlogCardData[]
-) => {
+export const perseBlogBody = async (contents: IBlog['body']) => {
   const $ = cheerio.load(contents, { _useHtmlParser2: true })
 
   // コードブロックをパース
@@ -24,9 +23,11 @@ export const perseBlogBody = (
     $(element).addClass('hljs')
   })
 
-  // リンクタグをパース
+  // ブログカード情報を取得
+  const blogCardDatas = await getBlogCardDatas($.html())
+  // ブログカードにパース
   $('a').each((i, element) => {
-    $(element).replaceWith(getBlogCardDom(i, blogCardData))
+    $(element).replaceWith(getBlogCardDom(blogCardDatas[i]))
   })
 
   // 目次を取得
@@ -93,28 +94,4 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
   )
 
   return temps.filter((temp) => temp !== undefined) as IBlogCardData[]
-}
-
-/**
- *  ブログカードのDOMを取得
- */
-const getBlogCardDom = (index: number, blogCardData: IBlogCardData[]) => {
-  const CLASS_NAME_BASE = 'blogCard' as const
-  const NO_IMAGE_PATH = '/images/noimage.webp' as const
-
-  const image = `${blogCardData[index].image || NO_IMAGE_PATH}`
-  const title = `${blogCardData[index].title || ''}`
-  const description = `${blogCardData[index].description || ''}`
-  const site = `${blogCardData[index].site || ''}`
-
-  return `
-    <a href="${blogCardData[index].url}" target="_blank" rel="noopener noreferrer" class="${CLASS_NAME_BASE}">
-      <img src="${image}" class="${CLASS_NAME_BASE}__img" />
-      <span class="${CLASS_NAME_BASE}__content">
-        <span class="${CLASS_NAME_BASE}__title">${title}</span>
-        <span class="${CLASS_NAME_BASE}__description">${description}</span>
-      </span>
-      <span class="${CLASS_NAME_BASE}__site">${site}</span>
-    </a>
-  `
 }

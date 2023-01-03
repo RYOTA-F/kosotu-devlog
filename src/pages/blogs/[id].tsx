@@ -1,7 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Lib */
 import { client } from '@/lib/microCMS'
-import { perseBlogBody, getBlogCardDatas } from '@/lib/cheerio'
+import { perseBlogBody } from '@/lib/cheerio'
 /* Components */
 import BlogDetail from '@/components/assembles/BlogDetail'
 /* Const */
@@ -56,13 +56,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     queries: { ids: id },
   })
 
-  // ブログカード情報を取得
-  const blogCardData = await getBlogCardDatas(contents[0].body)
   // 投稿本文をパース
-  const { body, tableOfContents } = perseBlogBody(
-    contents[0].body,
-    blogCardData
-  )
+  const { body, tableOfContents } = await perseBlogBody(contents[0].body)
 
   return {
     props: {
