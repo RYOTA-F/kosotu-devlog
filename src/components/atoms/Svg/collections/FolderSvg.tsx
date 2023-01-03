@@ -10,6 +10,7 @@ const FolderSvg: FC<ISvgDefaultProps> = ({
   width = 50,
   height = 50,
   color = COLOR.GRAY_SCALE.GRAY.TEXT_3,
+  fill = COLOR.GRAY_SCALE.GRAY.TEXT_3,
 }) => {
   return (
     <svg
@@ -17,7 +18,7 @@ const FolderSvg: FC<ISvgDefaultProps> = ({
       width={width}
       height={height}
       viewBox="0 0 24 24"
-      fill="none"
+      fill={fill}
       stroke={color}
       strokeWidth="2.5"
       strokeLinecap="round"
