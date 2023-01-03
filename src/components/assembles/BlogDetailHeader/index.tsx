@@ -3,6 +3,7 @@ import Image from 'next/image'
 /* Components */
 import { TimeSvg } from '@/components/atoms/Svg'
 import CategoryList from '@/components/presentationals/CategoryList'
+import TagList from '@/components/presentationals/TagList'
 import TableOfContents from '@/components/presentationals/TableOfContents'
 /* Const */
 import { BLOG_DETAIL, ARIA_LABEL, TIME_ICON_SIZE } from './const'
@@ -11,6 +12,7 @@ import {
   BlogDetailHeaderWrapper,
   Title,
   DataWrapper,
+  TagListWrapper,
   DateWrapper,
   Date,
   ImageWrapper,
@@ -45,6 +47,7 @@ const BlogDetailHeader: FC<TBlogDetailHeader> = ({
   image,
   publishedAt,
   categories,
+  tags,
   tableOfContents,
 }) => {
   return (
@@ -53,6 +56,9 @@ const BlogDetailHeader: FC<TBlogDetailHeader> = ({
 
       <DataWrapper>
         <CategoryList categories={categories} />
+        <TagListWrapper>
+          <TagList tags={tags} />
+        </TagListWrapper>
         <DateWrapper>
           <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
           <Date dateTime={publishedAt}>{publishedAt.slice(0, 10)}</Date>
