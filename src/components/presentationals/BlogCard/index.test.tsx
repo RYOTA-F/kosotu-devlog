@@ -13,4 +13,6 @@ describe('BlogCard', () => {
     const blogCardElement = screen.getByLabelText(ARIA_LABEL.BLOG_CARD)
     expect(blogCardElement).toBeInTheDocument()
   })
+
+  test.todo('クリック遷移')
 })

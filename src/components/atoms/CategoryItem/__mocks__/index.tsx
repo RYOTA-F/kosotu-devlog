@@ -8,6 +8,7 @@ export const defaultProps: ICategoryItem = {
     publishedAt: '2022-12-18T06:39:05.212Z',
     revisedAt: '2022-12-18T06:39:05.212Z',
     name: 'Golang',
+    parent: ['バックエンド'],
     posts: [
       {
         id: 'go-echo',

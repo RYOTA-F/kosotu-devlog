@@ -1,7 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Lib */
 import { client } from '@/lib/microCMS'
-import { perseBlogBody, getBlogCardDatas, perseLink } from '@/lib/cheerio'
+import { perseBlogBody } from '@/lib/cheerio'
 /* Components */
 import BlogDetail from '@/components/assembles/BlogDetail'
 /* Const */
@@ -10,6 +10,8 @@ import { API, PAGE } from '@/const/index'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Types */
 import { IBlog, IBlogsApiResponse, IBlogDetailApiResponse } from '@/types/index'
+/* Utils */
+import { getBreadCrumbData } from '@/utils/blogBreadCrumb'
 
 interface IBlogPage {
   contents: IBlog
@@ -17,7 +19,7 @@ interface IBlogPage {
 
 const BlogPage: NextPage<IBlogPage> = ({ contents }) => {
   return (
-    <DefaultLayout>
+    <DefaultLayout breadCrumb={contents.breadCrumb}>
       <BlogDetail {...contents} />
     </DefaultLayout>
   )
@@ -57,11 +59,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   })
 
   // 投稿本文をパース
-  const { body, tableOfContents } = perseBlogBody(contents[0].body)
-  // ブログカード情報を取得
-  const blogCardData = await getBlogCardDatas(contents[0].body)
-  // リンクをパース
-  const convertLinkBody = perseLink(body, blogCardData)
+  const { body, tableOfContents } = await perseBlogBody(contents[0].body)
+  // パンくず情報を取得
+  const breadCrumb = getBreadCrumbData(contents[0])
 
   return {
     props: {
@@ -69,7 +69,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         id: contents[0].id,
         title: contents[0].title,
         description: contents[0].description,
-        body: convertLinkBody,
+        body,
         image: contents[0].image,
         createdAt: contents[0].createdAt,
         updatedAt: contents[0].updatedAt,
@@ -79,7 +79,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
           : '',
         revisedAt: contents[0].revisedAt,
         categories: contents[0].categories,
-        tableOfContents: tableOfContents,
+        tableOfContents,
+        breadCrumb,
       },
     },
   }

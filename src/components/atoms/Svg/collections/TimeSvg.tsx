@@ -2,7 +2,7 @@ import { FC } from 'react'
 /* Const */
 import { COLOR } from '@/const/index'
 /* Types */
-import { ISvgDefaultProps } from './types'
+import { ISvgDefaultProps } from '../types'
 
 export const TIME_SVG_ARIA_LABEL = 'timeSvg' as const
 

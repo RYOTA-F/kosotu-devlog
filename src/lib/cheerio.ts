@@ -7,11 +7,13 @@ import {
   IBlogCardData,
   IBlogTableOfContents,
 } from '@/types/microCMS/blog'
+/* Utils */
+import { getBlogCardDom } from '@/utils/blogCard'
 
 /**
  * 投稿本文をパース
  */
-export const perseBlogBody = (contents: IBlog['body']) => {
+export const perseBlogBody = async (contents: IBlog['body']) => {
   const $ = cheerio.load(contents, { _useHtmlParser2: true })
 
   // コードブロックをパース
@@ -19,6 +21,13 @@ export const perseBlogBody = (contents: IBlog['body']) => {
     const result = hljs.highlightAuto($(element).text())
     $(element).html(result.value)
     $(element).addClass('hljs')
+  })
+
+  // ブログカード情報を取得
+  const blogCardDatas = await getBlogCardDatas($.html())
+  // ブログカードにパース
+  $('a').each((i, element) => {
+    $(element).replaceWith(getBlogCardDom(blogCardDatas[i]))
   })
 
   // 目次を取得
@@ -63,6 +72,7 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
             title: '',
             description: '',
             image: '',
+            site: '',
           }
           for (let i = 0; i < metas.length; i++) {
             if (metas[i].attribs?.property === 'og:title')
@@ -71,6 +81,8 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
               metaData.description = metas[i].attribs.content
             if (metas[i].attribs?.property === 'og:image')
               metaData.image = metas[i].attribs.content
+            if (metas[i].attribs?.property === 'og:site_name')
+              metaData.site = metas[i].attribs.content
           }
           return metaData
         })
@@ -82,21 +94,4 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
   )
 
   return temps.filter((temp) => temp !== undefined) as IBlogCardData[]
-}
-
-/**
- * aタグをパース
- */
-export const perseLink = (
-  contents: IBlog['body'],
-  blogCardData: IBlogCardData[]
-) => {
-  const $ = cheerio.load(contents, { _useHtmlParser2: true })
-
-  $('a').each((i, element) => {
-    $(element).text(blogCardData[i].title)
-    $(element).addClass('blogCard')
-  })
-
-  return $.html()
 }

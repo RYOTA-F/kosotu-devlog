@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 /* Const */
 import { COLOR, SIZE } from '@/const/index'
 
-export const Wrapper = styled.ul`
+export const Wrapper = styled.div`
   width: 90%;
   padding: ${SIZE.SPACE.X32};
   background: linear-gradient(

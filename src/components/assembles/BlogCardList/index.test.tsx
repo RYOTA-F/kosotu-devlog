@@ -13,4 +13,8 @@ describe('BlogCardList', () => {
     const blogCardListElement = screen.getByLabelText(ARIA_LABEL.BLOG_CARD_LIST)
     expect(blogCardListElement).toBeInTheDocument()
   })
+
+  test.todo('ブログの数だけ BlogCard が描画される')
+  test.todo('oldPublishedAt が存在する場合 oldPublishedAt が渡される')
+  test.todo('oldPublishedAt が存在しない場合 publishedAt が渡される')
 })

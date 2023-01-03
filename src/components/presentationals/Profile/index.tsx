@@ -1,10 +1,12 @@
 import { FC } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 /* Components */
 import Button from '@/components/atoms/Button'
+import { TwitterSvg } from '@/components/atoms/Svg'
 /* Const */
-import { AUTHOR, PAGE } from '@/const/index'
-import { ARIA_LABEL, IMAGE, DESCRIPTION, BUTTON_LABEL } from './const'
+import { AUTHOR, PAGE, TWITTER } from '@/const/index'
+import { ARIA_LABEL, IMAGE, DESCRIPTION, BUTTON_LABEL, ICON } from './const'
 /* Styles */
 import {
   ProfileWrapper,
@@ -17,6 +19,7 @@ import {
   DescriptionItemList,
   DescriptionItem,
   ButtonWrapper,
+  IconWrapper,
 } from './index.styles'
 
 const Profile: FC = () => {
@@ -55,6 +58,16 @@ const Profile: FC = () => {
       <ButtonWrapper>
         <Button onClick={onClickProfile}>{BUTTON_LABEL}</Button>
       </ButtonWrapper>
+
+      <IconWrapper>
+        <Link href={TWITTER.URL} target="_blank">
+          <TwitterSvg
+            height={ICON.HEIGHT}
+            width={ICON.WIDTH}
+            color={ICON.COLOR}
+          />
+        </Link>
+      </IconWrapper>
     </ProfileWrapper>
   )
 }

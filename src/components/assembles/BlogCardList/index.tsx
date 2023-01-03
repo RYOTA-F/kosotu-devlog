@@ -11,10 +11,10 @@ import {
   BlogCardWrapper,
 } from './index.styles'
 /* Types */
-import { IBlog } from '@/types/index'
+import { TBlogDetailApiResponseContents } from '@/types/index'
 
 export interface IBlogCardList {
-  contents: IBlog[]
+  contents: TBlogDetailApiResponseContents[]
 }
 
 const BlogCardList: FC<IBlogCardList> = ({ contents }) => {

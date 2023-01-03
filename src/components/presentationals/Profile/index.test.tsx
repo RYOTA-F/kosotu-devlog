@@ -12,4 +12,8 @@ describe('Profile', () => {
     const profileElement = screen.getByLabelText(ARIA_LABEL.PROFILE)
     expect(profileElement).toBeInTheDocument()
   })
+
+  test.todo('Image クリック')
+  test.todo('Button クリック')
+  test.todo('TwitterSvg クリック')
 })

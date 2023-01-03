@@ -13,4 +13,6 @@ describe('List', () => {
     const listElement = screen.getByLabelText(ARIA_LABEL)
     expect(listElement).toBeInTheDocument()
   })
+
+  test.todo('list の数だけ ListItem が描画される')
 })

@@ -1,6 +1,6 @@
-import { IBlog } from '@/types/index'
+import { TBlogDetail } from '../'
 
-export const defaultProps: IBlog = {
+export const defaultProps: TBlogDetail = {
   id: '3tcpe0tts',
   createdAt: '2022-12-18T07:54:41.636Z',
   updatedAt: '2022-12-18T07:55:15.331Z',
@@ -23,6 +23,7 @@ export const defaultProps: IBlog = {
       publishedAt: '2022-12-18T07:55:03.812Z',
       revisedAt: '2022-12-18T07:55:03.812Z',
       name: 'EC2 (AWS)',
+      parent: ['インフラ'],
       posts: [
         {
           id: '3tcpe0tts',

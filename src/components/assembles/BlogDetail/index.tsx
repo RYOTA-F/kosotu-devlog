@@ -9,7 +9,9 @@ import { BlogDetailWrapper } from './index.styles'
 /* Types */
 import { IBlog } from '@/types/index'
 
-const BlogDetail: FC<IBlog> = ({
+export type TBlogDetail = Omit<IBlog, 'breadCrumb'>
+
+const BlogDetail: FC<TBlogDetail> = ({
   title,
   description,
   body,

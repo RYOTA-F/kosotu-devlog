@@ -1,9 +1,7 @@
 import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
-/* Types */
-import { IBlog } from '@/types/index'
 
-import BlogDetail from '.'
+import BlogDetail, { TBlogDetail } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
@@ -11,7 +9,7 @@ export default {
   component: BlogDetail,
 }
 
-const Template: Story<IBlog> = (args) => (
+const Template: Story<TBlogDetail> = (args) => (
   <Container>
     <BlogDetail {...args} />
   </Container>

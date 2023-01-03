@@ -15,4 +15,7 @@ describe('BlogDetailHeader', () => {
     )
     expect(blogDetailHeaderElement).toBeInTheDocument()
   })
+
+  test.todo('CategoryList が描画される')
+  test.todo('tableOfContents が存在する場合 TableOfContents が描画される')
 })
