@@ -25,6 +25,7 @@ export const defaultProps: IBlogCardList = {
           publishedAt: '2022-12-18T07:55:03.812Z',
           revisedAt: '2022-12-18T07:55:03.812Z',
           name: 'EC2 (AWS)',
+          parent: ['インフラ'],
           posts: [
             {
               id: '3tcpe0tts',
@@ -56,6 +57,7 @@ export const defaultProps: IBlogCardList = {
           publishedAt: '2022-12-18T06:39:05.212Z',
           revisedAt: '2022-12-18T06:39:05.212Z',
           name: 'Golang',
+          parent: ['バックエンド'],
           posts: [
             {
               id: 'go-echo',
