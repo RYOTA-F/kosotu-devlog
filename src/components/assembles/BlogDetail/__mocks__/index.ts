@@ -24,11 +24,22 @@ export const defaultProps: TBlogDetail = {
       revisedAt: '2022-12-18T07:55:03.812Z',
       name: 'EC2 (AWS)',
       parent: ['インフラ'],
-      posts: [
+      blogs: [
         {
           id: '3tcpe0tts',
         },
       ],
+    },
+  ],
+  tags: [
+    {
+      id: 'react',
+      createdAt: '2023-01-03T16:18:50.018Z',
+      updatedAt: '2023-01-03T16:18:50.018Z',
+      publishedAt: '2023-01-03T16:18:50.018Z',
+      revisedAt: '2023-01-03T16:18:50.018Z',
+      name: 'React',
+      blogs: [],
     },
   ],
   tableOfContents: [

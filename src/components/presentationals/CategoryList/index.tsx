@@ -3,12 +3,12 @@ import CategoryItem from '@/components/atoms/CategoryItem'
 /* Styles */
 import { CategoryListWrapper, CategoryItemWrapper } from './index.styles'
 /* Types */
-import { IBlogCaterory } from '@/types/index'
+import { IBlogCategory } from '@/types/index'
 
 export const ARIA_LABEL = 'categoryList' as const
 
 export interface ICategoryList {
-  categories: IBlogCaterory[]
+  categories: IBlogCategory[]
 }
 
 const CategoryList: FC<ICategoryList> = ({ categories }) => {

@@ -1,14 +1,14 @@
-export interface IBlogsApiResponse {
-  contents: IBlog[]
-  totalCount: number
-  offset: number
-  limit: number
-}
-
 export type TBlogDetailApiResponseContents = Omit<
   IBlog,
   'tableOfContents' | 'breadCrumb'
 >
+
+export interface IBlogsApiResponse {
+  contents: TBlogDetailApiResponseContents[]
+  totalCount: number
+  offset: number
+  limit: number
+}
 
 export interface IBlogDetailApiResponse {
   contents: TBlogDetailApiResponseContents[]
@@ -46,7 +46,8 @@ export interface IBlog {
   updatedAt: string
   publishedAt: string
   revisedAt: string
-  categories: IBlogCaterory[]
+  categories: IBlogCategory[]
+  tags: IBlogTag[]
   oldPublishedAt?: string
   tableOfContents: IBlogTableOfContents[]
   breadCrumb: IBlogBreadCrumb
@@ -58,7 +59,7 @@ export interface IBlogImage {
   width: number
 }
 
-export interface IBlogCaterory {
+export interface IBlogCategory {
   id: string
   createdAt: string
   updatedAt: string
@@ -66,7 +67,19 @@ export interface IBlogCaterory {
   revisedAt: string
   name: string
   parent: string[]
-  posts: {
+  blogs: {
+    id: string
+  }[]
+}
+
+export interface IBlogTag {
+  id: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  revisedAt: string
+  name: string
+  blogs: {
     id: string
   }[]
 }

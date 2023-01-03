@@ -35,6 +35,7 @@ export type TBlogDetailHeader = Pick<
   | 'image'
   | 'publishedAt'
   | 'categories'
+  | 'tags'
   | 'tableOfContents'
 >
 

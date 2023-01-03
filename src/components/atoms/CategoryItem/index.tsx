@@ -5,12 +5,12 @@ import { PAGE } from '@/const/index'
 /* Styles */
 import { CategoryItemWrapper } from './index.styles'
 /* Types */
-import { IBlogCaterory } from '@/types/index'
+import { IBlogCategory } from '@/types/index'
 
 export const ARIA_LABEL = 'categoryItem' as const
 
 export interface ICategoryItem {
-  category: IBlogCaterory
+  category: IBlogCategory
 }
 
 const CategoryItem: FC<ICategoryItem> = ({ category }) => {

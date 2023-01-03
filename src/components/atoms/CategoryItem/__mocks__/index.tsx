@@ -9,7 +9,7 @@ export const defaultProps: ICategoryItem = {
     revisedAt: '2022-12-18T06:39:05.212Z',
     name: 'Golang',
     parent: ['バックエンド'],
-    posts: [
+    blogs: [
       {
         id: 'go-echo',
       },
