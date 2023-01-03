@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import {
+  HomeSvg,
+  HOME_SVG_ARIA_LABEL,
   TimeSvg,
   TIME_SVG_ARIA_LABEL,
   ListSvg,
@@ -12,6 +14,15 @@ import {
 import { defaultProps } from './__mocks__'
 
 describe('Svg', () => {
+  describe('HomeSvg', () => {
+    test('描画される', () => {
+      render(<HomeSvg {...defaultProps} />)
+
+      const homeSvgElement = screen.getByLabelText(HOME_SVG_ARIA_LABEL)
+      expect(homeSvgElement).toBeInTheDocument()
+    })
+  })
+
   describe('TimeSvg', () => {
     test('描画される', () => {
       render(<TimeSvg {...defaultProps} />)

@@ -2,7 +2,7 @@ import { FC } from 'react'
 /* Const */
 import { COLOR } from '@/const/index'
 /* Types */
-import { ISvgDefaultProps } from './types'
+import { ISvgDefaultProps } from '../types'
 
 export const LIST_SVG_ARIA_LABEL = 'listSvg' as const
 
