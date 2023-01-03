@@ -1,5 +1,6 @@
 export * from './api'
 export * from './author'
+export * from './category'
 export * from './color'
 export * from './menu'
 export * from './page'

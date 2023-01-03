@@ -32,6 +32,9 @@ export const Icon = styled.li`
 export const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   height: ${HEADER.HEIGHT}px;
   padding: 0 10%;
   color: ${COLOR.GRAY_SCALE.WHITE};
