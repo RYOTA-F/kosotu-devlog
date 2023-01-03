@@ -10,7 +10,7 @@ export const defaultProps: ICategoryList = {
       revisedAt: '2022-12-20T17:45:24.193Z',
       name: '勉強会',
       parent: ['イベント'],
-      posts: [
+      blogs: [
         {
           id: 'devguil-2022-1210',
         },
@@ -24,7 +24,7 @@ export const defaultProps: ICategoryList = {
       revisedAt: '2022-12-18T06:32:08.515Z',
       name: 'React',
       parent: ['フロントエンド'],
-      posts: [],
+      blogs: [],
     },
   ],
 }

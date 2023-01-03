@@ -2,16 +2,16 @@ import styled from '@emotion/styled'
 /* Const */
 import { SIZE } from '@/const/index'
 
-export const CategoryListWrapper = styled.ul`
+export const TagListWrapper = styled.ul`
   display: flex;
   align-items: center;
 `
 
-export const FolderSvgWrapper = styled.div`
+export const TagSvgWrapper = styled.div`
   margin-right: ${SIZE.SPACE.X8};
 `
 
-export const CategoryItemWrapper = styled.li`
+export const TagItemWrapper = styled.li`
   :not(:first-of-type) {
     margin-left: ${SIZE.SPACE.X8};
   }

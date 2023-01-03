@@ -19,6 +19,7 @@ const BlogDetail: FC<TBlogDetail> = ({
   publishedAt,
   oldPublishedAt,
   categories,
+  tags,
   tableOfContents,
 }) => {
   return (
@@ -28,6 +29,7 @@ const BlogDetail: FC<TBlogDetail> = ({
         description={description}
         image={image}
         categories={categories}
+        tags={tags}
         publishedAt={oldPublishedAt ? oldPublishedAt : publishedAt}
         tableOfContents={tableOfContents}
       />

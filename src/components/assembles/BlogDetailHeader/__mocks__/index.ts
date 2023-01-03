@@ -18,11 +18,22 @@ export const defaultProps: TBlogDetailHeader = {
       revisedAt: '2022-12-18T06:39:05.212Z',
       name: 'Golang',
       parent: ['バックエンド'],
-      posts: [
+      blogs: [
         {
           id: 'go-echo',
         },
       ],
+    },
+  ],
+  tags: [
+    {
+      id: 'react',
+      createdAt: '2023-01-03T16:18:50.018Z',
+      updatedAt: '2023-01-03T16:18:50.018Z',
+      publishedAt: '2023-01-03T16:18:50.018Z',
+      revisedAt: '2023-01-03T16:18:50.018Z',
+      name: 'React',
+      blogs: [],
     },
   ],
   publishedAt: '2022-12-18T06:38:48.487Z',
