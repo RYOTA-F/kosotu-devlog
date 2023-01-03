@@ -1,11 +1,17 @@
 import { FC } from 'react'
+/* Components */
 import TagItem from '@/components/atoms/TagItem'
+import { TagSvg } from '@/components/atoms/Svg'
+/* Const */
+import { COLOR } from '@/const/index'
+
 /* Styles */
-import { TagListWrapper, TagItemWrapper } from './index.styles'
+import { TagListWrapper, TagSvgWrapper, TagItemWrapper } from './index.styles'
 /* Types */
 import { IBlogTag } from '@/types/index'
 
 export const ARIA_LABEL = 'tagList' as const
+export const SVG_SIZE = 16 as const
 
 export interface ITagList {
   tags: IBlogTag[]
@@ -14,6 +20,13 @@ export interface ITagList {
 const TagList: FC<ITagList> = ({ tags }) => {
   return (
     <TagListWrapper aria-label={ARIA_LABEL}>
+      <TagSvgWrapper>
+        <TagSvg
+          height={SVG_SIZE}
+          width={SVG_SIZE}
+          color={COLOR.GRAY_SCALE.GRAY.TEXT_1}
+        />
+      </TagSvgWrapper>
       {tags.map((v) => (
         <TagItemWrapper key={v.id}>
           <TagItem tag={v} />

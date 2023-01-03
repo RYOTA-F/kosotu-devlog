@@ -14,5 +14,6 @@ describe('TagList', () => {
     expect(tagListElement).toBeInTheDocument()
   })
 
+  test.todo('Svg が描画される')
   test.todo('categories の数だけ TagItem が描画される')
 })
