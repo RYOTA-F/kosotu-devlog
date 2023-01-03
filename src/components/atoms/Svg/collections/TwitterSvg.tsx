@@ -2,7 +2,7 @@ import { FC } from 'react'
 /* Const */
 import { COLOR } from '@/const/index'
 /* Types */
-import { ISvgDefaultProps } from './types'
+import { ISvgDefaultProps } from '../types'
 
 export const TWITTER_SVG_ARIA_LABEL = 'twitterSvg' as const
 
