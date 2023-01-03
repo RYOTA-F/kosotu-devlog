@@ -91,11 +91,28 @@ export const perseLink = (
   contents: IBlog['body'],
   blogCardData: IBlogCardData[]
 ) => {
+  const CLASS_NAME_BASE = 'blogCard' as const
+  const NO_IMAGE_PATH = '/images/noimage.webp' as const
+
   const $ = cheerio.load(contents, { _useHtmlParser2: true })
 
   $('a').each((i, element) => {
-    $(element).text(blogCardData[i].title)
-    $(element).addClass('blogCard')
+    // prettier-ignore
+    $(element).replaceWith(`
+      <a href="${blogCardData[i].url}" target="_blank" rel="noopener noreferrer" class="${CLASS_NAME_BASE}">
+        ${blogCardData[i].image
+          ? `<img src="${blogCardData[i].image}" class="${CLASS_NAME_BASE}__img" />`
+          : `<img src="${NO_IMAGE_PATH}" class="${CLASS_NAME_BASE}__img" />`}
+        <span class="${CLASS_NAME_BASE}__content">
+          <span class="${CLASS_NAME_BASE}__title">
+            ${blogCardData[i].title ? `${blogCardData[i].title}` : ''}
+          </span>
+          <span class="${CLASS_NAME_BASE}__description">
+            ${blogCardData[i].description ? `${blogCardData[i].description}` : ''}
+          </span>
+        </span>
+      </a>
+    `)
   })
 
   return $.html()
