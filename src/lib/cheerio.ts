@@ -71,6 +71,7 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
             title: '',
             description: '',
             image: '',
+            site: '',
           }
           for (let i = 0; i < metas.length; i++) {
             if (metas[i].attribs?.property === 'og:title')
@@ -79,6 +80,8 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
               metaData.description = metas[i].attribs.content
             if (metas[i].attribs?.property === 'og:image')
               metaData.image = metas[i].attribs.content
+            if (metas[i].attribs?.property === 'og:site_name')
+              metaData.site = metas[i].attribs.content
           }
           return metaData
         })
@@ -99,20 +102,19 @@ const getBlogCardDom = (index: number, blogCardData: IBlogCardData[]) => {
   const CLASS_NAME_BASE = 'blogCard' as const
   const NO_IMAGE_PATH = '/images/noimage.webp' as const
 
-  // prettier-ignore
+  const image = `${blogCardData[index].image || NO_IMAGE_PATH}`
+  const title = `${blogCardData[index].title || ''}`
+  const description = `${blogCardData[index].description || ''}`
+  const site = `${blogCardData[index].site || ''}`
+
   return `
     <a href="${blogCardData[index].url}" target="_blank" rel="noopener noreferrer" class="${CLASS_NAME_BASE}">
-      ${blogCardData[index].image
-        ? `<img src="${blogCardData[index].image}" class="${CLASS_NAME_BASE}__img" />`
-        : `<img src="${NO_IMAGE_PATH}" class="${CLASS_NAME_BASE}__img" />`}
+      <img src="${image}" class="${CLASS_NAME_BASE}__img" />
       <span class="${CLASS_NAME_BASE}__content">
-        <span class="${CLASS_NAME_BASE}__title">
-          ${blogCardData[index].title ? `${blogCardData[index].title}` : ''}
-        </span>
-        <span class="${CLASS_NAME_BASE}__description">
-          ${blogCardData[index].description ? `${blogCardData[index].description}` : ''}
-        </span>
+        <span class="${CLASS_NAME_BASE}__title">${title}</span>
+        <span class="${CLASS_NAME_BASE}__description">${description}</span>
       </span>
+      <span class="${CLASS_NAME_BASE}__site">${site}</span>
     </a>
   `
 }

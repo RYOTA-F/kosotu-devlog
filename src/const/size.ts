@@ -1,4 +1,5 @@
 export const FONT = {
+  X8: '8px',
   X10: '10px',
   X12: '12px',
   X14: '14px',

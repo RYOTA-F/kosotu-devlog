@@ -10,10 +10,11 @@ export interface IBlogDetailApiResponse {
 }
 
 export interface IBlogCardData {
+  url: string
   title: string
   description: string
   image: string
-  url: string
+  site: string
 }
 
 export interface IBlogTableOfContents {

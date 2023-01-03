@@ -11,6 +11,7 @@ export const blogCard = css`
     color: ${COLOR.BLUE_GROUP.MAIN};
     transition: 0.3s;
     box-shadow: 0 1px 3px 1px rgb(0 0 0 / 8%);
+    position: relative;
 
     :hover {
       box-shadow: 0 2px 6px 2px rgb(0 0 0 / 16%);
@@ -48,6 +49,14 @@ export const blogCard = css`
       color: ${COLOR.GRAY_SCALE.GRAY.TEXT_3};
       font-size: ${SIZE.FONT.X14};
       line-height: 1;
+    }
+
+    &__site {
+      position: absolute;
+      bottom: 0;
+      right: 8px;
+      color: ${COLOR.GRAY_SCALE.GRAY.TEXT_3};
+      font-size: ${SIZE.FONT.X8};
     }
   }
 `
