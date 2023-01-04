@@ -9,12 +9,13 @@ export const defaultProps: ICategoryList = {
       publishedAt: '2022-12-20T17:45:24.193Z',
       revisedAt: '2022-12-20T17:45:24.193Z',
       name: '勉強会',
-      parent: ['イベント'],
-      blogs: [
-        {
-          id: 'devguil-2022-1210',
-        },
-      ],
+      relation: {
+        fieldId: '',
+        isParent: false,
+        children: [],
+        parent: [],
+      },
+      blogs: [],
     },
     {
       id: 'react',
@@ -23,7 +24,12 @@ export const defaultProps: ICategoryList = {
       publishedAt: '2021-05-22T14:36:56.223Z',
       revisedAt: '2022-12-18T06:32:08.515Z',
       name: 'React',
-      parent: ['フロントエンド'],
+      relation: {
+        fieldId: '',
+        isParent: false,
+        children: [],
+        parent: [],
+      },
       blogs: [],
     },
   ],
