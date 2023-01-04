@@ -7,4 +7,8 @@ export const API = {
     END_POINT: 'categories',
     QUERY: { limit: 10 },
   },
+  TAG: {
+    END_POINT: 'tags',
+    QUERY: { limit: 10 },
+  },
 } as const

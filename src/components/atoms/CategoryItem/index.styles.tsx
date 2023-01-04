@@ -4,7 +4,6 @@ import { COLOR, SIZE } from '@/const/index'
 
 export const CategoryItemWrapper = styled.div`
   display: inline-block;
-  padding: ${SIZE.SPACE.X4} ${SIZE.SPACE.X8};
   cursor: pointer;
   overflow: hidden;
   background-color: ${COLOR.BLUE_GROUP.MAIN};
@@ -15,6 +14,8 @@ export const CategoryItemWrapper = styled.div`
   transition: 0.4s;
 
   a {
+    display: block;
+    padding: ${SIZE.SPACE.X4} ${SIZE.SPACE.X8};
     text-decoration: none;
     color: ${COLOR.GRAY_SCALE.WHITE};
   }
