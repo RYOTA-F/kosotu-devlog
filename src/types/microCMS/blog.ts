@@ -1,4 +1,5 @@
 import { ICategory } from './category'
+import { ITag } from './tag'
 
 export interface IBlog {
   id: string
@@ -11,7 +12,7 @@ export interface IBlog {
   publishedAt: string
   revisedAt: string
   categories: ICategory[]
-  tags: IBlogTag[]
+  tags: ITag[]
   oldPublishedAt?: string
   tableOfContents: IBlogTableOfContents[]
   breadCrumb: IBlogBreadCrumb
@@ -59,31 +60,6 @@ export interface IBlogImage {
   url: string
   height: number
   width: number
-}
-
-export interface IBlogCategory {
-  id: string
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
-  revisedAt: string
-  name: string
-  parent: string[]
-  blogs: {
-    id: string
-  }[]
-}
-
-export interface IBlogTag {
-  id: string
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
-  revisedAt: string
-  name: string
-  blogs: {
-    id: string
-  }[]
 }
 
 export type IBlogCard = Pick<IBlog, 'title' | 'image' | 'publishedAt'> & {

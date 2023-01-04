@@ -5,7 +5,7 @@ import { PAGE } from '@/const/index'
 /* Styles */
 import { CategoryItemWrapper } from './index.styles'
 /* Types */
-import { IBlogCategory } from '@/types/index'
+import { ICategory } from '@/types/index'
 
 export const ARIA_LABEL = 'categoryItem' as const
 
@@ -15,7 +15,7 @@ interface ICategoryItemParent {
 }
 
 export interface ICategoryItem {
-  category: IBlogCategory | ICategoryItemParent
+  category: ICategory | ICategoryItemParent
 }
 
 const CategoryItem: FC<ICategoryItem> = ({ category }) => {

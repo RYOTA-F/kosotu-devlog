@@ -4,7 +4,6 @@ import { COLOR, SIZE } from '@/const/index'
 
 export const GagItemWrapper = styled.div`
   display: inline-block;
-  padding: ${SIZE.SPACE.X4} ${SIZE.SPACE.X8};
   cursor: pointer;
   overflow: hidden;
   background-color: ${COLOR.GRAY_SCALE.GRAY.TEXT_1};
@@ -15,6 +14,8 @@ export const GagItemWrapper = styled.div`
   transition: 0.4s;
 
   a {
+    display: block;
+    padding: ${SIZE.SPACE.X4} ${SIZE.SPACE.X8};
     text-decoration: none;
     color: ${COLOR.GRAY_SCALE.GRAY.H4};
   }
