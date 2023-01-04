@@ -2,5 +2,10 @@ import { TCategoryDetailHeader } from '..'
 
 export const defaultProps: TCategoryDetailHeader = {
   name: 'React',
-  parent: ['フロントエンド'],
+  relation: {
+    fieldId: '',
+    isParent: false,
+    children: [],
+    parent: [],
+  },
 }

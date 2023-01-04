@@ -2,7 +2,12 @@ import { TCategoryDetail } from '..'
 
 export const defaultProps: TCategoryDetail = {
   name: 'React',
-  parent: ['フロントエンド'],
+  relation: {
+    fieldId: '',
+    isParent: false,
+    children: [],
+    parent: [],
+  },
   blogs: [
     {
       id: '3tcpe0tts',
@@ -27,12 +32,13 @@ export const defaultProps: TCategoryDetail = {
           publishedAt: '2022-12-18T07:55:03.812Z',
           revisedAt: '2022-12-18T07:55:03.812Z',
           name: 'EC2 (AWS)',
-          parent: ['インフラ'],
-          blogs: [
-            {
-              id: '3tcpe0tts',
-            },
-          ],
+          relation: {
+            fieldId: '',
+            isParent: false,
+            children: [],
+            parent: [],
+          },
+          blogs: [],
         },
       ],
       tags: [
@@ -70,12 +76,13 @@ export const defaultProps: TCategoryDetail = {
           publishedAt: '2022-12-18T06:39:05.212Z',
           revisedAt: '2022-12-18T06:39:05.212Z',
           name: 'Golang',
-          parent: ['バックエンド'],
-          blogs: [
-            {
-              id: 'go-echo',
-            },
-          ],
+          relation: {
+            fieldId: '',
+            isParent: false,
+            children: [],
+            parent: [],
+          },
+          blogs: [],
         },
       ],
       tags: [
