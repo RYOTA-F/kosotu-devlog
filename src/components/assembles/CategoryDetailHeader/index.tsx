@@ -8,6 +8,7 @@ import { ChevronRightSvg, FolderSvg } from '@/components/atoms/Svg'
 import { CATEGORY_DETAIL_HEADER, ARIA_LABEL } from './const'
 /* Styles */
 import {
+  CategoryDetailHeaderWrapper,
   HeaderWrapper,
   HeaderLabel,
   CategoryWrapper,
@@ -23,7 +24,7 @@ export type TCategoryDetailHeader = Pick<ICategory, 'name' | 'parent'>
 
 const CategoryDetailHeader: FC<TCategoryDetailHeader> = ({ name, parent }) => {
   return (
-    <div aria-label={ARIA_LABEL.CATEGORY_DETAIL_HEADER}>
+    <CategoryDetailHeaderWrapper aria-label={ARIA_LABEL.CATEGORY_DETAIL_HEADER}>
       <HeaderWrapper>
         <H1>
           {name}
@@ -54,7 +55,7 @@ const CategoryDetailHeader: FC<TCategoryDetailHeader> = ({ name, parent }) => {
         </ChevronRightSvgWrapper>
         <CategoryLabel name={name} />
       </CategoryWrapper>
-    </div>
+    </CategoryDetailHeaderWrapper>
   )
 }
 

@@ -2,6 +2,8 @@ import styled from '@emotion/styled'
 /* Const */
 import { COLOR, SIZE } from '@/const/index'
 
+export const CategoryDetailHeaderWrapper = styled.div``
+
 export const HeaderWrapper = styled.div`
   h1 {
     margin-bottom: ${SIZE.SPACE.X32};
