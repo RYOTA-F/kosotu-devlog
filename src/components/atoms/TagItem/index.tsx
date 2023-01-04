@@ -5,12 +5,12 @@ import { PAGE } from '@/const/index'
 /* Styles */
 import { GagItemWrapper } from './index.styles'
 /* Types */
-import { IBlogTag } from '@/types/index'
+import { ITag } from '@/types/index'
 
 export const ARIA_LABEL = 'tagItem' as const
 
 export interface ITagItem {
-  tag: IBlogTag
+  tag: ITag
 }
 
 const TagItem: FC<ITagItem> = ({ tag }) => {
