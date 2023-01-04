@@ -8,13 +8,13 @@ import { COLOR } from '@/const/index'
 /* Styles */
 import { TagListWrapper, TagSvgWrapper, TagItemWrapper } from './index.styles'
 /* Types */
-import { IBlogTag } from '@/types/index'
+import { ITag } from '@/types/index'
 
 export const ARIA_LABEL = 'tagList' as const
 export const SVG_SIZE = 16 as const
 
 export interface ITagList {
-  tags: IBlogTag[]
+  tags: ITag[]
 }
 
 const TagList: FC<ITagList> = ({ tags }) => {
