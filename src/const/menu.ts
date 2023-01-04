@@ -5,22 +5,47 @@ export const GROBAL_MENU = {
   FRONT_END: {
     LABEL: CATEGORY_PARENT.FRONT_END.NAME,
     URL: `${PAGE.CATEGORY}/${CATEGORY_PARENT.FRONT_END.ID}`,
+    LIST: [
+      {
+        LABEL: 'React',
+        URL: `${PAGE.CATEGORY}/react`,
+      },
+    ],
   },
   BACK_END: {
     LABEL: CATEGORY_PARENT.BACK_END.NAME,
     URL: `${PAGE.CATEGORY}/${CATEGORY_PARENT.BACK_END.ID}`,
+    LIST: [
+      {
+        LABEL: 'Golang',
+        URL: `${PAGE.CATEGORY}/golang`,
+      },
+    ],
   },
   INFRA: {
     LABEL: CATEGORY_PARENT.INFRA.NAME,
     URL: `${PAGE.CATEGORY}/${CATEGORY_PARENT.INFRA.ID}`,
+    LIST: [
+      {
+        LABEL: 'AWS',
+        URL: `${PAGE.CATEGORY}/aws`,
+      },
+    ],
   },
   EVENT: {
     LABEL: CATEGORY_PARENT.EVENT.NAME,
     URL: `${PAGE.CATEGORY}/${CATEGORY_PARENT.EVENT.ID}`,
+    LIST: [
+      {
+        LABEL: '勉強会',
+        URL: `${PAGE.CATEGORY}/study-session`,
+      },
+    ],
   },
   PROFILE: {
     LABEL: 'プロフィール',
     URL: PAGE.PROFILE,
+    LIST: [],
   },
   // SITE_MAP: {
   //   LABEL: 'サイトマップ',

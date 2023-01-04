@@ -2,6 +2,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 /* Components */
 import { TwitterSvg } from '@/components/atoms/Svg'
+import AccordionMenu from '@/components/presentationals/AccordionMenu'
 /* Const */
 import { SITE, PAGE, GROBAL_MENU_LIST, TWITTER } from '@/const/index'
 import { HEADER, ARIA_LABEL } from './const'
@@ -15,7 +16,6 @@ import {
   Title,
   MenuList,
   MenuItem,
-  MenuLabel,
 } from './index.styles'
 
 const Header: FC = () => {
@@ -42,9 +42,11 @@ const Header: FC = () => {
         <MenuList>
           {GROBAL_MENU_LIST.map((v) => (
             <MenuItem key={v.URL}>
-              <Link href={v.URL}>
-                <MenuLabel>{v.LABEL}</MenuLabel>
-              </Link>
+              <AccordionMenu
+                label={v.LABEL}
+                path={v.URL}
+                menuList={v.LIST.map((v) => ({ label: v.LABEL, path: v.URL }))}
+              />
             </MenuItem>
           ))}
         </MenuList>

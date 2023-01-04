@@ -57,18 +57,4 @@ export const MenuList = styled.ul`
   line-height: ${HEADER.HEIGHT}px;
 `
 
-export const MenuItem = styled.li`
-  list-style: none;
-
-  & > a {
-    display: block;
-    text-decoration: none;
-  }
-`
-
-export const MenuLabel = styled.span`
-  margin: 0 ${SIZE.SPACE.X8};
-  color: ${COLOR.GRAY_SCALE.WHITE};
-  text-decoration: none;
-  font-size: ${SIZE.FONT.X14};
-`
+export const MenuItem = styled.li``
