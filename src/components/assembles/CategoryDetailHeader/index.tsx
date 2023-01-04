@@ -18,11 +18,19 @@ import {
 /* Types */
 import { ICategory } from '@/types/microCMS/category'
 /* Utils */
-import { getCategoryParentId } from '@/utils/blogCategory'
+import { getCategoryRelation } from '@/utils/blogCategory'
 
-export type TCategoryDetailHeader = Pick<ICategory, 'name' | 'parent'>
+export type TCategoryDetailHeader = Pick<ICategory, 'name' | 'relation'>
 
-const CategoryDetailHeader: FC<TCategoryDetailHeader> = ({ name, parent }) => {
+const CategoryDetailHeader: FC<TCategoryDetailHeader> = ({
+  name,
+  relation,
+}) => {
+  const { isParent, categoryParent } = getCategoryRelation(
+    relation,
+    relation.isParent
+  )
+
   return (
     <CategoryDetailHeaderWrapper aria-label={ARIA_LABEL.CATEGORY_DETAIL_HEADER}>
       <HeaderWrapper>
@@ -40,20 +48,30 @@ const CategoryDetailHeader: FC<TCategoryDetailHeader> = ({ name, parent }) => {
             fill={CATEGORY_DETAIL_HEADER.FOLDER_SVG.FILL}
           />
         </FolderSvgWrapper>
-        <CategoryItem
-          category={{
-            id: getCategoryParentId(parent[0]),
-            name: parent[0],
-          }}
-        />
-        <ChevronRightSvgWrapper>
-          <ChevronRightSvg
-            height={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.SIZE}
-            width={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.SIZE}
-            color={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.COLOR}
+        {/* 親カテゴリの場合 親カテゴリのラベルを表示 */}
+        {isParent && <CategoryLabel name={name} />}
+        {/* 子カテゴリの場合 親カテゴリへのリンクを表示 */}
+        {!isParent && categoryParent && (
+          <CategoryItem
+            category={{
+              id: categoryParent.id,
+              name: categoryParent.name,
+            }}
           />
-        </ChevronRightSvgWrapper>
-        <CategoryLabel name={name} />
+        )}
+        {/* 子カテゴリの場合 子カテゴリのラベルを表示 */}
+        {!isParent && (
+          <>
+            <ChevronRightSvgWrapper>
+              <ChevronRightSvg
+                height={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.SIZE}
+                width={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.SIZE}
+                color={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.COLOR}
+              />
+            </ChevronRightSvgWrapper>
+            <CategoryLabel name={name} />
+          </>
+        )}
       </CategoryWrapper>
     </CategoryDetailHeaderWrapper>
   )

@@ -9,12 +9,12 @@ import { CategoryDetailWrapper, BlogCardListWrapper } from './index.styles'
 /* Types */
 import { ICategory } from '@/types/microCMS/category'
 
-export type TCategoryDetail = Pick<ICategory, 'name' | 'parent' | 'blogs'>
+export type TCategoryDetail = Pick<ICategory, 'name' | 'relation' | 'blogs'>
 
-const CategoryDetail: FC<TCategoryDetail> = ({ name, parent, blogs }) => {
+const CategoryDetail: FC<TCategoryDetail> = ({ name, relation, blogs }) => {
   return (
     <CategoryDetailWrapper aria-label={ARIA_LABEL.CATEGORY_DETAIL}>
-      <CategoryDetailHeader name={name} parent={parent} />
+      <CategoryDetailHeader name={name} relation={relation} />
       <BlogCardListWrapper>
         <BlogCardList contents={blogs} />
       </BlogCardListWrapper>

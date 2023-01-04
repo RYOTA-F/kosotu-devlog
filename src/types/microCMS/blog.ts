@@ -1,3 +1,22 @@
+import { ICategory } from './category'
+
+export interface IBlog {
+  id: string
+  title: string
+  description: string
+  body: string
+  image: IBlogImage
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  revisedAt: string
+  categories: ICategory[]
+  tags: IBlogTag[]
+  oldPublishedAt?: string
+  tableOfContents: IBlogTableOfContents[]
+  breadCrumb: IBlogBreadCrumb
+}
+
 export type TBlogDetailApiResponseContents = Omit<
   IBlog,
   'tableOfContents' | 'breadCrumb'
@@ -29,28 +48,11 @@ export interface IBlogTableOfContents {
 }
 
 export interface IBlogBreadCrumb {
-  categoryParentId: string
-  categoryParentName: string
+  categoryParentId: string | null
+  categoryParentName: string | null
   categoryChildId: string
   categoryChildName: string
   blogTitle: string
-}
-
-export interface IBlog {
-  id: string
-  title: string
-  description: string
-  body: string
-  image: IBlogImage
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
-  revisedAt: string
-  categories: IBlogCategory[]
-  tags: IBlogTag[]
-  oldPublishedAt?: string
-  tableOfContents: IBlogTableOfContents[]
-  breadCrumb: IBlogBreadCrumb
 }
 
 export interface IBlogImage {

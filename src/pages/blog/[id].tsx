@@ -1,13 +1,13 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-/* Lib */
-import { client } from '@/lib/microCMS'
-import { perseBlogBody } from '@/lib/cheerio'
 /* Components */
 import BlogDetail from '@/components/assembles/BlogDetail'
 /* Const */
 import { API, PAGE } from '@/const/index'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
+/* Lib */
+import { client } from '@/lib/microCMS'
+import { perseBlogBody } from '@/lib/cheerio'
 /* Types */
 import { IBlog, IBlogsApiResponse, IBlogDetailApiResponse } from '@/types/index'
 /* Utils */
@@ -29,10 +29,10 @@ const BlogPage: NextPage<IBlogPage> = ({ contents }) => {
  * 投稿ID毎にページパスを生成
  */
 export const getStaticPaths: GetStaticPaths = async () => {
-  const blog = await client.get<IBlogsApiResponse>({
-    endpoint: API.BLOGS.END_POINT,
+  const blogs = await client.get<IBlogsApiResponse>({
+    endpoint: API.BLOG.END_POINT,
   })
-  const paths = blog.contents.map(({ id }) => `${PAGE.BLOGS}/${id}`)
+  const paths = blogs.contents.map(({ id }) => `${PAGE.BLOG}/${id}`)
 
   return {
     paths,
@@ -54,7 +54,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   // 投稿IDを指定しデータを取得
   const { contents } = await client.get<IBlogDetailApiResponse>({
-    endpoint: API.BLOGS.END_POINT,
+    endpoint: API.BLOG.END_POINT,
     queries: { ids: id },
   })
 

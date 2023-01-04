@@ -24,8 +24,8 @@ const Home: NextPage<IHome> = ({ contents }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const blogs = await client.get<IBlogsApiResponse>({
-    endpoint: API.BLOGS.END_POINT,
-    queries: API.BLOGS.QUERY,
+    endpoint: API.BLOG.END_POINT,
+    queries: API.BLOG.QUERY,
   })
 
   return {

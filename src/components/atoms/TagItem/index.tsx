@@ -16,7 +16,7 @@ export interface ITagItem {
 const TagItem: FC<ITagItem> = ({ tag }) => {
   return (
     <GagItemWrapper aria-label={ARIA_LABEL}>
-      <Link href={`${PAGE.TAGS}/${tag.id}`}>{tag.name}</Link>
+      <Link href={`${PAGE.TAG}/${tag.id}`}>{tag.name}</Link>
     </GagItemWrapper>
   )
 }
