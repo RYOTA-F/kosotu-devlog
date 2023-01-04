@@ -1,7 +1,14 @@
-import { IBlogCardList } from '..'
+import { TCategoryDetail } from '..'
 
-export const defaultProps: IBlogCardList = {
-  contents: [
+export const defaultProps: TCategoryDetail = {
+  name: 'React',
+  relation: {
+    fieldId: '',
+    isParent: false,
+    children: [],
+    parent: [],
+  },
+  blogs: [
     {
       id: '3tcpe0tts',
       createdAt: '2022-12-18T07:54:41.636Z',

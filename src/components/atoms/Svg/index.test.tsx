@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import {
+  ChevronRightSvg,
+  CHEVRON_RIGHT_SVG_ARIA_LABEL,
   FolderSvg,
   FOLDER_SVG_ARIA_LABEL,
   HomeSvg,
@@ -18,6 +20,17 @@ import {
 import { defaultProps } from './__mocks__'
 
 describe('Svg', () => {
+  describe('ChevronRightSvg', () => {
+    test('描画される', () => {
+      render(<ChevronRightSvg {...defaultProps} />)
+
+      const chevronRightSvgElement = screen.getByLabelText(
+        CHEVRON_RIGHT_SVG_ARIA_LABEL
+      )
+      expect(chevronRightSvgElement).toBeInTheDocument()
+    })
+  })
+
   describe('FolderSvg', () => {
     test('描画される', () => {
       render(<FolderSvg {...defaultProps} />)

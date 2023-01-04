@@ -11,13 +11,13 @@ import {
   CategoryItemWrapper,
 } from './index.styles'
 /* Types */
-import { IBlogCategory } from '@/types/index'
+import { ICategory } from '@/types/index'
 
 export const ARIA_LABEL = 'categoryList' as const
 export const SVG_SIZE = 16 as const
 
 export interface ICategoryList {
-  categories: IBlogCategory[]
+  categories: ICategory[]
 }
 
 const CategoryList: FC<ICategoryList> = ({ categories }) => {
