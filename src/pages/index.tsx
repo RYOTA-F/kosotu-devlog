@@ -26,7 +26,7 @@ const Home: NextPage<IHome> = ({ blogs }) => {
     return () => {
       resetBlogs()
     }
-  }, [blogs, setBlogs, resetBlogs])
+  }, [])
 
   return (
     <DefaultLayout>

@@ -51,17 +51,7 @@ const BlogPage: NextPage<IBlogPage> = ({
       resetTableOfContents()
       resetBreadCrumb()
     }
-  }, [
-    blog,
-    setBlogs,
-    resetBlogs,
-    tableOfContents,
-    setTableOfContents,
-    resetTableOfContents,
-    breadCrumb,
-    setBreadCrumb,
-    resetBreadCrumb,
-  ])
+  }, [])
 
   return (
     <DefaultLayout>
