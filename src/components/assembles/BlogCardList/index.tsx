@@ -4,24 +4,22 @@ import BlogCard from '@/components/presentationals/BlogCard'
 /* Const */
 import { PAGE } from '@/const/index'
 import { ARIA_LABEL } from './const'
+/* Hooks */
+import useBlogData from '@/hooks/useBlogData'
 /* Styles */
 import {
   BlogCardListWrapper,
   BlogCardItems,
   BlogCardWrapper,
 } from './index.styles'
-/* Types */
-import { TBlogDetailApiResponseContents } from '@/types/index'
 
-export interface IBlogCardList {
-  contents: TBlogDetailApiResponseContents[]
-}
+const BlogCardList: FC = () => {
+  const { blogs } = useBlogData()
 
-const BlogCardList: FC<IBlogCardList> = ({ contents }) => {
   return (
     <BlogCardListWrapper aria-label={ARIA_LABEL.BLOG_CARD_LIST}>
       <BlogCardItems>
-        {contents.map((v) => (
+        {blogs.map((v) => (
           <BlogCardWrapper key={v.title}>
             <BlogCard
               title={v.title}

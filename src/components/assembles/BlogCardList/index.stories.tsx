@@ -1,22 +1,20 @@
 import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
-import BlogCardList, { IBlogCardList } from '.'
-import { defaultProps } from './__mocks__'
+import BlogCardList from '.'
 
 export default {
   title: 'Assembles/BlogCardList',
   component: BlogCardList,
 }
 
-const Template: Story<IBlogCardList> = (args) => (
+const Template: Story = () => (
   <Container>
-    <BlogCardList {...args} />
+    <BlogCardList />
   </Container>
 )
 
 export const Normal = Template.bind({})
-Normal.args = defaultProps
 
 const Container = styled.div`
   width: 844px;

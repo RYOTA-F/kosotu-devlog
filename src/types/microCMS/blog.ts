@@ -14,24 +14,17 @@ export interface IBlog {
   categories: ICategory[]
   tags: ITag[]
   oldPublishedAt?: string
-  tableOfContents: ITableOfContents[]
-  breadCrumb: IBreadCrumb
 }
 
-export type TBlogDetailApiResponseContents = Omit<
-  IBlog,
-  'tableOfContents' | 'breadCrumb'
->
-
 export interface IBlogsApiResponse {
-  contents: TBlogDetailApiResponseContents[]
+  contents: IBlog[]
   totalCount: number
   offset: number
   limit: number
 }
 
 export interface IBlogDetailApiResponse {
-  contents: TBlogDetailApiResponseContents[]
+  contents: IBlog[]
 }
 
 export interface IBlogCardData {

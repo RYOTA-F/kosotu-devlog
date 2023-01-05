@@ -349,3 +349,39 @@ template {
 [hidden] {
   display: none;
 }
+
+body {
+  font-family: Menlo, Consolas, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
+    Meiryo, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}

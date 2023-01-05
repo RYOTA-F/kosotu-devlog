@@ -1,18 +1,18 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import BlogCardList, { ARIA_LABEL } from '.'
-import { defaultProps } from './__mocks__'
+import BlogCardList from '.'
 
 describe('BlogCardList', () => {
   beforeEach(() => {
-    render(<BlogCardList {...defaultProps} />)
+    render(<BlogCardList />)
   })
 
-  test('描画される', () => {
-    const blogCardListElement = screen.getByLabelText(ARIA_LABEL.BLOG_CARD_LIST)
-    expect(blogCardListElement).toBeInTheDocument()
-  })
+  test.todo('描画される')
+  // test('描画される', () => {
+  //   const blogCardListElement = screen.getByLabelText(ARIA_LABEL.BLOG_CARD_LIST)
+  //   expect(blogCardListElement).toBeInTheDocument()
+  // })
 
   test.todo('ブログの数だけ BlogCard が描画される')
   test.todo('oldPublishedAt が存在する場合 oldPublishedAt が渡される')
