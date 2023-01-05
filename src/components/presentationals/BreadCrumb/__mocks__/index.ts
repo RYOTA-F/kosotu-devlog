@@ -1,7 +1,7 @@
 /* Types */
-import { IBreadCrumb } from '../'
+import { IBreadCrumbProps } from '../'
 
-export const defaultProps: IBreadCrumb = {
+export const defaultProps: IBreadCrumbProps = {
   breadCrumb: {
     categoryParentId: 'front-end',
     categoryParentName: 'フロントエンド',

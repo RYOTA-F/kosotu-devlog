@@ -1,5 +1,5 @@
 /* Types */
-import { TBlogDetailApiResponseContents, IBlogBreadCrumb } from '@/types/index'
+import { TBlogDetailApiResponseContents, IBreadCrumb } from '@/types/index'
 /* Utils */
 import { getCategoryRelation, getCategoryParentName } from './blogCategory'
 
@@ -12,7 +12,7 @@ export const getBreadCrumbData = (contents: TBlogDetailApiResponseContents) => {
     contents.categories[0].relation.isParent
   )
 
-  const breadCrumb: IBlogBreadCrumb = {
+  const breadCrumb: IBreadCrumb = {
     categoryParentId: categoryParent ? categoryParent.id : null,
     categoryParentName: categoryParent
       ? getCategoryParentName(categoryParent.id)

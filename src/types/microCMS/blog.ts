@@ -15,7 +15,7 @@ export interface IBlog {
   tags: ITag[]
   oldPublishedAt?: string
   tableOfContents: ITableOfContents[]
-  breadCrumb: IBlogBreadCrumb
+  breadCrumb: IBreadCrumb
 }
 
 export type TBlogDetailApiResponseContents = Omit<
@@ -48,7 +48,7 @@ export interface ITableOfContents {
   type: string
 }
 
-export interface IBlogBreadCrumb {
+export interface IBreadCrumb {
   categoryParentId: string | null
   categoryParentName: string | null
   categoryChildId: string

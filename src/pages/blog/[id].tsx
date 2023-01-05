@@ -1,13 +1,12 @@
-import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { useEffect } from 'react'
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Components */
 import BlogDetail from '@/components/assembles/BlogDetail'
+import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Const */
 import { API, PAGE } from '@/const/index'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
-/* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Lib */
 import { client } from '@/lib/microCMS'
 import { perseBlogBody } from '@/lib/cheerio'
@@ -17,30 +16,32 @@ import {
   IBlogsApiResponse,
   IBlogDetailApiResponse,
   ITableOfContents,
-  IBlogBreadCrumb,
+  IBreadCrumb,
 } from '@/types/index'
 /* Utils */
 import { getBreadCrumbData } from '@/utils/blogBreadCrumb'
 
 interface IBlogPage {
-  contents: {
-    blog: IBlog
-    tableOfContents: ITableOfContents[]
-    breadCrumb: IBlogBreadCrumb
-  }
+  blog: IBlog
+  tableOfContents: ITableOfContents[]
+  breadCrumb: IBreadCrumb
 }
 
-const BlogPage: NextPage<IBlogPage> = ({ contents }) => {
-  const { blog, tableOfContents } = contents
-  const { setBlogs, setTableOfContents } = useBlogData()
+const BlogPage: NextPage<IBlogPage> = ({
+  blog,
+  tableOfContents,
+  breadCrumb,
+}) => {
+  const { setBlogs, setTableOfContents, setBreadCrumb } = useBlogData()
 
   useEffect(() => {
     setBlogs([blog])
     setTableOfContents(tableOfContents)
+    setBreadCrumb(breadCrumb)
   }, [])
 
   return (
-    <DefaultLayout breadCrumb={contents.breadCrumb}>
+    <DefaultLayout>
       <BlogDetail />
     </DefaultLayout>
   )
@@ -86,26 +87,24 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      contents: {
-        blog: {
-          id: contents[0].id,
-          title: contents[0].title,
-          description: contents[0].description,
-          body,
-          image: contents[0].image,
-          createdAt: contents[0].createdAt,
-          updatedAt: contents[0].updatedAt,
-          publishedAt: contents[0].publishedAt,
-          oldPublishedAt: contents[0].oldPublishedAt
-            ? contents[0].oldPublishedAt
-            : '',
-          revisedAt: contents[0].revisedAt,
-          categories: contents[0].categories,
-          tags: contents[0].tags,
-        },
-        tableOfContents,
-        breadCrumb,
+      blog: {
+        id: contents[0].id,
+        title: contents[0].title,
+        description: contents[0].description,
+        body,
+        image: contents[0].image,
+        createdAt: contents[0].createdAt,
+        updatedAt: contents[0].updatedAt,
+        publishedAt: contents[0].publishedAt,
+        oldPublishedAt: contents[0].oldPublishedAt
+          ? contents[0].oldPublishedAt
+          : '',
+        revisedAt: contents[0].revisedAt,
+        categories: contents[0].categories,
+        tags: contents[0].tags,
       },
+      tableOfContents,
+      breadCrumb,
     },
   }
 }

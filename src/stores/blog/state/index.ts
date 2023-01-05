@@ -6,6 +6,7 @@ export const initialBlogState: IBlogState = {
   offset: undefined,
   limit: undefined,
   tableOfContents: [],
+  breadClumb: undefined,
 }
 
 export * from './types'

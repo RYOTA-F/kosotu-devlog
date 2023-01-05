@@ -2,18 +2,20 @@ import { useContext } from 'react'
 /* Store */
 import { BlogContext, BLOG_ACTION_TYPES } from '@/stores/blog'
 /* Types */
-import { IBlog, ITableOfContents } from '@/types/index'
+import { IBlog, ITableOfContents, IBreadCrumb } from '@/types/index'
 
 const useBlogData = () => {
   const { state, dispatch } = useContext(BlogContext)
 
-  /** ブログ一件 */
+  /* ブログ */
   const blog = state.blogs[0]
-  /** ブログ一覧 */
+  /* ブログ 一覧 */
   const blogs = state.blogs
-  /** 目次 */
+  /* 目次 */
   const tableOfContents = state.tableOfContents
-
+  /* パンくず */
+  const breadCrumb = state.breadClumb
+  /* ブログ 投稿数 */
   const totalCount = state.totalCount
 
   /** ブログ一覧をセット */
@@ -37,6 +39,14 @@ const useBlogData = () => {
     })
   }
 
+  /** パンくずをセット */
+  const setBreadCrumb = (breadCrumb: IBreadCrumb) => {
+    dispatch({
+      type: BLOG_ACTION_TYPES.UPDATE_BREAD_CRUMB,
+      payload: breadCrumb,
+    })
+  }
+
   return {
     blog,
     blogs,
@@ -45,6 +55,8 @@ const useBlogData = () => {
     setTotalCount,
     tableOfContents,
     setTableOfContents,
+    breadCrumb,
+    setBreadCrumb,
   }
 }
 

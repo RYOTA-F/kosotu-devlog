@@ -7,17 +7,18 @@ import BreadCrumb from '@/components/presentationals/BreadCrumb'
 import Profile from '@/components/presentationals/Profile'
 /* Const */
 import { ARIA_LABEL } from './const'
+/* Hooks */
+import useBlogData from '@/hooks/useBlogData'
 /* Styles */
 import { MainWrapper, Main, Aside } from './index.styles'
-/* Types */
-import { IBlogBreadCrumb } from '@/types/index'
 
 export interface IDefaultLayout {
   children: ReactNode
-  breadCrumb?: IBlogBreadCrumb
 }
 
-const DefaultLayout: FC<IDefaultLayout> = ({ children, breadCrumb }) => {
+const DefaultLayout: FC<IDefaultLayout> = ({ children }) => {
+  const { breadCrumb } = useBlogData()
+
   return (
     <div aria-label={ARIA_LABEL.DEFAULT_LAYOUT}>
       <Header />

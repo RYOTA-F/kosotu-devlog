@@ -7,13 +7,13 @@ export const blogReducer: Reducer<IBlogState, TBlogActions> = (
   action
 ) => {
   switch (action.type) {
-    // ブログ 一覧更新
+    // ブログ 一覧 更新
     case BLOG_ACTION_TYPES.UPDATE_BLOGS:
       return {
         ...state,
         blogs: action.payload,
       }
-    // ブログ 投稿数更新
+    // ブログ 投稿数 更新
     case BLOG_ACTION_TYPES.UPDATE_TOTAL_COUNT:
       return {
         ...state,
@@ -24,6 +24,12 @@ export const blogReducer: Reducer<IBlogState, TBlogActions> = (
       return {
         ...state,
         tableOfContents: action.payload,
+      }
+    // パンくず 更新
+    case BLOG_ACTION_TYPES.UPDATE_BREAD_CRUMB:
+      return {
+        ...state,
+        breadClumb: action.payload,
       }
     default:
       return state

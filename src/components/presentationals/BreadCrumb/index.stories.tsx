@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react'
 
-import BreadCrumb, { IBreadCrumb } from '.'
+import BreadCrumb, { IBreadCrumbProps } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
@@ -8,7 +8,7 @@ export default {
   component: BreadCrumb,
 }
 
-const Template: Story<IBreadCrumb> = (args) => <BreadCrumb {...args} />
+const Template: Story<IBreadCrumbProps> = (args) => <BreadCrumb {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = defaultProps

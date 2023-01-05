@@ -8,13 +8,13 @@ import { BREAD_CRUMB, ARIA_LABEL } from './const'
 /* Styles */
 import { BreadCrumbWrapper, ListItem, Title, HomeWrapper } from './index.styles'
 /* Types */
-import { IBlogBreadCrumb } from '@/types/index'
+import { IBreadCrumb } from '@/types/index'
 
-export interface IBreadCrumb {
-  breadCrumb: IBlogBreadCrumb
+export interface IBreadCrumbProps {
+  breadCrumb: IBreadCrumb
 }
 
-const BreadCrumb: FC<IBreadCrumb> = ({ breadCrumb }) => {
+const BreadCrumb: FC<IBreadCrumbProps> = ({ breadCrumb }) => {
   return (
     <BreadCrumbWrapper aria-label={ARIA_LABEL.BREAD_CRUMB}>
       <ListItem>
