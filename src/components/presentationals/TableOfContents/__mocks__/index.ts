@@ -1,5 +1,6 @@
-import { ITableOfContents } from '../'
-export const defaultProps: ITableOfContents = {
+import { ITableOfContentsProps } from '../'
+
+export const defaultProps: ITableOfContentsProps = {
   tableOfContents: [
     { id: 'h0a55354ba7', text: 'Goのフレームワーク【Echo】とは', type: 'h2' },
     { id: 'hfc82e55b48', text: 'その他のGoフレームワーク', type: 'h2' },
