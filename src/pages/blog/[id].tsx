@@ -8,8 +8,8 @@ import { API, PAGE } from '@/const/index'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 /* Lib */
-import { client } from '@/lib/microCMS'
-import { perseBlogBody } from '@/lib/cheerio'
+import { client } from '@/libs/microCMS'
+import { perseBlogBody } from '@/libs/cheerio'
 /* Types */
 import {
   IBlog,

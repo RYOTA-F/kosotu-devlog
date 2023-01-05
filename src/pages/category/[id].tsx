@@ -6,7 +6,7 @@ import { API, PAGE } from '@/const/index'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Lib */
-import { client } from '@/lib/microCMS'
+import { client } from '@/libs/microCMS'
 /* Types */
 import { ICategory, ICategoryApiResponse } from '@/types/microCMS/category'
 

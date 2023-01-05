@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next'
 /* Client */
-import { client } from '@/lib/microCMS'
+import { client } from '@/libs/microCMS'
 /* Const */
 import { API } from '@/const/index'
 /* Layouts */
