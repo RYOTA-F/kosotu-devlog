@@ -18,11 +18,15 @@ interface IHome {
 }
 
 const Home: NextPage<IHome> = ({ blogs }) => {
-  const { setBlogs } = useBlogData()
+  const { setBlogs, resetBlogs } = useBlogData()
 
   useEffect(() => {
     setBlogs(blogs)
-  }, [blogs])
+
+    return () => {
+      resetBlogs()
+    }
+  }, [blogs, setBlogs, resetBlogs])
 
   return (
     <DefaultLayout>

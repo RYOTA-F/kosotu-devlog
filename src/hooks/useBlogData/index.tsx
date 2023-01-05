@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 /* Store */
 import { BlogContext, BLOG_ACTION_TYPES } from '@/stores/blog'
 /* Types */
@@ -56,14 +56,6 @@ const useBlogData = () => {
       payload: undefined,
     })
   }
-
-  useEffect(() => {
-    return () => {
-      resetBlogs()
-      resetTableOfContents()
-      resetBreadCrumb()
-    }
-  }, [resetBlogs, resetTableOfContents, resetBreadCrumb])
 
   return {
     blog,

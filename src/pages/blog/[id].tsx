@@ -32,13 +32,36 @@ const BlogPage: NextPage<IBlogPage> = ({
   tableOfContents,
   breadCrumb,
 }) => {
-  const { setBlogs, setTableOfContents, setBreadCrumb } = useBlogData()
+  const {
+    setBlogs,
+    resetBlogs,
+    setTableOfContents,
+    resetTableOfContents,
+    setBreadCrumb,
+    resetBreadCrumb,
+  } = useBlogData()
 
   useEffect(() => {
     setBlogs([blog])
     setTableOfContents(tableOfContents)
     setBreadCrumb(breadCrumb)
-  }, [blog, tableOfContents, breadCrumb])
+
+    return () => {
+      resetBlogs()
+      resetTableOfContents()
+      resetBreadCrumb()
+    }
+  }, [
+    blog,
+    setBlogs,
+    resetBlogs,
+    tableOfContents,
+    setTableOfContents,
+    resetTableOfContents,
+    breadCrumb,
+    setBreadCrumb,
+    resetBreadCrumb,
+  ])
 
   return (
     <DefaultLayout>
