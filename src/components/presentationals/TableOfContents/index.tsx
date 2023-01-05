@@ -15,10 +15,10 @@ import {
   LinkText,
 } from './index.styles'
 /* Types */
-import { IBlog, ITableOfContents } from '@/types/index'
+import { ITableOfContents } from '@/types/index'
 
 export interface ITableOfContentsProps {
-  tableOfContents: IBlog['tableOfContents']
+  tableOfContents: ITableOfContents[]
 }
 
 const TableOfContents: FC<ITableOfContentsProps> = ({ tableOfContents }) => {
