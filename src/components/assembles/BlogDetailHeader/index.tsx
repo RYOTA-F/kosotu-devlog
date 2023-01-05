@@ -22,7 +22,7 @@ import {
   TableOfContentsWrapper,
 } from './index.styles'
 /* Types */
-import { IBlog } from '@/types/index'
+import { IBlog, ITableOfContents } from '@/types/index'
 
 const IMAGE = {
   ALT: 'Thumbnail',
@@ -32,14 +32,10 @@ const IMAGE = {
 
 export type TBlogDetailHeader = Pick<
   IBlog,
-  | 'title'
-  | 'description'
-  | 'image'
-  | 'publishedAt'
-  | 'categories'
-  | 'tags'
-  | 'tableOfContents'
->
+  'title' | 'description' | 'image' | 'publishedAt' | 'categories' | 'tags'
+> & {
+  tableOfContents: ITableOfContents[]
+}
 
 const BlogDetailHeader: FC<TBlogDetailHeader> = ({
   title,
