@@ -7,7 +7,7 @@ import { API } from '@/const/index'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
-import BlogCardList from '@/components/assembles/BlogCardList'
+import BlogCardList from '@/components/organisms/BlogCardList'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 /* Types */

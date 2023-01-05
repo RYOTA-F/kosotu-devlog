@@ -1,4 +1,4 @@
-import { ITableOfContentsProps } from '../'
+import { ITableOfContentsProps } from '..'
 
 export const defaultProps: ITableOfContentsProps = {
   tableOfContents: [

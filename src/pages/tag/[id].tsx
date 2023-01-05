@@ -1,6 +1,6 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Components */
-import TagDetail from '@/components/assembles/TagDetail'
+import TagDetail from '@/components/organisms/TagDetail'
 /* Const */
 import { API, PAGE } from '@/const/index'
 /* Layouts */

@@ -1,4 +1,4 @@
-import { ITagList } from '../'
+import { ITagList } from '..'
 
 export const defaultProps: ITagList = {
   tags: [

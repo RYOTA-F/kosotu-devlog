@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
-import BlogBody, { IBlogBody } from './'
+import BlogBody, { IBlogBody } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {

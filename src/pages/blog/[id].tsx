@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Components */
-import BlogDetail from '@/components/assembles/BlogDetail'
+import BlogDetail from '@/components/organisms/BlogDetail'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Const */
 import { API, PAGE } from '@/const/index'

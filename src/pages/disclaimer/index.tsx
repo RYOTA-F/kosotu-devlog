@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 /* Components */
-import Disclaimer from '@/components/assembles/Disclaimer'
+import Disclaimer from '@/components/organisms/Disclaimer'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 

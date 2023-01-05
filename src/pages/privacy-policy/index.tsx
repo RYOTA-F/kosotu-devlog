@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 /* Components */
-import PrivacyPolicy from '@/components/assembles/PrivacyPolicy'
+import PrivacyPolicy from '@/components/organisms/PrivacyPolicy'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 

@@ -1,5 +1,5 @@
 /* Types */
-import { IBreadCrumbProps } from '../'
+import { IBreadCrumbProps } from '..'
 
 export const defaultProps: IBreadCrumbProps = {
   breadCrumb: {

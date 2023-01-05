@@ -2,9 +2,9 @@ import { FC } from 'react'
 import Image from 'next/image'
 /* Components */
 import { TimeSvg } from '@/components/atoms/Svg'
-import CategoryList from '@/components/presentationals/CategoryList'
-import TagList from '@/components/presentationals/TagList'
-import TableOfContents from '@/components/presentationals/TableOfContents'
+import CategoryList from '@/components/molecules/CategoryList'
+import TagList from '@/components/molecules/TagList'
+import TableOfContents from '@/components/molecules/TableOfContents'
 /* Const */
 import { BLOG_DETAIL, ARIA_LABEL, TIME_ICON_SIZE } from './const'
 /* Styles */

@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 /* Components */
 import { TwitterSvg } from '@/components/atoms/Svg'
-import AccordionMenu from '@/components/presentationals/AccordionMenu'
+import AccordionMenu from '@/components/molecules/AccordionMenu'
 /* Const */
 import { SITE, PAGE, GROBAL_MENU_LIST, TWITTER } from '@/const/index'
 import { HEADER, ARIA_LABEL } from './const'

@@ -1,10 +1,10 @@
 import type { FC, ReactNode } from 'react'
 /* Sections */
-import Header from '@/components/sections/Header'
-import Footer from '@/components/sections/Footer'
+import Header from '@/components/organisms/Header'
+import Footer from '@/components/organisms/Footer'
 /* Components */
-import BreadCrumb from '@/components/presentationals/BreadCrumb'
-import Profile from '@/components/presentationals/Profile'
+import BreadCrumb from '@/components/molecules/BreadCrumb'
+import Profile from '@/components/molecules/Profile'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Hooks */

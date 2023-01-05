@@ -1,6 +1,6 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Components */
-import CategoryDetail from '@/components/assembles/CategoryDetail'
+import CategoryDetail from '@/components/organisms/CategoryDetail'
 /* Const */
 import { API, PAGE } from '@/const/index'
 /* Layouts */

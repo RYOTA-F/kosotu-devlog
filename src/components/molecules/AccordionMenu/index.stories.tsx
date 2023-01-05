@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
-import AccordionMenu, { IAccordionMenu } from './'
+import AccordionMenu, { IAccordionMenu } from '.'
 import { defaultProps } from './__mocks__'
 import { COLOR } from '@/const/index'
 
