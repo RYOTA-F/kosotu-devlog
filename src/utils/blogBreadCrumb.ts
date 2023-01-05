@@ -1,12 +1,12 @@
 /* Types */
-import { TBlogDetailApiResponseContents, IBreadCrumb } from '@/types/index'
+import { IBlog, IBreadCrumb } from '@/types/index'
 /* Utils */
 import { getCategoryRelation, getCategoryParentName } from './blogCategory'
 
 /**
  * パンくず情報を取得
  */
-export const getBreadCrumbData = (contents: TBlogDetailApiResponseContents) => {
+export const getBreadCrumbData = (contents: IBlog) => {
   const { categoryParent } = getCategoryRelation(
     contents.categories[0].relation,
     contents.categories[0].relation.isParent
