@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
-import TableOfContents, { ITableOfContents } from '.'
+import TableOfContents, { ITableOfContentsProps } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
@@ -8,7 +8,7 @@ export default {
   component: TableOfContents,
 }
 
-const Template: Story<ITableOfContents> = (args) => (
+const Template: Story<ITableOfContentsProps> = (args) => (
   <Container>
     <TableOfContents {...args} />
   </Container>
