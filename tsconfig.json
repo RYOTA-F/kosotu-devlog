@@ -24,6 +24,7 @@
       "@/lib/*": ["lib/*"],
       "@/layouts/*": ["components/layouts/*"],
       "@/sections/*": ["components/sections/*"],
+      "@/stores/*": ["stores/*"],
       "@/types/*": ["types/*"],
       "@/utils/*": ["utils/*"]
     }

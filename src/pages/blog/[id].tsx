@@ -1,23 +1,44 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { useEffect } from 'react'
 /* Components */
 import BlogDetail from '@/components/assembles/BlogDetail'
 /* Const */
 import { API, PAGE } from '@/const/index'
+/* Hooks */
+import useBlogData from '@/hooks/useBlogData'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Lib */
 import { client } from '@/lib/microCMS'
 import { perseBlogBody } from '@/lib/cheerio'
 /* Types */
-import { IBlog, IBlogsApiResponse, IBlogDetailApiResponse } from '@/types/index'
+import {
+  IBlog,
+  IBlogsApiResponse,
+  IBlogDetailApiResponse,
+  IBlogTableOfContents,
+  IBlogBreadCrumb,
+} from '@/types/index'
 /* Utils */
 import { getBreadCrumbData } from '@/utils/blogBreadCrumb'
 
-interface IBlogPage {
+type TBlogPage = IBlog & {
   contents: IBlog
+  master: {
+    blog: IBlog
+    tableOfContents: IBlogTableOfContents
+    breadCrumb: IBlogBreadCrumb
+  }
 }
 
-const BlogPage: NextPage<IBlogPage> = ({ contents }) => {
+const BlogPage: NextPage<TBlogPage> = ({ contents, master }) => {
+  const { setBlogs } = useBlogData()
+
+  useEffect(() => {
+    const blog = [master.blog]
+    setBlogs(blog)
+  }, [])
+
   return (
     <DefaultLayout breadCrumb={contents.breadCrumb}>
       <BlogDetail {...contents} />
@@ -80,6 +101,26 @@ export const getStaticProps: GetStaticProps = async (context) => {
         revisedAt: contents[0].revisedAt,
         categories: contents[0].categories,
         tags: contents[0].tags,
+        tableOfContents,
+        breadCrumb,
+      },
+      master: {
+        blog: {
+          id: contents[0].id,
+          title: contents[0].title,
+          description: contents[0].description,
+          body,
+          image: contents[0].image,
+          createdAt: contents[0].createdAt,
+          updatedAt: contents[0].updatedAt,
+          publishedAt: contents[0].publishedAt,
+          oldPublishedAt: contents[0].oldPublishedAt
+            ? contents[0].oldPublishedAt
+            : '',
+          revisedAt: contents[0].revisedAt,
+          categories: contents[0].categories,
+          tags: contents[0].tags,
+        },
         tableOfContents,
         breadCrumb,
       },
