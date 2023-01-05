@@ -11,12 +11,12 @@ import { ITag } from '@/types/index'
 
 export type TTagDetail = Pick<ITag, 'name' | 'blogs'>
 
-const TagDetail: FC<TTagDetail> = ({ name, blogs }) => {
+const TagDetail: FC<TTagDetail> = ({ name }) => {
   return (
     <TagDetailWrapper aria-label={ARIA_LABEL.TAG_DETAIL}>
       <TagDetailHeader name={name} />
       <BlogCardListWrapper>
-        <BlogCardList contents={blogs} />
+        <BlogCardList />
       </BlogCardListWrapper>
     </TagDetailWrapper>
   )
