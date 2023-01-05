@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 /* Store */
 import { BlogContext, BLOG_ACTION_TYPES } from '@/stores/blog'
 /* Types */
@@ -7,28 +7,22 @@ import { IBlog, ITableOfContents, IBreadCrumb } from '@/types/index'
 const useBlogData = () => {
   const { state, dispatch } = useContext(BlogContext)
 
-  /* ブログ */
+  // ブログ
   const blog = state.blogs[0]
-  /* ブログ 一覧 */
+  // ブログ一覧
   const blogs = state.blogs
-  /* 目次 */
+  // 目次
   const tableOfContents = state.tableOfContents
-  /* パンくず */
+  // パンくず
   const breadCrumb = state.breadClumb
-  /* ブログ 投稿数 */
-  const totalCount = state.totalCount
 
   /** ブログ一覧をセット */
   const setBlogs = (blogs: IBlog[]) => {
     dispatch({ type: BLOG_ACTION_TYPES.UPDATE_BLOGS, payload: blogs })
   }
-
-  /** 投稿数をセット */
-  const setTotalCount = (totalCount: number) => {
-    dispatch({
-      type: BLOG_ACTION_TYPES.UPDATE_TOTAL_COUNT,
-      payload: totalCount,
-    })
+  /** ブログ一覧をリセット */
+  const resetBlogs = () => {
+    dispatch({ type: BLOG_ACTION_TYPES.UPDATE_BLOGS, payload: [] })
   }
 
   /** 目次をセット */
@@ -36,6 +30,14 @@ const useBlogData = () => {
     dispatch({
       type: BLOG_ACTION_TYPES.UPDATE_TABLE_OF_CONTENTS,
       payload: tableOfContents,
+    })
+  }
+
+  /** 目次をセット */
+  const resetTableOfContents = () => {
+    dispatch({
+      type: BLOG_ACTION_TYPES.UPDATE_TABLE_OF_CONTENTS,
+      payload: [],
     })
   }
 
@@ -47,16 +49,33 @@ const useBlogData = () => {
     })
   }
 
+  /** パンくずをリセット */
+  const resetBreadCrumb = () => {
+    dispatch({
+      type: BLOG_ACTION_TYPES.UPDATE_BREAD_CRUMB,
+      payload: undefined,
+    })
+  }
+
+  useEffect(() => {
+    return () => {
+      resetBlogs()
+      resetTableOfContents()
+      resetBreadCrumb()
+    }
+  }, [resetBlogs, resetTableOfContents, resetBreadCrumb])
+
   return {
     blog,
     blogs,
     setBlogs,
-    totalCount,
-    setTotalCount,
+    resetBlogs,
     tableOfContents,
     setTableOfContents,
+    resetTableOfContents,
     breadCrumb,
     setBreadCrumb,
+    resetBreadCrumb,
   }
 }
 

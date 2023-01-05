@@ -30,7 +30,7 @@ type TUpdateTableOfContentsAction = {
 
 type TUpdateBreadCrumbAction = {
   type: TBlogActionTypesConst['UPDATE_BREAD_CRUMB']
-  payload: IBreadCrumb
+  payload: IBreadCrumb | undefined
 }
 
 type TBlogActions =
