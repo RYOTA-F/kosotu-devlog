@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import type { GetStaticProps, NextPage } from 'next'
 /* Client */
-import { client } from '@/libs/microCMS'
+import { client } from '@/libs/index'
 /* Const */
 import { API } from '@/const/index'
 /* Layouts */

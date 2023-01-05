@@ -9,8 +9,7 @@ import { API, PAGE } from '@/const/index'
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
 /* Lib */
-import { client } from '@/libs/microCMS'
-import { perseBlogBody } from '@/libs/cheerio'
+import { client, perseBlogBody } from '@/libs/index'
 /* Types */
 import {
   IBlog,
@@ -20,7 +19,7 @@ import {
   IBreadCrumb,
 } from '@/types/index'
 /* Utils */
-import { getBreadCrumbData } from '@/utils/blogBreadCrumb'
+import { getBreadCrumbData } from '@/utils/index'
 
 interface IBlogPage {
   blog: IBlog

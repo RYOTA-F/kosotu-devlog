@@ -1,7 +1,7 @@
 /* Types */
 import { IBlog, IBreadCrumb } from '@/types/index'
 /* Utils */
-import { getCategoryRelation, getCategoryParentName } from './blogCategory'
+import { getCategoryRelation, getCategoryParentName } from '../blogCategory'
 
 /**
  * パンくず情報を取得

@@ -4,7 +4,7 @@ import hljs from 'highlight.js'
 /* Types */
 import { IBlog, IBlogCardData, ITableOfContents } from '@/types/index'
 /* Utils */
-import { getBlogCardDom } from '@/utils/blogCard'
+import { getBlogCardDom } from '@/utils/index'
 
 /**
  * 投稿本文をパース

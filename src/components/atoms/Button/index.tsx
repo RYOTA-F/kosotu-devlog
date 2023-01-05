@@ -1,8 +1,6 @@
 import { ReactNode, FC } from 'react'
 /* Styles */
 import { ButtonWrapper } from './index.styles'
-/* Types */
-import { CollorPattern } from '@/types/index'
 
 export const ARIA_LABEL = {
   BUTTON: 'button',
@@ -11,7 +9,7 @@ export const ARIA_LABEL = {
 export interface IButton {
   borderRadius?: number
   padding?: number
-  color?: CollorPattern
+  color?: 'none' | 'default'
   children: ReactNode
   onClick: () => void
 }

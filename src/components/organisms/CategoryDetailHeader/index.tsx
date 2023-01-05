@@ -18,7 +18,7 @@ import {
 /* Types */
 import { ICategory } from '@/types/microCMS/category'
 /* Utils */
-import { getCategoryRelation } from '@/utils/blogCategory'
+import { getCategoryRelation } from '@/utils/index'
 
 export type TCategoryDetailHeader = Pick<ICategory, 'name' | 'relation'>
 
