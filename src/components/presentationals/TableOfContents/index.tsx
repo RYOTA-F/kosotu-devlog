@@ -15,13 +15,13 @@ import {
   LinkText,
 } from './index.styles'
 /* Types */
-import { IBlog, IBlogTableOfContents } from '@/types/index'
+import { IBlog, ITableOfContents } from '@/types/index'
 
-export interface ITableOfContents {
+export interface ITableOfContentsProps {
   tableOfContents: IBlog['tableOfContents']
 }
 
-const TableOfContents: FC<ITableOfContents> = ({ tableOfContents }) => {
+const TableOfContents: FC<ITableOfContentsProps> = ({ tableOfContents }) => {
   return (
     <Wrapper aria-label={ARIA_LABEL}>
       <Title>
@@ -42,7 +42,7 @@ const TableOfContents: FC<ITableOfContents> = ({ tableOfContents }) => {
   )
 }
 
-const LinkItem = (item: IBlogTableOfContents) => (
+const LinkItem = (item: ITableOfContents) => (
   <Link
     to={item.id}
     smooth={TOC.LINK.SMOOTH}

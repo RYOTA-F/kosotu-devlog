@@ -14,7 +14,7 @@ export interface IBlog {
   categories: ICategory[]
   tags: ITag[]
   oldPublishedAt?: string
-  tableOfContents: IBlogTableOfContents[]
+  tableOfContents: ITableOfContents[]
   breadCrumb: IBlogBreadCrumb
 }
 
@@ -42,7 +42,7 @@ export interface IBlogCardData {
   site: string
 }
 
-export interface IBlogTableOfContents {
+export interface ITableOfContents {
   id: string
   text: string
   type: string

@@ -8,15 +8,11 @@ import { ARIA_LABEL } from './const'
 import useBlogData from '@/hooks/useBlogData'
 /* Styles */
 import { BlogDetailWrapper } from './index.styles'
-/* Types */
-import { IBlog } from '@/types/index'
 
-export type TBlogDetail = Omit<IBlog, 'breadCrumb'>
+const BlogDetail: FC = () => {
+  const { blog, tableOfContents } = useBlogData()
 
-const BlogDetail: FC<TBlogDetail> = ({ tableOfContents }) => {
-  const { blog } = useBlogData()
-
-  if (!blog) return null
+  if (!blog || !tableOfContents) return null
   return (
     <BlogDetailWrapper aria-label={ARIA_LABEL.BLOG_DETAIL}>
       <BlogDetailHeader

@@ -2,7 +2,7 @@ import { useContext } from 'react'
 /* Store */
 import { BlogContext, BLOG_ACTION_TYPES } from '@/stores/blog'
 /* Types */
-import { IBlog } from '@/types/index'
+import { IBlog, ITableOfContents } from '@/types/index'
 
 const useBlogData = () => {
   const { state, dispatch } = useContext(BlogContext)
@@ -11,6 +11,10 @@ const useBlogData = () => {
   const blog = state.blogs[0]
   /** ブログ一覧 */
   const blogs = state.blogs
+  /** 目次 */
+  const tableOfContents = state.tableOfContents
+
+  const totalCount = state.totalCount
 
   /** ブログ一覧をセット */
   const setBlogs = (blogs: IBlog[]) => {
@@ -25,9 +29,23 @@ const useBlogData = () => {
     })
   }
 
-  const totalCount = state.totalCount
+  /** 目次をセット */
+  const setTableOfContents = (tableOfContents: ITableOfContents[]) => {
+    dispatch({
+      type: BLOG_ACTION_TYPES.UPDATE_TABLE_OF_CONTENTS,
+      payload: tableOfContents,
+    })
+  }
 
-  return { blog, blogs, setBlogs, setTotalCount, totalCount }
+  return {
+    blog,
+    blogs,
+    setBlogs,
+    totalCount,
+    setTotalCount,
+    tableOfContents,
+    setTableOfContents,
+  }
 }
 
 export default useBlogData

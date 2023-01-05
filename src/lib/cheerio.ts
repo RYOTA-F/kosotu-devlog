@@ -2,11 +2,7 @@
 import cheerio from 'cheerio'
 import hljs from 'highlight.js'
 /* Types */
-import {
-  IBlog,
-  IBlogCardData,
-  IBlogTableOfContents,
-} from '@/types/microCMS/blog'
+import { IBlog, IBlogCardData, ITableOfContents } from '@/types/index'
 /* Utils */
 import { getBlogCardDom } from '@/utils/blogCard'
 
@@ -31,7 +27,7 @@ export const perseBlogBody = async (contents: IBlog['body']) => {
   })
 
   // 目次を取得
-  const tableOfContents: IBlogTableOfContents[] = $('h2, h3')
+  const tableOfContents: ITableOfContents[] = $('h2, h3')
     .toArray()
     .map((element: cheerio.Element) => ({
       id: element.attribs.id,

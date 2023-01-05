@@ -16,32 +16,32 @@ import {
   IBlog,
   IBlogsApiResponse,
   IBlogDetailApiResponse,
-  IBlogTableOfContents,
+  ITableOfContents,
   IBlogBreadCrumb,
 } from '@/types/index'
 /* Utils */
 import { getBreadCrumbData } from '@/utils/blogBreadCrumb'
 
-type TBlogPage = IBlog & {
-  contents: IBlog
-  master: {
+interface IBlogPage {
+  contents: {
     blog: IBlog
-    tableOfContents: IBlogTableOfContents
+    tableOfContents: ITableOfContents[]
     breadCrumb: IBlogBreadCrumb
   }
 }
 
-const BlogPage: NextPage<TBlogPage> = ({ contents, master }) => {
-  const { setBlogs } = useBlogData()
+const BlogPage: NextPage<IBlogPage> = ({ contents }) => {
+  const { blog, tableOfContents } = contents
+  const { setBlogs, setTableOfContents } = useBlogData()
 
   useEffect(() => {
-    const blog = [master.blog]
-    setBlogs(blog)
+    setBlogs([blog])
+    setTableOfContents(tableOfContents)
   }, [])
 
   return (
     <DefaultLayout breadCrumb={contents.breadCrumb}>
-      <BlogDetail {...contents} />
+      <BlogDetail />
     </DefaultLayout>
   )
 }
@@ -87,24 +87,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       contents: {
-        id: contents[0].id,
-        title: contents[0].title,
-        description: contents[0].description,
-        body,
-        image: contents[0].image,
-        createdAt: contents[0].createdAt,
-        updatedAt: contents[0].updatedAt,
-        publishedAt: contents[0].publishedAt,
-        oldPublishedAt: contents[0].oldPublishedAt
-          ? contents[0].oldPublishedAt
-          : '',
-        revisedAt: contents[0].revisedAt,
-        categories: contents[0].categories,
-        tags: contents[0].tags,
-        tableOfContents,
-        breadCrumb,
-      },
-      master: {
         blog: {
           id: contents[0].id,
           title: contents[0].title,

@@ -19,6 +19,12 @@ export const blogReducer: Reducer<IBlogState, TBlogActions> = (
         ...state,
         totalCount: action.payload,
       }
+    // 目次 更新
+    case BLOG_ACTION_TYPES.UPDATE_TABLE_OF_CONTENTS:
+      return {
+        ...state,
+        tableOfContents: action.payload,
+      }
     default:
       return state
   }
