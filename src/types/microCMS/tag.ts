@@ -1,4 +1,4 @@
-import { TBlogDetailApiResponseContents } from './blog'
+import { IBlog } from './blog'
 
 export interface ITag {
   id: string
@@ -7,7 +7,7 @@ export interface ITag {
   publishedAt: string
   revisedAt: string
   name: string
-  blogs: TBlogDetailApiResponseContents[]
+  blogs: IBlog[]
 }
 
 export interface ITagApiResponse {
