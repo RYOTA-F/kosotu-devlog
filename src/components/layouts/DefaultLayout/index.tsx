@@ -8,7 +8,7 @@ import Profile from '@/components/molecules/Profile'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Hooks */
-import useBlogData from '@/hooks/useBlogData'
+import useCommonData from '@/hooks/useCommonData'
 /* Styles */
 import { MainWrapper, Main, Aside } from './index.styles'
 
@@ -17,7 +17,7 @@ export interface IDefaultLayout {
 }
 
 const DefaultLayout: FC<IDefaultLayout> = ({ children }) => {
-  const { breadCrumb } = useBlogData()
+  const { breadCrumb } = useCommonData()
 
   return (
     <div aria-label={ARIA_LABEL.DEFAULT_LAYOUT}>

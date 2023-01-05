@@ -25,12 +25,6 @@ export const blogReducer: Reducer<IBlogState, TBlogActions> = (
         ...state,
         tableOfContents: action.payload,
       }
-    // パンくず 更新
-    case BLOG_ACTION_TYPES.UPDATE_BREAD_CRUMB:
-      return {
-        ...state,
-        breadClumb: action.payload,
-      }
     default:
       return state
   }

@@ -7,6 +7,7 @@ import DefaultLayout from '@/components/layouts/DefaultLayout'
 import { API, PAGE } from '@/const/index'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
+import useCommonData from '@/hooks/useCommonData'
 /* Lib */
 import { client } from '@/libs/microCMS'
 import { perseBlogBody } from '@/libs/cheerio'
@@ -32,14 +33,9 @@ const BlogPage: NextPage<IBlogPage> = ({
   tableOfContents,
   breadCrumb,
 }) => {
-  const {
-    setBlogs,
-    resetBlogs,
-    setTableOfContents,
-    resetTableOfContents,
-    setBreadCrumb,
-    resetBreadCrumb,
-  } = useBlogData()
+  const { setBlogs, resetBlogs, setTableOfContents, resetTableOfContents } =
+    useBlogData()
+  const { setBreadCrumb, resetBreadCrumb } = useCommonData()
 
   useEffect(() => {
     setBlogs([blog])

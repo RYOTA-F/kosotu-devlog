@@ -1,10 +1,9 @@
-import { IBlog, ITableOfContents, IBreadCrumb } from '@/types/microCMS/blog'
+import { IBlog, ITableOfContents } from '@/types/microCMS/blog'
 
 const BLOG_ACTION_TYPES = {
   UPDATE_BLOGS: 'UPDATE_BLOGS',
   UPDATE_TOTAL_COUNT: 'UPDATE_TOTAL_COUNT',
   UPDATE_TABLE_OF_CONTENTS: 'UPDATE_TABLE_OF_CONTENTS',
-  UPDATE_BREAD_CRUMB: 'UPDATE_BREAD_CRUMB',
 } as const
 
 type TBlogActionTypesConst = typeof BLOG_ACTION_TYPES
@@ -28,15 +27,9 @@ type TUpdateTableOfContentsAction = {
   payload: ITableOfContents[]
 }
 
-type TUpdateBreadCrumbAction = {
-  type: TBlogActionTypesConst['UPDATE_BREAD_CRUMB']
-  payload: IBreadCrumb | undefined
-}
-
 type TBlogActions =
   | TUpdateBlogsAction
   | TUpdateTotalCountAction
   | TUpdateTableOfContentsAction
-  | TUpdateBreadCrumbAction
 
 export { BLOG_ACTION_TYPES, type TBlogActions, type TBlogActionTypes }

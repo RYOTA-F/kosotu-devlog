@@ -1,6 +1,6 @@
 import { Dispatch } from 'react'
-import { IBlogState } from '../state'
 import { TBlogActions } from '../action'
+import { IBlogState } from '../state'
 
 export interface IBlogContext {
   state: IBlogState

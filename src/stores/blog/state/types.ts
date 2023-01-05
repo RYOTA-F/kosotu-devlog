@@ -1,4 +1,4 @@
-import { IBlog, ITableOfContents, IBreadCrumb } from '@/types/microCMS/blog'
+import { IBlog, ITableOfContents } from '@/types/microCMS/blog'
 
 export interface IBlogState {
   blogs: IBlog[]
@@ -6,5 +6,4 @@ export interface IBlogState {
   offset?: number
   limit?: number
   tableOfContents: ITableOfContents[]
-  breadClumb?: IBreadCrumb
 }
