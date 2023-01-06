@@ -2,17 +2,18 @@ import { FC } from 'react'
 import 'highlight.js/styles/base16/edge-dark.css'
 /* Const */
 import { ARIA_LABEL } from './const'
+/* Hooks */
+import useBlogData from '@/hooks/useBlogData'
 /* Styles */
 import { BlogBodyWrapper } from './index.styles'
-/* Types */
-import { IBlog } from '@/types/index'
 
-export type IBlogBody = Pick<IBlog, 'body'>
+const BlogBody: FC = () => {
+  const { blog } = useBlogData()
 
-const BlogBody: FC<IBlogBody> = ({ body }) => {
+  if (!blog) return null
   return (
     <BlogBodyWrapper
-      dangerouslySetInnerHTML={{ __html: body }}
+      dangerouslySetInnerHTML={{ __html: blog.body }}
       aria-label={ARIA_LABEL}
     />
   )

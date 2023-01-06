@@ -6,7 +6,9 @@ import CategoryList from '@/components/molecules/CategoryList'
 import TagList from '@/components/molecules/TagList'
 import TableOfContents from '@/components/molecules/TableOfContents'
 /* Const */
-import { BLOG_DETAIL, ARIA_LABEL, TIME_ICON_SIZE } from './const'
+import { BLOG_DETAIL, IMAGE, ARIA_LABEL, TIME_ICON_SIZE } from './const'
+/* Hooks */
+import useBlogData from '@/hooks/useBlogData'
 /* Styles */
 import {
   BlogDetailHeaderWrapper,
@@ -21,49 +23,32 @@ import {
   WelcomeMessageDescription,
   TableOfContentsWrapper,
 } from './index.styles'
-/* Types */
-import { IBlog, ITableOfContents } from '@/types/index'
 
-const IMAGE = {
-  ALT: 'Thumbnail',
-  WIDTH: 844,
-  HEIGHT: 474,
-} as const
 
-export type TBlogDetailHeader = Pick<
-  IBlog,
-  'title' | 'description' | 'image' | 'publishedAt' | 'categories' | 'tags'
-> & {
-  tableOfContents: ITableOfContents[]
-}
+const BlogDetailHeader: FC = () => {
+  const { blog, tableOfContents } = useBlogData()
 
-const BlogDetailHeader: FC<TBlogDetailHeader> = ({
-  title,
-  description,
-  image,
-  publishedAt,
-  categories,
-  tags,
-  tableOfContents,
-}) => {
+  if (!blog || !tableOfContents) return null
   return (
     <BlogDetailHeaderWrapper aria-label={ARIA_LABEL.BLOG_DETAIL_HEADER}>
-      <Title>{title}</Title>
+      <Title>{blog.title}</Title>
 
       <DataWrapper>
-        <CategoryList categories={categories} />
+        <CategoryList categories={blog.categories} />
         <TagListWrapper>
-          <TagList tags={tags} />
+          <TagList tags={blog.tags} />
         </TagListWrapper>
         <DateWrapper>
           <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
-          <Date dateTime={publishedAt}>{publishedAt.slice(0, 10)}</Date>
+          <Date dateTime={blog.publishedAt}>
+            {blog.publishedAt.slice(0, 10)}
+          </Date>
         </DateWrapper>
       </DataWrapper>
 
       <ImageWrapper>
         <Image
-          src={image.url}
+          src={blog.image.url}
           alt={IMAGE.ALT}
           width={IMAGE.WIDTH}
           height={IMAGE.HEIGHT}
@@ -72,7 +57,9 @@ const BlogDetailHeader: FC<TBlogDetailHeader> = ({
       <WelcomeMessageWrapper>
         <WelcomeMessage>{BLOG_DETAIL.WELCOME_MESSAGE}</WelcomeMessage>
         <WelcomeMessage>{BLOG_DETAIL.THANKS_MESSAGE}</WelcomeMessage>
-        <WelcomeMessageDescription>{description}</WelcomeMessageDescription>
+        <WelcomeMessageDescription>
+          {blog.description}
+        </WelcomeMessageDescription>
       </WelcomeMessageWrapper>
 
       {tableOfContents.length && (
