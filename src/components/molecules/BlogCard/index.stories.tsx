@@ -6,7 +6,7 @@ import { IBlogCard } from '@/types/index'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Presentationals/BlogCard',
+  title: 'Molecules/BlogCard',
   component: BlogCard,
 }
 

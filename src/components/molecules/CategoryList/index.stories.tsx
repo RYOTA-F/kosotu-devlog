@@ -4,7 +4,7 @@ import CategoryList, { ICategoryList } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Presentationals/CategoryList',
+  title: 'Molecules/CategoryList',
   component: CategoryList,
 }
 

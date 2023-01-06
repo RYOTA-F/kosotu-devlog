@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import BlogDetailHeader from '.'
 
 export default {
-  title: 'Assembles/BlogDetailHeader',
+  title: 'Organisms/BlogDetailHeader',
   component: BlogDetailHeader,
 }
 

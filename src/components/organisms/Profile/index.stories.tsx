@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import Profile from '.'
 
 export default {
-  title: 'Assembles/Profile',
+  title: 'Organisms/Profile',
   component: Profile,
 }
 

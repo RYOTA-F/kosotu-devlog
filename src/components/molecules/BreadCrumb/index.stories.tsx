@@ -4,7 +4,7 @@ import BreadCrumb, { IBreadCrumbProps } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Presentationals/BreadCrumb',
+  title: 'Molecules/BreadCrumb',
   component: BreadCrumb,
 }
 

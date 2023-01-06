@@ -5,7 +5,7 @@ import TagDetail, { TTagDetail } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Assembles/TagDetail',
+  title: 'Organisms/TagDetail',
   component: TagDetail,
 }
 

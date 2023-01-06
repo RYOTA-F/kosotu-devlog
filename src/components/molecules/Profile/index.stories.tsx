@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import Profile from '.'
 
 export default {
-  title: 'Presentationals/Profile',
+  title: 'Molecules/Profile',
   component: Profile,
 }
 

@@ -24,11 +24,10 @@ import {
   TableOfContentsWrapper,
 } from './index.styles'
 
-
 const BlogDetailHeader: FC = () => {
   const { blog, tableOfContents } = useBlogData()
 
-  if (!blog || !tableOfContents) return null
+  if (!blog) return null
   return (
     <BlogDetailHeaderWrapper aria-label={ARIA_LABEL.BLOG_DETAIL_HEADER}>
       <Title>{blog.title}</Title>
@@ -62,7 +61,7 @@ const BlogDetailHeader: FC = () => {
         </WelcomeMessageDescription>
       </WelcomeMessageWrapper>
 
-      {tableOfContents.length && (
+      {tableOfContents?.length && (
         <TableOfContentsWrapper>
           <TableOfContents tableOfContents={tableOfContents} />
         </TableOfContentsWrapper>

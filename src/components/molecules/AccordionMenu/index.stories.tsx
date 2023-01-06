@@ -6,7 +6,7 @@ import { defaultProps } from './__mocks__'
 import { COLOR } from '@/const/index'
 
 export default {
-  title: 'Presentationals/AccordionMenu',
+  title: 'Molecules/AccordionMenu',
   component: AccordionMenu,
 }
 

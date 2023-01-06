@@ -5,7 +5,7 @@ import CategoryDetail, { TCategoryDetail } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Assembles/CategoryDetail',
+  title: 'Organisms/CategoryDetail',
   component: CategoryDetail,
 }
 

@@ -15,7 +15,5 @@ describe('BlogDetail', () => {
   // })
 
   test.todo('BlogDetailHeader が描画される')
-  test.todo('oldPublishedAt が存在する場合 oldPublishedAt が渡される')
-  test.todo('oldPublishedAt が存在しない場合 publishedAt が渡される')
   test.todo('BlogBody が描画される')
 })

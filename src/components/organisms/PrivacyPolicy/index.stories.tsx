@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import PrivacyPolicy from '.'
 
 export default {
-  title: 'Assembles/PrivacyPolicy',
+  title: 'Organisms/PrivacyPolicy',
   component: PrivacyPolicy,
 }
 

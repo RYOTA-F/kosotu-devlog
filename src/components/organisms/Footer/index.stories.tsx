@@ -2,7 +2,7 @@ import { Story } from '@storybook/react'
 import Footer from '.'
 
 export default {
-  title: 'Sections/Footer',
+  title: 'Organisms/Footer',
   component: Footer,
 }
 

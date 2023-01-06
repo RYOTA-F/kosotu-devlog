@@ -4,7 +4,7 @@ import TableOfContents, { ITableOfContentsProps } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Presentationals/TableOfContents',
+  title: 'Molecules/TableOfContents',
   component: TableOfContents,
 }
 

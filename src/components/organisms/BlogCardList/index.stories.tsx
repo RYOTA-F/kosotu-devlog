@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import BlogCardList from '.'
 
 export default {
-  title: 'Assembles/BlogCardList',
+  title: 'Organisms/BlogCardList',
   component: BlogCardList,
 }
 
