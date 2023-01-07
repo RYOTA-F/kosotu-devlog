@@ -39,9 +39,9 @@ export const getBreadCrumbDataFromCategory = (contents: ICategory) => {
   const breadCrumb: IBreadCrumb = {
     categoryParentId: parentId,
     categoryParentName: parentName,
-    categoryChildId: contents.id,
-    categoryChildName: contents.name,
-    blogTitle: null,
+    categoryChildId: null,
+    categoryChildName: null,
+    blogTitle: contents.name,
   }
 
   return breadCrumb
