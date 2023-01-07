@@ -1,19 +1,9 @@
 import { FC } from 'react'
-import { BlogContext, initialBlogState } from '@/stores/blog'
-import { initialBlogsState } from './blogData'
+import BlogContextProviderMock from './blog'
 import { IContextProvider } from '../types'
 
-const BlogContextProviderMock: FC<IContextProvider> = ({ children }) => {
-  return (
-    <BlogContext.Provider
-      value={{
-        state: { ...initialBlogState, blogs: initialBlogsState },
-        dispatch: () => null,
-      }}
-    >
-      {children}
-    </BlogContext.Provider>
-  )
+const RootContextProviderMock: FC<IContextProvider> = ({ children }) => {
+  return <BlogContextProviderMock>{children}</BlogContextProviderMock>
 }
 
-export default BlogContextProviderMock
+export default RootContextProviderMock

@@ -2,7 +2,7 @@ import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
 import BlogBody from '.'
-import BlogContextProviderMock from '@/stores/__mocks__'
+import BlogContextProviderMock from '@/stores/__mocks__/blog'
 
 export default {
   title: 'Organisms/BlogBody',

@@ -1,6 +1,6 @@
-import { IBlog } from '@/types/index'
+import { IBlog, ITableOfContents } from '@/types/index'
 
-export const initialBlogsState: IBlog[] = [
+export const blogsStateMock: IBlog[] = [
   {
     id: '3tcpe0tts',
     createdAt: '2022-12-18T07:54:41.636Z',
@@ -89,4 +89,11 @@ export const initialBlogsState: IBlog[] = [
       },
     ],
   },
+]
+
+export const tableOfContentsStateMock: ITableOfContents[] = [
+  { id: 'test2', text: 'H2', type: 'h2' },
+  { id: 'test3', text: 'H3', type: 'h3' },
+  { id: 'test4', text: 'H2-1', type: 'h2' },
+  { id: 'test4', text: 'H3-2', type: 'h3' },
 ]
