@@ -46,7 +46,7 @@ const BlogPage: NextPage<IBlogPage> = ({
       resetTableOfContents()
       resetBreadCrumb()
     }
-  }, [])
+  }, [blog, tableOfContents, breadCrumb])
 
   return (
     <DefaultLayout>
@@ -56,7 +56,7 @@ const BlogPage: NextPage<IBlogPage> = ({
 }
 
 /**
- * 投稿ID毎にページパスを生成
+ * 投稿ID毎に静的ページを生成
  */
 export const getStaticPaths: GetStaticPaths = async () => {
   const blogs = await client.get<IBlogsApiResponse>({
@@ -71,7 +71,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 /**
- * 投稿情報を取得し静的ページを生成
+ * 静的ページ用の投稿情報を取得
  */
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) return { notFound: true }

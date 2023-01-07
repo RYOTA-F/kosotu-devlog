@@ -30,7 +30,7 @@ const CategoryPage: NextPage<ICategoryPage> = ({ category, breadCrumb }) => {
     return () => {
       resetBreadCrumb()
     }
-  }, [])
+  }, [category, breadCrumb])
 
   return (
     <DefaultLayout>
@@ -40,7 +40,7 @@ const CategoryPage: NextPage<ICategoryPage> = ({ category, breadCrumb }) => {
 }
 
 /**
- * カテゴリID毎にページパスを生成
+ * カテゴリID毎に静的ページを生成
  */
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await client.get<ICategoryApiResponse>({
@@ -55,7 +55,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 /**
- * カテゴリ情報を取得し静的ページを生成
+ * 静的ページ用のカテゴリ情報を取得
  */
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) return { notFound: true }

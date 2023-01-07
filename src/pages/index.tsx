@@ -26,7 +26,7 @@ const Home: NextPage<IHome> = ({ blogs }) => {
     return () => {
       resetBlogs()
     }
-  }, [])
+  }, [blogs])
 
   return (
     <DefaultLayout>
@@ -35,6 +35,9 @@ const Home: NextPage<IHome> = ({ blogs }) => {
   )
 }
 
+/**
+ * 静的ページ用のブログ一覧情報を取得
+ */
 export const getStaticProps: GetStaticProps = async () => {
   const blogs = await client.get<IBlogsApiResponse>({
     endpoint: API.BLOG.END_POINT,

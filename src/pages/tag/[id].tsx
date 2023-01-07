@@ -23,7 +23,7 @@ const TagPage: NextPage<ITagPage> = ({ contents }) => {
 }
 
 /**
- * タグID毎にページパスを生成
+ * タグID毎に静的ページを生成
  */
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = await client.get<ITagApiResponse>({
@@ -38,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 /**
- * タグ情報を取得し静的ページを生成
+ * 静的ページ用のタグ情報を取得
  */
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) return { notFound: true }
