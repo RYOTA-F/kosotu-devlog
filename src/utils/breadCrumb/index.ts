@@ -4,7 +4,7 @@ import { IBlog, IBreadCrumb, ICategory } from '@/types/index'
 import { getCategoryRelation, getCategoryParentName } from '../blogCategory'
 
 /**
- * パンくず情報を取得
+ * 投稿: パンくず情報を取得
  */
 export const getBreadCrumbDataFromBlog = (contents: IBlog) => {
   const { categoryParent } = getCategoryRelation(
@@ -26,7 +26,7 @@ export const getBreadCrumbDataFromBlog = (contents: IBlog) => {
 }
 
 /**
- * パンくず情報を取得
+ * カテゴリ: パンくず情報を取得
  */
 export const getBreadCrumbDataFromCategory = (contents: ICategory) => {
   const parentId = contents.relation.isParent
@@ -42,6 +42,21 @@ export const getBreadCrumbDataFromCategory = (contents: ICategory) => {
     categoryChildId: null,
     categoryChildName: null,
     currentName: contents.name,
+  }
+
+  return breadCrumb
+}
+
+/**
+ * 固定ページ
+ */
+export const getBreadCrumbDataFromFixed = (title: string) => {
+  const breadCrumb: IBreadCrumb = {
+    categoryParentId: null,
+    categoryParentName: null,
+    categoryChildId: null,
+    categoryChildName: null,
+    currentName: title,
   }
 
   return breadCrumb
