@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 
 import AccordionMenu, { IAccordionMenu } from '.'
 import { defaultProps } from './__mocks__'
-import { COLOR } from '@/const/index'
 
 export default {
   title: 'Molecules/AccordionMenu',
@@ -22,14 +21,15 @@ export const Normal = Template.bind({})
 Normal.args = defaultProps
 
 const Container = styled.div`
-  width: 500px;
-  height: 500px;
-  background-color: ${COLOR.BLUE_GROUP.MAIN};
+  width: 300px;
+  height: 300px;
+  background-color: #c0c0c0;
   position: relative;
 `
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 100px;
-  left: 200px;
+  top: 25%;
+  left: 50%;
+  translate: -50%;
 `
