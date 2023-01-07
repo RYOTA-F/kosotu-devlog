@@ -63,7 +63,7 @@ const BlogDetailHeader: FC = () => {
         </WelcomeMessageDescription>
       </WelcomeMessageWrapper>
 
-      {tableOfContents?.length && (
+      {tableOfContents.length && (
         <TableOfContentsWrapper>
           <TableOfContents tableOfContents={tableOfContents} />
         </TableOfContentsWrapper>
