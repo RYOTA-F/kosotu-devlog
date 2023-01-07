@@ -32,9 +32,13 @@ const BlogPage: NextPage<IBlogPage> = ({
   tableOfContents,
   breadCrumb,
 }) => {
-  const { setBlogs, resetBlogs, setTableOfContents, resetTableOfContents } =
-    useBlogData()
-  const { setBreadCrumb, resetBreadCrumb } = useCommonData()
+  const { setBlogs, resetBlogs } = useBlogData()
+  const {
+    setBreadCrumb,
+    resetBreadCrumb,
+    setTableOfContents,
+    resetTableOfContents,
+  } = useCommonData()
 
   useEffect(() => {
     setBlogs([blog])

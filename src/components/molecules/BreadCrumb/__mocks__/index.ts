@@ -7,6 +7,6 @@ export const defaultProps: IBreadCrumbProps = {
     categoryParentName: 'フロントエンド',
     categoryChildId: 'react',
     categoryChildName: 'React',
-    blogTitle: 'テスト',
+    currentName: 'テスト',
   },
 }

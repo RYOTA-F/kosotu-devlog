@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 
 import BlogDetailHeader from '.'
 import BlogContextProviderMock from '@/stores/__mocks__/blog'
+import CommonContextProviderMock from '@/stores/__mocks__/common'
 
 export default {
   title: 'Organisms/BlogDetailHeader',
@@ -18,9 +19,11 @@ const Template: Story = () => (
 export const Normal = Template.bind({})
 Normal.decorators = [
   (Story) => (
-    <BlogContextProviderMock>
-      <Story />
-    </BlogContextProviderMock>
+    <CommonContextProviderMock>
+      <BlogContextProviderMock>
+        <Story />
+      </BlogContextProviderMock>
+    </CommonContextProviderMock>
   ),
 ]
 

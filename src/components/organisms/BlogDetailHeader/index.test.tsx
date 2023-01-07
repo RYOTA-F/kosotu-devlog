@@ -6,13 +6,16 @@ import { ARIA_LABEL as CATEGORY_LIST_ARIA_LABEL } from '@/components/molecules/C
 import { ARIA_LABEL as TAG_LIST_ARIA_LABEL } from '@/components/molecules/TagList'
 import { ARIA_LABEL as TABLE_OF_CONTENTS_ARIA_LABEL } from '@/components/molecules/TableOfContents'
 import BlogContextProviderMock from '@/stores/__mocks__/blog'
+import CommonContextProviderMock from '@/stores/__mocks__/common'
 
 describe('BlogDetailHeader', () => {
   beforeEach(() => {
     render(
-      <BlogContextProviderMock>
-        <BlogDetailHeader />
-      </BlogContextProviderMock>
+      <CommonContextProviderMock>
+        <BlogContextProviderMock>
+          <BlogDetailHeader />
+        </BlogContextProviderMock>
+      </CommonContextProviderMock>
     )
   })
 

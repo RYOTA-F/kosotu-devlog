@@ -7,11 +7,17 @@ export const commonReducer: Reducer<ICommonState, TCommonActions> = (
   action
 ) => {
   switch (action.type) {
-    // パンくず 更新
+    // パンくず更新
     case COMMON_ACTION_TYPES.UPDATE_BREAD_CRUMB:
       return {
         ...state,
         breadClumb: action.payload,
+      }
+    // 目次更新
+    case COMMON_ACTION_TYPES.UPDATE_TABLE_OF_CONTENTS:
+      return {
+        ...state,
+        tableOfContents: action.payload,
       }
     default:
       return state

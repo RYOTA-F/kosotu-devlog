@@ -43,7 +43,7 @@ const BreadCrumb: FC<IBreadCrumbProps> = ({ breadCrumb }) => {
         </ListItem>
       )}
 
-      {breadCrumb?.blogTitle && <Title>{breadCrumb.blogTitle}</Title>}
+      {breadCrumb?.currentName && <Title>{breadCrumb.currentName}</Title>}
     </BreadCrumbWrapper>
   )
 }

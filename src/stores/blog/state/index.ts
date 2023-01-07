@@ -5,7 +5,6 @@ export const initialBlogState: IBlogState = {
   totalCount: undefined,
   offset: undefined,
   limit: undefined,
-  tableOfContents: [],
 }
 
 export * from './types'

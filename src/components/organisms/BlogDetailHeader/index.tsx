@@ -9,6 +9,7 @@ import TableOfContents from '@/components/molecules/TableOfContents'
 import { BLOG_DETAIL, IMAGE, ARIA_LABEL, TIME_ICON_SIZE } from './const'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
+import useCommonData from '@/hooks/useCommonData'
 /* Styles */
 import {
   BlogDetailHeaderWrapper,
@@ -25,7 +26,8 @@ import {
 } from './index.styles'
 
 const BlogDetailHeader: FC = () => {
-  const { blog, tableOfContents } = useBlogData()
+  const { blog } = useBlogData()
+  const { tableOfContents } = useCommonData()
 
   if (!blog) return null
   return (

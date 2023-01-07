@@ -19,7 +19,7 @@ export const getBreadCrumbDataFromBlog = (contents: IBlog) => {
       : null,
     categoryChildId: contents.categories[0].id,
     categoryChildName: contents.categories[0].name,
-    blogTitle: contents.title,
+    currentName: contents.title,
   }
 
   return breadCrumb
@@ -41,7 +41,7 @@ export const getBreadCrumbDataFromCategory = (contents: ICategory) => {
     categoryParentName: parentName,
     categoryChildId: null,
     categoryChildName: null,
-    blogTitle: contents.name,
+    currentName: contents.name,
   }
 
   return breadCrumb

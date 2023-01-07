@@ -1,9 +1,8 @@
-import { IBlog, ITableOfContents } from '@/types/microCMS/blog'
+import { IBlog } from '@/types/microCMS/blog'
 
 const BLOG_ACTION_TYPES = {
   UPDATE_BLOGS: 'UPDATE_BLOGS',
   UPDATE_TOTAL_COUNT: 'UPDATE_TOTAL_COUNT',
-  UPDATE_TABLE_OF_CONTENTS: 'UPDATE_TABLE_OF_CONTENTS',
 } as const
 
 type TBlogActionTypesConst = typeof BLOG_ACTION_TYPES
@@ -21,15 +20,6 @@ type TUpdateTotalCountAction = {
   payload: number
 }
 
-/* 目次 更新 */
-type TUpdateTableOfContentsAction = {
-  type: TBlogActionTypesConst['UPDATE_TABLE_OF_CONTENTS']
-  payload: ITableOfContents[]
-}
-
-type TBlogActions =
-  | TUpdateBlogsAction
-  | TUpdateTotalCountAction
-  | TUpdateTableOfContentsAction
+type TBlogActions = TUpdateBlogsAction | TUpdateTotalCountAction
 
 export { BLOG_ACTION_TYPES, type TBlogActions, type TBlogActionTypes }

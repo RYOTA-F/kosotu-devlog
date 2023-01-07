@@ -46,7 +46,7 @@ export interface IBreadCrumb {
   categoryParentName: string | null
   categoryChildId: string | null
   categoryChildName: string | null
-  blogTitle: string | null
+  currentName: string | null
 }
 
 export interface IBlogImage {
