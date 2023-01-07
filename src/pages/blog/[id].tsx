@@ -19,7 +19,7 @@ import {
   IBreadCrumb,
 } from '@/types/index'
 /* Utils */
-import { getBreadCrumbData } from '@/utils/index'
+import { getBreadCrumbDataFromBlog } from '@/utils/index'
 
 interface IBlogPage {
   blog: IBlog
@@ -91,7 +91,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   // 投稿本文をパース
   const { body, tableOfContents } = await perseBlogBody(contents[0].body)
   // パンくず情報を取得
-  const breadCrumb = getBreadCrumbData(contents[0])
+  const breadCrumb = getBreadCrumbDataFromBlog(contents[0])
 
   return {
     props: {

@@ -44,9 +44,9 @@ export interface ITableOfContents {
 export interface IBreadCrumb {
   categoryParentId: string | null
   categoryParentName: string | null
-  categoryChildId: string
-  categoryChildName: string
-  blogTitle: string
+  categoryChildId: string | null
+  categoryChildName: string | null
+  blogTitle: string | null
 }
 
 export interface IBlogImage {

@@ -1,23 +1,40 @@
+import { useEffect } from 'react'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Components */
 import CategoryDetail from '@/components/organisms/CategoryDetail'
 /* Const */
 import { API, PAGE } from '@/const/index'
+/* Hooks */
+import useCommonData from '@/hooks/useCommonData'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Lib */
 import { client } from '@/libs/index'
 /* Types */
+import { IBreadCrumb } from '@/types/microCMS/blog'
 import { ICategory, ICategoryApiResponse } from '@/types/microCMS/category'
+/* Utils */
+import { getBreadCrumbDataFromCategory } from '@/utils/index'
 
 export interface ICategoryPage {
-  contents: ICategory
+  category: ICategory
+  breadCrumb: IBreadCrumb
 }
 
-const CategoryPage: NextPage<ICategoryPage> = ({ contents }) => {
+const CategoryPage: NextPage<ICategoryPage> = ({ category, breadCrumb }) => {
+  const { setBreadCrumb, resetBreadCrumb } = useCommonData()
+
+  useEffect(() => {
+    setBreadCrumb(breadCrumb)
+
+    return () => {
+      resetBreadCrumb()
+    }
+  }, [])
+
   return (
     <DefaultLayout>
-      <CategoryDetail {...contents} />
+      <CategoryDetail {...category} />
     </DefaultLayout>
   )
 }
@@ -55,9 +72,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     queries: { ids: id },
   })
 
+  // パンくず情報を取得
+  const breadCrumb = getBreadCrumbDataFromCategory(contents[0])
+
   return {
     props: {
-      contents: contents[0],
+      category: contents[0],
+      breadCrumb,
     },
   }
 }
