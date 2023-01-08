@@ -1,22 +1,28 @@
 import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
-import CategoryDetailHeader, { TCategoryDetailHeader } from '.'
-import { defaultProps } from './__mocks__'
+import CategoryDetailHeader from '.'
+import CategoryContextProviderMock from '@/stores/__mocks__/category'
 
 export default {
   title: 'Organisms/CategoryDetailHeader',
   component: CategoryDetailHeader,
 }
 
-const Template: Story<TCategoryDetailHeader> = (args) => (
+const Template: Story = () => (
   <Container>
-    <CategoryDetailHeader {...args} />
+    <CategoryDetailHeader />
   </Container>
 )
 
 export const Normal = Template.bind({})
-Normal.args = defaultProps
+Normal.decorators = [
+  (Story) => (
+    <CategoryContextProviderMock>
+      <Story />
+    </CategoryContextProviderMock>
+  ),
+]
 
 const Container = styled.div`
   width: 844px;

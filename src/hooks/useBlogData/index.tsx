@@ -16,6 +16,7 @@ const useBlogData = () => {
   const setBlogs = (blogs: IBlog[]) => {
     dispatch({ type: BLOG_ACTION_TYPES.UPDATE_BLOGS, payload: blogs })
   }
+
   /** ブログ一覧をリセット */
   const resetBlogs = () => {
     dispatch({ type: BLOG_ACTION_TYPES.UPDATE_BLOGS, payload: [] })

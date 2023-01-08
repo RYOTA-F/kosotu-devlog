@@ -8,13 +8,13 @@ const BLOG_ACTION_TYPES = {
 type TBlogActionTypesConst = typeof BLOG_ACTION_TYPES
 type TBlogActionTypes = TBlogActionTypesConst[keyof typeof BLOG_ACTION_TYPES]
 
-/* ブログ 一覧 更新 */
+/* ブログ一覧更新 */
 type TUpdateBlogsAction = {
   type: TBlogActionTypesConst['UPDATE_BLOGS']
   payload: IBlog[]
 }
 
-/* ブログ 投稿数 更新 */
+/* ブログ投稿数更新 */
 type TUpdateTotalCountAction = {
   type: TBlogActionTypesConst['UPDATE_TOTAL_COUNT']
   payload: number

@@ -5,6 +5,8 @@ import CategoryDetail from '@/components/organisms/CategoryDetail'
 /* Const */
 import { API, PAGE } from '@/const/index'
 /* Hooks */
+import useBlogData from '@/hooks/useBlogData'
+import useCategoryData from '@/hooks/useCategoryData'
 import useCommonData from '@/hooks/useCommonData'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
@@ -23,18 +25,24 @@ export interface ICategoryPage {
 
 const CategoryPage: NextPage<ICategoryPage> = ({ category, breadCrumb }) => {
   const { setBreadCrumb, resetBreadCrumb } = useCommonData()
+  const { setBlogs, resetBlogs } = useBlogData()
+  const { setCategory, resetCategory } = useCategoryData()
 
   useEffect(() => {
     setBreadCrumb(breadCrumb)
+    setBlogs(category.blogs)
+    setCategory(category)
 
     return () => {
       resetBreadCrumb()
+      resetBlogs()
+      resetCategory()
     }
   }, [category, breadCrumb])
 
   return (
     <DefaultLayout>
-      <CategoryDetail {...category} />
+      <CategoryDetail />
     </DefaultLayout>
   )
 }

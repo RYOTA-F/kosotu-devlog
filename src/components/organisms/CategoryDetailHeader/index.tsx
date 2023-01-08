@@ -6,6 +6,8 @@ import CategoryLabel from '@/components/atoms/CategoryLabel'
 import { ChevronRightSvg, FolderSvg } from '@/components/atoms/Svg'
 /* Const */
 import { CATEGORY_DETAIL_HEADER, ARIA_LABEL } from './const'
+/* Hooks */
+import useCategoryData from '@/hooks/useCategoryData'
 /* Styles */
 import {
   CategoryDetailHeaderWrapper,
@@ -15,27 +17,21 @@ import {
   FolderSvgWrapper,
   ChevronRightSvgWrapper,
 } from './index.styles'
-/* Types */
-import { ICategory } from '@/types/microCMS/category'
 /* Utils */
 import { getCategoryRelation } from '@/utils/index'
 
-export type TCategoryDetailHeader = Pick<ICategory, 'name' | 'relation'>
-
-const CategoryDetailHeader: FC<TCategoryDetailHeader> = ({
-  name,
-  relation,
-}) => {
+const CategoryDetailHeader: FC = () => {
+  const { category } = useCategoryData()
   const { isParent, categoryParent } = getCategoryRelation(
-    relation,
-    relation.isParent
+    category.relation,
+    category.relation.isParent
   )
 
   return (
     <CategoryDetailHeaderWrapper aria-label={ARIA_LABEL.CATEGORY_DETAIL_HEADER}>
       <HeaderWrapper>
         <H1>
-          {name}
+          {category.name}
           <HeaderLabel>{CATEGORY_DETAIL_HEADER.TITLE_LABEL}</HeaderLabel>
         </H1>
       </HeaderWrapper>
@@ -49,7 +45,7 @@ const CategoryDetailHeader: FC<TCategoryDetailHeader> = ({
           />
         </FolderSvgWrapper>
         {/* 親カテゴリの場合 親カテゴリのラベルを表示 */}
-        {isParent && <CategoryLabel name={name} />}
+        {isParent && <CategoryLabel name={category.name} />}
         {/* 子カテゴリの場合 親カテゴリへのリンクを表示 */}
         {!isParent && categoryParent && (
           <CategoryItem
@@ -69,7 +65,7 @@ const CategoryDetailHeader: FC<TCategoryDetailHeader> = ({
                 color={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.COLOR}
               />
             </ChevronRightSvgWrapper>
-            <CategoryLabel name={name} />
+            <CategoryLabel name={category.name} />
           </>
         )}
       </CategoryWrapper>

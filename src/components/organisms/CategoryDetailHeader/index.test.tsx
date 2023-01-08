@@ -2,11 +2,15 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import CategoryDetailHeader, { ARIA_LABEL } from '.'
-import { defaultProps } from './__mocks__'
+import CategoryContextProviderMock from '@/stores/__mocks__/category'
 
 describe('CategoryDetailHeader', () => {
   beforeEach(() => {
-    render(<CategoryDetailHeader {...defaultProps} />)
+    render(
+      <CategoryContextProviderMock>
+        <CategoryDetailHeader />
+      </CategoryContextProviderMock>
+    )
   })
 
   test('描画される', () => {
