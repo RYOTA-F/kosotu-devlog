@@ -5,17 +5,14 @@ import BlogDetailHeader, { ARIA_LABEL } from '.'
 import { ARIA_LABEL as CATEGORY_LIST_ARIA_LABEL } from '@/components/molecules/CategoryList'
 import { ARIA_LABEL as TAG_LIST_ARIA_LABEL } from '@/components/molecules/TagList'
 import { ARIA_LABEL as TABLE_OF_CONTENTS_ARIA_LABEL } from '@/components/molecules/TableOfContents'
-import BlogContextProviderMock from '@/stores/__mocks__/blog'
-import CommonContextProviderMock from '@/stores/__mocks__/common'
+import RootContextProvider from '@/stores/__mocks__'
 
 describe('BlogDetailHeader', () => {
   beforeEach(() => {
     render(
-      <CommonContextProviderMock>
-        <BlogContextProviderMock>
-          <BlogDetailHeader />
-        </BlogContextProviderMock>
-      </CommonContextProviderMock>
+      <RootContextProvider>
+        <BlogDetailHeader />
+      </RootContextProvider>
     )
   })
 

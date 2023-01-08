@@ -4,14 +4,14 @@ import '@testing-library/jest-dom/extend-expect'
 import CategoryDetail, { ARIA_LABEL } from '.'
 import { ARIA_LABEL as CATEGORY_DETAIL_HEADER_ARIA_LABEL } from '@/components/organisms/CategoryDetailHeader'
 import { ARIA_LABEL as BLOG_CARD_LIST_ARIA_LABEL } from '@/components/organisms/BlogCardList'
-import CategoryContextProviderMock from '@/stores/__mocks__/category'
+import RootContextProvider from '@/stores/__mocks__'
 
 describe('CategoryDetail', () => {
   beforeEach(() => {
     render(
-      <CategoryContextProviderMock>
+      <RootContextProvider>
         <CategoryDetail />
-      </CategoryContextProviderMock>
+      </RootContextProvider>
     )
   })
 

@@ -3,18 +3,18 @@ import { FC } from 'react'
 import { H1 } from '@/components/atoms/Heading'
 /* Const */
 import { TAG_DETAIL_HEADER, ARIA_LABEL } from './const'
+/* Hooks */
+import useTagData from '@/hooks/useTagData'
 /* Styles */
 import { HeaderWrapper, HeaderLabel } from './index.styles'
-/* Types */
-import { ITag } from '@/types/index'
 
-export type TTagDetailHeader = Pick<ITag, 'name'>
+const TagDetailHeader: FC = () => {
+  const { tag } = useTagData()
 
-const TagDetailHeader: FC<TTagDetailHeader> = ({ name }) => {
   return (
     <HeaderWrapper aria-label={ARIA_LABEL.TAG_DETAIL_HEADER}>
       <H1>
-        {name}
+        {tag.name}
         <HeaderLabel>{TAG_DETAIL_HEADER.TITLE_LABEL}</HeaderLabel>
       </H1>
     </HeaderWrapper>

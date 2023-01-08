@@ -2,8 +2,7 @@ import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
 import CategoryDetail from '.'
-import BlogContextProviderMock from '@/stores/__mocks__/blog'
-import CategoryContextProviderMock from '@/stores/__mocks__/category'
+import RootContextProvider from '@/stores/__mocks__'
 
 export default {
   title: 'Organisms/CategoryDetail',
@@ -19,11 +18,9 @@ const Template: Story = () => (
 export const Normal = Template.bind({})
 Normal.decorators = [
   (Story) => (
-    <BlogContextProviderMock>
-      <CategoryContextProviderMock>
-        <Story />
-      </CategoryContextProviderMock>
-    </BlogContextProviderMock>
+    <RootContextProvider>
+      <Story />
+    </RootContextProvider>
   ),
 ]
 

@@ -2,9 +2,10 @@ import { useContext } from 'react'
 /* Stores */
 import { CommonContext, COMMON_ACTION_TYPES } from '@/stores/common'
 /* Types */
+import { IUseCommonData } from './types'
 import { IBreadCrumb, ITableOfContents } from '@/types/index'
 
-const useCommonData = () => {
+const useCommonData = (): IUseCommonData => {
   const { state, dispatch } = useContext(CommonContext)
 
   // パンくず

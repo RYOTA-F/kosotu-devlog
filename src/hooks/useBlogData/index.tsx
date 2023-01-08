@@ -2,9 +2,10 @@ import { useContext } from 'react'
 /* Stores */
 import { BlogContext, BLOG_ACTION_TYPES } from '@/stores/blog'
 /* Types */
+import { IUseBlogData } from './types'
 import { IBlog } from '@/types/index'
 
-const useBlogData = () => {
+const useBlogData = (): IUseBlogData => {
   const { state, dispatch } = useContext(BlogContext)
 
   // ブログ

@@ -3,6 +3,7 @@ import { FC } from 'react'
 import BlogContextProvider from './blog/context'
 import CategoryContextProvider from './category/context'
 import CommonContextProvider from './common/context'
+import TagContextProvider from './tag/context'
 /* Types */
 import { IContextProvider } from './types'
 
@@ -10,7 +11,9 @@ const RootContextProvider: FC<IContextProvider> = ({ children }) => {
   return (
     <CommonContextProvider>
       <BlogContextProvider>
-        <CategoryContextProvider>{children}</CategoryContextProvider>
+        <CategoryContextProvider>
+          <TagContextProvider>{children}</TagContextProvider>
+        </CategoryContextProvider>
       </BlogContextProvider>
     </CommonContextProvider>
   )

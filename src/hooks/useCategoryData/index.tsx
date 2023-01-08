@@ -5,20 +5,22 @@ import {
   CATEGORY_ACTION_TYPES,
   initialCategoryState,
 } from '@/stores/category'
+/* Types */
+import { IUseCategoryData } from './types'
 import { ICategory } from '@/src/types'
 
-const useCategoryData = () => {
+const useCategoryData = (): IUseCategoryData => {
   const { state, dispatch } = useContext(CategoryContext)
 
   // カテゴリ
   const category = state.category
 
-  // カテゴリを更新
+  // カテゴリをセット
   const setCategory = (category: ICategory) => {
     dispatch({ type: CATEGORY_ACTION_TYPES.UPDATE_CATEGORY, payload: category })
   }
 
-  // カテゴリを更新
+  // カテゴリをリセット
   const resetCategory = () => {
     dispatch({
       type: CATEGORY_ACTION_TYPES.UPDATE_CATEGORY,

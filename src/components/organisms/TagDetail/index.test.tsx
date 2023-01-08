@@ -2,11 +2,15 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import TagDetail, { ARIA_LABEL } from '.'
-import { defaultProps } from './__mocks__'
+import RootContextProvider from '@/stores/__mocks__'
 
 describe('TagDetail', () => {
   beforeEach(() => {
-    render(<TagDetail {...defaultProps} />)
+    render(
+      <RootContextProvider>
+        <TagDetail />
+      </RootContextProvider>
+    )
   })
 
   test('描画される', () => {

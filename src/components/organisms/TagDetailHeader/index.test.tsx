@@ -2,11 +2,15 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import TagDetailHeader, { ARIA_LABEL } from '.'
-import { defaultProps } from './__mocks__'
+import TagContextProviderMock from '@/stores/__mocks__/tag'
 
 describe('TagDetailHeader', () => {
   beforeEach(() => {
-    render(<TagDetailHeader {...defaultProps} />)
+    render(
+      <TagContextProviderMock>
+        <TagDetailHeader />
+      </TagContextProviderMock>
+    )
   })
 
   test('描画される', () => {
