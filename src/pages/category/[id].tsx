@@ -1,29 +1,54 @@
+import { useEffect } from 'react'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Components */
-import CategoryDetail from '@/components/assembles/CategoryDetail'
+import CategoryDetail from '@/components/organisms/CategoryDetail'
 /* Const */
 import { API, PAGE } from '@/const/index'
+/* Hooks */
+import useBlogData from '@/hooks/useBlogData'
+import useCategoryData from '@/hooks/useCategoryData'
+import useCommonData from '@/hooks/useCommonData'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Lib */
-import { client } from '@/lib/microCMS'
+import { client } from '@/libs/index'
 /* Types */
+import { IBreadCrumb } from '@/types/microCMS/blog'
 import { ICategory, ICategoryApiResponse } from '@/types/microCMS/category'
+/* Utils */
+import { getBreadCrumbDataFromCategory } from '@/utils/index'
 
 export interface ICategoryPage {
-  contents: ICategory
+  category: ICategory
+  breadCrumb: IBreadCrumb
 }
 
-const CategoryPage: NextPage<ICategoryPage> = ({ contents }) => {
+const CategoryPage: NextPage<ICategoryPage> = ({ category, breadCrumb }) => {
+  const { setBreadCrumb, resetBreadCrumb } = useCommonData()
+  const { setBlogs, resetBlogs } = useBlogData()
+  const { setCategory, resetCategory } = useCategoryData()
+
+  useEffect(() => {
+    setBreadCrumb(breadCrumb)
+    setBlogs(category.blogs)
+    setCategory(category)
+
+    return () => {
+      resetBreadCrumb()
+      resetBlogs()
+      resetCategory()
+    }
+  }, [category, breadCrumb])
+
   return (
     <DefaultLayout>
-      <CategoryDetail {...contents} />
+      <CategoryDetail />
     </DefaultLayout>
   )
 }
 
 /**
- * カテゴリID毎にページパスを生成
+ * カテゴリID毎に静的ページを生成
  */
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await client.get<ICategoryApiResponse>({
@@ -38,7 +63,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 /**
- * カテゴリ情報を取得し静的ページを生成
+ * 静的ページ用のカテゴリ情報を取得
  */
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) return { notFound: true }
@@ -55,9 +80,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     queries: { ids: id },
   })
 
+  // パンくず情報を取得
+  const breadCrumb = getBreadCrumbDataFromCategory(contents[0])
+
   return {
     props: {
-      contents: contents[0],
+      category: contents[0],
+      breadCrumb,
     },
   }
 }

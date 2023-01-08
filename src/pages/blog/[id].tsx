@@ -1,32 +1,66 @@
+import { useEffect } from 'react'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Components */
-import BlogDetail from '@/components/assembles/BlogDetail'
+import BlogDetail from '@/components/organisms/BlogDetail'
+import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Const */
 import { API, PAGE } from '@/const/index'
-/* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+/* Hooks */
+import useBlogData from '@/hooks/useBlogData'
+import useCommonData from '@/hooks/useCommonData'
 /* Lib */
-import { client } from '@/lib/microCMS'
-import { perseBlogBody } from '@/lib/cheerio'
+import { client, perseBlogBody } from '@/libs/index'
 /* Types */
-import { IBlog, IBlogsApiResponse, IBlogDetailApiResponse } from '@/types/index'
+import {
+  IBlog,
+  IBlogsApiResponse,
+  IBlogDetailApiResponse,
+  ITableOfContents,
+  IBreadCrumb,
+} from '@/types/index'
 /* Utils */
-import { getBreadCrumbData } from '@/utils/blogBreadCrumb'
+import { getBreadCrumbDataFromBlog } from '@/utils/index'
 
 interface IBlogPage {
-  contents: IBlog
+  blog: IBlog
+  tableOfContents: ITableOfContents[]
+  breadCrumb: IBreadCrumb
 }
 
-const BlogPage: NextPage<IBlogPage> = ({ contents }) => {
+const BlogPage: NextPage<IBlogPage> = ({
+  blog,
+  tableOfContents,
+  breadCrumb,
+}) => {
+  const { setBlogs, resetBlogs } = useBlogData()
+  const {
+    setBreadCrumb,
+    resetBreadCrumb,
+    setTableOfContents,
+    resetTableOfContents,
+  } = useCommonData()
+
+  useEffect(() => {
+    setBlogs([blog])
+    setTableOfContents(tableOfContents)
+    setBreadCrumb(breadCrumb)
+
+    return () => {
+      resetBlogs()
+      resetTableOfContents()
+      resetBreadCrumb()
+    }
+  }, [blog, tableOfContents, breadCrumb])
+
   return (
-    <DefaultLayout breadCrumb={contents.breadCrumb}>
-      <BlogDetail {...contents} />
+    <DefaultLayout>
+      <BlogDetail />
     </DefaultLayout>
   )
 }
 
 /**
- * 投稿ID毎にページパスを生成
+ * 投稿ID毎に静的ページを生成
  */
 export const getStaticPaths: GetStaticPaths = async () => {
   const blogs = await client.get<IBlogsApiResponse>({
@@ -41,7 +75,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 /**
- * 投稿情報を取得し静的ページを生成
+ * 静的ページ用の投稿情報を取得
  */
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) return { notFound: true }
@@ -61,11 +95,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
   // 投稿本文をパース
   const { body, tableOfContents } = await perseBlogBody(contents[0].body)
   // パンくず情報を取得
-  const breadCrumb = getBreadCrumbData(contents[0])
+  const breadCrumb = getBreadCrumbDataFromBlog(contents[0])
 
   return {
     props: {
-      contents: {
+      blog: {
         id: contents[0].id,
         title: contents[0].title,
         description: contents[0].description,
@@ -80,9 +114,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
         revisedAt: contents[0].revisedAt,
         categories: contents[0].categories,
         tags: contents[0].tags,
-        tableOfContents,
-        breadCrumb,
       },
+      tableOfContents,
+      breadCrumb,
     },
   }
 }

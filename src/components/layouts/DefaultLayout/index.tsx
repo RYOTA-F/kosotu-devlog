@@ -1,23 +1,24 @@
 import type { FC, ReactNode } from 'react'
 /* Sections */
-import Header from '@/components/sections/Header'
-import Footer from '@/components/sections/Footer'
+import Header from '@/components/organisms/Header'
+import Footer from '@/components/organisms/Footer'
 /* Components */
-import BreadCrumb from '@/components/presentationals/BreadCrumb'
-import Profile from '@/components/presentationals/Profile'
+import BreadCrumb from '@/components/molecules/BreadCrumb'
+import Profile from '@/components/molecules/Profile'
 /* Const */
 import { ARIA_LABEL } from './const'
+/* Hooks */
+import useCommonData from '@/hooks/useCommonData'
 /* Styles */
 import { MainWrapper, Main, Aside } from './index.styles'
-/* Types */
-import { IBlogBreadCrumb } from '@/types/index'
 
 export interface IDefaultLayout {
   children: ReactNode
-  breadCrumb?: IBlogBreadCrumb
 }
 
-const DefaultLayout: FC<IDefaultLayout> = ({ children, breadCrumb }) => {
+const DefaultLayout: FC<IDefaultLayout> = ({ children }) => {
+  const { breadCrumb } = useCommonData()
+
   return (
     <div aria-label={ARIA_LABEL.DEFAULT_LAYOUT}>
       <Header />
