@@ -21,9 +21,10 @@
       "@/components/*": ["components/*"],
       "@/const/*": ["const/*"],
       "@/hooks/*": ["hooks/*"],
-      "@/lib/*": ["lib/*"],
+      "@/libs/*": ["libs/*"],
       "@/layouts/*": ["components/layouts/*"],
       "@/sections/*": ["components/sections/*"],
+      "@/stores/*": ["stores/*"],
       "@/types/*": ["types/*"],
       "@/utils/*": ["utils/*"]
     }

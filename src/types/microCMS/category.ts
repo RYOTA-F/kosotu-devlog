@@ -1,4 +1,4 @@
-import { TBlogDetailApiResponseContents } from './blog'
+import { IBlog } from './blog'
 
 export interface ICategory {
   id: string
@@ -8,7 +8,7 @@ export interface ICategory {
   revisedAt: string
   name: string
   relation: ICategoryRelation
-  blogs: TBlogDetailApiResponseContents[]
+  blogs: IBlog[]
 }
 
 export interface ICategoryRelation {

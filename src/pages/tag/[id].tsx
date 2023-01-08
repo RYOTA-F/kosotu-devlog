@@ -1,29 +1,54 @@
+import { useEffect } from 'react'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Components */
-import TagDetail from '@/components/assembles/TagDetail'
+import TagDetail from '@/components/organisms/TagDetail'
 /* Const */
 import { API, PAGE } from '@/const/index'
+/* Hooks */
+import useBlogData from '@/src/hooks/useBlogData'
+import useCommonData from '@/src/hooks/useCommonData'
+import useTagData from '@/src/hooks/useTagData'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Lib */
-import { client } from '@/lib/microCMS'
+import { client } from '@/libs/index'
 /* Types */
 import { ITag, ITagApiResponse } from '@/types/index'
+/* Utils */
+import { getBreadCrumbDataFromFixed } from '@/utils/index'
 
 export interface ITagPage {
-  contents: ITag
+  tag: ITag
 }
 
-const TagPage: NextPage<ITagPage> = ({ contents }) => {
+const TagPage: NextPage<ITagPage> = ({ tag }) => {
+  const { setBlogs, resetBlogs } = useBlogData()
+  const { setBreadCrumb, resetBreadCrumb } = useCommonData()
+  const { setTag, resetTag } = useTagData()
+
+  useEffect(() => {
+    const breadCrumb = getBreadCrumbDataFromFixed(tag.name)
+
+    setBlogs(tag.blogs)
+    setBreadCrumb(breadCrumb)
+    setTag(tag)
+
+    return () => {
+      resetBlogs()
+      resetBreadCrumb()
+      resetTag()
+    }
+  }, [tag])
+
   return (
     <DefaultLayout>
-      <TagDetail {...contents} />
+      <TagDetail />
     </DefaultLayout>
   )
 }
 
 /**
- * タグID毎にページパスを生成
+ * タグID毎に静的ページを生成
  */
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = await client.get<ITagApiResponse>({
@@ -38,7 +63,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 /**
- * タグ情報を取得し静的ページを生成
+ * 静的ページ用のタグ情報を取得
  */
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) return { notFound: true }
@@ -57,7 +82,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      contents: contents[0],
+      tag: contents[0],
     },
   }
 }

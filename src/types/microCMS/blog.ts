@@ -14,24 +14,17 @@ export interface IBlog {
   categories: ICategory[]
   tags: ITag[]
   oldPublishedAt?: string
-  tableOfContents: IBlogTableOfContents[]
-  breadCrumb: IBlogBreadCrumb
 }
 
-export type TBlogDetailApiResponseContents = Omit<
-  IBlog,
-  'tableOfContents' | 'breadCrumb'
->
-
 export interface IBlogsApiResponse {
-  contents: TBlogDetailApiResponseContents[]
+  contents: IBlog[]
   totalCount: number
   offset: number
   limit: number
 }
 
 export interface IBlogDetailApiResponse {
-  contents: TBlogDetailApiResponseContents[]
+  contents: IBlog[]
 }
 
 export interface IBlogCardData {
@@ -42,18 +35,18 @@ export interface IBlogCardData {
   site: string
 }
 
-export interface IBlogTableOfContents {
+export interface ITableOfContents {
   id: string
   text: string
   type: string
 }
 
-export interface IBlogBreadCrumb {
+export interface IBreadCrumb {
   categoryParentId: string | null
   categoryParentName: string | null
-  categoryChildId: string
-  categoryChildName: string
-  blogTitle: string
+  categoryChildId: string | null
+  categoryChildName: string | null
+  currentName: string | null
 }
 
 export interface IBlogImage {
