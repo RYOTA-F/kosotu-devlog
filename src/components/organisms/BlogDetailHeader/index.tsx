@@ -41,8 +41,14 @@ const BlogDetailHeader: FC = () => {
         </TagListWrapper>
         <DateWrapper>
           <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
-          <Date dateTime={blog.publishedAt}>
-            {blog.publishedAt.slice(0, 10)}
+          <Date
+            dateTime={
+              blog.oldPublishedAt ? blog.oldPublishedAt : blog.publishedAt
+            }
+          >
+            {blog.oldPublishedAt
+              ? blog.oldPublishedAt.slice(0, 10)
+              : blog.publishedAt.slice(0, 10)}
           </Date>
         </DateWrapper>
       </DataWrapper>
