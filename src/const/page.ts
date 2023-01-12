@@ -1,5 +1,6 @@
 export const PAGE = {
   ROOT: '/',
+  PAGE: '/page',
   BLOG: '/blog',
   CATEGORY: '/category',
   TAG: '/tag',

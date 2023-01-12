@@ -3,7 +3,7 @@ import type { GetStaticProps, NextPage } from 'next'
 /* Client */
 import { client } from '@/libs/index'
 /* Const */
-import { API } from '@/const/index'
+import { API, MAX_BLOG_COUNT } from '@/const/index'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
@@ -41,7 +41,9 @@ const Home: NextPage<IHome> = ({ blogs }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const blogs = await client.get<IBlogsApiResponse>({
     endpoint: API.BLOG.END_POINT,
-    queries: API.BLOG.QUERY,
+    queries: {
+      limit: MAX_BLOG_COUNT,
+    },
   })
 
   return {
