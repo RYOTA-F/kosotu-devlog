@@ -12,8 +12,10 @@ const useCommonData = (): IUseCommonData => {
   const breadCrumb = state.breadClumb
   // 目次
   const tableOfContents = state.tableOfContents
-  // ページ数
-  const pageNumber = state.pageNumber
+  // 現在のページ数
+  const currentPage = state.pagination.currentPage
+  // 合計のページ数
+  const totalPage = state.pagination.totalPage
 
   /** パンくずをセット */
   const setBreadCrumb = (breadCrumb: IBreadCrumb) => {
@@ -47,18 +49,30 @@ const useCommonData = (): IUseCommonData => {
     })
   }
 
-  /** ページ数をセット */
-  const setPageNumber = (pageNumber: number) => {
+  /** 現在のページ数をセット */
+  const setCurrentPage = (currentPage: number) => {
     dispatch({
-      type: COMMON_ACTION_TYPES.UPDATE_PAGE_NUMBER,
-      payload: pageNumber,
+      type: COMMON_ACTION_TYPES.UPDATE_CURRENT_PAGE,
+      payload: currentPage,
     })
   }
 
-  /** ページ数をリセット */
-  const resetPageNumber = () => {
+  /** 合計のページ数をセット */
+  const setTotalPage = (totalPage: number) => {
     dispatch({
-      type: COMMON_ACTION_TYPES.UPDATE_PAGE_NUMBER,
+      type: COMMON_ACTION_TYPES.UPDATE_TOTAL_PAGE,
+      payload: totalPage,
+    })
+  }
+
+  /** 現在のページ数をリセット */
+  const resetPagination = () => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_CURRENT_PAGE,
+      payload: 0,
+    })
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_TOTAL_PAGE,
       payload: 0,
     })
   }
@@ -70,9 +84,11 @@ const useCommonData = (): IUseCommonData => {
     tableOfContents,
     setTableOfContents,
     resetTableOfContents,
-    pageNumber,
-    setPageNumber,
-    resetPageNumber,
+    currentPage,
+    setCurrentPage,
+    totalPage,
+    setTotalPage,
+    resetPagination,
   }
 }
 

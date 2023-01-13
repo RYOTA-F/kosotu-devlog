@@ -3,5 +3,10 @@ import { IBreadCrumb, ITableOfContents } from '@/types/microCMS/blog'
 export interface ICommonState {
   breadClumb?: IBreadCrumb
   tableOfContents: ITableOfContents[]
-  pageNumber: number
+  pagination: IPaginationState
+}
+
+export interface IPaginationState {
+  currentPage: number
+  totalPage: number
 }

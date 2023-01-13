@@ -3,7 +3,8 @@ import { IBreadCrumb, ITableOfContents } from '@/types/microCMS/blog'
 const COMMON_ACTION_TYPES = {
   UPDATE_BREAD_CRUMB: 'UPDATE_BREAD_CRUMB',
   UPDATE_TABLE_OF_CONTENTS: 'UPDATE_TABLE_OF_CONTENTS',
-  UPDATE_PAGE_NUMBER: 'UPDATE_PAGE_NUMBER',
+  UPDATE_CURRENT_PAGE: 'UPDATE_CURRENT_PAGE',
+  UPDATE_TOTAL_PAGE: 'UPDATE_TOTAL_PAGE',
 } as const
 
 type TCommonActionTypesConst = typeof COMMON_ACTION_TYPES
@@ -22,15 +23,22 @@ type TUpdateTableOfContentsAction = {
   payload: ITableOfContents[]
 }
 
-/* ページ数更新 */
-type TUpdatePageNumber = {
-  type: TCommonActionTypesConst['UPDATE_PAGE_NUMBER']
+/* 現在のページ数更新 */
+type TUpdateCurrentPage = {
+  type: TCommonActionTypesConst['UPDATE_CURRENT_PAGE']
+  payload: number
+}
+
+/* 合計のページ数更新 */
+type TUpdateTotalPage = {
+  type: TCommonActionTypesConst['UPDATE_TOTAL_PAGE']
   payload: number
 }
 
 type TCommonActions =
   | TUpdateBreadCrumbAction
   | TUpdateTableOfContentsAction
-  | TUpdatePageNumber
+  | TUpdateCurrentPage
+  | TUpdateTotalPage
 
 export { COMMON_ACTION_TYPES, type TCommonActions, type TCommonActionTypes }

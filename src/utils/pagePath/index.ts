@@ -10,3 +10,10 @@ export const getPagePaths = (totalCount: number) => {
 
   return pageNumbers.map((id) => `${PAGE.PAGE}${id}`)
 }
+
+/**
+ * ページ数の合計を取得
+ */
+export const getTotalPage = (totalCount: number) => {
+  return Math.ceil(totalCount / MAX_BLOG_COUNT)
+}
