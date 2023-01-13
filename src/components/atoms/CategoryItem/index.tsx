@@ -21,7 +21,7 @@ export interface ICategoryItem {
 const CategoryItem: FC<ICategoryItem> = ({ category }) => {
   return (
     <CategoryItemWrapper aria-label={ARIA_LABEL}>
-      <Link href={`${PAGE.CATEGORY}/${category.id}`}>{category.name}</Link>
+      <Link href={`${PAGE.CATEGORY}${category.id}`}>{category.name}</Link>
     </CategoryItemWrapper>
   )
 }

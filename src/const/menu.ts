@@ -8,37 +8,37 @@ export const GROBAL_MENU = {
     LIST: [
       {
         LABEL: 'React',
-        URL: `${PAGE.CATEGORY}/react`,
+        URL: `${PAGE.CATEGORY}react`,
       },
     ],
   },
   BACK_END: {
     LABEL: CATEGORY_PARENT.BACK_END.NAME,
-    URL: `${PAGE.CATEGORY}/${CATEGORY_PARENT.BACK_END.ID}`,
+    URL: `${PAGE.CATEGORY}${CATEGORY_PARENT.BACK_END.ID}`,
     LIST: [
       {
         LABEL: 'Golang',
-        URL: `${PAGE.CATEGORY}/golang`,
+        URL: `${PAGE.CATEGORY}golang`,
       },
     ],
   },
   INFRA: {
     LABEL: CATEGORY_PARENT.INFRA.NAME,
-    URL: `${PAGE.CATEGORY}/${CATEGORY_PARENT.INFRA.ID}`,
+    URL: `${PAGE.CATEGORY}${CATEGORY_PARENT.INFRA.ID}`,
     LIST: [
       {
         LABEL: 'AWS',
-        URL: `${PAGE.CATEGORY}/aws`,
+        URL: `${PAGE.CATEGORY}aws`,
       },
     ],
   },
   EVENT: {
     LABEL: CATEGORY_PARENT.EVENT.NAME,
-    URL: `${PAGE.CATEGORY}/${CATEGORY_PARENT.EVENT.ID}`,
+    URL: `${PAGE.CATEGORY}${CATEGORY_PARENT.EVENT.ID}`,
     LIST: [
       {
         LABEL: '勉強会',
-        URL: `${PAGE.CATEGORY}/study-session`,
+        URL: `${PAGE.CATEGORY}study-session`,
       },
     ],
   },

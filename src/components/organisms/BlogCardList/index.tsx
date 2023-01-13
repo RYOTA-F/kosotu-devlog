@@ -23,7 +23,7 @@ const BlogCardList: FC = () => {
           <BlogCardWrapper key={v.title}>
             <BlogCard
               title={v.title}
-              url={`${PAGE.BLOG}/${v.id}`}
+              url={`${PAGE.BLOG}${v.id}`}
               image={v.image}
               publishedAt={v.oldPublishedAt ? v.oldPublishedAt : v.publishedAt}
             />
