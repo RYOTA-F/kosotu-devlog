@@ -12,6 +12,8 @@ const useCommonData = (): IUseCommonData => {
   const breadCrumb = state.breadClumb
   // 目次
   const tableOfContents = state.tableOfContents
+  // ページ数
+  const pageNumber = state.pageNumber
 
   /** パンくずをセット */
   const setBreadCrumb = (breadCrumb: IBreadCrumb) => {
@@ -45,6 +47,22 @@ const useCommonData = (): IUseCommonData => {
     })
   }
 
+  /** ページ数をセット */
+  const setPageNumber = (pageNumber: number) => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_PAGE_NUMBER,
+      payload: pageNumber,
+    })
+  }
+
+  /** ページ数をリセット */
+  const resetPageNumber = () => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_PAGE_NUMBER,
+      payload: 0,
+    })
+  }
+
   return {
     breadCrumb,
     setBreadCrumb,
@@ -52,6 +70,9 @@ const useCommonData = (): IUseCommonData => {
     tableOfContents,
     setTableOfContents,
     resetTableOfContents,
+    pageNumber,
+    setPageNumber,
+    resetPageNumber,
   }
 }
 

@@ -10,6 +10,7 @@ import DefaultLayout from '@/components/layouts/DefaultLayout'
 import BlogCardList from '@/components/organisms/BlogCardList'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
+import useCommonData from '@/hooks/useCommonData'
 /* Types */
 import { IBlogsApiResponse, IBlog } from '@/types/index'
 /* Utils */
@@ -20,16 +21,19 @@ interface IPage {
   totalCount: number
 }
 
-const Page: NextPage<IPage> = ({ blogs }) => {
+const Page: NextPage<IPage> = ({ blogs, totalCount }) => {
   const { setBlogs, resetBlogs } = useBlogData()
+  const { setPageNumber, resetPageNumber } = useCommonData()
 
   useEffect(() => {
     setBlogs(blogs)
+    setPageNumber(totalCount)
 
     return () => {
       resetBlogs()
+      resetPageNumber()
     }
-  }, [blogs])
+  }, [blogs, totalCount])
 
   return (
     <DefaultLayout>

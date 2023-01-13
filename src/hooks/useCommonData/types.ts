@@ -7,4 +7,7 @@ export interface IUseCommonData {
   tableOfContents: ITableOfContents[]
   setTableOfContents: (tableOfContents: ITableOfContents[]) => void
   resetTableOfContents: () => void
+  pageNumber: number
+  setPageNumber: (pageNumber: number) => void
+  resetPageNumber: () => void
 }

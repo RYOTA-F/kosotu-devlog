@@ -19,6 +19,12 @@ export const commonReducer: Reducer<ICommonState, TCommonActions> = (
         ...state,
         tableOfContents: action.payload,
       }
+    // ページ数更新
+    case COMMON_ACTION_TYPES.UPDATE_PAGE_NUMBER:
+      return {
+        ...state,
+        pageNumber: action.payload,
+      }
     default:
       return state
   }
