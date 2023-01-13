@@ -1,5 +1,7 @@
 import { FC } from 'react'
+import Link from 'next/link'
 /* Const */
+import { PAGE } from '@/const/index'
 import { ARIA_LABEL } from './const'
 /* Styles */
 import { PaginationItemWrapper } from './index.styles'
@@ -15,7 +17,13 @@ const PaginationItem: FC<IPaginationItem> = ({ pageNumber, isCurrentPage }) => {
       isCurrentPage={isCurrentPage}
       aria-label={ARIA_LABEL}
     >
-      {pageNumber}
+      {isCurrentPage ? (
+        <>{pageNumber}</>
+      ) : (
+        <Link href={pageNumber === 1 ? PAGE.ROOT : `${PAGE.PAGE}${pageNumber}`}>
+          {pageNumber}
+        </Link>
+      )}
     </PaginationItemWrapper>
   )
 }

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+/* Const */
 import { COLOR } from '@/const/index'
 
 export const PaginationItemWrapper = styled.div<{ isCurrentPage: boolean }>`
@@ -10,6 +11,12 @@ export const PaginationItemWrapper = styled.div<{ isCurrentPage: boolean }>`
   background-color: ${({ isCurrentPage }) =>
     isCurrentPage ? COLOR.BLUE_GROUP.MAIN : COLOR.GRAY_SCALE.GRAY.PAGINATION};
   transition: 0.3s all;
+
+  > a {
+    display: block;
+    color: ${COLOR.GRAY_SCALE.WHITE};
+    text-decoration: none;
+  }
 
   ${({ isCurrentPage }) =>
     !isCurrentPage &&
