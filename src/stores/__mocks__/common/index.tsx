@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { CommonContext, initialCommonState } from '@/stores/common'
-import { tableOfContentsStateMock } from './mock'
+import { tableOfContentsStateMock, paginationStateMock } from './mock'
 import { IContextProvider } from '../../types'
 
 const CommonContextProviderMock: FC<IContextProvider> = ({ children }) => {
@@ -10,6 +10,7 @@ const CommonContextProviderMock: FC<IContextProvider> = ({ children }) => {
         state: {
           ...initialCommonState,
           tableOfContents: tableOfContentsStateMock,
+          pagination: paginationStateMock,
         },
         dispatch: () => null,
       }}
