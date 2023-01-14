@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Client */
 import { client } from '@/libs/index'
 /* Const */
@@ -15,23 +15,22 @@ import useCommonData from '@/hooks/useCommonData'
 /* Types */
 import { IBlogsApiResponse, IBlog } from '@/types/index'
 /* Utils */
-import { getTotalPage } from '@/utils/index'
+import { getPageOffset, getPagePaths, getTotalPage } from '@/utils/index'
 
-const HOME_PAGE_ID = 1 as const
-
-interface IHome {
+interface IPage {
   blogs: IBlog[]
+  pageId: number
   totalPage: number
 }
 
-const Home: NextPage<IHome> = ({ blogs, totalPage }) => {
+const Page: NextPage<IPage> = ({ blogs, pageId, totalPage }) => {
   const { setBlogs, resetBlogs } = useBlogData()
   const { setPagination, resetPagination } = useCommonData()
 
   useEffect(() => {
     setBlogs(blogs)
     setPagination({
-      currentPage: HOME_PAGE_ID,
+      currentPage: pageId,
       totalPage: totalPage,
       type: PAGINATION.BLOG,
     })
@@ -40,7 +39,7 @@ const Home: NextPage<IHome> = ({ blogs, totalPage }) => {
       resetBlogs()
       resetPagination()
     }
-  }, [blogs, totalPage])
+  }, [blogs, pageId])
 
   return (
     <DefaultLayout>
@@ -51,12 +50,41 @@ const Home: NextPage<IHome> = ({ blogs, totalPage }) => {
 }
 
 /**
+ * ページID毎に静的ページを生成
+ */
+export const getStaticPaths: GetStaticPaths = async () => {
+  const blogs = await client.get<IBlogsApiResponse>({
+    endpoint: API.BLOG.END_POINT,
+  })
+
+  // ページのパスを取得
+  const paths = getPagePaths(blogs.totalCount)
+
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+/**
  * 静的ページ用のブログ一覧情報を取得
  */
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async (context) => {
+  if (!context.params) return { notFound: true }
+
+  // ページIDを取得
+  const id =
+    context.params.id && Array.isArray(context.params.id)
+      ? context.params.id[0]
+      : context.params.id ?? ''
+
+  // オフセット量を取得
+  const offset = getPageOffset(id)
+
   const blogs = await client.get<IBlogsApiResponse>({
     endpoint: API.BLOG.END_POINT,
     queries: {
+      offset,
       limit: MAX_BLOG_COUNT,
     },
   })
@@ -67,9 +95,10 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       blogs: blogs.contents,
+      pageId: parseInt(id),
       totalPage,
     },
   }
 }
 
-export default Home
+export default Page

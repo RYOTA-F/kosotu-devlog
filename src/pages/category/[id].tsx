@@ -54,7 +54,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await client.get<ICategoryApiResponse>({
     endpoint: API.CATEGORY.END_POINT,
   })
-  const paths = categories.contents.map(({ id }) => `${PAGE.CATEGORY}/${id}`)
+  const paths = categories.contents.map(({ id }) => `${PAGE.CATEGORY}${id}`)
 
   return {
     paths,

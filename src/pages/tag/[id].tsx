@@ -54,7 +54,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const tags = await client.get<ITagApiResponse>({
     endpoint: API.TAG.END_POINT,
   })
-  const paths = tags.contents.map(({ id }) => `${PAGE.TAG}/${id}`)
+  const paths = tags.contents.map(({ id }) => `${PAGE.TAG}${id}`)
 
   return {
     paths,

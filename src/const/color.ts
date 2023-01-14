@@ -9,6 +9,7 @@ const GRAY_SCALE = {
     TEXT_4: '#63707b',
     BORDER_1: '#e2e2e2',
     H4: '#f7f7f7',
+    PAGINATION: '#dedede',
   },
 } as const
 
