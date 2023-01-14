@@ -6,6 +6,7 @@ export const initialCommonState: ICommonState = {
   pagination: {
     currentPage: 0,
     totalPage: 0,
+    type: 'blog',
   },
 }
 

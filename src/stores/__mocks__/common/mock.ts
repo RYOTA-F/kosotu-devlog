@@ -11,4 +11,5 @@ export const tableOfContentsStateMock: ITableOfContents[] = [
 export const paginationStateMock: ICommonState['pagination'] = {
   currentPage: 2,
   totalPage: 5,
+  type: 'blog',
 }

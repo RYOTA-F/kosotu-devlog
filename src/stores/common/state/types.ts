@@ -9,4 +9,7 @@ export interface ICommonState {
 export interface IPaginationState {
   currentPage: number
   totalPage: number
+  type: TPaginationType
 }
+
+export type TPaginationType = 'blog' | 'category' | 'tag'

@@ -3,7 +3,7 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 /* Client */
 import { client } from '@/libs/index'
 /* Const */
-import { API, MAX_BLOG_COUNT } from '@/const/index'
+import { API, MAX_BLOG_COUNT, PAGINATION } from '@/const/index'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
@@ -25,12 +25,15 @@ interface IPage {
 
 const Page: NextPage<IPage> = ({ blogs, pageId, totalPage }) => {
   const { setBlogs, resetBlogs } = useBlogData()
-  const { setCurrentPage, setTotalPage, resetPagination } = useCommonData()
+  const { setPagination, resetPagination } = useCommonData()
 
   useEffect(() => {
     setBlogs(blogs)
-    setCurrentPage(pageId)
-    setTotalPage(totalPage)
+    setPagination({
+      currentPage: pageId,
+      totalPage: totalPage,
+      type: PAGINATION.BLOG,
+    })
 
     return () => {
       resetBlogs()

@@ -4,6 +4,7 @@ import { CommonContext, COMMON_ACTION_TYPES } from '@/stores/common'
 /* Types */
 import { IUseCommonData } from './types'
 import { IBreadCrumb, ITableOfContents } from '@/types/index'
+import { initialCommonState, IPaginationState } from '@/stores/common'
 
 const useCommonData = (): IUseCommonData => {
   const { state, dispatch } = useContext(CommonContext)
@@ -12,10 +13,12 @@ const useCommonData = (): IUseCommonData => {
   const breadCrumb = state.breadClumb
   // 目次
   const tableOfContents = state.tableOfContents
-  // 現在のページ数
+  // ページネーション現在ページ数
   const currentPage = state.pagination.currentPage
-  // 合計のページ数
+  // ページネーション合計ページ数
   const totalPage = state.pagination.totalPage
+  // ページネーションタイプ
+  const paginationType = state.pagination.type
 
   /** パンくずをセット */
   const setBreadCrumb = (breadCrumb: IBreadCrumb) => {
@@ -49,31 +52,19 @@ const useCommonData = (): IUseCommonData => {
     })
   }
 
-  /** 現在のページ数をセット */
-  const setCurrentPage = (currentPage: number) => {
+  /** ページネーションをセット */
+  const setPagination = (pagination: IPaginationState) => {
     dispatch({
-      type: COMMON_ACTION_TYPES.UPDATE_CURRENT_PAGE,
-      payload: currentPage,
+      type: COMMON_ACTION_TYPES.UPDATE_PAGINATION,
+      payload: pagination,
     })
   }
 
-  /** 合計のページ数をセット */
-  const setTotalPage = (totalPage: number) => {
-    dispatch({
-      type: COMMON_ACTION_TYPES.UPDATE_TOTAL_PAGE,
-      payload: totalPage,
-    })
-  }
-
-  /** 現在のページ数をリセット */
+  /** ページネーションをリセット */
   const resetPagination = () => {
     dispatch({
-      type: COMMON_ACTION_TYPES.UPDATE_CURRENT_PAGE,
-      payload: 0,
-    })
-    dispatch({
-      type: COMMON_ACTION_TYPES.UPDATE_TOTAL_PAGE,
-      payload: 0,
+      type: COMMON_ACTION_TYPES.UPDATE_PAGINATION,
+      payload: initialCommonState.pagination,
     })
   }
 
@@ -85,9 +76,9 @@ const useCommonData = (): IUseCommonData => {
     setTableOfContents,
     resetTableOfContents,
     currentPage,
-    setCurrentPage,
     totalPage,
-    setTotalPage,
+    paginationType,
+    setPagination,
     resetPagination,
   }
 }
