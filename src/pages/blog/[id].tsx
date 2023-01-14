@@ -18,19 +18,22 @@ import {
   ITableOfContents,
   IBreadCrumb,
 } from '@/types/index'
+import { ISeoState } from '@/stores/common'
 /* Utils */
-import { getBreadCrumbDataFromBlog } from '@/utils/index'
+import { getBreadCrumbDataFromBlog, getSeoFromBlog } from '@/utils/index'
 
 interface IBlogPage {
   blog: IBlog
   tableOfContents: ITableOfContents[]
   breadCrumb: IBreadCrumb
+  seo: ISeoState
 }
 
 const BlogPage: NextPage<IBlogPage> = ({
   blog,
   tableOfContents,
   breadCrumb,
+  seo,
 }) => {
   const { setBlogs, resetBlogs } = useBlogData()
   const {
@@ -38,19 +41,23 @@ const BlogPage: NextPage<IBlogPage> = ({
     resetBreadCrumb,
     setTableOfContents,
     resetTableOfContents,
+    setSeo,
+    resetSeo,
   } = useCommonData()
 
   useEffect(() => {
     setBlogs([blog])
     setTableOfContents(tableOfContents)
     setBreadCrumb(breadCrumb)
+    setSeo(seo)
 
     return () => {
       resetBlogs()
       resetTableOfContents()
       resetBreadCrumb()
+      resetSeo()
     }
-  }, [blog, tableOfContents, breadCrumb])
+  }, [blog, tableOfContents, breadCrumb, seo])
 
   return (
     <DefaultLayout>
@@ -65,6 +72,8 @@ const BlogPage: NextPage<IBlogPage> = ({
 export const getStaticPaths: GetStaticPaths = async () => {
   const blogs = await client.get<IBlogsApiResponse>({
     endpoint: API.BLOG.END_POINT,
+    // デフォルトで limitが10件 になるのを解除
+    queries: { limit: 9999 },
   })
   const paths = blogs.contents.map(({ id }) => `${PAGE.BLOG}${id}`)
 
@@ -96,6 +105,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { body, tableOfContents } = await perseBlogBody(contents[0].body)
   // パンくず情報を取得
   const breadCrumb = getBreadCrumbDataFromBlog(contents[0])
+  // SEO情報を取得
+  const seo = getSeoFromBlog(contents[0])
 
   return {
     props: {
@@ -117,6 +128,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       },
       tableOfContents,
       breadCrumb,
+      seo,
     },
   }
 }

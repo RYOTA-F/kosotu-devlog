@@ -15,16 +15,25 @@ import { client } from '@/libs/index'
 /* Types */
 import { IBreadCrumb } from '@/types/microCMS/blog'
 import { ICategory, ICategoryApiResponse } from '@/types/microCMS/category'
+import { ISeoState } from '@/stores/common'
 /* Utils */
-import { getBreadCrumbDataFromCategory } from '@/utils/index'
+import {
+  getBreadCrumbDataFromCategory,
+  getSeoFromCategory,
+} from '@/utils/index'
 
 export interface ICategoryPage {
   category: ICategory
   breadCrumb: IBreadCrumb
+  seo: ISeoState
 }
 
-const CategoryPage: NextPage<ICategoryPage> = ({ category, breadCrumb }) => {
-  const { setBreadCrumb, resetBreadCrumb } = useCommonData()
+const CategoryPage: NextPage<ICategoryPage> = ({
+  category,
+  breadCrumb,
+  seo,
+}) => {
+  const { setBreadCrumb, resetBreadCrumb, setSeo, resetSeo } = useCommonData()
   const { setBlogs, resetBlogs } = useBlogData()
   const { setCategory, resetCategory } = useCategoryData()
 
@@ -32,13 +41,15 @@ const CategoryPage: NextPage<ICategoryPage> = ({ category, breadCrumb }) => {
     setBreadCrumb(breadCrumb)
     setBlogs(category.blogs)
     setCategory(category)
+    setSeo(seo)
 
     return () => {
       resetBreadCrumb()
       resetBlogs()
       resetCategory()
+      resetSeo()
     }
-  }, [category, breadCrumb])
+  }, [category, breadCrumb, seo])
 
   return (
     <DefaultLayout>
@@ -53,7 +64,10 @@ const CategoryPage: NextPage<ICategoryPage> = ({ category, breadCrumb }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await client.get<ICategoryApiResponse>({
     endpoint: API.CATEGORY.END_POINT,
+    // デフォルトで limitが10件 になるのを解除
+    queries: { limit: 9999 },
   })
+
   const paths = categories.contents.map(({ id }) => `${PAGE.CATEGORY}${id}`)
 
   return {
@@ -83,10 +97,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
   // パンくず情報を取得
   const breadCrumb = getBreadCrumbDataFromCategory(contents[0])
 
+  // SEO情報を取得
+  const seo = getSeoFromCategory(contents[0])
+
   return {
     props: {
       category: contents[0],
       breadCrumb,
+      seo,
     },
   }
 }

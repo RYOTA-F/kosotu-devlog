@@ -1,4 +1,5 @@
 import { ICommonState } from './types'
+import { SITE } from '@/const/index'
 
 export const initialCommonState: ICommonState = {
   breadClumb: undefined,
@@ -7,6 +8,12 @@ export const initialCommonState: ICommonState = {
     currentPage: 0,
     totalPage: 0,
     type: 'blog',
+  },
+  seo: {
+    title: SITE.TITLE,
+    description: SITE.DESCRIPTION,
+    url: SITE.URL,
+    image: SITE.IMAGE,
   },
 }
 

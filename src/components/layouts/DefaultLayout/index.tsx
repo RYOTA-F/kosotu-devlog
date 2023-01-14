@@ -5,6 +5,7 @@ import Footer from '@/components/organisms/Footer'
 /* Components */
 import BreadCrumb from '@/components/molecules/BreadCrumb'
 import Profile from '@/components/molecules/Profile'
+import Seo from '@/components/organisms/Seo'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Hooks */
@@ -21,6 +22,7 @@ const DefaultLayout: FC<IDefaultLayout> = ({ children }) => {
 
   return (
     <div aria-label={ARIA_LABEL.DEFAULT_LAYOUT}>
+      <Seo />
       <Header />
       {breadCrumb && <BreadCrumb breadCrumb={breadCrumb} />}
       <MainWrapper>

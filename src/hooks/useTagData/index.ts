@@ -2,10 +2,9 @@ import { useContext } from 'react'
 /* Stores */
 import { TagContext, TAG_ACTION_TYPES, initialTagState } from '@/stores/tag'
 /* Types */
-import { IUseTagData } from './types'
 import { ITag } from '@/types/index'
 
-const useTagData = (): IUseTagData => {
+const useTagData = () => {
   const { state, dispatch } = useContext(TagContext)
 
   // タグ

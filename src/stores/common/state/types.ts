@@ -4,6 +4,14 @@ export interface ICommonState {
   breadClumb?: IBreadCrumb
   tableOfContents: ITableOfContents[]
   pagination: IPaginationState
+  seo: ISeoState
+}
+
+export interface ISeoState {
+  title: string
+  description: string
+  url: string
+  image: string
 }
 
 export interface IPaginationState {

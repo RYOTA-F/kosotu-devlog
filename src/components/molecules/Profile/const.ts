@@ -6,7 +6,7 @@ export const ARIA_LABEL = {
 } as const
 
 export const IMAGE = {
-  PATH: '/images/ryota.png',
+  PATH: '/images/ryota.webp',
   ALT: 'ryota',
   WIDTH: 120,
   HEIGHT: 120,
