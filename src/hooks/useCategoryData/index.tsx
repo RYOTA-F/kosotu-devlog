@@ -6,10 +6,9 @@ import {
   initialCategoryState,
 } from '@/stores/category'
 /* Types */
-import { IUseCategoryData } from './types'
 import { ICategory } from '@/src/types'
 
-const useCategoryData = (): IUseCategoryData => {
+const useCategoryData = () => {
   const { state, dispatch } = useContext(CategoryContext)
 
   // カテゴリ

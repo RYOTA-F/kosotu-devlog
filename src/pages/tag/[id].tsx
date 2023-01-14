@@ -13,32 +13,35 @@ import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Lib */
 import { client } from '@/libs/index'
 /* Types */
-import { ITag, ITagApiResponse } from '@/types/index'
+import { ITag, IBreadCrumb, ITagApiResponse } from '@/types/index'
+import { ISeoState } from '@/stores/common'
 /* Utils */
-import { getBreadCrumbDataFromFixed } from '@/utils/index'
+import { getBreadCrumbDataFromFixed, getSeoFromTag } from '@/utils/index'
 
 export interface ITagPage {
   tag: ITag
+  breadCrumb: IBreadCrumb
+  seo: ISeoState
 }
 
-const TagPage: NextPage<ITagPage> = ({ tag }) => {
+const TagPage: NextPage<ITagPage> = ({ tag, breadCrumb, seo }) => {
   const { setBlogs, resetBlogs } = useBlogData()
-  const { setBreadCrumb, resetBreadCrumb } = useCommonData()
+  const { setBreadCrumb, resetBreadCrumb, setSeo, resetSeo } = useCommonData()
   const { setTag, resetTag } = useTagData()
 
   useEffect(() => {
-    const breadCrumb = getBreadCrumbDataFromFixed(tag.name)
-
     setBlogs(tag.blogs)
     setBreadCrumb(breadCrumb)
     setTag(tag)
+    setSeo(seo)
 
     return () => {
       resetBlogs()
       resetBreadCrumb()
       resetTag()
+      resetSeo()
     }
-  }, [tag])
+  }, [tag, seo])
 
   return (
     <DefaultLayout>
@@ -83,9 +86,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
     queries: { ids: id },
   })
 
+  // パンくず情報を取得
+  const breadCrumb = getBreadCrumbDataFromFixed(contents[0].name)
+  // SEO情報を取得
+  const seo = getSeoFromTag(contents[0])
+
   return {
     props: {
       tag: contents[0],
+      breadCrumb,
+      seo,
     },
   }
 }

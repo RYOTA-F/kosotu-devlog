@@ -1,5 +1,5 @@
 import { IBreadCrumb, ITableOfContents } from '@/types/microCMS/blog'
-import { IPaginationState } from '../state'
+import { IPaginationState, ISeoState } from '../state'
 
 const COMMON_ACTION_TYPES = {
   UPDATE_BREAD_CRUMB: 'UPDATE_BREAD_CRUMB',
@@ -7,6 +7,7 @@ const COMMON_ACTION_TYPES = {
   UPDATE_CURRENT_PAGE: 'UPDATE_CURRENT_PAGE',
   UPDATE_TOTAL_PAGE: 'UPDATE_TOTAL_PAGE',
   UPDATE_PAGINATION: 'UPDATE_PAGINATION',
+  UPDATE_SEO: 'UPDATE_SEO',
 } as const
 
 type TCommonActionTypesConst = typeof COMMON_ACTION_TYPES
@@ -31,23 +32,16 @@ type IUpdatePagination = {
   payload: IPaginationState
 }
 
-/* 現在のページ数更新 */
-type TUpdateCurrentPage = {
-  type: TCommonActionTypesConst['UPDATE_CURRENT_PAGE']
-  payload: number
-}
-
-/* 合計のページ数更新 */
-type TUpdateTotalPage = {
-  type: TCommonActionTypesConst['UPDATE_TOTAL_PAGE']
-  payload: number
+/* SEO更新 */
+type IUpdateSeo = {
+  type: TCommonActionTypesConst['UPDATE_SEO']
+  payload: ISeoState
 }
 
 type TCommonActions =
   | TUpdateBreadCrumbAction
   | TUpdateTableOfContentsAction
   | IUpdatePagination
-  | TUpdateCurrentPage
-  | TUpdateTotalPage
+  | IUpdateSeo
 
 export { COMMON_ACTION_TYPES, type TCommonActions, type TCommonActionTypes }
