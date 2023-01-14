@@ -53,7 +53,10 @@ const TagPage: NextPage<ITagPage> = ({ tag }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = await client.get<ITagApiResponse>({
     endpoint: API.TAG.END_POINT,
+    // デフォルトで limitが10件 になるのを解除
+    queries: { limit: 9999 },
   })
+
   const paths = tags.contents.map(({ id }) => `${PAGE.TAG}${id}`)
 
   return {

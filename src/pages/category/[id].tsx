@@ -53,7 +53,10 @@ const CategoryPage: NextPage<ICategoryPage> = ({ category, breadCrumb }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await client.get<ICategoryApiResponse>({
     endpoint: API.CATEGORY.END_POINT,
+    // デフォルトで limitが10件 になるのを解除
+    queries: { limit: 9999 },
   })
+
   const paths = categories.contents.map(({ id }) => `${PAGE.CATEGORY}${id}`)
 
   return {
