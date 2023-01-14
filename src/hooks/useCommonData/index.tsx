@@ -2,23 +2,34 @@ import { useContext } from 'react'
 /* Stores */
 import { CommonContext, COMMON_ACTION_TYPES } from '@/stores/common'
 /* Types */
-import { IUseCommonData } from './types'
 import { IBreadCrumb, ITableOfContents } from '@/types/index'
-import { initialCommonState, IPaginationState } from '@/stores/common'
+import {
+  initialCommonState,
+  IPaginationState,
+  ISeoState,
+} from '@/stores/common'
 
-const useCommonData = (): IUseCommonData => {
+const useCommonData = () => {
   const { state, dispatch } = useContext(CommonContext)
 
   // パンくず
   const breadCrumb = state.breadClumb
   // 目次
   const tableOfContents = state.tableOfContents
-  // ページネーション現在ページ数
+  // ページネーション: 現在ページ数
   const currentPage = state.pagination.currentPage
-  // ページネーション合計ページ数
+  // ページネーション: 合計ページ数
   const totalPage = state.pagination.totalPage
-  // ページネーションタイプ
+  // ページネーション: タイプ
   const paginationType = state.pagination.type
+  // SEO: タイトル
+  const seoTitle = state.seo.title
+  // SEO: 説明
+  const seoDescription = state.seo.description
+  // SEO: URL
+  const seoUrl = state.seo.url
+  // SEO: 画像
+  const seoImage = state.seo.image
 
   /** パンくずをセット */
   const setBreadCrumb = (breadCrumb: IBreadCrumb) => {
@@ -68,6 +79,22 @@ const useCommonData = (): IUseCommonData => {
     })
   }
 
+  /** SEOをセット */
+  const setSeo = (seo: ISeoState) => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_SEO,
+      payload: seo,
+    })
+  }
+
+  /** SEOをリセット */
+  const resetSeo = () => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_SEO,
+      payload: initialCommonState.seo,
+    })
+  }
+
   return {
     breadCrumb,
     setBreadCrumb,
@@ -80,6 +107,12 @@ const useCommonData = (): IUseCommonData => {
     paginationType,
     setPagination,
     resetPagination,
+    seoTitle,
+    seoDescription,
+    seoUrl,
+    seoImage,
+    setSeo,
+    resetSeo,
   }
 }
 

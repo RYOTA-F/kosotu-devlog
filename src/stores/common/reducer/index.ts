@@ -25,6 +25,12 @@ export const commonReducer: Reducer<ICommonState, TCommonActions> = (
         ...state,
         pagination: action.payload,
       }
+    // SEO更新
+    case COMMON_ACTION_TYPES.UPDATE_SEO:
+      return {
+        ...state,
+        seo: action.payload,
+      }
     default:
       return state
   }
