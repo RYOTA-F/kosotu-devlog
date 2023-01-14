@@ -49,6 +49,13 @@ export interface IBreadCrumb {
   currentName: string | null
 }
 
+export interface ISeo {
+  title: string
+  description: string
+  url: string
+  image: string
+}
+
 export interface IBlogImage {
   url: string
   height: number

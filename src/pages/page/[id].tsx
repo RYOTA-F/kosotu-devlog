@@ -14,32 +14,28 @@ import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
 /* Types */
 import { IBlogsApiResponse, IBlog } from '@/types/index'
+import { IPaginationState } from '@/stores/common'
 /* Utils */
 import { getPageOffset, getPagePaths, getTotalPage } from '@/utils/index'
 
 interface IPage {
   blogs: IBlog[]
-  pageId: number
-  totalPage: number
+  pagination: IPaginationState
 }
 
-const Page: NextPage<IPage> = ({ blogs, pageId, totalPage }) => {
+const Page: NextPage<IPage> = ({ blogs, pagination }) => {
   const { setBlogs, resetBlogs } = useBlogData()
   const { setPagination, resetPagination } = useCommonData()
 
   useEffect(() => {
     setBlogs(blogs)
-    setPagination({
-      currentPage: pageId,
-      totalPage: totalPage,
-      type: PAGINATION.BLOG,
-    })
+    setPagination(pagination)
 
     return () => {
       resetBlogs()
       resetPagination()
     }
-  }, [blogs, pageId])
+  }, [blogs, pagination])
 
   return (
     <DefaultLayout>
@@ -91,12 +87,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   // ページ数の合計を取得
   const totalPage = getTotalPage(blogs.totalCount)
+  // ページネーション情報
+  const pagination: IPaginationState = {
+    currentPage: parseInt(id),
+    totalPage,
+    type: PAGINATION.BLOG,
+  }
 
   return {
     props: {
       blogs: blogs.contents,
-      pageId: parseInt(id),
-      totalPage,
+      pagination,
     },
   }
 }
