@@ -29,7 +29,7 @@ const BreadCrumb: FC<IBreadCrumbProps> = ({ breadCrumb }) => {
 
       {breadCrumb.categoryParentId && breadCrumb.categoryParentName && (
         <ListItem>
-          <Link href={`${PAGE.CATEGORY}/${breadCrumb.categoryParentId}`}>
+          <Link href={`${PAGE.CATEGORY}${breadCrumb.categoryParentId}`}>
             {breadCrumb.categoryParentName}
           </Link>
         </ListItem>
@@ -37,7 +37,7 @@ const BreadCrumb: FC<IBreadCrumbProps> = ({ breadCrumb }) => {
 
       {breadCrumb.categoryChildId && breadCrumb.categoryChildName && (
         <ListItem>
-          <Link href={`${PAGE.CATEGORY}/${breadCrumb.categoryChildId}`}>
+          <Link href={`${PAGE.CATEGORY}${breadCrumb.categoryChildId}`}>
             {breadCrumb.categoryChildName}
           </Link>
         </ListItem>

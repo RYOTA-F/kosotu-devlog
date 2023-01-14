@@ -1,4 +1,5 @@
 import { IBreadCrumb, ITableOfContents } from '@/types/index'
+import { IPaginationState, TPaginationType } from '@/stores/common'
 
 export interface IUseCommonData {
   breadCrumb?: IBreadCrumb
@@ -7,4 +8,9 @@ export interface IUseCommonData {
   tableOfContents: ITableOfContents[]
   setTableOfContents: (tableOfContents: ITableOfContents[]) => void
   resetTableOfContents: () => void
+  currentPage: number
+  totalPage: number
+  paginationType: TPaginationType
+  setPagination: (pagination: IPaginationState) => void
+  resetPagination: () => void
 }

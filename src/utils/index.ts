@@ -1,3 +1,5 @@
 export * from './breadCrumb'
 export * from './blogCard'
 export * from './blogCategory'
+export * from './pageOffset'
+export * from './pagePath'

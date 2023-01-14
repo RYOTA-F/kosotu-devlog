@@ -66,7 +66,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const blogs = await client.get<IBlogsApiResponse>({
     endpoint: API.BLOG.END_POINT,
   })
-  const paths = blogs.contents.map(({ id }) => `${PAGE.BLOG}/${id}`)
+  const paths = blogs.contents.map(({ id }) => `${PAGE.BLOG}${id}`)
 
   return {
     paths,
@@ -110,7 +110,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         publishedAt: contents[0].publishedAt,
         oldPublishedAt: contents[0].oldPublishedAt
           ? contents[0].oldPublishedAt
-          : '',
+          : null,
         revisedAt: contents[0].revisedAt,
         categories: contents[0].categories,
         tags: contents[0].tags,
