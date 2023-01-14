@@ -8,36 +8,40 @@ import { API, MAX_BLOG_COUNT } from '@/const/index'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
 import BlogCardList from '@/components/organisms/BlogCardList'
+import Pagination from '@/components/organisms/Pagination'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
 /* Types */
 import { IBlogsApiResponse, IBlog } from '@/types/index'
 /* Utils */
-import { getPageOffset, getPagePaths } from '@/utils/index'
+import { getPageOffset, getPagePaths, getTotalPage } from '@/utils/index'
 
 interface IPage {
   blogs: IBlog[]
-  totalCount: number
+  pageId: number
+  totalPage: number
 }
 
-const Page: NextPage<IPage> = ({ blogs, totalCount }) => {
+const Page: NextPage<IPage> = ({ blogs, pageId, totalPage }) => {
   const { setBlogs, resetBlogs } = useBlogData()
-  const { setPageNumber, resetPageNumber } = useCommonData()
+  const { setCurrentPage, setTotalPage, resetPagination } = useCommonData()
 
   useEffect(() => {
     setBlogs(blogs)
-    setPageNumber(totalCount)
+    setCurrentPage(pageId)
+    setTotalPage(totalPage)
 
     return () => {
       resetBlogs()
-      resetPageNumber()
+      resetPagination()
     }
-  }, [blogs, totalCount])
+  }, [blogs, pageId])
 
   return (
     <DefaultLayout>
       <BlogCardList />
+      <Pagination />
     </DefaultLayout>
   )
 }
@@ -82,10 +86,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   })
 
+  // ページ数の合計を取得
+  const totalPage = getTotalPage(blogs.totalCount)
+
   return {
     props: {
       blogs: blogs.contents,
-      totalCount: blogs.totalCount,
+      pageId: parseInt(id),
+      totalPage,
     },
   }
 }

@@ -8,29 +8,41 @@ import { API, MAX_BLOG_COUNT } from '@/const/index'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
 import BlogCardList from '@/components/organisms/BlogCardList'
+import Pagination from '@/components/organisms/Pagination'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
+import useCommonData from '@/hooks/useCommonData'
 /* Types */
 import { IBlogsApiResponse, IBlog } from '@/types/index'
+/* Utils */
+import { getTotalPage } from '@/utils/index'
+
+const HOME_PAGE_ID = 1 as const
 
 interface IHome {
   blogs: IBlog[]
+  totalPage: number
 }
 
-const Home: NextPage<IHome> = ({ blogs }) => {
+const Home: NextPage<IHome> = ({ blogs, totalPage }) => {
   const { setBlogs, resetBlogs } = useBlogData()
+  const { setCurrentPage, setTotalPage, resetPagination } = useCommonData()
 
   useEffect(() => {
     setBlogs(blogs)
+    setCurrentPage(HOME_PAGE_ID)
+    setTotalPage(totalPage)
 
     return () => {
       resetBlogs()
+      resetPagination()
     }
-  }, [blogs])
+  }, [blogs, totalPage])
 
   return (
     <DefaultLayout>
       <BlogCardList />
+      <Pagination />
     </DefaultLayout>
   )
 }
@@ -46,9 +58,13 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   })
 
+  // ページ数の合計を取得
+  const totalPage = getTotalPage(blogs.totalCount)
+
   return {
     props: {
       blogs: blogs.contents,
+      totalPage,
     },
   }
 }

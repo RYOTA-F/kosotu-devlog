@@ -4,7 +4,7 @@ import { PAGE } from './page'
 export const GROBAL_MENU = {
   FRONT_END: {
     LABEL: CATEGORY_PARENT.FRONT_END.NAME,
-    URL: `${PAGE.CATEGORY}/${CATEGORY_PARENT.FRONT_END.ID}`,
+    URL: `${PAGE.CATEGORY}${CATEGORY_PARENT.FRONT_END.ID}`,
     LIST: [
       {
         LABEL: 'React',
