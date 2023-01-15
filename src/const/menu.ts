@@ -42,15 +42,16 @@ export const GROBAL_MENU = {
       },
     ],
   },
+  SITE_MAP: {
+    LABEL: 'サイトマップ',
+    URL: PAGE.SITE_MAP,
+    LIST: [],
+  },
   PROFILE: {
     LABEL: 'プロフィール',
     URL: PAGE.PROFILE,
     LIST: [],
   },
-  // SITE_MAP: {
-  //   LABEL: 'サイトマップ',
-  //   URL: PAGE.SITE_MAP,
-  // },
 } as const
 
 export const SUB_MENU = {
