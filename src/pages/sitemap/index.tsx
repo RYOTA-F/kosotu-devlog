@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import type { NextPage, GetStaticProps } from 'next'
+/* Components */
+import Sitemap from '@/components/organisms/Sitemap'
 /* Const */
 import { API } from '@/const/index'
 /* Client */
@@ -21,7 +23,7 @@ interface ISitemapPage {
   sitemap: ISitemap[]
 }
 
-const Sitemap: NextPage<ISitemapPage> = ({ sitemap }) => {
+const SitemapPage: NextPage<ISitemapPage> = ({ sitemap }) => {
   const { setSitemap, resetSitemap } = useSitemapData()
 
   useEffect(() => {
@@ -32,7 +34,11 @@ const Sitemap: NextPage<ISitemapPage> = ({ sitemap }) => {
     }
   }, [sitemap])
 
-  return <DefaultLayout>Sitemap</DefaultLayout>
+  return (
+    <DefaultLayout>
+      <Sitemap />
+    </DefaultLayout>
+  )
 }
 
 /**
@@ -61,4 +67,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default Sitemap
+export default SitemapPage
