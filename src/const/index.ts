@@ -7,6 +7,7 @@ export * from './menu'
 export * from './page'
 export * from './pagination'
 export * from './site'
+export * from './sitemap'
 export * from './size'
 export * from './twitter'
 /* Sections */
