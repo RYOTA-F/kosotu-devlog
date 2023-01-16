@@ -4,11 +4,11 @@ import Link from 'next/link'
 import { ARIA_LABEL } from './const'
 /* Styles */
 import { SitemapItemWrapper } from './index.styles'
-
-export type ISitemapItemType = 'top' | 'parent' | 'children' | 'blog'
+/* Types */
+import { TSitemapType } from '@/types/index'
 
 export interface ISitemapItem {
-  type: ISitemapItemType
+  type: TSitemapType
   label: string
   url: string
 }

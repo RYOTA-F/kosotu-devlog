@@ -21,10 +21,14 @@ const BLUE_GROUP = {
 
 const YELLOW_GROUP = {
   LIST: '#fcf9ee',
+  BORDER: '#fef84c',
+  LABEL: '#ffffbb',
 } as const
 
 const GREEN_GLOUP = {
   LIST_CIRCLE: '#85dd7b',
+  BORDER: '#9cbb1c',
+  LABEL: '#d6ffad',
 } as const
 
 export const COLOR = {

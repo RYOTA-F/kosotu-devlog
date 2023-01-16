@@ -1,3 +1,6 @@
+/* Const */
+import { SITEMAP } from '@/const/index'
+
 export interface ISitemap {
   id: string
   name: string
@@ -16,3 +19,5 @@ export interface IProcessingChildrenCategories {
     category: string
   }[]
 }
+
+export type TSitemapType = typeof SITEMAP[keyof typeof SITEMAP]
