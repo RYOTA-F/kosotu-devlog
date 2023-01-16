@@ -1,5 +1,14 @@
 # 高卒 Devlog
 
+## About
+
+- 個人用テックブログ
+- Jamstack アーキテクチャ
+
+## URL
+
+[https://kosotu-devlog.vercel.app/](https://kosotu-devlog.vercel.app/)
+
 ## Run
 
 ### Dev
@@ -12,6 +21,24 @@
 
 ```
 % yarn start
+```
+
+### Storybook
+
+```
+% yarn storybook
+```
+
+### Jest
+
+```
+% yarn test
+```
+
+### ESLint
+
+```
+% yarn lint
 ```
 
 ## Versions
