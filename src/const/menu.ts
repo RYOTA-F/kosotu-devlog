@@ -37,20 +37,21 @@ export const GROBAL_MENU = {
     URL: `${PAGE.CATEGORY}${CATEGORY_PARENT.EVENT.ID}`,
     LIST: [
       {
-        LABEL: '勉強会',
-        URL: `${PAGE.CATEGORY}study-session`,
+        LABEL: 'Developers Guild',
+        URL: `${PAGE.CATEGORY}developers-guild`,
       },
     ],
+  },
+  SITE_MAP: {
+    LABEL: 'サイトマップ',
+    URL: PAGE.SITE_MAP,
+    LIST: [],
   },
   PROFILE: {
     LABEL: 'プロフィール',
     URL: PAGE.PROFILE,
     LIST: [],
   },
-  // SITE_MAP: {
-  //   LABEL: 'サイトマップ',
-  //   URL: PAGE.SITE_MAP,
-  // },
 } as const
 
 export const SUB_MENU = {
