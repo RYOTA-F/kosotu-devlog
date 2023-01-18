@@ -20,7 +20,7 @@ describe('useBlogData', () => {
   })
 
   describe('blog', () => {
-    test('初期値がセットされている', () => {
+    test('state のデータがセットされる', () => {
       const { result } = renderHook(() => useBlogData())
 
       expect(result.current.blog).toEqual(blogsStateMock[0])
@@ -28,7 +28,7 @@ describe('useBlogData', () => {
   })
 
   describe('blogs', () => {
-    test('初期値がセットされている', () => {
+    test('state のデータがセットされる', () => {
       const { result } = renderHook(() => useBlogData())
 
       expect(result.current.blogs).toEqual(blogsStateMock)

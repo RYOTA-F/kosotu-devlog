@@ -24,7 +24,7 @@ describe('useCategoryData', () => {
   })
 
   describe('category', () => {
-    test('初期値がセットされている', () => {
+    test('state のデータがセットされる', () => {
       const { result } = renderHook(() => useCategoryData())
 
       expect(result.current.category).toEqual(categoryStateMock)
