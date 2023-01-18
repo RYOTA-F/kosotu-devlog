@@ -2,7 +2,7 @@ import React from 'react'
 import { renderHook, act } from '@testing-library/react'
 
 import useBlogData from './'
-import { initialBlogState, BLOG_ACTION_TYPES } from '@/stores/blog'
+import { initialBlogState, IBlogState, BLOG_ACTION_TYPES } from '@/stores/blog'
 import { blogsStateMock } from '@/stores/__mocks__/blog/mock'
 
 const dispatchMock = jest.fn()
@@ -10,7 +10,7 @@ jest.spyOn(React, 'useContext').mockImplementation(() => ({
   state: {
     ...initialBlogState,
     blogs: blogsStateMock,
-  },
+  } as IBlogState,
   dispatch: dispatchMock,
 }))
 
