@@ -13,3 +13,11 @@ export const paginationStateMock: ICommonState['pagination'] = {
   totalPage: 5,
   type: 'blog',
 }
+
+export const breadCrumbStateMock: ICommonState['breadClumb'] = {
+  categoryParentId: 'front-end',
+  categoryParentName: 'フロントエンド',
+  categoryChildId: 'react',
+  categoryChildName: 'React',
+  currentName: 'Test',
+}
