@@ -42,3 +42,4 @@ const Seo: FC = () => {
 }
 
 export default Seo
+export * from './const'

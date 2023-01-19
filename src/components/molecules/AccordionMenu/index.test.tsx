@@ -15,4 +15,6 @@ describe('AccordionMenu', () => {
     )
     expect(accordionMenuElement).toBeInTheDocument()
   })
+
+  test.todo('マウスホバー時 メニューが表示される')
 })
