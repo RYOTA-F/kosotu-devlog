@@ -3,10 +3,11 @@ import type { NextPage, GetStaticProps } from 'next'
 /* Components */
 import Sitemap from '@/components/organisms/Sitemap'
 /* Const */
-import { API } from '@/const/index'
+import { API, FIXED_PAGE } from '@/const/index'
 /* Client */
 import { client } from '@/libs/index'
 /* Hooks */
+import useCommonData from '@/hooks/useCommonData'
 import useSitemapData from '@/hooks/useSitemapData'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
@@ -17,20 +18,24 @@ import {
   ISitemap,
 } from '@/types/index'
 /* Utils */
-import { createSitemapData } from '@/utils/index'
+import { createSitemapData, getSeoFromFixed } from '@/utils/index'
 
 interface ISitemapPage {
   sitemap: ISitemap[]
 }
 
 const SitemapPage: NextPage<ISitemapPage> = ({ sitemap }) => {
+  const { setSeo, resetSeo } = useCommonData()
   const { setSitemap, resetSitemap } = useSitemapData()
 
   useEffect(() => {
+    const seo = getSeoFromFixed(FIXED_PAGE.SITE_MAP)
     setSitemap(sitemap)
+    setSeo(seo)
 
     return () => {
       resetSitemap()
+      resetSeo()
     }
   }, [sitemap])
 

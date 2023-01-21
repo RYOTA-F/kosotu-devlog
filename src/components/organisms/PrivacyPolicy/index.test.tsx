@@ -14,9 +14,4 @@ describe('PrivacyPolicy', () => {
     )
     expect(privacyPolicyElement).toBeInTheDocument()
   })
-
-  test.todo('個人情報保護')
-  test.todo('Cookie')
-  test.todo('広告')
-  test.todo('アクセス解析')
 })

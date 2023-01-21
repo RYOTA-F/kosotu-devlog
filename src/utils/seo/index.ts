@@ -3,6 +3,7 @@ import { PAGE, FIXED_PAGE, SITE, type TFixedPage } from '@/const/index'
 import { DISCLAIMER } from '@/components/organisms/Disclaimer'
 import { PRIVACY_POLICY } from '@/components/organisms/PrivacyPolicy'
 import { PROFILE } from '@/components/organisms/Profile'
+import { TITLE as SITEMAP_TITLE } from '@/components/organisms/Sitemap'
 /* Store */
 import { initialCommonState } from '@/stores/common'
 /* Types */
@@ -80,10 +81,15 @@ const getFixedPageData = (
         name: PROFILE.TITLE,
         url: PAGE.PROFILE,
       }
+    case FIXED_PAGE.SITE_MAP:
+      return {
+        name: SITEMAP_TITLE,
+        url: PAGE.SITE_MAP,
+      }
     default:
       return {
-        name: SITE.TITLE,
-        url: SITE.URL,
+        name: '',
+        url: '',
       }
   }
 }

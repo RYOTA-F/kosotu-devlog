@@ -6,10 +6,8 @@ import { ICategoryRelation } from '@/types/microCMS/category'
 /**
  * カテゴリの関係性を取得
  */
-export const getCategoryRelation = (
-  relation: ICategoryRelation,
-  isParent: boolean
-) => {
+export const getCategoryRelation = (relation: ICategoryRelation) => {
+  const isParent = relation.isParent
   const categoryParent =
     !isParent && relation.parent ? relation.parent[0] : null
   const categoryChildren =

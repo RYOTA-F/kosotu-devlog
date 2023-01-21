@@ -3,3 +3,4 @@ import H2 from './H2'
 import H4 from './H4'
 
 export { H1, H2, H4 }
+export * from './const'
