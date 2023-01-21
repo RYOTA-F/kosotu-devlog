@@ -6,7 +6,7 @@ import { MAX_BLOG_COUNT, PAGE } from '@/const/index'
  */
 export const getPagePaths = (totalCount: number) => {
   const pageCount = Math.ceil(totalCount / MAX_BLOG_COUNT) - 1
-  const pageNumbers = [...Array(pageCount)].map((_, i) => pageCount + i)
+  const pageNumbers = [...new Array(pageCount).keys()].map((_, i) => i + 2)
 
   return pageNumbers.map((id) => `${PAGE.PAGE}${id}`)
 }
