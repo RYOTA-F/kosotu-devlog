@@ -28,37 +28,37 @@ describe('getCategoryRelation', () => {
 })
 
 describe('getCategoryParentName', () => {
-  describe(`${CATEGORY_PARENT.FRONT_END.NAME}`, () => {
-    test('カテゴリ名を取得できる', () => {
+  describe(`${CATEGORY_PARENT.FRONT_END.NAME} が取得できる`, () => {
+    test(`${CATEGORY_PARENT.FRONT_END.ID} を渡す場合`, () => {
       const result = getCategoryParentName(CATEGORY_PARENT.FRONT_END.ID)
       expect(result).toEqual(CATEGORY_PARENT.FRONT_END.NAME)
     })
   })
-  describe(`${CATEGORY_PARENT.BACK_END.NAME}`, () => {
-    test('カテゴリ名を取得できる', () => {
+  describe(`${CATEGORY_PARENT.BACK_END.NAME} が取得できる`, () => {
+    test(`${CATEGORY_PARENT.BACK_END.ID} を渡す場合`, () => {
       const result = getCategoryParentName(CATEGORY_PARENT.BACK_END.ID)
       expect(result).toEqual(CATEGORY_PARENT.BACK_END.NAME)
     })
   })
-  describe(`${CATEGORY_PARENT.INFRA.NAME}`, () => {
-    test('カテゴリ名を取得できる', () => {
+  describe(`${CATEGORY_PARENT.INFRA.NAME} が取得できる`, () => {
+    test(`${CATEGORY_PARENT.INFRA.ID} を渡す場合`, () => {
       const result = getCategoryParentName(CATEGORY_PARENT.INFRA.ID)
       expect(result).toEqual(CATEGORY_PARENT.INFRA.NAME)
     })
   })
-  describe(`${CATEGORY_PARENT.CAREER.NAME}`, () => {
-    test('カテゴリ名を取得できる', () => {
+  describe(`${CATEGORY_PARENT.CAREER.NAME} が取得できる`, () => {
+    test(`${CATEGORY_PARENT.CAREER.ID} を渡す場合`, () => {
       const result = getCategoryParentName(CATEGORY_PARENT.CAREER.ID)
       expect(result).toEqual(CATEGORY_PARENT.CAREER.NAME)
     })
   })
-  describe(`${CATEGORY_PARENT.EVENT.NAME}`, () => {
-    test('カテゴリ名を取得できる', () => {
+  describe(`${CATEGORY_PARENT.EVENT.NAME} が取得できる`, () => {
+    test(`${CATEGORY_PARENT.EVENT.ID} を渡す場合`, () => {
       const result = getCategoryParentName(CATEGORY_PARENT.EVENT.ID)
       expect(result).toEqual(CATEGORY_PARENT.EVENT.NAME)
     })
   })
-  describe(`${CATEGORY_PARENT.OTHERS.NAME}`, () => {
+  describe(`${CATEGORY_PARENT.OTHERS.NAME} が取得できる`, () => {
     test(`${CATEGORY_PARENT.OTHERS.NAME} を渡す場合`, () => {
       const result = getCategoryParentName(CATEGORY_PARENT.OTHERS.ID)
       expect(result).toEqual(CATEGORY_PARENT.OTHERS.NAME)
