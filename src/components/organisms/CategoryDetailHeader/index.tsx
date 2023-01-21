@@ -22,10 +22,7 @@ import { getCategoryRelation } from '@/utils/index'
 
 const CategoryDetailHeader: FC = () => {
   const { category } = useCategoryData()
-  const { isParent, categoryParent } = getCategoryRelation(
-    category.relation,
-    category.relation.isParent
-  )
+  const { isParent, categoryParent } = getCategoryRelation(category.relation)
 
   return (
     <CategoryDetailHeaderWrapper aria-label={ARIA_LABEL.CATEGORY_DETAIL_HEADER}>

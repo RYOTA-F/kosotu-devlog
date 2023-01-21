@@ -12,8 +12,4 @@ describe('PageNotFound', () => {
     const pageNotFoundElement = screen.getByLabelText(ARIA_LABEL.PAGE_NOT_FOUND)
     expect(pageNotFoundElement).toBeInTheDocument()
   })
-
-  test.todo('画像')
-  test.todo('タイトル')
-  test.todo('メッセージ')
 })

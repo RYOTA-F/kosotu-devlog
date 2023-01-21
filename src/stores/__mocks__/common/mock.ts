@@ -1,5 +1,6 @@
+import { SITE } from '@/const/index'
 import { ITableOfContents } from '@/types/index'
-import { ICommonState } from '@/stores/common'
+import { ICommonState, initialCommonState } from '@/stores/common'
 
 export const tableOfContentsStateMock: ITableOfContents[] = [
   { id: 'test1', text: 'H2', type: 'h2' },
@@ -20,4 +21,11 @@ export const breadCrumbStateMock: ICommonState['breadClumb'] = {
   categoryChildId: 'react',
   categoryChildName: 'React',
   currentName: 'Test',
+}
+
+export const seoStateMock: ICommonState['seo'] = {
+  title: 'Test',
+  description: 'testtest',
+  url: `${SITE.URL}/hogehoge`,
+  image: initialCommonState.seo.image,
 }

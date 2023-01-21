@@ -12,7 +12,4 @@ describe('Footer', () => {
     const footerElement = screen.getByLabelText(ARIA_LABEL.FOOTER)
     expect(footerElement).toBeInTheDocument()
   })
-
-  test.todo('プライバシポリシー')
-  test.todo('免責事項')
 })

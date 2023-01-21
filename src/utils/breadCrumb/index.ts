@@ -8,8 +8,7 @@ import { getCategoryRelation, getCategoryParentName } from '../blogCategory'
  */
 export const getBreadCrumbDataFromBlog = (contents: IBlog) => {
   const { categoryParent } = getCategoryRelation(
-    contents.categories[0].relation,
-    contents.categories[0].relation.isParent
+    contents.categories[0].relation
   )
 
   const breadCrumb: IBreadCrumb = {
