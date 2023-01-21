@@ -18,3 +18,22 @@ export const resultHTML = `
       <span class="blogCard__site">${blogCardDataMock.site}</span>
     </a>
   `
+
+export const blogCardEmptyMock: IBlogCardData = {
+  url: '',
+  title: '',
+  description: '',
+  image: '',
+  site: '',
+}
+
+export const resultEmptyHTML = `
+    <a href="" target="_blank" rel="noopener noreferrer" class="blogCard">
+      <img src="/images/noimage.webp" class="blogCard__img" />
+      <span class="blogCard__content">
+        <span class="blogCard__title"></span>
+        <span class="blogCard__description"></span>
+      </span>
+      <span class="blogCard__site"></span>
+    </a>
+  `

@@ -1,9 +1,21 @@
 import { getBlogCardDom } from '.'
-import { blogCardDataMock, resultHTML } from './__mocks__'
+import {
+  blogCardDataMock,
+  blogCardEmptyMock,
+  resultHTML,
+  resultEmptyHTML,
+} from './__mocks__'
 
 describe('getBlogCardDom', () => {
-  test('ブログカードのDOMが生成される', () => {
-    const result = getBlogCardDom(blogCardDataMock)
-    expect(result).toEqual(resultHTML)
+  describe('ブログカードのDOMが生成される', () => {
+    test('blogCardData を渡した場合', () => {
+      const result = getBlogCardDom(blogCardDataMock)
+      expect(result).toEqual(resultHTML)
+    })
+
+    test('blogCardData データが空の場合', () => {
+      const result = getBlogCardDom(blogCardEmptyMock)
+      expect(result).toEqual(resultEmptyHTML)
+    })
   })
 })
