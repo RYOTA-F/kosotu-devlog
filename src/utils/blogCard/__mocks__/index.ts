@@ -20,7 +20,7 @@ export const resultHTML = `
   `
 
 export const blogCardEmptyMock: IBlogCardData = {
-  url: '',
+  url: 'https://www.example.com',
   title: '',
   description: '',
   image: '',
@@ -28,11 +28,10 @@ export const blogCardEmptyMock: IBlogCardData = {
 }
 
 export const resultEmptyHTML = `
-    <a href="" target="_blank" rel="noopener noreferrer" class="blogCard">
+    <a href="${blogCardDataMock.url}" target="_blank" rel="noopener noreferrer" class="blogCard">
       <img src="/images/noimage.webp" class="blogCard__img" />
       <span class="blogCard__content">
-        <span class="blogCard__title"></span>
-        <span class="blogCard__description"></span>
+        <span class="blogCard__description">${blogCardDataMock.url}</span>
       </span>
       <span class="blogCard__site"></span>
     </a>

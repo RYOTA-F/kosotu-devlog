@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import 'highlight.js/styles/base16/edge-dark.css'
+import 'highlight.js/styles/base16/onedark.css'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Hooks */

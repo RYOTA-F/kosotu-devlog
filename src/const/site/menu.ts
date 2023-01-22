@@ -1,4 +1,4 @@
-import { CATEGORY_PARENT } from './category'
+import { CATEGORY_PARENT } from '../page/category'
 import { PAGE } from './page'
 
 export const GROBAL_MENU = {

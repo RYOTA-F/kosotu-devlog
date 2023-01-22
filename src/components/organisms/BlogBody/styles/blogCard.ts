@@ -18,7 +18,8 @@ export const blogCard = css`
     }
 
     &__img {
-      width: 20%;
+      max-width: 20%;
+      max-height: 90px;
     }
 
     &__content {
