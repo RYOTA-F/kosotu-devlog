@@ -34,7 +34,7 @@ const AccordionMenu: FC<IAccordionMenu> = ({ label, path, menuList }) => {
     >
       <Link href={path}>{label}</Link>
       {isOpen && menuList.length && (
-        <MenuContainer>
+        <MenuContainer aria-label={ARIA_LABEL.MENU_CONTAINER}>
           {menuList.map((v) => (
             <MenuItem key={v.label}>
               <Link href={v.path}>

@@ -12,8 +12,4 @@ describe('Header', () => {
     const headerElement = screen.getByLabelText(ARIA_LABEL.HEADER)
     expect(headerElement).toBeInTheDocument()
   })
-
-  test.todo('TwitterSvg')
-  test.todo('Title')
-  test.todo('Menu Link')
 })

@@ -1,5 +1,6 @@
+import { SITE } from '@/const/index'
 import { ITableOfContents } from '@/types/index'
-import { ICommonState } from '@/stores/common'
+import { ICommonState, initialCommonState } from '@/stores/common'
 
 export const tableOfContentsStateMock: ITableOfContents[] = [
   { id: 'test1', text: 'H2', type: 'h2' },
@@ -12,4 +13,19 @@ export const paginationStateMock: ICommonState['pagination'] = {
   currentPage: 2,
   totalPage: 5,
   type: 'blog',
+}
+
+export const breadCrumbStateMock: ICommonState['breadClumb'] = {
+  categoryParentId: 'front-end',
+  categoryParentName: 'フロントエンド',
+  categoryChildId: 'react',
+  categoryChildName: 'React',
+  currentName: 'Test',
+}
+
+export const seoStateMock: ICommonState['seo'] = {
+  title: 'Test',
+  description: 'testtest',
+  url: `${SITE.URL}/hogehoge`,
+  image: initialCommonState.seo.image,
 }

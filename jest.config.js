@@ -21,6 +21,7 @@ const customJestConfig = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  coveragePathIgnorePatterns: ['<rootDir>/src/const'],
 }
 
 module.exports = createJestConfig(customJestConfig)
