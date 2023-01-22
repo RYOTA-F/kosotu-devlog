@@ -48,6 +48,7 @@ export const DescriptionWrapper = styled.div`
 
 export const DescriptionList = styled.ul`
   list-style: none;
+  margin-top: ${SIZE.SPACE.X12};
   padding-inline-start: ${SIZE.SPACE.X20};
 `
 export const DescriptionLabel = styled.li`
