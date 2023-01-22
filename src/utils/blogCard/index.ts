@@ -13,6 +13,17 @@ export const getBlogCardDom = (blogCardData: IBlogCardData) => {
   const description = `${blogCardData.description || ''}`
   const site = `${blogCardData.site || ''}`
 
+  if (!title && !description)
+    return `
+    <a href="${blogCardData.url}" target="_blank" rel="noopener noreferrer" class="${CLASS_NAME_BASE}">
+      <img src="${image}" class="${CLASS_NAME_BASE}__img" />
+      <span class="${CLASS_NAME_BASE}__content">
+        <span class="${CLASS_NAME_BASE}__description">${blogCardData.url}</span>
+      </span>
+      <span class="${CLASS_NAME_BASE}__site">${site}</span>
+    </a>
+  `
+
   return `
     <a href="${blogCardData.url}" target="_blank" rel="noopener noreferrer" class="${CLASS_NAME_BASE}">
       <img src="${image}" class="${CLASS_NAME_BASE}__img" />

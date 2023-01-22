@@ -71,12 +71,22 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
             site: '',
           }
           for (let i = 0; i < metas.length; i++) {
-            if (metas[i].attribs?.property === 'og:title')
+            // タイトル
+            if (
+              metas[i].attribs?.property === 'og:title' ||
+              metas[i].attribs?.name === 'twitter:title'
+            )
               metaData.title = metas[i].attribs.content
+            // 説明
             if (metas[i].attribs?.property === 'og:description')
               metaData.description = metas[i].attribs.content
-            if (metas[i].attribs?.property === 'og:image')
+            // 画像
+            if (
+              metas[i].attribs?.property === 'og:image' ||
+              metas[i].attribs?.name === 'twitter:image'
+            )
               metaData.image = metas[i].attribs.content
+            // サイト名
             if (metas[i].attribs?.property === 'og:site_name')
               metaData.site = metas[i].attribs.content
           }
