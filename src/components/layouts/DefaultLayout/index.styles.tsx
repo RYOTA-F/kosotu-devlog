@@ -9,7 +9,8 @@ export const MainWrapper = styled.div`
 `
 
 export const Main = styled.main`
-  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 `
 
 export const Aside = styled.aside`
