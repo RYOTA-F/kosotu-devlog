@@ -59,6 +59,17 @@ const BlogPage: NextPage<IBlogPage> = ({
     }
   }, [blog, tableOfContents, breadCrumb, seo])
 
+  // Twitter Embed Scriptをロード
+  useEffect(() => {
+    const url = 'https://platform.twitter.com/widgets.js'
+    const script = document.createElement('script')
+
+    script.src = url
+    script.setAttribute('async', 'async')
+
+    document.body.appendChild(script)
+  }, [])
+
   return (
     <DefaultLayout>
       <BlogDetail />
