@@ -1,6 +1,6 @@
 import { FC } from 'react'
 /* Components */
-import { H1, H4 } from '@/components/atoms/Heading'
+import { H1, H3 } from '@/components/atoms/Heading'
 /* Const */
 import { PRIVACY_POLICY, ARIA_LABEL } from './const'
 /* Styles */
@@ -19,10 +19,10 @@ const PrivacyPolicy: FC = () => {
       <H1>{PRIVACY_POLICY.TITLE}</H1>
       <Description>{PRIVACY_POLICY.DESCRIPTION}</Description>
       {/* 個人情報保護 */}
-      <H4>{PRIVACY_POLICY.PERSONAL_INFORMATION.TITLE}</H4>
+      <H3>{PRIVACY_POLICY.PERSONAL_INFORMATION.TITLE}</H3>
       <Content>{PRIVACY_POLICY.PERSONAL_INFORMATION.CONTENT}</Content>
       {/* Cookie */}
-      <H4>{PRIVACY_POLICY.COOKIE.TITLE}</H4>
+      <H3>{PRIVACY_POLICY.COOKIE.TITLE}</H3>
       <Content>
         {PRIVACY_POLICY.COOKIE.DESCRIPTION}
         <List>
@@ -33,7 +33,7 @@ const PrivacyPolicy: FC = () => {
         {PRIVACY_POLICY.COOKIE.CONTENT}
       </Content>
       {/* 広告 */}
-      <H4>{PRIVACY_POLICY.ADVERTISEMENT.TITLE}</H4>
+      <H3>{PRIVACY_POLICY.ADVERTISEMENT.TITLE}</H3>
       <Content>
         {PRIVACY_POLICY.ADVERTISEMENT.CONTENT}
         <Link href={PRIVACY_POLICY.ADVERTISEMENT.LINK.URL} target="_blank">
@@ -41,7 +41,7 @@ const PrivacyPolicy: FC = () => {
         </Link>
       </Content>
       {/* アクセス解析 */}
-      <H4>{PRIVACY_POLICY.ACCESS_ANALYSIS.TITLE}</H4>
+      <H3>{PRIVACY_POLICY.ACCESS_ANALYSIS.TITLE}</H3>
       <Content>{PRIVACY_POLICY.ACCESS_ANALYSIS.CONTENT}</Content>
       <Link href={PRIVACY_POLICY.ACCESS_ANALYSIS.LINK.URL} target="_blank">
         {PRIVACY_POLICY.ACCESS_ANALYSIS.LINK.TEXT}
