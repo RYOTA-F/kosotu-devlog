@@ -16,6 +16,7 @@ export class MicroCmsUsecaseTag implements IMicroCmsUsecaseTag {
       : new MicroCmsUsecaseTagProd()
   }
 
+  getTags: IMicroCmsUsecaseTag['getTags'] = async () => this.instance.getTags()
   getTagById: IMicroCmsUsecaseTag['getTagById'] = async (params) =>
     this.instance.getTagById(params)
 }

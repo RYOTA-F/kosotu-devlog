@@ -1,5 +1,9 @@
 import type { ITag, IBreadCrumb, ISeo } from '@/types/index'
 
+export interface IGetTagsResponse {
+  tags: ITag[]
+}
+
 export interface IGetTagByIdParams {
   id: string
   offset?: number
@@ -12,5 +16,6 @@ export interface IGetTagByIdResponse {
 }
 
 export interface IMicroCmsUsecaseTag {
+  getTags: () => Promise<IGetTagsResponse>
   getTagById: (params: IGetTagByIdParams) => Promise<IGetTagByIdResponse>
 }

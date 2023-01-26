@@ -1,4 +1,8 @@
-import { IGetTagByIdResponse } from '../types'
+import { IGetTagsResponse, IGetTagByIdResponse } from '../types'
+
+export const getTagsMock: IGetTagsResponse = {
+  tags: [],
+}
 
 export const getTagByIdMock: IGetTagByIdResponse = {
   tag: {

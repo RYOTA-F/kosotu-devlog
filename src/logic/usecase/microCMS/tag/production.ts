@@ -10,6 +10,18 @@ import { getBreadCrumbDataFromTag } from './utils/getBreadCrumb'
 import { getSeoFromTag } from './utils/getSeo'
 
 export class MicroCmsUsecaseTagProd implements IMicroCmsUsecaseTag {
+  getTags: IMicroCmsUsecaseTag['getTags'] = async () => {
+    const tags = await client.get<ITagApiResponse>({
+      endpoint: API.TAG.END_POINT,
+      // デフォルトで limitが10件 になるのを解除
+      queries: { limit: 9999 },
+    })
+
+    return {
+      tags: tags.contents,
+    }
+  }
+
   getTagById: IMicroCmsUsecaseTag['getTagById'] = async (params) => {
     // タグ情報を取得
     const { contents } = await client.get<ITagApiResponse>({
