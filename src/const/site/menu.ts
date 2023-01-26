@@ -1,4 +1,5 @@
 import { CATEGORY_PARENT } from '../page/category'
+import { GOOGLE_FORM } from './contact'
 import { PAGE } from './page'
 
 export const GROBAL_MENU = {
@@ -62,6 +63,10 @@ export const SUB_MENU = {
   TERMS_OF_SERVICE: {
     LABEL: '免責事項',
     URL: PAGE.DISCLAIMER,
+  },
+  CONCACT: {
+    LABEL: 'お問合せ',
+    URL: GOOGLE_FORM.URL,
   },
 } as const
 
