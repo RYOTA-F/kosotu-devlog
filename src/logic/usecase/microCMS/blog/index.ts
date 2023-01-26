@@ -5,7 +5,7 @@ import type { IMicroCmsUsecaseBlog } from './types'
 import { IS_DEVELOPMENT } from '@/utils/index'
 
 /**
- * 投稿・関連取得クラス
+ * 投稿・取得クラス
  */
 export class MicroCmsUsecaseBlog implements IMicroCmsUsecaseBlog {
   private readonly instanse: IMicroCmsUsecaseBlog

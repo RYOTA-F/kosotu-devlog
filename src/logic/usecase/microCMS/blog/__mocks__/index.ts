@@ -39,4 +39,3 @@ export const getBlogByIdMock: IGetBlogByIdResponse = {
     image: '',
   },
 }
-// { blog, tableOfContents, breadCrumb, seo }

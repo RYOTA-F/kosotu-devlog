@@ -14,8 +14,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
       ? context.params.id[0]
       : context.params.id ?? ''
 
-  // 投稿情報を取得
   const microCmsUsecaseBlog = new MicroCmsUsecaseBlog()
+
+  // 投稿を取得
   const { blog, tableOfContents, breadCrumb, seo } =
     await microCmsUsecaseBlog.getBlogByID(id)
 
