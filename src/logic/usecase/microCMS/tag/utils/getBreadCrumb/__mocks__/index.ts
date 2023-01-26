@@ -1,11 +1,11 @@
 import { IBreadCrumb } from '@/types/index'
 
-export const fixedDataMock = 'プロフィール'
+export const tagDataMock = 'TypeScript'
 
-export const resuldFixed: IBreadCrumb = {
+export const resuldTagMock: IBreadCrumb = {
   categoryParentId: null,
   categoryParentName: null,
   categoryChildId: null,
   categoryChildName: null,
-  currentName: fixedDataMock,
+  currentName: tagDataMock,
 }

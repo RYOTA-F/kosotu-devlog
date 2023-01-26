@@ -1,0 +1,71 @@
+import { useEffect } from 'react'
+import type { NextPage } from 'next'
+import { getStaticPaths } from './[id].paths'
+import { getStaticProps } from './[id].props'
+/* Components */
+import BlogDetail from '@/components/organisms/BlogDetail'
+import DefaultLayout from '@/components/layouts/DefaultLayout'
+/* Hooks */
+import useBlogData from '@/hooks/useBlogData'
+import useCommonData from '@/hooks/useCommonData'
+/* Types */
+import { IBlog, ITableOfContents, IBreadCrumb } from '@/types/index'
+import { ISeoState } from '@/stores/common'
+
+interface IBlogPage {
+  blog: IBlog
+  tableOfContents: ITableOfContents[]
+  breadCrumb: IBreadCrumb
+  seo: ISeoState
+}
+
+const BlogPage: NextPage<IBlogPage> = ({
+  blog,
+  tableOfContents,
+  breadCrumb,
+  seo,
+}) => {
+  const { setBlogs, resetBlogs } = useBlogData()
+  const {
+    setBreadCrumb,
+    resetBreadCrumb,
+    setTableOfContents,
+    resetTableOfContents,
+    setSeo,
+    resetSeo,
+  } = useCommonData()
+
+  useEffect(() => {
+    setBlogs([blog])
+    setTableOfContents(tableOfContents)
+    setBreadCrumb(breadCrumb)
+    setSeo(seo)
+
+    return () => {
+      resetBlogs()
+      resetTableOfContents()
+      resetBreadCrumb()
+      resetSeo()
+    }
+  }, [blog, tableOfContents, breadCrumb, seo])
+
+  // Twitter Embed Scriptをロード
+  useEffect(() => {
+    const url = 'https://platform.twitter.com/widgets.js'
+    const script = document.createElement('script')
+
+    script.src = url
+    script.setAttribute('async', 'async')
+
+    document.body.appendChild(script)
+  }, [])
+
+  return (
+    <DefaultLayout>
+      <BlogDetail />
+    </DefaultLayout>
+  )
+}
+
+export default BlogPage
+export { getStaticPaths, getStaticProps }
