@@ -20,7 +20,7 @@ const Footer: FC = () => {
       <MenuList>
         {SUB_MENU_LIST.map((v) => (
           <MenuItem key={v.URL}>
-            <Link href={v.URL}>
+            <Link href={v.URL} target="_blank">
               <MenuLabel>{v.LABEL}</MenuLabel>
             </Link>
           </MenuItem>
