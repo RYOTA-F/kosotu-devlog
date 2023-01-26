@@ -10,6 +10,18 @@ import { getBreadCrumbDataFromCategory } from './utils/getBreadCrumb'
 import { getSeoFromCategory } from '@/utils/index'
 
 export class MicroCmsUsecaseCategoryProd implements IMicroCmsUsecaseCategory {
+  getCategories: IMicroCmsUsecaseCategory['getCategories'] = async () => {
+    const categories = await client.get<ICategoryApiResponse>({
+      endpoint: API.CATEGORY.END_POINT,
+      // デフォルトで limitが10件 になるのを解除
+      queries: { limit: 9999 },
+    })
+
+    return {
+      categories: categories.contents,
+    }
+  }
+
   getCategoryById: IMicroCmsUsecaseCategory['getCategoryById'] = async (
     params
   ) => {

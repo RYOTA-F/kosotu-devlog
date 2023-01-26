@@ -1,4 +1,8 @@
-import { IGetCategoryByIdResponse } from '../types'
+import { IGetCategoriesResponse, IGetCategoryByIdResponse } from '../types'
+
+export const getCategoriesMock: IGetCategoriesResponse = {
+  categories: [],
+}
 
 export const getCategoryByIdMock: IGetCategoryByIdResponse = {
   category: {
