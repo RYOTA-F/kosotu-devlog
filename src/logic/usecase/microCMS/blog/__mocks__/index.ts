@@ -1,4 +1,9 @@
-import type { IGetBlogByIdResponse } from '../index'
+import type { IGetBlogsResponse, IGetBlogByIdResponse } from '../index'
+
+export const getBlogsMock: IGetBlogsResponse = {
+  blogs: [],
+  totalPage: 2,
+}
 
 export const getBlogByIdMock: IGetBlogByIdResponse = {
   blog: {
