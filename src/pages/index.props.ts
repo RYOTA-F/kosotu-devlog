@@ -14,6 +14,7 @@ const HOME_PAGE_ID = 1 as const
 export const getStaticProps: GetStaticProps = async () => {
   const microCmsUsecaseBlog = new MicroCmsUsecaseBlog()
 
+  // ブログ情報
   const { blogs, totalPage } = await microCmsUsecaseBlog.getBlogs()
 
   // ページネーション情報
