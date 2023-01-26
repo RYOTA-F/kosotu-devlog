@@ -1,13 +1,14 @@
 import { useContext } from 'react'
 /* Stores */
-import { CommonContext, COMMON_ACTION_TYPES } from '@/stores/common'
-/* Types */
-import { IBreadCrumb, ITableOfContents } from '@/types/index'
 import {
+  CommonContext,
+  COMMON_ACTION_TYPES,
   initialCommonState,
   IPaginationState,
   ISeoState,
 } from '@/stores/common'
+/* Types */
+import { IBreadCrumb, ITableOfContents } from '@/types/index'
 
 const useCommonData = () => {
   const { state, dispatch } = useContext(CommonContext)
