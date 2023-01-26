@@ -7,7 +7,7 @@ import { TITLE as SITEMAP_TITLE } from '@/components/organisms/Sitemap'
 /* Store */
 import { initialCommonState } from '@/stores/common'
 /* Types */
-import { ICategory, ITag } from '@/types/index'
+import { ICategory } from '@/types/index'
 
 /**
  * SEO情報を取得: カテゴリ
@@ -17,18 +17,6 @@ export const getSeoFromCategory = (category: ICategory) => {
     title: `${category.name} - ${SITE.TITLE}`,
     description: initialCommonState.seo.description,
     url: `${SITE.URL}${PAGE.CATEGORY}${category.id}`,
-    image: initialCommonState.seo.image,
-  }
-}
-
-/**
- * SEO情報を取得: タグ
- */
-export const getSeoFromTag = (tag: ITag) => {
-  return {
-    title: `${tag.name} - ${SITE.TITLE}`,
-    description: initialCommonState.seo.description,
-    url: `${SITE.URL}${PAGE.TAG}${tag.id}`,
     image: initialCommonState.seo.image,
   }
 }

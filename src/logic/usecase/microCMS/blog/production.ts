@@ -33,7 +33,7 @@ export class MicroCmsUsecaseBlogProd implements IMicroCmsUsecaseBlog {
   }
 
   getBlogByID: IMicroCmsUsecaseBlog['getBlogByID'] = async (id) => {
-    // 投稿IDを指定しデータを取得
+    // 投稿情報を取得
     const { contents } = await client.get<IBlogDetailApiResponse>({
       endpoint: API.BLOG.END_POINT,
       queries: { ids: id },

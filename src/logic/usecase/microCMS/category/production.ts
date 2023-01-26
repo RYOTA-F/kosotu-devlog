@@ -30,7 +30,7 @@ export class MicroCmsUsecaseCategoryProd implements IMicroCmsUsecaseCategory {
       offset: params?.offset ? params?.offset : 0,
     }
 
-    // カテゴリIDを指定しデータを取得
+    // カテゴリ情報を取得
     const { contents } = await client.get<ICategoryApiResponse>({
       endpoint: API.CATEGORY.END_POINT,
       queries,
