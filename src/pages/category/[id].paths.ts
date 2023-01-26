@@ -13,7 +13,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   // カテゴリ一覧取得
   const { categories } = await microCmsUsecaseCategory.getCategories()
 
-  // パス一覧生成
+  // ページパス生成
   const paths = categories.map(({ id }) => `${PAGE.CATEGORY}${id}`)
 
   return {

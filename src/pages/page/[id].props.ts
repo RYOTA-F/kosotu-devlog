@@ -5,7 +5,7 @@ import { MicroCmsUsecaseBlog } from '@/logic/usecase/microCMS/blog'
 /* Types */
 import { IPaginationState } from '@/stores/common'
 /* Utils */
-import { getPageOffset } from '@/utils/index'
+import { checkContextId, getPageOffset } from '@/utils/index'
 
 /**
  * 静的ページ用のブログ一覧情報を取得
@@ -13,21 +13,18 @@ import { getPageOffset } from '@/utils/index'
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) return { notFound: true }
 
-  // ページID
-  const id =
-    context.params.id && Array.isArray(context.params.id)
-      ? context.params.id[0]
-      : context.params.id ?? ''
-
-  // オフセット量
-  const offset = getPageOffset(id)
-
   const microCmsUsecaseBlog = new MicroCmsUsecaseBlog()
 
-  // ブログ情報
+  // IDチェック
+  const id = checkContextId(context.params.id)
+
+  // オフセット量取得
+  const offset = getPageOffset(id)
+
+  // ブログ取得
   const { blogs, totalPage } = await microCmsUsecaseBlog.getBlogs({ offset })
 
-  // ページネーション情報
+  // ページネーション生成
   const pagination: IPaginationState = {
     currentPage: parseInt(id),
     totalPage,

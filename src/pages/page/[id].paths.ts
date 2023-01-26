@@ -10,10 +10,10 @@ import { getPagePaths } from '@/utils/index'
 export const getStaticPaths: GetStaticPaths = async () => {
   const microCmsUsecaseBlog = new MicroCmsUsecaseBlog()
 
-  // ブログ情報
+  // ブログ取得
   const { totalPage } = await microCmsUsecaseBlog.getBlogs()
 
-  // ページのパスを取得
+  // ページパス生成
   const paths = getPagePaths(totalPage)
 
   return {

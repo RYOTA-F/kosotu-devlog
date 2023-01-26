@@ -14,10 +14,10 @@ const HOME_PAGE_ID = 1 as const
 export const getStaticProps: GetStaticProps = async () => {
   const microCmsUsecaseBlog = new MicroCmsUsecaseBlog()
 
-  // ブログ情報
+  // ブログ一覧取得
   const { blogs, totalPage } = await microCmsUsecaseBlog.getBlogs()
 
-  // ページネーション情報
+  // ページネーション生成
   const pagination: IPaginationState = {
     currentPage: HOME_PAGE_ID,
     totalPage: totalPage,

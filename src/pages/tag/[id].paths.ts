@@ -10,9 +10,10 @@ import { MicroCmsUsecaseTag } from '@/logic/usecase/microCMS/tag'
 export const getStaticPaths: GetStaticPaths = async () => {
   const microCmsUsecaseTag = new MicroCmsUsecaseTag()
 
-  // タグ一覧を取得
+  // タグ一覧取得
   const { tags } = await microCmsUsecaseTag.getTags()
 
+  // パス生成
   const paths = tags.map(({ id }) => `${PAGE.TAG}${id}`)
 
   return {
