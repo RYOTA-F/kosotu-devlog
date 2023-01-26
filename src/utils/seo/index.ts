@@ -6,20 +6,6 @@ import { PROFILE } from '@/components/organisms/Profile'
 import { TITLE as SITEMAP_TITLE } from '@/components/organisms/Sitemap'
 /* Store */
 import { initialCommonState } from '@/stores/common'
-/* Types */
-import { ICategory } from '@/types/index'
-
-/**
- * SEO情報を取得: カテゴリ
- */
-export const getSeoFromCategory = (category: ICategory) => {
-  return {
-    title: `${category.name} - ${SITE.TITLE}`,
-    description: initialCommonState.seo.description,
-    url: `${SITE.URL}${PAGE.CATEGORY}${category.id}`,
-    image: initialCommonState.seo.image,
-  }
-}
 
 /**
  * SEO情報を取得: 固定ページ
