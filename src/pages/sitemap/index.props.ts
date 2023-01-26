@@ -1,10 +1,7 @@
 import type { GetStaticProps } from 'next'
-/* Const */
-import { API } from '@/const/index'
-/* Client */
-import { client } from '@/libs/index'
-/* Types */
-import { IBlogsApiResponse, ICategoryApiResponse } from '@/types/index'
+/* Logic */
+import { MicroCmsUsecaseBlog } from '@/src/logic/usecase/microCMS/blog'
+import { MicroCmsUsecaseCategory } from '@/src/logic/usecase/microCMS/category'
 /* Utils */
 import { createSitemapData } from '@/utils/index'
 
@@ -12,20 +9,16 @@ import { createSitemapData } from '@/utils/index'
  * 静的ページ用のサイトマップ情報を取得
  */
 export const getStaticProps: GetStaticProps = async () => {
-  // ブログ一覧
-  const blogs = await client.get<IBlogsApiResponse>({
-    endpoint: API.BLOG.END_POINT,
-    queries: { limit: 9999 },
-  })
+  const microCmsUsecaseBlog = new MicroCmsUsecaseBlog()
+  const microCmsUsecaseCategory = new MicroCmsUsecaseCategory()
 
-  // カテゴリ一覧
-  const categories = await client.get<ICategoryApiResponse>({
-    endpoint: API.CATEGORY.END_POINT,
-    queries: { limit: 9999 },
-  })
+  // ブログ一覧を取得
+  const { blogs } = await microCmsUsecaseBlog.getBlogs()
+  // カテゴリ一覧を取得
+  const { categories } = await microCmsUsecaseCategory.getCategories()
 
   // サイトマップ情報を生成
-  const sitemap = createSitemapData(blogs.contents, categories.contents)
+  const sitemap = createSitemapData(blogs, categories)
 
   return {
     props: {
