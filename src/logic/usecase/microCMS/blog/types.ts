@@ -1,5 +1,9 @@
 import type { IBlog, ITableOfContents, IBreadCrumb, ISeo } from '@/types/index'
 
+export interface IGetBlogsParams {
+  offset?: number
+}
+
 export interface IGetBlogsResponse {
   blogs: IBlog[]
   totalPage: number
@@ -15,6 +19,6 @@ export interface IGetBlogByIdResponse {
 }
 
 export interface IMicroCmsUsecaseBlog {
-  getBlogs: () => Promise<IGetBlogsResponse>
+  getBlogs: (params?: IGetBlogsParams) => Promise<IGetBlogsResponse>
   getBlogByID: (id: TGetBlogByIdParams) => Promise<IGetBlogByIdResponse>
 }

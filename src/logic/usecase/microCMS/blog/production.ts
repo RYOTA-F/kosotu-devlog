@@ -11,13 +11,16 @@ import { getSeoFromBlog } from './utils/getSeo'
 import { getTotalPage } from '@/utils/index'
 
 export class MicroCmsUsecaseBlogProd implements IMicroCmsUsecaseBlog {
-  getBlogs: IMicroCmsUsecaseBlog['getBlogs'] = async () => {
+  getBlogs: IMicroCmsUsecaseBlog['getBlogs'] = async (params) => {
+    const queries = {
+      limit: MAX_BLOG_COUNT,
+      offset: params?.offset ? params?.offset : 0,
+    }
+
     // 投稿一覧を取得
     const blogs = await client.get<IBlogsApiResponse>({
       endpoint: API.BLOG.END_POINT,
-      queries: {
-        limit: MAX_BLOG_COUNT,
-      },
+      queries,
     })
 
     // ページ数の合計を取得
