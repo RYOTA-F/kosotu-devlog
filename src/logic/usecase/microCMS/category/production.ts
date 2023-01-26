@@ -6,10 +6,8 @@ import { client } from '@/libs/index'
 /* Types */
 import { ICategoryApiResponse } from '@/types/microCMS/category'
 /* Utils */
-import {
-  getBreadCrumbDataFromCategory,
-  getSeoFromCategory,
-} from '@/utils/index'
+import { getBreadCrumbDataFromCategory } from './utils/getBreadCrumb'
+import { getSeoFromCategory } from '@/utils/index'
 
 export class MicroCmsUsecaseCategoryProd implements IMicroCmsUsecaseCategory {
   getCategoryById: IMicroCmsUsecaseCategory['getCategoryById'] = async (
