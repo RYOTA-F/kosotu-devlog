@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import { H1, H2, H4 } from '.'
+import { H1, H2, H3 } from '.'
 import { ARIA_LABEL } from './const'
 import { defaultProps } from './__mocks__'
 
@@ -26,11 +26,11 @@ describe('Heading', () => {
     test.todo('children が描画される')
   })
 
-  describe('H4', () => {
+  describe('H3', () => {
     test('描画される', () => {
-      render(<H4>{defaultProps}</H4>)
-      const h4Element = screen.getByLabelText(ARIA_LABEL.H4)
-      expect(h4Element).toBeInTheDocument()
+      render(<H3>{defaultProps}</H3>)
+      const h3Element = screen.getByLabelText(ARIA_LABEL.H4)
+      expect(h3Element).toBeInTheDocument()
     })
 
     test.todo('children が描画される')

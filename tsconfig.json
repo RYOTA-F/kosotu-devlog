@@ -23,6 +23,7 @@
       "@/const/*": ["const/*"],
       "@/hooks/*": ["hooks/*"],
       "@/libs/*": ["libs/*"],
+      "@/logic/*": ["logic/*"],
       "@/layouts/*": ["components/layouts/*"],
       "@/sections/*": ["components/sections/*"],
       "@/stores/*": ["stores/*"],

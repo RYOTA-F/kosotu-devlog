@@ -1,6 +1,6 @@
 import { FC } from 'react'
 /* Components */
-import { H1, H4 } from '@/components/atoms/Heading'
+import { H1, H3 } from '@/components/atoms/Heading'
 /* Const */
 import { DISCLAIMER, ARIA_LABEL } from './const'
 /* Styles */
@@ -12,7 +12,7 @@ const Disclaimer: FC = () => {
       <H1>{DISCLAIMER.TITEL}</H1>
       <Description>{DISCLAIMER.DESCRIPTION}</Description>
       {/* コメント */}
-      <H4>{DISCLAIMER.COMMENT.TITLE}</H4>
+      <H3>{DISCLAIMER.COMMENT.TITLE}</H3>
       <Content>
         {DISCLAIMER.COMMENT.CONTENT}
         <List>
@@ -22,16 +22,16 @@ const Disclaimer: FC = () => {
         </List>
       </Content>
       {/* 情報 */}
-      <H4>{DISCLAIMER.INFORMATION.TITLE}</H4>
+      <H3>{DISCLAIMER.INFORMATION.TITLE}</H3>
       <Content>{DISCLAIMER.INFORMATION.CONTENT}</Content>
       {/* 損害等の責任 */}
-      <H4>{DISCLAIMER.RESPONSIBILITY.TITLE}</H4>
+      <H3>{DISCLAIMER.RESPONSIBILITY.TITLE}</H3>
       <Content>{DISCLAIMER.RESPONSIBILITY.CONTENT}</Content>
       {/* 著作権・肖像権 */}
-      <H4>{DISCLAIMER.COPYRIGHT.TITLE}</H4>
+      <H3>{DISCLAIMER.COPYRIGHT.TITLE}</H3>
       <Content>{DISCLAIMER.COPYRIGHT.CONTENT}</Content>
       {/* 無断転載 */}
-      <H4>{DISCLAIMER.REPRINT.TITLE}</H4>
+      <H3>{DISCLAIMER.REPRINT.TITLE}</H3>
       <Content>{DISCLAIMER.REPRINT.CONTENT}</Content>
     </Wrapper>
   )

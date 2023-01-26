@@ -1,41 +1,6 @@
 import { type TFixedPage } from '@/const/index'
-import {
-  getSeoFromBlog,
-  getSeoFromCategory,
-  getSeoFromTag,
-  getSeoFromFixed,
-} from '.'
-import {
-  blogDataMock,
-  blogResultMock,
-  categoryDataMock,
-  categoryResultMock,
-  tagDataMock,
-  tagResultMock,
-  fixedResultMock,
-  type TSeo,
-} from './__mocks__'
-
-describe('getSeoFromBlog', () => {
-  test('SEO情報を取得できる', () => {
-    const result = getSeoFromBlog(blogDataMock)
-    expect(result).toEqual(blogResultMock)
-  })
-})
-
-describe('getSeoFromCategory', () => {
-  test('SEO情報を取得できる', () => {
-    const result = getSeoFromCategory(categoryDataMock)
-    expect(result).toEqual(categoryResultMock)
-  })
-})
-
-describe('getSeoFromTag', () => {
-  test('SEO情報を取得できる', () => {
-    const result = getSeoFromTag(tagDataMock)
-    expect(result).toEqual(tagResultMock)
-  })
-})
+import { getSeoFromFixed } from '.'
+import { fixedResultMock, type TSeo } from './__mocks__'
 
 describe('getSeoFromFixed', () => {
   test.each`
