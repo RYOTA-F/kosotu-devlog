@@ -13,7 +13,7 @@ import { getTotalPage } from '@/utils/index'
 export class MicroCmsUsecaseBlogProd implements IMicroCmsUsecaseBlog {
   getBlogs: IMicroCmsUsecaseBlog['getBlogs'] = async (params) => {
     const queries = {
-      limit: MAX_BLOG_COUNT,
+      limit: params?.limit ? MAX_BLOG_COUNT : 9999,
       offset: params?.offset ? params?.offset : 0,
     }
 

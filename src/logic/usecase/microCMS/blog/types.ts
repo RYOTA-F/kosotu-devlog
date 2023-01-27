@@ -1,6 +1,7 @@
 import type { IBlog, ITableOfContents, IBreadCrumb, ISeo } from '@/types/index'
 
 export interface IGetBlogsParams {
+  limit?: boolean
   offset?: number
 }
 

@@ -16,8 +16,8 @@ export class MicroCmsUsecaseBlog implements IMicroCmsUsecaseBlog {
       : new MicroCmsUsecaseBlogProd()
   }
 
-  getBlogs: IMicroCmsUsecaseBlog['getBlogs'] = async () =>
-    this.instanse.getBlogs()
+  getBlogs: IMicroCmsUsecaseBlog['getBlogs'] = async (params) =>
+    this.instanse.getBlogs(params)
   getBlogByID: IMicroCmsUsecaseBlog['getBlogByID'] = async (id) =>
     this.instanse.getBlogByID(id)
 }
