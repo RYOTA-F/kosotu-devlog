@@ -15,7 +15,9 @@ export const getStaticProps: GetStaticProps = async () => {
   const microCmsUsecaseBlog = new MicroCmsUsecaseBlog()
 
   // ブログ一覧取得
-  const { blogs, totalPage } = await microCmsUsecaseBlog.getBlogs()
+  const { blogs, totalPage } = await microCmsUsecaseBlog.getBlogs({
+    limit: true,
+  })
 
   // ページネーション生成
   const pagination: IPaginationState = {

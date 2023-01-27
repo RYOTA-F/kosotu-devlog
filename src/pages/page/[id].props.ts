@@ -22,7 +22,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const offset = getPageOffset(id)
 
   // ブログ取得
-  const { blogs, totalPage } = await microCmsUsecaseBlog.getBlogs({ offset })
+  const { blogs, totalPage } = await microCmsUsecaseBlog.getBlogs({
+    limit: true,
+    offset,
+  })
 
   // ページネーション生成
   const pagination: IPaginationState = {
