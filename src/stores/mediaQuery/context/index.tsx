@@ -27,3 +27,4 @@ const MediaQueryContextProvider: FC<IContextProvider> = ({ children }) => {
 }
 
 export default MediaQueryContextProvider
+export * from './types'
