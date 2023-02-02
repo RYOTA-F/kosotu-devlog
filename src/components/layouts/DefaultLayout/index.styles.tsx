@@ -11,7 +11,7 @@ export const MainWrapper = styled.div<{ isPC: boolean }>`
         padding: ${SIZE.SPACE.X60} 10%;
       `
       : `
-        padding: ${SIZE.SPACE.X12};
+        padding: ${SIZE.SPACE.X32} ${SIZE.SPACE.X12};
       `}
 `
 

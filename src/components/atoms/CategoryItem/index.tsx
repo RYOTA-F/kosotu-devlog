@@ -2,6 +2,8 @@ import { FC } from 'react'
 import Link from 'next/link'
 /* Const */
 import { PAGE } from '@/const/index'
+/* Hooks */
+import useMediaQuery from '@/hooks/useMediaQuery'
 /* Styles */
 import { CategoryItemWrapper } from './index.styles'
 /* Types */
@@ -19,8 +21,10 @@ export interface ICategoryItem {
 }
 
 const CategoryItem: FC<ICategoryItem> = ({ category }) => {
+  const { isSP } = useMediaQuery()
+
   return (
-    <CategoryItemWrapper aria-label={ARIA_LABEL}>
+    <CategoryItemWrapper isSP={isSP} aria-label={ARIA_LABEL}>
       <Link href={`${PAGE.CATEGORY}${category.id}`}>{category.name}</Link>
     </CategoryItemWrapper>
   )
