@@ -3,13 +3,12 @@ import type { FC, ReactNode } from 'react'
 import Header from '@/components/organisms/Header'
 import Footer from '@/components/organisms/Footer'
 /* Components */
-import BreadCrumb from '@/components/molecules/BreadCrumb'
+import BreadCrumb from '@/components/organisms/BreadCrumb'
 import Profile from '@/components/molecules/Profile'
 import Seo from '@/components/organisms/Seo'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Hooks */
-import useCommonData from '@/hooks/useCommonData'
 import useMediaQuery from '@/hooks/useMediaQuery'
 /* Styles */
 import { MainWrapper, Main, Aside } from './index.styles'
@@ -19,14 +18,13 @@ export interface IDefaultLayout {
 }
 
 const DefaultLayout: FC<IDefaultLayout> = ({ children }) => {
-  const { breadCrumb } = useCommonData()
   const { isPC } = useMediaQuery()
 
   return (
     <div aria-label={ARIA_LABEL.DEFAULT_LAYOUT}>
       <Seo />
       <Header />
-      {breadCrumb && <BreadCrumb breadCrumb={breadCrumb} />}
+      <BreadCrumb />
       <MainWrapper isPC={isPC}>
         <Main>{children}</Main>
         <Aside isPC={isPC}>

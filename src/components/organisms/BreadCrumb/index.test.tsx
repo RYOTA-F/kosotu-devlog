@@ -2,11 +2,15 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import BreadCrumb, { ARIA_LABEL } from '.'
-import { defaultProps } from './__mocks__'
+import CommonContextProviderMock from '@/stores/__mocks__/common'
 
 describe('BreadCrumb', () => {
   beforeEach(() => {
-    render(<BreadCrumb {...defaultProps} />)
+    render(
+      <CommonContextProviderMock>
+        <BreadCrumb />
+      </CommonContextProviderMock>
+    )
   })
 
   test('描画される', () => {
