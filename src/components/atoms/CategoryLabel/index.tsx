@@ -1,4 +1,6 @@
 import { FC } from 'react'
+/* Hooks */
+import useMediaQuery from '@/hooks/useMediaQuery'
 /* Styles */
 import { CategoryLabelWrapper } from './index.styles'
 
@@ -9,8 +11,12 @@ export interface ICategoryLabel {
 }
 
 const CategoryLabel: FC<ICategoryLabel> = ({ name }) => {
+  const { isSP } = useMediaQuery()
+
   return (
-    <CategoryLabelWrapper aria-label={ARIA_LABEL}>{name}</CategoryLabelWrapper>
+    <CategoryLabelWrapper isSP={isSP} aria-label={ARIA_LABEL}>
+      {name}
+    </CategoryLabelWrapper>
   )
 }
 

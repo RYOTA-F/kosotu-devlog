@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 /* Const */
-import { COLOR, HEADER, SIZE } from '@/const/index'
+import { HEADER } from './const'
+import { COLOR, SIZE } from '@/const/index'
 
 export const HeaderBar = styled.div`
   display: flex;
@@ -29,32 +30,33 @@ export const Icon = styled.li`
   width: 22px;
 `
 
-export const HeaderWrapper = styled.header`
+export const HeaderWrapper = styled.header<{ isPC: boolean }>`
   display: flex;
-  justify-content: space-between;
+  justify-content: ${({ isPC }) => (isPC ? 'space-between' : 'center')};
   position: sticky;
   top: 0;
   z-index: 100;
-  height: ${HEADER.HEIGHT}px;
+  height: ${({ isPC }) => (isPC ? HEADER.HEIGHT.PC : HEADER.HEIGHT.SP)}px;
   padding: 0 10%;
   color: ${COLOR.GRAY_SCALE.WHITE};
   background-color: ${COLOR.BLUE_GROUP.MAIN};
   align-items: center;
 `
 
-export const Title = styled.h1`
+export const Title = styled.h1<{ isPC: boolean; isTB: boolean }>`
   display: inline-block;
   line-height: ${HEADER.HEIGHT}px;
   color: ${COLOR.GRAY_SCALE.WHITE};
   text-decoration: none;
   cursor: pointer;
-  font-size: ${SIZE.FONT.X24};
+  font-size: ${({ isPC, isTB }) =>
+    isPC ? SIZE.FONT.X24 : isTB ? SIZE.FONT.W3 : SIZE.FONT.W5};
 `
 
 export const MenuList = styled.ul`
   display: flex;
   height: 100%;
-  line-height: ${HEADER.HEIGHT}px;
+  line-height: ${HEADER.HEIGHT.PC}px;
 `
 
 export const MenuItem = styled.li``

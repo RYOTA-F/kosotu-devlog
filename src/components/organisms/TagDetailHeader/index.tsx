@@ -5,17 +5,19 @@ import { H1 } from '@/components/atoms/Heading'
 import { TAG_DETAIL_HEADER, ARIA_LABEL } from './const'
 /* Hooks */
 import useTagData from '@/hooks/useTagData'
+import useMediaQuery from '@/hooks/useMediaQuery'
 /* Styles */
 import { HeaderWrapper, HeaderLabel } from './index.styles'
 
 const TagDetailHeader: FC = () => {
   const { tag } = useTagData()
+  const { isSP } = useMediaQuery()
 
   return (
-    <HeaderWrapper aria-label={ARIA_LABEL.TAG_DETAIL_HEADER}>
+    <HeaderWrapper isSP={isSP} aria-label={ARIA_LABEL.TAG_DETAIL_HEADER}>
       <H1>
         {tag.name}
-        <HeaderLabel>{TAG_DETAIL_HEADER.TITLE_LABEL}</HeaderLabel>
+        <HeaderLabel isSP={isSP}>{TAG_DETAIL_HEADER.TITLE_LABEL}</HeaderLabel>
       </H1>
     </HeaderWrapper>
   )

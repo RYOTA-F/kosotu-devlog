@@ -8,6 +8,7 @@ import { ChevronRightSvg, FolderSvg } from '@/components/atoms/Svg'
 import { CATEGORY_DETAIL_HEADER, ARIA_LABEL } from './const'
 /* Hooks */
 import useCategoryData from '@/hooks/useCategoryData'
+import useMediaQuery from '@/hooks/useMediaQuery'
 /* Styles */
 import {
   CategoryDetailHeaderWrapper,
@@ -22,14 +23,17 @@ import { getCategoryRelation } from '@/utils/index'
 
 const CategoryDetailHeader: FC = () => {
   const { category } = useCategoryData()
+  const { isSP } = useMediaQuery()
   const { isParent, categoryParent } = getCategoryRelation(category.relation)
 
   return (
     <CategoryDetailHeaderWrapper aria-label={ARIA_LABEL.CATEGORY_DETAIL_HEADER}>
-      <HeaderWrapper>
+      <HeaderWrapper isSP={isSP}>
         <H1>
           {category.name}
-          <HeaderLabel>{CATEGORY_DETAIL_HEADER.TITLE_LABEL}</HeaderLabel>
+          <HeaderLabel isSP={isSP}>
+            {CATEGORY_DETAIL_HEADER.TITLE_LABEL}
+          </HeaderLabel>
         </H1>
       </HeaderWrapper>
       <CategoryWrapper>
@@ -55,7 +59,7 @@ const CategoryDetailHeader: FC = () => {
         {/* 子カテゴリの場合 子カテゴリのラベルを表示 */}
         {!isParent && (
           <>
-            <ChevronRightSvgWrapper>
+            <ChevronRightSvgWrapper isSP={isSP}>
               <ChevronRightSvg
                 height={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.SIZE}
                 width={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.SIZE}

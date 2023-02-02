@@ -6,6 +6,8 @@ import AccordionMenu from '@/components/molecules/AccordionMenu'
 /* Const */
 import { SITE, PAGE, GROBAL_MENU_LIST, TWITTER } from '@/const/index'
 import { HEADER, ARIA_LABEL } from './const'
+/* Hooks */
+import useMediaQuery from '@/hooks/useMediaQuery'
 /* Styles */
 import {
   HeaderBar,
@@ -19,37 +21,50 @@ import {
 } from './index.styles'
 
 const Header: FC = () => {
+  const { isPC, isTB } = useMediaQuery()
+
   return (
     <>
-      <HeaderBar>
-        <CatchPrase>{HEADER.CATCH_PHRASE}</CatchPrase>
-        <IconList>
-          <Icon>
-            <Link href={TWITTER.URL} target="_blank">
-              <TwitterSvg
-                height={HEADER.ICON.HEIGHT}
-                width={HEADER.ICON.WIDTH}
-                color={HEADER.ICON.COLOR}
-              />
-            </Link>
-          </Icon>
-        </IconList>
-      </HeaderBar>
-      <HeaderWrapper aria-label={ARIA_LABEL.HEADER}>
+      {isPC && (
+        <HeaderBar>
+          <CatchPrase>{HEADER.CATCH_PHRASE}</CatchPrase>
+          <IconList>
+            <Icon>
+              <Link href={TWITTER.URL} target="_blank">
+                <TwitterSvg
+                  height={HEADER.ICON.HEIGHT}
+                  width={HEADER.ICON.WIDTH}
+                  color={HEADER.ICON.COLOR}
+                />
+              </Link>
+            </Icon>
+          </IconList>
+        </HeaderBar>
+      )}
+
+      <HeaderWrapper isPC={isPC} aria-label={ARIA_LABEL.HEADER}>
         <Link href={PAGE.ROOT}>
-          <Title>{SITE.TITLE}</Title>
+          <Title isPC={isPC} isTB={isTB}>
+            {SITE.TITLE}
+          </Title>
         </Link>
-        <MenuList>
-          {GROBAL_MENU_LIST.map((v) => (
-            <MenuItem key={v.URL}>
-              <AccordionMenu
-                label={v.LABEL}
-                path={v.URL}
-                menuList={v.LIST.map((v) => ({ label: v.LABEL, path: v.URL }))}
-              />
-            </MenuItem>
-          ))}
-        </MenuList>
+
+        {isPC && (
+          <MenuList>
+            {GROBAL_MENU_LIST.map((v) => (
+              <MenuItem key={v.URL}>
+                <AccordionMenu
+                  label={v.LABEL}
+                  path={v.URL}
+                  menuList={v.LIST.map((v) => ({
+                    label: v.LABEL,
+                    path: v.URL,
+                  }))}
+                />
+              </MenuItem>
+            ))}
+          </MenuList>
+        )}
       </HeaderWrapper>
     </>
   )

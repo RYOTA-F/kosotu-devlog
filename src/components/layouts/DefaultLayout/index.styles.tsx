@@ -2,10 +2,17 @@ import styled from '@emotion/styled'
 /* Const */
 import { SIZE } from '@/const/index'
 
-export const MainWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: ${SIZE.SPACE.X60} 10%;
+export const MainWrapper = styled.div<{ isPC: boolean }>`
+  ${({ isPC }) =>
+    isPC
+      ? `
+        display: flex;
+        justify-content: space-between;
+        padding: ${SIZE.SPACE.X60} 10%;
+      `
+      : `
+        padding: ${SIZE.SPACE.X32} ${SIZE.SPACE.X12};
+      `}
 `
 
 export const Main = styled.main`
@@ -13,7 +20,8 @@ export const Main = styled.main`
   overflow-x: hidden;
 `
 
-export const Aside = styled.aside`
-  margin-left: ${SIZE.SPACE.X24};
+export const Aside = styled.aside<{ isPC: boolean }>`
   min-width: 300px;
+  ${({ isPC }) =>
+    isPC ? `margin-left: ${SIZE.SPACE.X24}` : `margin-top: ${SIZE.SPACE.X24}`};
 `
