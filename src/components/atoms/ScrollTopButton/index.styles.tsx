@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { COLOR } from '@/const/index'
 
 const SIZE = 50 as const
+const POSITION = 30 as const
 
 export const ScrollTopButtonWrapper = styled.button`
   height: ${SIZE}px;
@@ -13,4 +14,8 @@ export const ScrollTopButtonWrapper = styled.button`
   opacity: 0.75;
   transform: rotate(270deg);
   z-index: 100;
+  cursor: pointer;
+  position: fixed;
+  bottom: ${POSITION}px;
+  right: ${POSITION}px;
 `

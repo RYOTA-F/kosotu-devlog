@@ -1,11 +1,11 @@
 import type { FC, ReactNode } from 'react'
-/* Sections */
-import Header from '@/components/organisms/Header'
-import Footer from '@/components/organisms/Footer'
 /* Components */
+import ScrollTopButton from '@/components/atoms/ScrollTopButton'
+import Seo from '@/components/organisms/Seo'
+import Header from '@/components/organisms/Header'
 import BreadCrumb from '@/components/organisms/BreadCrumb'
 import Profile from '@/components/molecules/Profile'
-import Seo from '@/components/organisms/Seo'
+import Footer from '@/components/organisms/Footer'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Hooks */
@@ -31,6 +31,7 @@ const DefaultLayout: FC<IDefaultLayout> = ({ children }) => {
           <Profile />
         </Aside>
       </MainWrapper>
+      <ScrollTopButton />
       <Footer />
     </div>
   )
