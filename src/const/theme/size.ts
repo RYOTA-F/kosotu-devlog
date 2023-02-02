@@ -11,6 +11,8 @@ export const FONT = {
   X32: '32px',
   X36: '36px',
   X40: '40px',
+  W3: '3vw',
+  W5: '5vw',
 } as const
 
 export const SPACE = {

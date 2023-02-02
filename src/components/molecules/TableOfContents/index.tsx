@@ -4,6 +4,8 @@ import { Link } from 'react-scroll' // eslint-disable-line import/named
 import { ListSvg } from '@/components/atoms/Svg'
 /* Const */
 import { TOC, ARIA_LABEL, LIST_SVG } from './const'
+/* Hooks */
+import useMediaQuery from '@/hooks/useMediaQuery'
 /* Styles */
 import {
   Wrapper,
@@ -22,8 +24,10 @@ export interface ITableOfContentsProps {
 }
 
 const TableOfContents: FC<ITableOfContentsProps> = ({ tableOfContents }) => {
+  const { isSP } = useMediaQuery()
+
   return (
-    <Wrapper aria-label={ARIA_LABEL}>
+    <Wrapper isSP={isSP} aria-label={ARIA_LABEL}>
       <Title>
         <ListSvgWrapper>
           <ListSvg height={LIST_SVG.SIZE} width={LIST_SVG.SIZE} />

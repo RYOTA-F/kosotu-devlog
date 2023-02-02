@@ -2,9 +2,12 @@ import styled from '@emotion/styled'
 /* Const */
 import { COLOR, SIZE } from '@/const/index'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ isSP: boolean }>`
   width: 90%;
-  padding: ${SIZE.SPACE.X32};
+  padding: ${({ isSP }) =>
+    isSP
+      ? `${SIZE.SPACE.X24} ${SIZE.SPACE.X16} ${SIZE.SPACE.X16}`
+      : SIZE.SPACE.X32};
   background: linear-gradient(
     -45deg,
     transparent 25%,

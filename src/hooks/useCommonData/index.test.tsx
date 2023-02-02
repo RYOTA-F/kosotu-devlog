@@ -11,13 +11,14 @@ import {
   tableOfContentsStateMock,
   paginationStateMock,
 } from '@/stores/__mocks__/common/mock'
-import { defaultProps as breadCrumbStateMock } from '@/components/molecules/BreadCrumb/__mocks__'
+import { breadCrumbStateMock } from '@/stores/__mocks__/common/mock'
+import { IBreadCrumb } from '@/types/index'
 
 const dispatchMock = jest.fn()
 jest.spyOn(React, 'useContext').mockImplementation(() => ({
   state: {
     ...initialCommonState,
-    breadClumb: breadCrumbStateMock.breadCrumb,
+    breadClumb: breadCrumbStateMock,
     tableOfContents: tableOfContentsStateMock,
     pagination: paginationStateMock,
   } as ICommonState,
@@ -33,7 +34,7 @@ describe('useCommonData', () => {
     test('state のデータがセットされる', () => {
       const { result } = renderHook(() => useCommonData())
 
-      expect(result.current.breadCrumb).toEqual(breadCrumbStateMock.breadCrumb)
+      expect(result.current.breadCrumb).toEqual(breadCrumbStateMock)
     })
   })
 
@@ -108,12 +109,14 @@ describe('useCommonData', () => {
   describe('setBreadCrumb', () => {
     test('dispatch に適切な引数が渡される', () => {
       const { result } = renderHook(() => useCommonData())
-      act(() => result.current.setBreadCrumb(breadCrumbStateMock.breadCrumb))
+      act(() =>
+        result.current.setBreadCrumb(breadCrumbStateMock as IBreadCrumb)
+      )
 
       expect(dispatchMock).toBeCalled()
       expect(dispatchMock).toBeCalledWith({
         type: COMMON_ACTION_TYPES.UPDATE_BREAD_CRUMB,
-        payload: breadCrumbStateMock.breadCrumb,
+        payload: breadCrumbStateMock,
       })
     })
   })
