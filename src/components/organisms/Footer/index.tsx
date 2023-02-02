@@ -3,6 +3,8 @@ import Link from 'next/link'
 /* Const */
 import { SUB_MENU_LIST } from '@/const/index'
 import { FOOTER, ARIA_LABEL } from './const'
+/* Hooks */
+import useMediaQuery from '@/hooks/useMediaQuery'
 /* Styles */
 import {
   FooterWrapper,
@@ -15,13 +17,15 @@ import {
 } from './index.styles'
 
 const Footer: FC = () => {
+  const { isSP } = useMediaQuery()
+
   return (
     <FooterWrapper aria-label={ARIA_LABEL.FOOTER}>
       <MenuList>
         {SUB_MENU_LIST.map((v) => (
           <MenuItem key={v.URL}>
             <Link href={v.URL} target="_blank">
-              <MenuLabel>{v.LABEL}</MenuLabel>
+              <MenuLabel isSP={isSP}>{v.LABEL}</MenuLabel>
             </Link>
           </MenuItem>
         ))}

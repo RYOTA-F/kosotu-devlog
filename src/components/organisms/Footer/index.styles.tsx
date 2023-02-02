@@ -27,10 +27,12 @@ export const MenuItem = styled.li`
   }
 `
 
-export const MenuLabel = styled.span`
+export const MenuLabel = styled.span<{ isSP: boolean }>`
+  display: inline-block;
   color: ${COLOR.GRAY_SCALE.WHITE};
   text-decoration: none;
-  font-size: ${SIZE.FONT.X14};
+  font-size: ${({ isSP }) => (isSP ? SIZE.FONT.W3 : SIZE.FONT.X14)};
+  ${({ isSP }) => isSP && `margin-bottom: ${SIZE.SPACE.X4}`}
 `
 
 export const CopyContainer = styled.div`
