@@ -10,6 +10,7 @@ import Seo from '@/components/organisms/Seo'
 import { ARIA_LABEL } from './const'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
+import useMediaQuery from '@/hooks/useMediaQuery'
 /* Styles */
 import { MainWrapper, Main, Aside } from './index.styles'
 
@@ -19,15 +20,16 @@ export interface IDefaultLayout {
 
 const DefaultLayout: FC<IDefaultLayout> = ({ children }) => {
   const { breadCrumb } = useCommonData()
+  const { isPC } = useMediaQuery()
 
   return (
     <div aria-label={ARIA_LABEL.DEFAULT_LAYOUT}>
       <Seo />
       <Header />
       {breadCrumb && <BreadCrumb breadCrumb={breadCrumb} />}
-      <MainWrapper>
+      <MainWrapper isPC={isPC}>
         <Main>{children}</Main>
-        <Aside>
+        <Aside isPC={isPC}>
           <Profile />
         </Aside>
       </MainWrapper>
