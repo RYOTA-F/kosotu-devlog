@@ -31,6 +31,12 @@ export const commonReducer: Reducer<ICommonState, TCommonActions> = (
         ...state,
         seo: action.payload,
       }
+    // サイドナビゲーション開閉状態更新
+    case COMMON_ACTION_TYPES.UPDATE_IS_VIEW_SIDENAV:
+      return {
+        ...state,
+        isViewSidenav: action.payload,
+      }
     default:
       return state
   }

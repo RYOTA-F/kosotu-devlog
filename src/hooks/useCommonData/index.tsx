@@ -31,6 +31,8 @@ const useCommonData = () => {
   const seoUrl = state.seo.url
   // SEO: 画像
   const seoImage = state.seo.image
+  // サイドナビゲーション開閉状態
+  const isViewSidenav = state.isViewSidenav
 
   /** パンくずをセット */
   const setBreadCrumb = (breadCrumb: IBreadCrumb) => {
@@ -96,6 +98,16 @@ const useCommonData = () => {
     })
   }
 
+  /**
+   * サイドナビゲーターの開閉状態を変更
+   */
+  const onChangeIsViewSidenav = () => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_IS_VIEW_SIDENAV,
+      payload: !isViewSidenav,
+    })
+  }
+
   return {
     breadCrumb,
     setBreadCrumb,
@@ -114,6 +126,8 @@ const useCommonData = () => {
     seoImage,
     setSeo,
     resetSeo,
+    isViewSidenav,
+    onChangeIsViewSidenav,
   }
 }
 

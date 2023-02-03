@@ -15,6 +15,7 @@ export const initialCommonState: ICommonState = {
     url: SITE.URL,
     image: SITE.IMAGE,
   },
+  isViewSidenav: false,
 }
 
 export * from './types'
