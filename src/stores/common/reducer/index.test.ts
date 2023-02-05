@@ -67,4 +67,18 @@ describe('commonReducer', () => {
       })
     })
   })
+
+  describe(`${COMMON_ACTION_TYPES.UPDATE_IS_VIEW_SIDENAV}`, () => {
+    test('isViewSidenav が更新される', () => {
+      const action: TCommonActions = {
+        type: COMMON_ACTION_TYPES.UPDATE_IS_VIEW_SIDENAV,
+        payload: true,
+      }
+
+      expect(commonReducer(initialCommonState, action)).toEqual({
+        ...initialCommonState,
+        isViewSidenav: true,
+      })
+    })
+  })
 })

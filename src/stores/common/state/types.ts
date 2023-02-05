@@ -5,6 +5,7 @@ export interface ICommonState {
   tableOfContents: ITableOfContents[]
   pagination: IPaginationState
   seo: ISeoState
+  isViewSidenav: boolean
 }
 
 export interface ISeoState {
