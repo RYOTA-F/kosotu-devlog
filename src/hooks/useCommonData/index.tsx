@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 /* Stores */
 import {
   CommonContext,
@@ -108,6 +108,22 @@ const useCommonData = () => {
     })
   }
 
+  /**
+   * サイドナビゲーターの開閉状態を変更
+   */
+  const onCloseIsViewSidenav = () => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_IS_VIEW_SIDENAV,
+      payload: false,
+    })
+  }
+
+  useEffect(() => {
+    return () => {
+      onCloseIsViewSidenav()
+    }
+  }, [])
+
   return {
     breadCrumb,
     setBreadCrumb,
@@ -128,6 +144,7 @@ const useCommonData = () => {
     resetSeo,
     isViewSidenav,
     onChangeIsViewSidenav,
+    onCloseIsViewSidenav,
   }
 }
 

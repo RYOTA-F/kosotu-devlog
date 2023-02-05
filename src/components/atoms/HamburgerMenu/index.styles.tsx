@@ -15,7 +15,7 @@ export const Container = styled.div`
   height: 50px;
 `
 
-export const Border = styled.span`
+export const Border = styled.span<{ isView: boolean }>`
   display: inline-block;
   transition: all 0.4s;
   position: absolute;
@@ -26,14 +26,41 @@ export const Border = styled.span`
   width: 45%;
 
   :nth-of-type(1) {
-    top: 17px;
+    ${({ isView }) =>
+      isView
+        ? `
+            top: 16px;
+            left: 16px;
+            transform: translateY(6px) rotate(-45deg);
+            width: 40%;
+          `
+        : `
+            top: 17px;
+          `}
   }
 
   :nth-of-type(2) {
-    top: 24px;
+    ${({ isView }) =>
+      isView
+        ? `
+            opacity: 0;
+          `
+        : `
+            top: 24px;
+          `}
   }
 
   :nth-of-type(3) {
-    top: 31px;
+    ${({ isView }) =>
+      isView
+        ? `
+            top: 28px;
+            left: 16px;
+            transform: translateY(-6px) rotate(45deg);
+            width: 40%;
+          `
+        : `
+            top: 31px;
+          `}
   }
 `

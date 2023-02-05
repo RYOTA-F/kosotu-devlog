@@ -9,13 +9,13 @@ export const ARIA_LABEL = 'hamburgerMenu' as const
 const spanList = [...new Array(3)].map((_, i) => i)
 
 const HamburgerMenu: FC = () => {
-  const { onChangeIsViewSidenav } = useCommonData()
+  const { isViewSidenav, onChangeIsViewSidenav } = useCommonData()
 
   return (
     <Wrapper onClick={onChangeIsViewSidenav} aria-label={ARIA_LABEL}>
       <Container>
         {spanList.map((v) => (
-          <Border key={v} />
+          <Border key={v} isView={isViewSidenav} />
         ))}
       </Container>
     </Wrapper>

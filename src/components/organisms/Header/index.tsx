@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { TwitterSvg } from '@/components/atoms/Svg'
 import HamburgerMenu from '@/components/atoms/HamburgerMenu'
 import AccordionMenu from '@/components/molecules/AccordionMenu'
+import Sidenav from '@/components/organisms/Sidenav'
 /* Const */
 import { SITE, PAGE, GROBAL_MENU_LIST, TWITTER } from '@/const/index'
 import { HEADER, ARIA_LABEL } from './const'
@@ -44,7 +45,6 @@ const Header: FC = () => {
       )}
 
       <HeaderWrapper isPC={isPC} aria-label={ARIA_LABEL.HEADER}>
-        {!isPC && <HamburgerMenu />}
         <Link href={PAGE.ROOT}>
           <Title isPC={isPC} isTB={isTB}>
             {SITE.TITLE}
@@ -66,6 +66,13 @@ const Header: FC = () => {
               </MenuItem>
             ))}
           </MenuList>
+        )}
+
+        {!isPC && (
+          <>
+            <HamburgerMenu />
+            <Sidenav />
+          </>
         )}
       </HeaderWrapper>
     </>
