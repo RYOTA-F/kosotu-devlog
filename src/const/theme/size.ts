@@ -29,6 +29,7 @@ export const SPACE = {
   X48: '48px',
   X52: '52px',
   X60: '60px',
+  X72: '72px',
 } as const
 
 export const SIZE = {

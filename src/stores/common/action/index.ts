@@ -8,6 +8,7 @@ const COMMON_ACTION_TYPES = {
   UPDATE_TOTAL_PAGE: 'UPDATE_TOTAL_PAGE',
   UPDATE_PAGINATION: 'UPDATE_PAGINATION',
   UPDATE_SEO: 'UPDATE_SEO',
+  UPDATE_IS_VIEW_SIDENAV: 'UPDATE_IS_VIEW_SIDENAV',
 } as const
 
 type TCommonActionTypesConst = typeof COMMON_ACTION_TYPES
@@ -38,10 +39,17 @@ type IUpdateSeo = {
   payload: ISeoState
 }
 
+/* SEO更新 */
+type IUpdateIsViewSidenav = {
+  type: TCommonActionTypesConst['UPDATE_IS_VIEW_SIDENAV']
+  payload: boolean
+}
+
 type TCommonActions =
   | TUpdateBreadCrumbAction
   | TUpdateTableOfContentsAction
   | IUpdatePagination
   | IUpdateSeo
+  | IUpdateIsViewSidenav
 
 export { COMMON_ACTION_TYPES, type TCommonActions, type TCommonActionTypes }

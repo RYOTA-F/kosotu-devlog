@@ -26,7 +26,13 @@ const CategoryPage: NextPage<ICategoryPage> = ({
   breadCrumb,
   seo,
 }) => {
-  const { setBreadCrumb, resetBreadCrumb, setSeo, resetSeo } = useCommonData()
+  const {
+    setBreadCrumb,
+    resetBreadCrumb,
+    setSeo,
+    resetSeo,
+    onCloseIsViewSidenav,
+  } = useCommonData()
   const { setBlogs, resetBlogs } = useBlogData()
   const { setCategory, resetCategory } = useCategoryData()
 
@@ -35,6 +41,7 @@ const CategoryPage: NextPage<ICategoryPage> = ({
     setBlogs(category.blogs)
     setCategory(category)
     setSeo(seo)
+    onCloseIsViewSidenav()
 
     return () => {
       resetBreadCrumb()
