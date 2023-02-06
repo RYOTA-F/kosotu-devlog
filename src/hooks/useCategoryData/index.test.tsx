@@ -7,13 +7,13 @@ import {
   ICategoryState,
   CATEGORY_ACTION_TYPES,
 } from '@/stores/category'
-import { categoryStateMock } from '@/stores/__mocks__/category/mock'
+import { categoriesMock } from '@/logic/usecase/microCMS/category/__mocks__'
 
 const dispatchMock = jest.fn()
 jest.spyOn(React, 'useContext').mockImplementation(() => ({
   state: {
     ...initialCategoryState,
-    category: categoryStateMock,
+    category: categoriesMock[0],
   } as ICategoryState,
   dispatch: dispatchMock,
 }))
@@ -27,19 +27,19 @@ describe('useCategoryData', () => {
     test('state のデータがセットされる', () => {
       const { result } = renderHook(() => useCategoryData())
 
-      expect(result.current.category).toEqual(categoryStateMock)
+      expect(result.current.category).toEqual(categoriesMock[0])
     })
   })
 
   describe('setCategory', () => {
     test('dispatch に適切な引数が渡される', () => {
       const { result } = renderHook(() => useCategoryData())
-      act(() => result.current.setCategory(categoryStateMock))
+      act(() => result.current.setCategory(categoriesMock[0]))
 
       expect(dispatchMock).toBeCalled()
       expect(dispatchMock).toBeCalledWith({
         type: CATEGORY_ACTION_TYPES.UPDATE_CATEGORY,
-        payload: categoryStateMock,
+        payload: categoriesMock[0],
       })
     })
   })

@@ -1,25 +1,12 @@
 import { IGetCategoriesResponse, IGetCategoryByIdResponse } from '../types'
+import { categoriesMock } from './categories'
 
 export const getCategoriesMock: IGetCategoriesResponse = {
-  categories: [],
+  categories: categoriesMock,
 }
 
 export const getCategoryByIdMock: IGetCategoryByIdResponse = {
-  category: {
-    id: '',
-    createdAt: '',
-    updatedAt: '',
-    publishedAt: '',
-    revisedAt: '',
-    name: '',
-    relation: {
-      fieldId: '',
-      isParent: false,
-      children: [],
-      parent: [],
-    },
-    blogs: [],
-  },
+  category: categoriesMock[0],
   breadCrumb: {
     categoryParentId: null,
     categoryParentName: null,
@@ -34,3 +21,5 @@ export const getCategoryByIdMock: IGetCategoryByIdResponse = {
     image: '',
   },
 }
+
+export * from './categories'
