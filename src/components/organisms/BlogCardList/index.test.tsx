@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect'
 import BlogCardList, { ARIA_LABEL } from '.'
 import { ARIA_LABEL as BLOG_CARD_ARIA_LABEL } from '@/components/molecules/BlogCard'
 import BlogContextProviderMock from '@/stores/__mocks__/blog'
-import { blogsStateMock } from '@/stores/__mocks__/blog/mock'
+import { blogsMock } from '@/logic/usecase/microCMS/blog/__mocks__'
 
 describe('BlogCardList', () => {
   beforeEach(() => {
@@ -26,7 +26,7 @@ describe('BlogCardList', () => {
         BLOG_CARD_ARIA_LABEL.BLOG_CARD
       )
 
-      expect(blogCardElements.length).toEqual(blogsStateMock.length)
+      expect(blogCardElements.length).toEqual(blogsMock.length)
       blogCardElements.forEach((element) => expect(element).toBeInTheDocument())
     })
   })

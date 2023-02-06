@@ -16,6 +16,7 @@ const CommonContextProviderMock: FC<IContextProvider> = ({ children }) => {
           tableOfContents: tableOfContentsStateMock,
           pagination: paginationStateMock,
           breadClumb: breadCrumbStateMock,
+          isViewSidenav: true,
         },
         dispatch: () => null,
       }}

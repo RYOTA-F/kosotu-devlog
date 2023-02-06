@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { TagContext, initialTagState } from '@/stores/tag'
-import { tagStateMock } from './mock'
+import { tagsMock } from '@/logic/usecase/microCMS/tag/__mocks__'
 import { IContextProvider } from '../../types'
 
 const TagContextProviderMock: FC<IContextProvider> = ({ children }) => {
@@ -9,7 +9,7 @@ const TagContextProviderMock: FC<IContextProvider> = ({ children }) => {
       value={{
         state: {
           ...initialTagState,
-          tag: tagStateMock,
+          tag: tagsMock[0],
         },
         dispatch: () => null,
       }}

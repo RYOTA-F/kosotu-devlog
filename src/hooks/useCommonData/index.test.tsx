@@ -21,6 +21,7 @@ jest.spyOn(React, 'useContext').mockImplementation(() => ({
     breadClumb: breadCrumbStateMock,
     tableOfContents: tableOfContentsStateMock,
     pagination: paginationStateMock,
+    isViewSidenav: false,
   } as ICommonState,
   dispatch: dispatchMock,
 }))
@@ -103,6 +104,14 @@ describe('useCommonData', () => {
       const { result } = renderHook(() => useCommonData())
 
       expect(result.current.seoImage).toEqual(initialCommonState.seo.image)
+    })
+  })
+
+  describe('isViewSidenav', () => {
+    test('state のデータがセットされる', () => {
+      const { result } = renderHook(() => useCommonData())
+
+      expect(result.current.isViewSidenav).toEqual(false)
     })
   })
 
@@ -208,6 +217,32 @@ describe('useCommonData', () => {
       expect(dispatchMock).toBeCalledWith({
         type: COMMON_ACTION_TYPES.UPDATE_SEO,
         payload: initialCommonState.seo,
+      })
+    })
+  })
+
+  describe('onChangeIsViewSidenav', () => {
+    test('dispatch に適切な引数が渡される', () => {
+      const { result } = renderHook(() => useCommonData())
+      act(() => result.current.onChangeIsViewSidenav())
+
+      expect(dispatchMock).toBeCalled()
+      expect(dispatchMock).toBeCalledWith({
+        type: COMMON_ACTION_TYPES.UPDATE_IS_VIEW_SIDENAV,
+        payload: !result.current.isViewSidenav,
+      })
+    })
+  })
+
+  describe('onCloseIsViewSidenav', () => {
+    test('dispatch に適切な引数が渡される', () => {
+      const { result } = renderHook(() => useCommonData())
+      act(() => result.current.onCloseIsViewSidenav())
+
+      expect(dispatchMock).toBeCalled()
+      expect(dispatchMock).toBeCalledWith({
+        type: COMMON_ACTION_TYPES.UPDATE_IS_VIEW_SIDENAV,
+        payload: false,
       })
     })
   })

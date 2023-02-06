@@ -4,7 +4,7 @@ import BreadCrumb from '.'
 import CommonContextProviderMock from '@/stores/__mocks__/common'
 
 export default {
-  title: 'Molecules/BreadCrumb',
+  title: 'Organisms/BreadCrumb',
   component: BreadCrumb,
 }
 
