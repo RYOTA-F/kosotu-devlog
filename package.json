@@ -12,7 +12,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --collectCoverage",
-    "test:verbose": "jest --verbose"
+    "test:verbose": "jest --verbose",
+    "chromatic": "npx chromatic --auto-accept-changes --project-token= "
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -50,6 +51,7 @@
     "@types/react-scroll": "^1.8.5",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "babel-loader": "^8.3.0",
+    "chromatic": "^6.15.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-storybook": "^0.6.8",
@@ -61,5 +63,7 @@
     "prettier": "^2.8.1",
     "storybook-addon-next": "^1.7.1",
     "ts-jest": "^29.0.3"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "kosotu-devlog@0.1.0"
 }
