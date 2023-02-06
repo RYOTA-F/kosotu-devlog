@@ -1,41 +1,21 @@
 import type { IGetBlogsResponse, IGetBlogByIdResponse } from '../index'
+import { IBreadCrumb } from '@/types/index'
+import {
+  breadCrumbStateMock,
+  seoStateMock,
+} from '@/stores/__mocks__/common/mock'
+import { blogsMock } from './blogs'
 
 export const getBlogsMock: IGetBlogsResponse = {
-  blogs: [],
-  totalPage: 2,
+  blogs: blogsMock,
+  totalPage: 3,
 }
 
 export const getBlogByIdMock: IGetBlogByIdResponse = {
-  blog: {
-    id: '',
-    title: '',
-    description: '',
-    body: '',
-    image: {
-      url: '',
-      height: 100,
-      width: 100,
-    },
-    createdAt: '',
-    updatedAt: '',
-    publishedAt: '',
-    oldPublishedAt: '',
-    revisedAt: '',
-    categories: [],
-    tags: [],
-  },
+  blog: blogsMock[0],
   tableOfContents: [],
-  breadCrumb: {
-    categoryParentId: null,
-    categoryParentName: null,
-    categoryChildId: null,
-    categoryChildName: null,
-    currentName: null,
-  },
-  seo: {
-    title: '',
-    description: '',
-    url: '',
-    image: '',
-  },
+  breadCrumb: breadCrumbStateMock as IBreadCrumb,
+  seo: seoStateMock,
 }
+
+export * from './blogs'

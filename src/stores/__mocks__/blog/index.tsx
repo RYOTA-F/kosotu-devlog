@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { BlogContext, initialBlogState } from '@/stores/blog'
-import { blogsStateMock } from './mock'
-import { IContextProvider } from '../../types'
+import type { IContextProvider } from '@/stores/types'
+import { blogsMock } from '@/logic/usecase/microCMS/blog/__mocks__'
 
 const BlogContextProviderMock: FC<IContextProvider> = ({ children }) => {
   return (
@@ -9,7 +9,7 @@ const BlogContextProviderMock: FC<IContextProvider> = ({ children }) => {
       value={{
         state: {
           ...initialBlogState,
-          blogs: blogsStateMock,
+          blogs: blogsMock,
         },
         dispatch: () => null,
       }}
