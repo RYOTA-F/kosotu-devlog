@@ -9,6 +9,8 @@
 
 [https://kosotu-devlog.vercel.app/](https://kosotu-devlog.vercel.app/)
 
+[Storybook](https://62dd4fd7983a98740d32bdd0-fbwjukiopg.chromatic.com/)
+
 ## Run
 
 ### Dev
