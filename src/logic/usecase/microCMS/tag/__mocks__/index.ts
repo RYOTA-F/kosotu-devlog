@@ -1,30 +1,19 @@
 import { IGetTagsResponse, IGetTagByIdResponse } from '../types'
+import { tagsMock } from './tags'
+import { IBreadCrumb } from '@/types/index'
+import {
+  breadCrumbStateMock,
+  seoStateMock,
+} from '@/stores/__mocks__/common/mock'
 
 export const getTagsMock: IGetTagsResponse = {
-  tags: [],
+  tags: tagsMock,
 }
 
 export const getTagByIdMock: IGetTagByIdResponse = {
-  tag: {
-    id: '',
-    createdAt: '',
-    updatedAt: '',
-    publishedAt: '',
-    revisedAt: '',
-    name: '',
-    blogs: [],
-  },
-  breadCrumb: {
-    categoryParentId: null,
-    categoryParentName: null,
-    categoryChildId: null,
-    categoryChildName: null,
-    currentName: null,
-  },
-  seo: {
-    title: '',
-    description: '',
-    url: '',
-    image: '',
-  },
+  tag: tagsMock[0],
+  breadCrumb: breadCrumbStateMock as IBreadCrumb,
+  seo: seoStateMock,
 }
+
+export * from './tags'
