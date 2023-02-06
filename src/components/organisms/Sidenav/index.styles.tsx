@@ -8,25 +8,27 @@ export const Wrapper = styled.nav<{ isView: boolean }>`
   right: ${({ isView }) => (isView ? 0 : '-120%')};
   height: calc(100vh - ${HEADER.HEIGHT.SP}px);
   width: 100vw;
-  padding: ${SIZE.SPACE.X16} ${SIZE.SPACE.X36};
   background-color: ${COLOR.GRAY_SCALE.WHITE};
   transition: all 0.6s;
+  overflow-y: scroll;
+`
+
+export const Container = styled.div`
+  width: 100vw;
+  padding-top: 20px;
 `
 
 export const Label = styled.h2`
-  display: block;
-  position: absolute;
-  width: 80vw;
-  left: 50%;
-  transform: translateX(-43%);
+  margin: 0 auto;
+  padding: ${SIZE.SPACE.X8} ${SIZE.SPACE.X12};
+  width: 80%;
   background-color: ${COLOR.BLUE_GROUP.MAIN};
   font-size: ${SIZE.FONT.X16};
-  padding: ${SIZE.SPACE.X8} ${SIZE.SPACE.X12};
 `
 
 export const MenuList = styled.ul`
   width: 80%;
-  padding: ${SIZE.SPACE.X60} ${SIZE.SPACE.X72};
+  margin: ${SIZE.SPACE.X12} auto;
 `
 
 export const MenuItem = styled.li<{ isChild?: boolean }>`
