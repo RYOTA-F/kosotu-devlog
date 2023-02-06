@@ -59,5 +59,32 @@ export const blogCard = css`
       color: ${COLOR.GRAY_SCALE.GRAY.TEXT_3};
       font-size: ${SIZE.FONT.X8};
     }
+
+    @media screen and (max-width: 539px) {
+      padding: ${SIZE.SPACE.X12};
+
+      &__img {
+        max-width: 30%;
+      }
+
+      &__content {
+        margin-left: ${SIZE.SPACE.X12};
+      }
+
+      &__title {
+        -webkit-line-clamp: 3;
+        font-size: ${SIZE.FONT.X14};
+        font-weight: normal;
+        line-height: 1.2;
+      }
+
+      &__description {
+        display: none;
+      }
+
+      &__site {
+        display: none;
+      }
+    }
   }
 `
