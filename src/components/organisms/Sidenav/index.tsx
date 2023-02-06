@@ -9,6 +9,7 @@ import useCommonData from '@/hooks/useCommonData'
 /* Styles */
 import {
   Wrapper,
+  Container,
   Label,
   MenuList,
   MenuItem,
@@ -23,33 +24,34 @@ const Sidenav: FC = () => {
 
   return (
     <Wrapper isView={isViewSidenav} aria-label={ARIA_LABEL}>
-      <Label>{LABEL}</Label>
-
-      <MenuList>
-        {GROBAL_MENU_LIST.map((parent) => (
-          <div key={parent.LABEL}>
-            <MenuItem>
-              <Link href={parent.URL}>
-                <ChevronRightSvgWrapper>
-                  <ChevronRightSvg height={12} width={12} />
-                </ChevronRightSvgWrapper>
-                {parent.LABEL}
-              </Link>
-            </MenuItem>
-
-            {parent.LIST.map((children) => (
-              <MenuItem isChild key={children.LABEL}>
-                <Link href={children.URL}>
+      <Container>
+        <Label>{LABEL}</Label>
+        <MenuList>
+          {GROBAL_MENU_LIST.map((parent) => (
+            <div key={parent.LABEL}>
+              <MenuItem>
+                <Link href={parent.URL}>
                   <ChevronRightSvgWrapper>
                     <ChevronRightSvg height={12} width={12} />
                   </ChevronRightSvgWrapper>
-                  {children.LABEL}
+                  {parent.LABEL}
                 </Link>
               </MenuItem>
-            ))}
-          </div>
-        ))}
-      </MenuList>
+
+              {parent.LIST.map((children) => (
+                <MenuItem isChild key={children.LABEL}>
+                  <Link href={children.URL}>
+                    <ChevronRightSvgWrapper>
+                      <ChevronRightSvg height={12} width={12} />
+                    </ChevronRightSvgWrapper>
+                    {children.LABEL}
+                  </Link>
+                </MenuItem>
+              ))}
+            </div>
+          ))}
+        </MenuList>
+      </Container>
     </Wrapper>
   )
 }
