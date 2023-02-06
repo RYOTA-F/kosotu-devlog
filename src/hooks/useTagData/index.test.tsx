@@ -3,13 +3,13 @@ import { renderHook, act } from '@testing-library/react'
 
 import useTagData from './'
 import { initialTagState, ITagState, TAG_ACTION_TYPES } from '@/stores/tag'
-import { tagStateMock } from '@/stores/__mocks__/tag/mock'
+import { tagsMock } from '@/logic/usecase/microCMS/tag/__mocks__'
 
 const dispatchMock = jest.fn()
 jest.spyOn(React, 'useContext').mockImplementation(() => ({
   state: {
     ...initialTagState,
-    tag: tagStateMock,
+    tag: tagsMock[0],
   } as ITagState,
   dispatch: dispatchMock,
 }))
@@ -23,19 +23,19 @@ describe('useTagData', () => {
     test('state のデータがセットされる', () => {
       const { result } = renderHook(() => useTagData())
 
-      expect(result.current.tag).toEqual(tagStateMock)
+      expect(result.current.tag).toEqual(tagsMock[0])
     })
   })
 
   describe('setTag', () => {
     test('dispatch に適切な引数が渡される', () => {
       const { result } = renderHook(() => useTagData())
-      act(() => result.current.setTag(tagStateMock))
+      act(() => result.current.setTag(tagsMock[0]))
 
       expect(dispatchMock).toBeCalled()
       expect(dispatchMock).toBeCalledWith({
         type: TAG_ACTION_TYPES.UPDATE_TAG,
-        payload: tagStateMock,
+        payload: tagsMock[0],
       })
     })
   })

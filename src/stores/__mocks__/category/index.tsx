@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { CategoryContext, initialCategoryState } from '@/stores/category'
-import { categoryStateMock } from './mock'
-import { IContextProvider } from '../../types'
+import { categoriesMock } from '@/logic/usecase/microCMS/category/__mocks__'
+import { IContextProvider } from '@/stores/types'
 
 const CategoryContextProviderMock: FC<IContextProvider> = ({ children }) => {
   return (
@@ -9,7 +9,7 @@ const CategoryContextProviderMock: FC<IContextProvider> = ({ children }) => {
       value={{
         state: {
           ...initialCategoryState,
-          category: categoryStateMock,
+          category: categoriesMock[0],
         },
         dispatch: () => null,
       }}

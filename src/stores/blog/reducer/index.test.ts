@@ -4,14 +4,14 @@ import {
   BLOG_ACTION_TYPES,
   TBlogActions,
 } from '../'
-import { blogsStateMock } from '@/stores/__mocks__/blog/mock'
+import { blogsMock } from '@/logic/usecase/microCMS/blog/__mocks__'
 
 describe('blogReducer', () => {
   describe(`${BLOG_ACTION_TYPES.UPDATE_BLOGS}`, () => {
     test('blogs が更新される', () => {
       const action: TBlogActions = {
         type: BLOG_ACTION_TYPES.UPDATE_BLOGS,
-        payload: blogsStateMock,
+        payload: blogsMock,
       }
 
       expect(blogReducer(initialBlogState, action)).toEqual({
@@ -25,12 +25,12 @@ describe('blogReducer', () => {
     test('totalCount が更新される', () => {
       const action: TBlogActions = {
         type: BLOG_ACTION_TYPES.UPDATE_TOTAL_COUNT,
-        payload: blogsStateMock.length,
+        payload: blogsMock.length,
       }
 
       expect(blogReducer(initialBlogState, action)).toEqual({
         ...initialBlogState,
-        totalCount: blogsStateMock.length,
+        totalCount: blogsMock.length,
       })
     })
   })
