@@ -11,8 +11,8 @@ export const BreadCrumbWrapper = styled.ol<{ isSP: boolean }>`
   box-shadow: inset 0 -1px 8px rgb(0 0 0 / 6%);
   font-size: ${SIZE.FONT.X12};
   max-width: 100%;
-  overflow: scroll;
   white-space: nowrap;
+  ${({ isSP }) => isSP && 'overflow: scroll'};
 `
 
 export const ListItem = styled.li`
