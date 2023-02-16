@@ -55,6 +55,33 @@ export const GROBAL_MENU = {
   },
 } as const
 
+export const GROBAL_MENU2 = {
+  FRONT_END: {
+    LABEL: CATEGORY_PARENT.FRONT_END.NAME,
+    URL: `${PAGE.CATEGORY}${CATEGORY_PARENT.FRONT_END.ID}`,
+  },
+  BACK_END: {
+    LABEL: CATEGORY_PARENT.BACK_END.NAME,
+    URL: `${PAGE.CATEGORY}${CATEGORY_PARENT.BACK_END.ID}`,
+  },
+  INFRA: {
+    LABEL: CATEGORY_PARENT.INFRA.NAME,
+    URL: `${PAGE.CATEGORY}${CATEGORY_PARENT.INFRA.ID}`,
+  },
+  EVENT: {
+    LABEL: CATEGORY_PARENT.EVENT.NAME,
+    URL: `${PAGE.CATEGORY}${CATEGORY_PARENT.EVENT.ID}`,
+  },
+  SITE_MAP: {
+    LABEL: 'サイトマップ',
+    URL: PAGE.SITE_MAP,
+  },
+  PROFILE: {
+    LABEL: 'プロフィール',
+    URL: PAGE.PROFILE,
+  },
+}
+
 export const SUB_MENU = {
   PRIVACY_POLICY: {
     LABEL: 'プライバシーポリシー',

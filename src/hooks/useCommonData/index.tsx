@@ -13,6 +13,8 @@ import { IBreadCrumb, ITableOfContents } from '@/types/index'
 const useCommonData = () => {
   const { state, dispatch } = useContext(CommonContext)
 
+  // グローバルメニュー
+  const globalMenu = state.globalMenu
   // パンくず
   const breadCrumb = state.breadClumb
   // 目次
@@ -125,6 +127,7 @@ const useCommonData = () => {
   }, [])
 
   return {
+    globalMenu,
     breadCrumb,
     setBreadCrumb,
     resetBreadCrumb,
