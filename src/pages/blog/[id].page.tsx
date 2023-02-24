@@ -9,7 +9,12 @@ import DefaultLayout from '@/components/layouts/DefaultLayout'
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
 /* Types */
-import { IBlog, ITableOfContents, IBreadCrumb } from '@/types/index'
+import {
+  IBlog,
+  ITableOfContents,
+  IBreadCrumb,
+  IGlobalMenu,
+} from '@/types/index'
 import { ISeoState } from '@/stores/common'
 
 interface IBlogPage {
@@ -17,6 +22,7 @@ interface IBlogPage {
   tableOfContents: ITableOfContents[]
   breadCrumb: IBreadCrumb
   seo: ISeoState
+  globalMenu: IGlobalMenu[]
 }
 
 const BlogPage: NextPage<IBlogPage> = ({
@@ -24,9 +30,12 @@ const BlogPage: NextPage<IBlogPage> = ({
   tableOfContents,
   breadCrumb,
   seo,
+  globalMenu,
 }) => {
   const { setBlogs, resetBlogs } = useBlogData()
   const {
+    setGlobalMenu,
+    resetGlobalMenu,
     setBreadCrumb,
     resetBreadCrumb,
     setTableOfContents,
@@ -40,14 +49,16 @@ const BlogPage: NextPage<IBlogPage> = ({
     setTableOfContents(tableOfContents)
     setBreadCrumb(breadCrumb)
     setSeo(seo)
+    setGlobalMenu(globalMenu)
 
     return () => {
       resetBlogs()
       resetTableOfContents()
       resetBreadCrumb()
       resetSeo()
+      resetGlobalMenu
     }
-  }, [blog, tableOfContents, breadCrumb, seo])
+  }, [blog, tableOfContents, breadCrumb, seo, globalMenu])
 
   // Twitter Embed Scriptをロード
   useEffect(() => {

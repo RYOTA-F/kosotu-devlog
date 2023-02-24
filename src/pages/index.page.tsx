@@ -34,7 +34,7 @@ const Home: NextPage<IHome> = ({ blogs, pagination, globalMenu }) => {
       resetPagination()
       resetGlobalMenu()
     }
-  }, [blogs, pagination])
+  }, [blogs, pagination, globalMenu])
 
   return (
     <DefaultLayout>
