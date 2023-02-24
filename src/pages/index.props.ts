@@ -3,6 +3,7 @@ import type { GetStaticProps } from 'next'
 import { PAGINATION } from '@/const/index'
 /* Logic */
 import { MicroCmsUsecaseBlog } from '@/logic/usecase/microCMS/blog'
+import { MicroCmsUsecaseCategory } from '@/logic/usecase/microCMS/category'
 /* Types */
 import { IPaginationState } from '@/stores/common'
 
@@ -13,11 +14,15 @@ const HOME_PAGE_ID = 1 as const
  */
 export const getStaticProps: GetStaticProps = async () => {
   const microCmsUsecaseBlog = new MicroCmsUsecaseBlog()
+  const microCmsUsecaseCategory = new MicroCmsUsecaseCategory()
 
   // ブログ一覧取得
   const { blogs, totalPage } = await microCmsUsecaseBlog.getBlogs({
     limit: true,
   })
+
+  // グローバルメニュー取得
+  const globalMenu = await microCmsUsecaseCategory.getGlobalMenu()
 
   // ページネーション生成
   const pagination: IPaginationState = {
@@ -30,6 +35,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       blogs,
       pagination,
+      globalMenu,
     },
   }
 }

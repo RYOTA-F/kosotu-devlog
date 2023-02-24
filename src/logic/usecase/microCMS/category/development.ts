@@ -1,5 +1,9 @@
 import type { IMicroCmsUsecaseCategory } from './types'
-import { getCategoriesMock, getCategoryByIdMock } from './__mocks__'
+import {
+  getCategoriesMock,
+  getCategoryByIdMock,
+  getGlobalMenuMock,
+} from './__mocks__'
 
 export class MicroCmsUsecaseCategoryDev implements IMicroCmsUsecaseCategory {
   getCategories: IMicroCmsUsecaseCategory['getCategories'] = async () =>
@@ -11,4 +15,6 @@ export class MicroCmsUsecaseCategoryDev implements IMicroCmsUsecaseCategory {
     console.log(`Called [ getBlogByID > id: ${params.id}]`)
     return Promise.resolve(getCategoryByIdMock)
   }
+  getGlobalMenu: IMicroCmsUsecaseCategory['getGlobalMenu'] = async () =>
+    Promise.resolve(getGlobalMenuMock)
 }

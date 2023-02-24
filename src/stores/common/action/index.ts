@@ -1,7 +1,9 @@
 import { IBreadCrumb, ITableOfContents } from '@/types/microCMS/blog'
+import { IGlobalMenu } from '@/types/index'
 import { IPaginationState, ISeoState } from '../state'
 
 const COMMON_ACTION_TYPES = {
+  UPDATE_GLOBAL_MENU: 'UPDATE_GLOBAL_MENU',
   UPDATE_BREAD_CRUMB: 'UPDATE_BREAD_CRUMB',
   UPDATE_TABLE_OF_CONTENTS: 'UPDATE_TABLE_OF_CONTENTS',
   UPDATE_CURRENT_PAGE: 'UPDATE_CURRENT_PAGE',
@@ -14,6 +16,12 @@ const COMMON_ACTION_TYPES = {
 type TCommonActionTypesConst = typeof COMMON_ACTION_TYPES
 type TCommonActionTypes =
   TCommonActionTypesConst[keyof typeof COMMON_ACTION_TYPES]
+
+/* グローバルメニュー更新 */
+type TUpdateGlobalMenuAction = {
+  type: TCommonActionTypesConst['UPDATE_GLOBAL_MENU']
+  payload: IGlobalMenu[]
+}
 
 /* パンくず更新 */
 type TUpdateBreadCrumbAction = {
@@ -46,6 +54,7 @@ type IUpdateIsViewSidenav = {
 }
 
 type TCommonActions =
+  | TUpdateGlobalMenuAction
   | TUpdateBreadCrumbAction
   | TUpdateTableOfContentsAction
   | IUpdatePagination

@@ -21,4 +21,6 @@ export class MicroCmsUsecaseCategory implements IMicroCmsUsecaseCategory {
   getCategoryById: IMicroCmsUsecaseCategory['getCategoryById'] = async (
     params
   ) => this.instance.getCategoryById(params)
+  getGlobalMenu: IMicroCmsUsecaseCategory['getGlobalMenu'] = async () =>
+    this.instance.getGlobalMenu()
 }

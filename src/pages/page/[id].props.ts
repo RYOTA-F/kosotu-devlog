@@ -2,6 +2,7 @@ import type { GetStaticProps } from 'next'
 import { PAGINATION } from '@/const/index'
 /* Logic */
 import { MicroCmsUsecaseBlog } from '@/logic/usecase/microCMS/blog'
+import { MicroCmsUsecaseCategory } from '@/logic/usecase/microCMS/category'
 /* Types */
 import { IPaginationState } from '@/stores/common'
 /* Utils */
@@ -14,6 +15,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) return { notFound: true }
 
   const microCmsUsecaseBlog = new MicroCmsUsecaseBlog()
+  const microCmsUsecaseCategory = new MicroCmsUsecaseCategory()
 
   // IDチェック
   const id = checkContextId(context.params.id)
@@ -34,10 +36,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
     type: PAGINATION.BLOG,
   }
 
+  // グローバルメニュー取得
+  const globalMenu = await microCmsUsecaseCategory.getGlobalMenu()
+
   return {
     props: {
       blogs,
       pagination,
+      globalMenu,
     },
   }
 }

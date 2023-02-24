@@ -1,4 +1,4 @@
-import type { ICategory, IBreadCrumb, ISeo } from '@/types/index'
+import type { ICategory, IBreadCrumb, ISeo, IGlobalMenu } from '@/types/index'
 
 export interface IGetCategoriesResponse {
   categories: ICategory[]
@@ -19,4 +19,5 @@ export interface IMicroCmsUsecaseCategory {
   getCategoryById: (
     params: IGetCategoryByIdParams
   ) => Promise<IGetCategoryByIdResponse>
+  getGlobalMenu: () => Promise<IGlobalMenu[]>
 }

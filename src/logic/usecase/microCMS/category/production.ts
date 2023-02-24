@@ -8,6 +8,7 @@ import { ICategoryApiResponse } from '@/types/microCMS/category'
 /* Utils */
 import { getBreadCrumbDataFromCategory } from './utils/getBreadCrumb'
 import { getSeoFromCategory } from './utils/getSeo'
+import { getGlobalMenu } from './utils/getGlobalMenu'
 
 export class MicroCmsUsecaseCategoryProd implements IMicroCmsUsecaseCategory {
   getCategories: IMicroCmsUsecaseCategory['getCategories'] = async () => {
@@ -47,5 +48,15 @@ export class MicroCmsUsecaseCategoryProd implements IMicroCmsUsecaseCategory {
       breadCrumb,
       seo,
     }
+  }
+
+  getGlobalMenu: IMicroCmsUsecaseCategory['getGlobalMenu'] = async () => {
+    const categories = await client.get<ICategoryApiResponse>({
+      endpoint: API.CATEGORY.END_POINT,
+      // デフォルトで limitが10件 になるのを解除
+      queries: { limit: 9999 },
+    })
+
+    return getGlobalMenu(categories.contents)
   }
 }
