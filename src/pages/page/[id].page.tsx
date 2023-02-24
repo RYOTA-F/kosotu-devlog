@@ -11,27 +11,31 @@ import Pagination from '@/components/organisms/Pagination'
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
 /* Types */
-import { IBlog } from '@/types/index'
+import { IBlog, IGlobalMenu } from '@/types/index'
 import { IPaginationState } from '@/stores/common'
 
 interface IPage {
   blogs: IBlog[]
   pagination: IPaginationState
+  globalMenu: IGlobalMenu[]
 }
 
-const Page: NextPage<IPage> = ({ blogs, pagination }) => {
+const Page: NextPage<IPage> = ({ blogs, pagination, globalMenu }) => {
   const { setBlogs, resetBlogs } = useBlogData()
-  const { setPagination, resetPagination } = useCommonData()
+  const { setGlobalMenu, resetGlobalMenu, setPagination, resetPagination } =
+    useCommonData()
 
   useEffect(() => {
     setBlogs(blogs)
     setPagination(pagination)
+    setGlobalMenu(globalMenu)
 
     return () => {
       resetBlogs()
       resetPagination()
+      resetGlobalMenu()
     }
-  }, [blogs, pagination])
+  }, [blogs, pagination, globalMenu])
 
   return (
     <DefaultLayout>

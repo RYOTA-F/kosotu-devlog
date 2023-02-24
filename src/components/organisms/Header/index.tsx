@@ -6,10 +6,11 @@ import HamburgerMenu from '@/components/atoms/HamburgerMenu'
 import AccordionMenu from '@/components/molecules/AccordionMenu'
 import Sidenav from '@/components/organisms/Sidenav'
 /* Const */
-import { SITE, PAGE, GROBAL_MENU_LIST, TWITTER } from '@/const/index'
+import { SITE, PAGE, TWITTER } from '@/const/index'
 import { HEADER, ARIA_LABEL } from './const'
 /* Hooks */
 import useMediaQuery from '@/hooks/useMediaQuery'
+import useCommonData from '@/hooks/useCommonData'
 /* Styles */
 import {
   HeaderBar,
@@ -23,6 +24,7 @@ import {
 } from './index.styles'
 
 const Header: FC = () => {
+  const { globalMenu } = useCommonData()
   const { isPC, isTB } = useMediaQuery()
 
   return (
@@ -53,14 +55,14 @@ const Header: FC = () => {
 
         {isPC && (
           <MenuList>
-            {GROBAL_MENU_LIST.map((v) => (
-              <MenuItem key={v.URL}>
+            {globalMenu.map((v) => (
+              <MenuItem key={v.label}>
                 <AccordionMenu
-                  label={v.LABEL}
-                  path={v.URL}
-                  menuList={v.LIST.map((v) => ({
-                    label: v.LABEL,
-                    path: v.URL,
+                  label={v.label}
+                  path={v.url}
+                  menuList={v.children.map((children) => ({
+                    label: children.label,
+                    path: children.url,
                   }))}
                 />
               </MenuItem>

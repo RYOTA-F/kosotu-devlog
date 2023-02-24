@@ -19,11 +19,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { category, breadCrumb, seo } =
     await microCmsUsecaseCategory.getCategoryById({ id })
 
+  // グローバルメニュー取得
+  const globalMenu = await microCmsUsecaseCategory.getGlobalMenu()
+
   return {
     props: {
       category,
       breadCrumb,
       seo,
+      globalMenu,
     },
   }
 }

@@ -2,6 +2,7 @@ import { ICommonState } from './types'
 import { SITE } from '@/const/index'
 
 export const initialCommonState: ICommonState = {
+  globalMenu: [],
   breadClumb: undefined,
   tableOfContents: [],
   pagination: {

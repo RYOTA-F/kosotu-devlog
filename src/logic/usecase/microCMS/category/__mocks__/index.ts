@@ -1,6 +1,6 @@
 import { IGetCategoriesResponse, IGetCategoryByIdResponse } from '../types'
 import { categoriesMock } from './categories'
-import { IBreadCrumb } from '@/types/index'
+import { IBreadCrumb, IGlobalMenu } from '@/types/index'
 import {
   breadCrumbStateMock,
   seoStateMock,
@@ -15,5 +15,13 @@ export const getCategoryByIdMock: IGetCategoryByIdResponse = {
   breadCrumb: breadCrumbStateMock as IBreadCrumb,
   seo: seoStateMock,
 }
+
+export const getGlobalMenuMock: IGlobalMenu[] = [
+  {
+    label: 'フロントエンド',
+    url: 'category/front-end',
+    children: [],
+  },
+]
 
 export * from './categories'

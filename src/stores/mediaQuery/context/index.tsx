@@ -1,5 +1,5 @@
 import { FC, createContext, useMemo } from 'react'
-import useMedia from 'use-media'
+import { useMedia } from 'use-media'
 /* Const */
 import { MEDIA_QUERY } from '../const'
 /* Types */

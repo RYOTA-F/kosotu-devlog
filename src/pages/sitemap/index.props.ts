@@ -16,12 +16,15 @@ export const getStaticProps: GetStaticProps = async () => {
   const { blogs } = await microCmsUsecaseBlog.getBlogs()
   // カテゴリ一覧取得
   const { categories } = await microCmsUsecaseCategory.getCategories()
+  // グローバルメニュー取得
+  const globalMenu = await microCmsUsecaseCategory.getGlobalMenu()
   // サイトマップ生成
   const sitemap = createSitemapData(blogs, categories)
 
   return {
     props: {
       sitemap,
+      globalMenu,
     },
   }
 }

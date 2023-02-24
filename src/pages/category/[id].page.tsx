@@ -11,6 +11,7 @@ import useCommonData from '@/hooks/useCommonData'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Types */
+import { IGlobalMenu } from '@/types/index'
 import { IBreadCrumb } from '@/types/microCMS/blog'
 import { ICategory } from '@/types/microCMS/category'
 import { ISeoState } from '@/stores/common'
@@ -19,14 +20,18 @@ export interface ICategoryPage {
   category: ICategory
   breadCrumb: IBreadCrumb
   seo: ISeoState
+  globalMenu: IGlobalMenu[]
 }
 
 const CategoryPage: NextPage<ICategoryPage> = ({
   category,
   breadCrumb,
   seo,
+  globalMenu,
 }) => {
   const {
+    setGlobalMenu,
+    resetGlobalMenu,
     setBreadCrumb,
     resetBreadCrumb,
     setSeo,
@@ -37,6 +42,7 @@ const CategoryPage: NextPage<ICategoryPage> = ({
   const { setCategory, resetCategory } = useCategoryData()
 
   useEffect(() => {
+    setGlobalMenu(globalMenu)
     setBreadCrumb(breadCrumb)
     setBlogs(category.blogs)
     setCategory(category)
@@ -44,12 +50,13 @@ const CategoryPage: NextPage<ICategoryPage> = ({
     onCloseIsViewSidenav()
 
     return () => {
+      resetGlobalMenu()
       resetBreadCrumb()
       resetBlogs()
       resetCategory()
       resetSeo()
     }
-  }, [category, breadCrumb, seo])
+  }, [globalMenu, category, breadCrumb, seo])
 
   return (
     <DefaultLayout>
