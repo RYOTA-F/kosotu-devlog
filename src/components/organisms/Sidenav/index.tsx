@@ -2,8 +2,6 @@ import { FC } from 'react'
 import Link from 'next/link'
 /* Components */
 import { ChevronRightSvg } from '@/components/atoms/Svg'
-/* Const */
-import { GROBAL_MENU_LIST } from '@/const/index'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
 /* Styles */
@@ -20,31 +18,31 @@ export const ARIA_LABEL = 'sidenav' as const
 export const LABEL = 'MENU' as const
 
 const Sidenav: FC = () => {
-  const { isViewSidenav } = useCommonData()
+  const { globalMenu, isViewSidenav } = useCommonData()
 
   return (
     <Wrapper isView={isViewSidenav} aria-label={ARIA_LABEL}>
       <Container>
         <Label>{LABEL}</Label>
         <MenuList>
-          {GROBAL_MENU_LIST.map((parent) => (
-            <div key={parent.LABEL}>
+          {globalMenu.map((parent) => (
+            <div key={parent.label}>
               <MenuItem>
-                <Link href={parent.URL}>
+                <Link href={parent.url}>
                   <ChevronRightSvgWrapper>
                     <ChevronRightSvg height={12} width={12} />
                   </ChevronRightSvgWrapper>
-                  {parent.LABEL}
+                  {parent.label}
                 </Link>
               </MenuItem>
 
-              {parent.LIST.map((children) => (
-                <MenuItem isChild key={children.LABEL}>
-                  <Link href={children.URL}>
+              {parent.children.map((children) => (
+                <MenuItem isChild key={children.label}>
+                  <Link href={children.url}>
                     <ChevronRightSvgWrapper>
                       <ChevronRightSvg height={12} width={12} />
                     </ChevronRightSvgWrapper>
-                    {children.LABEL}
+                    {children.label}
                   </Link>
                 </MenuItem>
               ))}

@@ -7,6 +7,12 @@ export const commonReducer: Reducer<ICommonState, TCommonActions> = (
   action
 ) => {
   switch (action.type) {
+    // グローバルメニュー更新
+    case COMMON_ACTION_TYPES.UPDATE_GLOBAL_MENU:
+      return {
+        ...state,
+        globalMenu: action.payload,
+      }
     // パンくず更新
     case COMMON_ACTION_TYPES.UPDATE_BREAD_CRUMB:
       return {

@@ -10,8 +10,8 @@ import {
 import {
   tableOfContentsStateMock,
   paginationStateMock,
+  breadCrumbStateMock,
 } from '@/stores/__mocks__/common/mock'
-import { breadCrumbStateMock } from '@/stores/__mocks__/common/mock'
 import { IBreadCrumb } from '@/types/index'
 
 const dispatchMock = jest.fn()

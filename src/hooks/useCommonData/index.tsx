@@ -8,7 +8,7 @@ import {
   ISeoState,
 } from '@/stores/common'
 /* Types */
-import { IBreadCrumb, ITableOfContents } from '@/types/index'
+import { IBreadCrumb, IGlobalMenu, ITableOfContents } from '@/types/index'
 
 const useCommonData = () => {
   const { state, dispatch } = useContext(CommonContext)
@@ -35,6 +35,22 @@ const useCommonData = () => {
   const seoImage = state.seo.image
   // サイドナビゲーション開閉状態
   const isViewSidenav = state.isViewSidenav
+
+  /** グローバルメニューをセット */
+  const setGlobalMenu = (globalMenu: IGlobalMenu[]) => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_GLOBAL_MENU,
+      payload: globalMenu,
+    })
+  }
+
+  /** グローバルメニューをリセット */
+  const resetGlobalMenu = () => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_GLOBAL_MENU,
+      payload: [],
+    })
+  }
 
   /** パンくずをセット */
   const setBreadCrumb = (breadCrumb: IBreadCrumb) => {
@@ -128,6 +144,8 @@ const useCommonData = () => {
 
   return {
     globalMenu,
+    setGlobalMenu,
+    resetGlobalMenu,
     breadCrumb,
     setBreadCrumb,
     resetBreadCrumb,

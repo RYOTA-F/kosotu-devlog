@@ -1,4 +1,5 @@
 import { IBreadCrumb, ITableOfContents } from '@/types/microCMS/blog'
+import { IGlobalMenu } from '@/types/index'
 
 export interface ICommonState {
   globalMenu: IGlobalMenu[]
@@ -7,17 +8,6 @@ export interface ICommonState {
   pagination: IPaginationState
   seo: ISeoState
   isViewSidenav: boolean
-}
-
-export interface IMenu {
-  label: string
-  url: string
-}
-
-export interface IGlobalMenu {
-  label: string
-  url: string
-  children: IMenu[]
 }
 
 export interface ISeoState {
