@@ -9,8 +9,8 @@ import { IBlogCardData } from '@/types/microCMS/blog'
 export const getBlogCardDom = (blogCardData: IBlogCardData) => {
   // Twitterリンク
   if (
-    blogCardData.url.includes(TWITTER.URL) &&
-    !blogCardData.url.includes(TWITTER.CARD_LINK)
+    blogCardData?.url?.includes(TWITTER.URL) &&
+    !blogCardData?.url?.includes(TWITTER.CARD_LINK)
   ) {
     return getBlogCardTwitterDom(blogCardData)
   }
