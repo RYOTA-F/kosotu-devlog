@@ -87,4 +87,31 @@ export const blogCard = css`
       }
     }
   }
+
+  .blogCardTwitter {
+    display: flex;
+    align-items: center;
+    padding: ${SIZE.SPACE.X8} ${SIZE.SPACE.X12};
+    border-radius: 2px;
+    color: ${COLOR.GRAY_SCALE.GRAY.TEXT_1};
+    transition: 0.3s;
+    box-shadow: 0 1px 3px 1px rgb(0 0 0 / 8%);
+    position: relative;
+
+    :hover {
+      box-shadow: 0 2px 6px 2px rgb(0 0 0 / 16%);
+    }
+
+    &__content {
+      margin-left: ${SIZE.SPACE.X36};
+    }
+
+    &__site {
+      position: absolute;
+      bottom: 0;
+      right: 8px;
+      color: ${COLOR.GRAY_SCALE.GRAY.TEXT_3};
+      font-size: ${SIZE.FONT.X8};
+    }
+  }
 `
