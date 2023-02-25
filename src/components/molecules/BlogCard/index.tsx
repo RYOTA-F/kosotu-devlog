@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { TimeSvg } from '@/components/atoms/Svg'
 /* Const */
 import { ARIA_LABEL } from './const'
+/* Libs */
+import { formatDate } from '@/libs/dayjs'
 /* Styles */
 import {
   BlogCardWrapper,
@@ -33,7 +35,9 @@ const BlogCard: FC<IBlogCard> = ({ title, url, image, publishedAt }) => {
           <Title>{title}</Title>
           <DateWrapper>
             <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
-            <Date dateTime={publishedAt}>{publishedAt.slice(0, 10)}</Date>
+            <Date dateTime={formatDate(publishedAt)}>
+              {formatDate(publishedAt)}
+            </Date>
           </DateWrapper>
         </ContentWrapper>
       </Link>

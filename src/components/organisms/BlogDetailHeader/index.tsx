@@ -11,6 +11,8 @@ import { BLOG_DETAIL, IMAGE, ARIA_LABEL, TIME_ICON_SIZE } from './const'
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
 import useMediaQuery from '@/hooks/useMediaQuery'
+/* Libs */
+import { formatDate } from '@/libs/dayjs'
 /* Styles */
 import {
   BlogDetailHeaderWrapper,
@@ -48,13 +50,15 @@ const BlogDetailHeader: FC = () => {
           <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
           <Date
             dateTime={
-              blog.oldPublishedAt ? blog.oldPublishedAt : blog.publishedAt
+              blog.oldPublishedAt
+                ? formatDate(blog.oldPublishedAt)
+                : formatDate(blog.publishedAt)
             }
             isSP={isSP}
           >
             {blog.oldPublishedAt
-              ? blog.oldPublishedAt.slice(0, 10)
-              : blog.publishedAt.slice(0, 10)}
+              ? formatDate(blog.oldPublishedAt)
+              : formatDate(blog.publishedAt)}
           </Date>
         </DateWrapper>
       </DataWrapper>
