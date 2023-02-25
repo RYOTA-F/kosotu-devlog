@@ -11,7 +11,8 @@ import {
   Ul,
   Ol,
   Blockquote,
-  blogCard,
+  BlogCard,
+  Image,
   twitterEmbed,
 } from './styles'
 
@@ -26,7 +27,8 @@ export const BlogBodyWrapper = styled.div`
   ${Ul};
   ${Ol};
   ${Blockquote}
+  ${Image}
 
-  ${blogCard}
+  ${BlogCard}
   ${twitterEmbed}
 `
