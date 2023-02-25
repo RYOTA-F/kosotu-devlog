@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 /* Const */
 import { COLOR, SIZE } from '@/const/index'
 
-export const blogCard = css`
+export const BlogCard = css`
   .blogCard {
     display: flex;
     align-items: center;
