@@ -11,17 +11,24 @@ import useTagData from '@/src/hooks/useTagData'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Types */
-import { ITag, IBreadCrumb, IGlobalMenu } from '@/types/index'
+import { IBlog, ITag, IBreadCrumb, IGlobalMenu } from '@/types/index'
 import { ISeoState } from '@/stores/common'
 
 export interface ITagPage {
   tag: ITag
+  blogs: IBlog[]
   breadCrumb: IBreadCrumb
   seo: ISeoState
   globalMenu: IGlobalMenu[]
 }
 
-const TagPage: NextPage<ITagPage> = ({ tag, breadCrumb, seo, globalMenu }) => {
+const TagPage: NextPage<ITagPage> = ({
+  tag,
+  blogs,
+  breadCrumb,
+  seo,
+  globalMenu,
+}) => {
   const { setBlogs, resetBlogs } = useBlogData()
   const {
     setGlobalMenu,
@@ -34,7 +41,7 @@ const TagPage: NextPage<ITagPage> = ({ tag, breadCrumb, seo, globalMenu }) => {
   const { setTag, resetTag } = useTagData()
 
   useEffect(() => {
-    setBlogs(tag.blogs)
+    setBlogs(blogs)
     setBreadCrumb(breadCrumb)
     setTag(tag)
     setSeo(seo)

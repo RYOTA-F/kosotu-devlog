@@ -41,7 +41,7 @@ const BlogDetailHeader: FC = () => {
 
       <DataWrapper isSP={isSP}>
         <CategoryListWrapper>
-          <CategoryList categories={blog.categories} />
+          <CategoryList categories={[blog.categories[0]]} />
         </CategoryListWrapper>
         <TagListWrapper isSP={isSP}>
           <TagList tags={blog.tags} />

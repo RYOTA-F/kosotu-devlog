@@ -4,6 +4,7 @@ import { API } from '@/const/index'
 /* Lib */
 import { client } from '@/libs/index'
 /* Types */
+import { IBlogsApiResponse } from '@/types/microCMS/blog'
 import { ICategoryApiResponse } from '@/types/microCMS/category'
 /* Utils */
 import { getBreadCrumbDataFromCategory } from './utils/getBreadCrumb'
@@ -26,15 +27,27 @@ export class MicroCmsUsecaseCategoryProd implements IMicroCmsUsecaseCategory {
   getCategoryById: IMicroCmsUsecaseCategory['getCategoryById'] = async (
     params
   ) => {
-    const queries = {
+    const categoryQueries = {
       ids: params.id,
+    }
+
+    const blogQueries = {
+      filters: `categories[contains]${params.id}`,
       offset: params?.offset ? params?.offset : 0,
+      // TODO: リミット10件に設定
+      limit: 9999,
     }
 
     // カテゴリ情報を取得
     const { contents } = await client.get<ICategoryApiResponse>({
       endpoint: API.CATEGORY.END_POINT,
-      queries,
+      queries: categoryQueries,
+    })
+
+    // 投稿一覧を取得
+    const blogs = await client.get<IBlogsApiResponse>({
+      endpoint: API.BLOG.END_POINT,
+      queries: blogQueries,
     })
 
     // パンくず情報を取得
@@ -45,6 +58,7 @@ export class MicroCmsUsecaseCategoryProd implements IMicroCmsUsecaseCategory {
 
     return {
       category: contents[0],
+      blogs: blogs.contents,
       breadCrumb,
       seo,
     }

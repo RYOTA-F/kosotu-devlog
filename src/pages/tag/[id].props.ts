@@ -16,13 +16,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
   // IDチェック
   const id = checkContextId(context.params.id)
   // タグ取得
-  const { tag, breadCrumb, seo } = await microCmsUsecaseTag.getTagById({ id })
+  const { tag, blogs, breadCrumb, seo } = await microCmsUsecaseTag.getTagById({
+    id,
+  })
   // グローバルメニュー取得
   const globalMenu = await microCmsUsecaseCategory.getGlobalMenu()
 
   return {
     props: {
       tag,
+      blogs,
       breadCrumb,
       seo,
       globalMenu,
