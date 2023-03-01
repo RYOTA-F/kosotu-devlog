@@ -11,12 +11,14 @@ export interface IGetCategoriesResponse {
 }
 export interface IGetCategoryByIdParams {
   id: string
+  limit?: boolean
   offset?: number
 }
 
 export interface IGetCategoryByIdResponse {
   category: ICategory
   blogs: IBlog[]
+  totalPage: number
   breadCrumb: IBreadCrumb
   seo: ISeo
 }

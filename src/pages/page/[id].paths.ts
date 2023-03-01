@@ -14,7 +14,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const { totalPage } = await microCmsUsecaseBlog.getBlogs()
 
   // ページパス生成
-  const paths = getPagePaths(totalPage)
+  const paths = getPagePaths(totalPage, 'home')
 
   return {
     paths,

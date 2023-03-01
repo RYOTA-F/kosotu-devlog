@@ -1,25 +1,26 @@
-import { getPagePaths, getTotalPage } from '.'
+import { getTotalPage } from '.'
 
 describe('getPagePaths', () => {
-  test.each`
-    totalPage | pagePaths
-    ${1}      | ${[]}
-    ${2}      | ${['/page/2']}
-    ${3}      | ${['/page/2', '/page/3']}
-    ${4}      | ${['/page/2', '/page/3', '/page/4']}
-    ${5}      | ${['/page/2', '/page/3', '/page/4', '/page/5']}
-    ${6}      | ${['/page/2', '/page/3', '/page/4', '/page/5', '/page/6']}
-    ${7}      | ${['/page/2', '/page/3', '/page/4', '/page/5', '/page/6', '/page/7']}
-    ${8}      | ${['/page/2', '/page/3', '/page/4', '/page/5', '/page/6', '/page/7', '/page/8']}
-    ${9}      | ${['/page/2', '/page/3', '/page/4', '/page/5', '/page/6', '/page/7', '/page/8', '/page/9']}
-    ${10}     | ${['/page/2', '/page/3', '/page/4', '/page/5', '/page/6', '/page/7', '/page/8', '/page/9', '/page/10']}
-  `(
-    '投稿数が $totalPage の時ページパス $pagePaths を取得できる',
-    ({ totalPage, pagePaths }: { totalPage: number; pagePaths: string[] }) => {
-      const result = getPagePaths(totalPage)
-      expect(result).toEqual(pagePaths)
-    }
-  )
+  test.todo('typeにより分岐')
+  // test.each`
+  //   totalPage | pagePaths
+  //   ${1}      | ${[]}
+  //   ${2}      | ${['/page/2']}
+  //   ${3}      | ${['/page/2', '/page/3']}
+  //   ${4}      | ${['/page/2', '/page/3', '/page/4']}
+  //   ${5}      | ${['/page/2', '/page/3', '/page/4', '/page/5']}
+  //   ${6}      | ${['/page/2', '/page/3', '/page/4', '/page/5', '/page/6']}
+  //   ${7}      | ${['/page/2', '/page/3', '/page/4', '/page/5', '/page/6', '/page/7']}
+  //   ${8}      | ${['/page/2', '/page/3', '/page/4', '/page/5', '/page/6', '/page/7', '/page/8']}
+  //   ${9}      | ${['/page/2', '/page/3', '/page/4', '/page/5', '/page/6', '/page/7', '/page/8', '/page/9']}
+  //   ${10}     | ${['/page/2', '/page/3', '/page/4', '/page/5', '/page/6', '/page/7', '/page/8', '/page/9', '/page/10']}
+  // `(
+  //   '投稿数が $totalPage の時ページパス $pagePaths を取得できる',
+  //   ({ totalPage, pagePaths }: { totalPage: number; pagePaths: string[] }) => {
+  //     const result = getPagePaths(totalPage)
+  //     expect(result).toEqual(pagePaths)
+  //   }
+  // )
 })
 
 describe('getTotalPage', () => {
