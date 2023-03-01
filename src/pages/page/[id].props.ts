@@ -1,5 +1,4 @@
 import type { GetStaticProps } from 'next'
-import { PAGINATION } from '@/const/index'
 /* Logic */
 import { MicroCmsUsecaseBlog } from '@/logic/usecase/microCMS/blog'
 import { MicroCmsUsecaseCategory } from '@/logic/usecase/microCMS/category'
@@ -33,7 +32,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const pagination: IPaginationState = {
     currentPage: parseInt(id),
     totalPage,
-    type: PAGINATION.BLOG,
   }
 
   // グローバルメニュー取得
