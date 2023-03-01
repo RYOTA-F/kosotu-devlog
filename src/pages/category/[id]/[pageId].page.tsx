@@ -5,7 +5,7 @@ import { getStaticProps } from './[pageId].props'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
-import BlogCardList from '@/components/organisms/BlogCardList'
+import CategoryDetail from '@/components/organisms/CategoryDetail'
 import Pagination from '@/components/organisms/Pagination'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
@@ -53,7 +53,7 @@ const Page: NextPage<IPage> = ({
 
   return (
     <DefaultLayout>
-      <BlogCardList />
+      <CategoryDetail />
       <Pagination />
     </DefaultLayout>
   )
