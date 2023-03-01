@@ -4,6 +4,7 @@ import { getStaticPaths } from './[id].paths'
 import { getStaticProps } from './[id].props'
 /* Components */
 import TagDetail from '@/components/organisms/TagDetail'
+import Pagination from '@/components/organisms/Pagination'
 /* Hooks */
 import useBlogData from '@/src/hooks/useBlogData'
 import useCommonData from '@/src/hooks/useCommonData'
@@ -12,11 +13,12 @@ import useTagData from '@/src/hooks/useTagData'
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Types */
 import { IBlog, ITag, IBreadCrumb, IGlobalMenu } from '@/types/index'
-import { ISeoState } from '@/stores/common'
+import { ISeoState, IPaginationState } from '@/stores/common'
 
 export interface ITagPage {
   tag: ITag
   blogs: IBlog[]
+  pagination: IPaginationState
   breadCrumb: IBreadCrumb
   seo: ISeoState
   globalMenu: IGlobalMenu[]
@@ -25,6 +27,7 @@ export interface ITagPage {
 const TagPage: NextPage<ITagPage> = ({
   tag,
   blogs,
+  pagination,
   breadCrumb,
   seo,
   globalMenu,
@@ -37,6 +40,9 @@ const TagPage: NextPage<ITagPage> = ({
     resetBreadCrumb,
     setSeo,
     resetSeo,
+    setPagination,
+    resetPagination,
+    onCloseIsViewSidenav,
   } = useCommonData()
   const { setTag, resetTag } = useTagData()
 
@@ -44,21 +50,25 @@ const TagPage: NextPage<ITagPage> = ({
     setBlogs(blogs)
     setBreadCrumb(breadCrumb)
     setTag(tag)
+    setPagination(pagination)
     setSeo(seo)
     setGlobalMenu(globalMenu)
+    onCloseIsViewSidenav()
 
     return () => {
       resetBlogs()
       resetBreadCrumb()
       resetTag()
+      resetPagination()
       resetSeo()
       resetGlobalMenu
     }
-  }, [tag, seo, globalMenu])
+  }, [tag, pagination, seo, globalMenu])
 
   return (
     <DefaultLayout>
       <TagDetail />
+      <Pagination />
     </DefaultLayout>
   )
 }

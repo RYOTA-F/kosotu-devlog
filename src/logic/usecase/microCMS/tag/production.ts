@@ -1,6 +1,6 @@
 import type { IMicroCmsUsecaseTag } from './types'
 /* Const */
-import { API } from '@/const/index'
+import { API, MAX_BLOG_COUNT } from '@/const/index'
 /* Lib */
 import { client } from '@/libs/index'
 /* Types */
@@ -9,6 +9,7 @@ import { ITagApiResponse } from '@/types/microCMS/tag'
 /* Utils */
 import { getBreadCrumbDataFromTag } from './utils/getBreadCrumb'
 import { getSeoFromTag } from './utils/getSeo'
+import { getTotalPage } from '@/utils/index'
 
 export class MicroCmsUsecaseTagProd implements IMicroCmsUsecaseTag {
   getTags: IMicroCmsUsecaseTag['getTags'] = async () => {
@@ -35,11 +36,13 @@ export class MicroCmsUsecaseTagProd implements IMicroCmsUsecaseTag {
       endpoint: API.BLOG.END_POINT,
       queries: {
         filters: `tags[contains]${params.id}`,
+        limit: params?.limit ? MAX_BLOG_COUNT : 9999,
         offset: params?.offset ? params?.offset : 0,
-        // TODO: リミット10件に設定
-        limit: 9999,
       },
     })
+
+    // ページ数の合計を取得
+    const totalPage = getTotalPage(blogs.totalCount)
 
     // SEO情報を取得
     const seo = getSeoFromTag(contents[0])
@@ -50,6 +53,7 @@ export class MicroCmsUsecaseTagProd implements IMicroCmsUsecaseTag {
     return {
       tag: contents[0],
       blogs: blogs.contents,
+      totalPage,
       breadCrumb,
       seo,
     }

@@ -1,18 +1,20 @@
 import type { GetStaticProps } from 'next'
 /* Logic */
 import { MicroCmsUsecaseCategory } from '@/logic/usecase/microCMS/category'
+import { MicroCmsUsecaseTag } from '@/logic/usecase/microCMS/tag'
 /* Types */
 import { IPaginationState } from '@/stores/common'
 /* Utils */
-import { checkContextId, getPageOffset } from '@/utils/index'
+import { checkContextId, getPageOffset } from '@/src/utils/index'
 
 /**
- * 静的ページ用のカテゴリ情報を取得
+ * 静的ページ用のタグ情報を取得
  */
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) return { notFound: true }
 
   const microCmsUsecaseCategory = new MicroCmsUsecaseCategory()
+  const microCmsUsecaseTag = new MicroCmsUsecaseTag()
 
   // IDチェック
   const id = checkContextId(context.params.id)
@@ -21,9 +23,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   // オフセット量取得
   const offset = getPageOffset(pageId)
 
-  // ブログ取得
-  const { category, blogs, breadCrumb, totalPage, seo } =
-    await microCmsUsecaseCategory.getCategoryById({
+  // タグ取得
+  const { tag, blogs, totalPage, breadCrumb, seo } =
+    await microCmsUsecaseTag.getTagById({
       id,
       limit: true,
       offset,
@@ -40,10 +42,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      category,
+      tag,
       blogs,
-      breadCrumb,
       pagination,
+      breadCrumb,
       globalMenu,
       seo,
     },
