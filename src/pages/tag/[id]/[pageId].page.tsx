@@ -2,21 +2,21 @@ import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticPaths } from './[pageId].paths'
 import { getStaticProps } from './[pageId].props'
-/* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
-import CategoryDetail from '@/components/organisms/CategoryDetail'
+import TagDetail from '@/components/organisms/TagDetail'
 import Pagination from '@/components/organisms/Pagination'
 /* Hooks */
-import useBlogData from '@/hooks/useBlogData'
-import useCategoryData from '@/hooks/useCategoryData'
-import useCommonData from '@/hooks/useCommonData'
+import useBlogData from '@/src/hooks/useBlogData'
+import useCommonData from '@/src/hooks/useCommonData'
+import useTagData from '@/src/hooks/useTagData'
+/* Layouts */
+import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Types */
-import { IBlog, IBreadCrumb, ICategory, IGlobalMenu } from '@/types/index'
+import { IBlog, ITag, IBreadCrumb, IGlobalMenu } from '@/types/index'
 import { IPaginationState, ISeoState } from '@/stores/common'
 
-interface IPage {
-  category: ICategory
+export interface ITagPage {
+  tag: ITag
   blogs: IBlog[]
   breadCrumb: IBreadCrumb
   pagination: IPaginationState
@@ -24,8 +24,8 @@ interface IPage {
   seo: ISeoState
 }
 
-const CategoryPage: NextPage<IPage> = ({
-  category,
+const TagPage: NextPage<ITagPage> = ({
+  tag,
   blogs,
   breadCrumb,
   pagination,
@@ -33,7 +33,6 @@ const CategoryPage: NextPage<IPage> = ({
   seo,
 }) => {
   const { setBlogs, resetBlogs } = useBlogData()
-  const { setCategory, resetCategory } = useCategoryData()
   const {
     setGlobalMenu,
     resetGlobalMenu,
@@ -44,9 +43,10 @@ const CategoryPage: NextPage<IPage> = ({
     setSeo,
     resetSeo,
   } = useCommonData()
+  const { setTag, resetTag } = useTagData()
 
   useEffect(() => {
-    setCategory(category)
+    setTag(tag)
     setBlogs(blogs)
     setBreadCrumb(breadCrumb)
     setPagination(pagination)
@@ -54,22 +54,22 @@ const CategoryPage: NextPage<IPage> = ({
     setSeo(seo)
 
     return () => {
-      resetCategory()
+      resetTag()
       resetBlogs()
       resetBreadCrumb()
       resetPagination()
       resetGlobalMenu()
       resetSeo()
     }
-  }, [category, blogs, breadCrumb, seo, globalMenu, pagination])
+  }, [tag, blogs, breadCrumb, pagination, globalMenu, seo])
 
   return (
     <DefaultLayout>
-      <CategoryDetail />
+      <TagDetail />
       <Pagination />
     </DefaultLayout>
   )
 }
 
-export default CategoryPage
+export default TagPage
 export { getStaticPaths, getStaticProps }

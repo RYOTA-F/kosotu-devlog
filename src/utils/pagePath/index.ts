@@ -11,6 +11,8 @@ export const getPagePaths = (
   type: TGetPagePathsType,
   slug?: string
 ) => {
+  if (totalPage <= 0) return []
+
   const pageCount = totalPage - 1
   const pageNumbers = [...new Array(pageCount).keys()].map((_, i) => i + 2)
 
@@ -19,6 +21,8 @@ export const getPagePaths = (
       return pageNumbers.map((id) => `${PAGE.PAGE}${id}`)
     case 'category':
       return pageNumbers.map((id) => `${PAGE.CATEGORY}${String(slug)}/${id}`)
+    case 'tag':
+      return pageNumbers.map((id) => `${PAGE.TAG}${String(slug)}/${id}`)
     default:
       return []
   }

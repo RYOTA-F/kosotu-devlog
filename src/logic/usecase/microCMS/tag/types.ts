@@ -6,12 +6,14 @@ export interface IGetTagsResponse {
 
 export interface IGetTagByIdParams {
   id: string
+  limit?: boolean
   offset?: number
 }
 
 export interface IGetTagByIdResponse {
   tag: ITag
   blogs: IBlog[]
+  totalPage: number
   breadCrumb: IBreadCrumb
   seo: ISeo
 }
