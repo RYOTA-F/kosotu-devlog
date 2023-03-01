@@ -23,8 +23,6 @@ const useCommonData = () => {
   const currentPage = state.pagination.currentPage
   // ページネーション: 合計ページ数
   const totalPage = state.pagination.totalPage
-  // ページネーション: タイプ
-  const paginationType = state.pagination.type
   // SEO: タイトル
   const seoTitle = state.seo.title
   // SEO: 説明
@@ -154,7 +152,6 @@ const useCommonData = () => {
     resetTableOfContents,
     currentPage,
     totalPage,
-    paginationType,
     setPagination,
     resetPagination,
     seoTitle,

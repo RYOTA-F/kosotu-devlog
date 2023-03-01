@@ -4,6 +4,7 @@ import { getStaticPaths } from './[id].paths'
 import { getStaticProps } from './[id].props'
 /* Components */
 import CategoryDetail from '@/components/organisms/CategoryDetail'
+import Pagination from '@/components/organisms/Pagination'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCategoryData from '@/hooks/useCategoryData'
@@ -14,11 +15,12 @@ import DefaultLayout from '@/components/layouts/DefaultLayout'
 import { IGlobalMenu } from '@/types/index'
 import { IBlog, IBreadCrumb } from '@/types/microCMS/blog'
 import { ICategory } from '@/types/microCMS/category'
-import { ISeoState } from '@/stores/common'
+import { ISeoState, IPaginationState } from '@/stores/common'
 
 export interface ICategoryPage {
   category: ICategory
   blogs: IBlog[]
+  pagination: IPaginationState
   breadCrumb: IBreadCrumb
   seo: ISeoState
   globalMenu: IGlobalMenu[]
@@ -27,6 +29,7 @@ export interface ICategoryPage {
 const CategoryPage: NextPage<ICategoryPage> = ({
   category,
   blogs,
+  pagination,
   breadCrumb,
   seo,
   globalMenu,
@@ -38,6 +41,8 @@ const CategoryPage: NextPage<ICategoryPage> = ({
     resetBreadCrumb,
     setSeo,
     resetSeo,
+    setPagination,
+    resetPagination,
     onCloseIsViewSidenav,
   } = useCommonData()
   const { setBlogs, resetBlogs } = useBlogData()
@@ -49,6 +54,7 @@ const CategoryPage: NextPage<ICategoryPage> = ({
     setBlogs(blogs)
     setCategory(category)
     setSeo(seo)
+    setPagination(pagination)
     onCloseIsViewSidenav()
 
     return () => {
@@ -57,12 +63,14 @@ const CategoryPage: NextPage<ICategoryPage> = ({
       resetBlogs()
       resetCategory()
       resetSeo()
+      resetPagination()
     }
   }, [globalMenu, category, breadCrumb, seo])
 
   return (
     <DefaultLayout>
       <CategoryDetail />
+      <Pagination />
     </DefaultLayout>
   )
 }

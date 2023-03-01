@@ -1,6 +1,5 @@
 import type { GetStaticProps } from 'next'
 /* Logic */
-import { MicroCmsUsecaseBlog } from '@/logic/usecase/microCMS/blog'
 import { MicroCmsUsecaseCategory } from '@/logic/usecase/microCMS/category'
 /* Types */
 import { IPaginationState } from '@/stores/common'
@@ -8,38 +7,41 @@ import { IPaginationState } from '@/stores/common'
 import { checkContextId, getPageOffset } from '@/utils/index'
 
 /**
- * 静的ページ用のブログ一覧情報を取得
+ * 静的ページ用のカテゴリ情報を取得
  */
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) return { notFound: true }
 
-  const microCmsUsecaseBlog = new MicroCmsUsecaseBlog()
   const microCmsUsecaseCategory = new MicroCmsUsecaseCategory()
 
   // IDチェック
   const id = checkContextId(context.params.id)
+  const pageId = checkContextId(context.params.pageId)
 
   // オフセット量取得
-  const offset = getPageOffset(id)
+  const offset = getPageOffset(pageId)
 
   // ブログ取得
-  const { blogs, totalPage } = await microCmsUsecaseBlog.getBlogs({
-    limit: true,
-    offset,
-  })
-
-  // ページネーション生成
-  const pagination: IPaginationState = {
-    currentPage: parseInt(id),
-    totalPage,
-  }
+  const { blogs, breadCrumb, totalPage } =
+    await microCmsUsecaseCategory.getCategoryById({
+      id,
+      limit: true,
+      offset,
+    })
 
   // グローバルメニュー取得
   const globalMenu = await microCmsUsecaseCategory.getGlobalMenu()
 
+  // ページネーション生成
+  const pagination: IPaginationState = {
+    currentPage: Number(pageId),
+    totalPage,
+  }
+
   return {
     props: {
       blogs,
+      breadCrumb,
       pagination,
       globalMenu,
     },

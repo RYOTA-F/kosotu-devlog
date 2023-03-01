@@ -12,6 +12,8 @@ export const getCategoriesMock: IGetCategoriesResponse = {
 
 export const getCategoryByIdMock: IGetCategoryByIdResponse = {
   category: categoriesMock[0],
+  blogs: [],
+  totalPage: 2,
   breadCrumb: breadCrumbStateMock as IBreadCrumb,
   seo: seoStateMock,
 }
