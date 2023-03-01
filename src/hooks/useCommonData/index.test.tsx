@@ -65,14 +65,6 @@ describe('useCommonData', () => {
     })
   })
 
-  describe('paginationType', () => {
-    test('state のデータがセットされる', () => {
-      const { result } = renderHook(() => useCommonData())
-
-      expect(result.current.paginationType).toEqual(paginationStateMock.type)
-    })
-  })
-
   describe('seoTitle', () => {
     test('state のデータがセットされる', () => {
       const { result } = renderHook(() => useCommonData())

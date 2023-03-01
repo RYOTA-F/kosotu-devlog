@@ -1,6 +1,6 @@
 import type { IMicroCmsUsecaseCategory } from './types'
 /* Const */
-import { API } from '@/const/index'
+import { API, MAX_BLOG_COUNT } from '@/const/index'
 /* Lib */
 import { client } from '@/libs/index'
 /* Types */
@@ -10,6 +10,7 @@ import { ICategoryApiResponse } from '@/types/microCMS/category'
 import { getBreadCrumbDataFromCategory } from './utils/getBreadCrumb'
 import { getSeoFromCategory } from './utils/getSeo'
 import { getGlobalMenu } from './utils/getGlobalMenu'
+import { getTotalPage } from '@/utils/index'
 
 export class MicroCmsUsecaseCategoryProd implements IMicroCmsUsecaseCategory {
   getCategories: IMicroCmsUsecaseCategory['getCategories'] = async () => {
@@ -33,9 +34,8 @@ export class MicroCmsUsecaseCategoryProd implements IMicroCmsUsecaseCategory {
 
     const blogQueries = {
       filters: `categories[contains]${params.id}`,
+      limit: params?.limit ? MAX_BLOG_COUNT : 9999,
       offset: params?.offset ? params?.offset : 0,
-      // TODO: リミット10件に設定
-      limit: 9999,
     }
 
     // カテゴリ情報を取得
@@ -50,6 +50,9 @@ export class MicroCmsUsecaseCategoryProd implements IMicroCmsUsecaseCategory {
       queries: blogQueries,
     })
 
+    // ページ数の合計を取得
+    const totalPage = getTotalPage(blogs.totalCount)
+
     // パンくず情報を取得
     const breadCrumb = getBreadCrumbDataFromCategory(contents[0])
 
@@ -59,6 +62,7 @@ export class MicroCmsUsecaseCategoryProd implements IMicroCmsUsecaseCategory {
     return {
       category: contents[0],
       blogs: blogs.contents,
+      totalPage,
       breadCrumb,
       seo,
     }

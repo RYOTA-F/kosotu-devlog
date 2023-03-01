@@ -1,7 +1,6 @@
 export * from './microCMS/api'
 export * from './page/blog'
 export * from './page/category'
-export * from './page/pagination'
 export * from './page/sitemap'
 export * from './site/author'
 export * from './site/contact'
