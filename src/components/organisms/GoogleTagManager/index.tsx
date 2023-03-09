@@ -1,10 +1,8 @@
 import { FC } from 'react'
 import Script from 'next/script'
 
-export type TGoogleTagManagerId = `GTM-${string}`
-
 type TGoogleTagManager = {
-  googleTagManagerId: TGoogleTagManagerId
+  googleTagManagerId: string
 }
 
 const GoogleTagManager: FC<TGoogleTagManager> = ({ googleTagManagerId }) => (
