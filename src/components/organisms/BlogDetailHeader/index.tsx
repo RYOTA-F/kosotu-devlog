@@ -10,11 +10,15 @@ import { BLOG_DETAIL, IMAGE, ARIA_LABEL, TIME_ICON_SIZE } from './const'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
+import useMediaQuery from '@/hooks/useMediaQuery'
+/* Libs */
+import { formatDate } from '@/libs/dayjs'
 /* Styles */
 import {
   BlogDetailHeaderWrapper,
   Title,
   DataWrapper,
+  CategoryListWrapper,
   TagListWrapper,
   DateWrapper,
   Date,
@@ -28,27 +32,33 @@ import {
 const BlogDetailHeader: FC = () => {
   const { blog } = useBlogData()
   const { tableOfContents } = useCommonData()
+  const { isSP } = useMediaQuery()
 
   if (!blog) return null
   return (
     <BlogDetailHeaderWrapper aria-label={ARIA_LABEL.BLOG_DETAIL_HEADER}>
-      <Title>{blog.title}</Title>
+      <Title isSP={isSP}>{blog.title}</Title>
 
-      <DataWrapper>
-        <CategoryList categories={blog.categories} />
-        <TagListWrapper>
+      <DataWrapper isSP={isSP}>
+        <CategoryListWrapper>
+          <CategoryList categories={[blog.categories[0]]} />
+        </CategoryListWrapper>
+        <TagListWrapper isSP={isSP}>
           <TagList tags={blog.tags} />
         </TagListWrapper>
-        <DateWrapper>
+        <DateWrapper isSP={isSP}>
           <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
           <Date
             dateTime={
-              blog.oldPublishedAt ? blog.oldPublishedAt : blog.publishedAt
+              blog.oldPublishedAt
+                ? formatDate(blog.oldPublishedAt)
+                : formatDate(blog.publishedAt)
             }
+            isSP={isSP}
           >
             {blog.oldPublishedAt
-              ? blog.oldPublishedAt.slice(0, 10)
-              : blog.publishedAt.slice(0, 10)}
+              ? formatDate(blog.oldPublishedAt)
+              : formatDate(blog.publishedAt)}
           </Date>
         </DateWrapper>
       </DataWrapper>
@@ -70,7 +80,7 @@ const BlogDetailHeader: FC = () => {
       </WelcomeMessageWrapper>
 
       {tableOfContents.length && (
-        <TableOfContentsWrapper>
+        <TableOfContentsWrapper isSP={isSP}>
           <TableOfContents tableOfContents={tableOfContents} />
         </TableOfContentsWrapper>
       )}

@@ -5,7 +5,7 @@ import DefaultLayout, { ARIA_LABEL } from '.'
 import CommonContextProviderMock from '@/stores/__mocks__/common'
 import { ARIA_LABEL as HEADER_ARIA_LABEL } from '@/components/organisms/Header'
 import { ARIA_LABEL as FOOTER_ARIA_LABEL } from '@/components/organisms/Footer'
-import { ARIA_LABEL as BREADCRUMB_ARIA_LABEL } from '@/components/molecules/BreadCrumb'
+import { ARIA_LABEL as BREADCRUMB_ARIA_LABEL } from '@/components/organisms/BreadCrumb'
 import { ARIA_LABEL as PROFILE_ARIA_LABEL } from '@/components/molecules/Profile'
 import { defaultProps } from './__mocks__'
 

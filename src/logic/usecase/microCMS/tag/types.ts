@@ -1,4 +1,4 @@
-import type { ITag, IBreadCrumb, ISeo } from '@/types/index'
+import type { IBlog, ITag, IBreadCrumb, ISeo } from '@/types/index'
 
 export interface IGetTagsResponse {
   tags: ITag[]
@@ -6,11 +6,14 @@ export interface IGetTagsResponse {
 
 export interface IGetTagByIdParams {
   id: string
+  limit?: boolean
   offset?: number
 }
 
 export interface IGetTagByIdResponse {
   tag: ITag
+  blogs: IBlog[]
+  totalPage: number
   breadCrumb: IBreadCrumb
   seo: ISeo
 }

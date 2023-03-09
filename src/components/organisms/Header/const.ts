@@ -2,6 +2,10 @@
 import { COLOR, SITE } from '@/const/index'
 
 export const HEADER = {
+  HEIGHT: {
+    PC: 72,
+    SP: 48,
+  },
   CATCH_PHRASE: SITE.DESCRIPTION,
   ICON: {
     COLOR: COLOR.GRAY_SCALE.WHITE,

@@ -43,6 +43,7 @@ export const MenuItem = styled.li`
     a {
       span {
         margin-right: ${SIZE.SPACE.X8};
+        transition: all 0.3s;
       }
     }
   }

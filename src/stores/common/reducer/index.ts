@@ -7,6 +7,12 @@ export const commonReducer: Reducer<ICommonState, TCommonActions> = (
   action
 ) => {
   switch (action.type) {
+    // グローバルメニュー更新
+    case COMMON_ACTION_TYPES.UPDATE_GLOBAL_MENU:
+      return {
+        ...state,
+        globalMenu: action.payload,
+      }
     // パンくず更新
     case COMMON_ACTION_TYPES.UPDATE_BREAD_CRUMB:
       return {
@@ -30,6 +36,12 @@ export const commonReducer: Reducer<ICommonState, TCommonActions> = (
       return {
         ...state,
         seo: action.payload,
+      }
+    // サイドナビゲーション開閉状態更新
+    case COMMON_ACTION_TYPES.UPDATE_IS_VIEW_SIDENAV:
+      return {
+        ...state,
+        isViewSidenav: action.payload,
       }
     default:
       return state

@@ -5,12 +5,14 @@ import { COLOR } from '@/const/index'
 import {
   H2,
   H3,
+  H4,
   A,
   P,
   Ul,
   Ol,
   Blockquote,
-  blogCard,
+  BlogCard,
+  Image,
   twitterEmbed,
 } from './styles'
 
@@ -19,12 +21,14 @@ export const BlogBodyWrapper = styled.div`
 
   ${H2};
   ${H3};
+  ${H4};
   ${A}
   ${P};
   ${Ul};
   ${Ol};
   ${Blockquote}
+  ${Image}
 
-  ${blogCard}
+  ${BlogCard}
   ${twitterEmbed}
 `

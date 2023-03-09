@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 /* Stores */
 import {
   CommonContext,
@@ -8,11 +8,13 @@ import {
   ISeoState,
 } from '@/stores/common'
 /* Types */
-import { IBreadCrumb, ITableOfContents } from '@/types/index'
+import { IBreadCrumb, IGlobalMenu, ITableOfContents } from '@/types/index'
 
 const useCommonData = () => {
   const { state, dispatch } = useContext(CommonContext)
 
+  // グローバルメニュー
+  const globalMenu = state.globalMenu
   // パンくず
   const breadCrumb = state.breadClumb
   // 目次
@@ -21,8 +23,6 @@ const useCommonData = () => {
   const currentPage = state.pagination.currentPage
   // ページネーション: 合計ページ数
   const totalPage = state.pagination.totalPage
-  // ページネーション: タイプ
-  const paginationType = state.pagination.type
   // SEO: タイトル
   const seoTitle = state.seo.title
   // SEO: 説明
@@ -31,6 +31,24 @@ const useCommonData = () => {
   const seoUrl = state.seo.url
   // SEO: 画像
   const seoImage = state.seo.image
+  // サイドナビゲーション開閉状態
+  const isViewSidenav = state.isViewSidenav
+
+  /** グローバルメニューをセット */
+  const setGlobalMenu = (globalMenu: IGlobalMenu[]) => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_GLOBAL_MENU,
+      payload: globalMenu,
+    })
+  }
+
+  /** グローバルメニューをリセット */
+  const resetGlobalMenu = () => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_GLOBAL_MENU,
+      payload: [],
+    })
+  }
 
   /** パンくずをセット */
   const setBreadCrumb = (breadCrumb: IBreadCrumb) => {
@@ -96,7 +114,36 @@ const useCommonData = () => {
     })
   }
 
+  /**
+   * サイドナビゲーターの開閉状態を変更
+   */
+  const onChangeIsViewSidenav = () => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_IS_VIEW_SIDENAV,
+      payload: !isViewSidenav,
+    })
+  }
+
+  /**
+   * サイドナビゲーターの開閉状態を変更
+   */
+  const onCloseIsViewSidenav = () => {
+    dispatch({
+      type: COMMON_ACTION_TYPES.UPDATE_IS_VIEW_SIDENAV,
+      payload: false,
+    })
+  }
+
+  useEffect(() => {
+    return () => {
+      onCloseIsViewSidenav()
+    }
+  }, [])
+
   return {
+    globalMenu,
+    setGlobalMenu,
+    resetGlobalMenu,
     breadCrumb,
     setBreadCrumb,
     resetBreadCrumb,
@@ -105,7 +152,6 @@ const useCommonData = () => {
     resetTableOfContents,
     currentPage,
     totalPage,
-    paginationType,
     setPagination,
     resetPagination,
     seoTitle,
@@ -114,6 +160,9 @@ const useCommonData = () => {
     seoImage,
     setSeo,
     resetSeo,
+    isViewSidenav,
+    onChangeIsViewSidenav,
+    onCloseIsViewSidenav,
   }
 }
 

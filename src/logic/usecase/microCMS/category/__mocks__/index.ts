@@ -1,36 +1,29 @@
 import { IGetCategoriesResponse, IGetCategoryByIdResponse } from '../types'
+import { categoriesMock } from './categories'
+import { IBreadCrumb, IGlobalMenu } from '@/types/index'
+import {
+  breadCrumbStateMock,
+  seoStateMock,
+} from '@/stores/__mocks__/common/mock'
 
 export const getCategoriesMock: IGetCategoriesResponse = {
-  categories: [],
+  categories: categoriesMock,
 }
 
 export const getCategoryByIdMock: IGetCategoryByIdResponse = {
-  category: {
-    id: '',
-    createdAt: '',
-    updatedAt: '',
-    publishedAt: '',
-    revisedAt: '',
-    name: '',
-    relation: {
-      fieldId: '',
-      isParent: false,
-      children: [],
-      parent: [],
-    },
-    blogs: [],
-  },
-  breadCrumb: {
-    categoryParentId: null,
-    categoryParentName: null,
-    categoryChildId: null,
-    categoryChildName: null,
-    currentName: null,
-  },
-  seo: {
-    title: '',
-    description: '',
-    url: '',
-    image: '',
-  },
+  category: categoriesMock[0],
+  blogs: [],
+  totalPage: 2,
+  breadCrumb: breadCrumbStateMock as IBreadCrumb,
+  seo: seoStateMock,
 }
+
+export const getGlobalMenuMock: IGlobalMenu[] = [
+  {
+    label: 'フロントエンド',
+    url: 'category/front-end',
+    children: [],
+  },
+]
+
+export * from './categories'

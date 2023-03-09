@@ -1,15 +1,15 @@
 import type { FC, ReactNode } from 'react'
-/* Sections */
-import Header from '@/components/organisms/Header'
-import Footer from '@/components/organisms/Footer'
 /* Components */
-import BreadCrumb from '@/components/molecules/BreadCrumb'
-import Profile from '@/components/molecules/Profile'
+import ScrollTopButton from '@/components/atoms/ScrollTopButton'
 import Seo from '@/components/organisms/Seo'
+import Header from '@/components/organisms/Header'
+import BreadCrumb from '@/components/organisms/BreadCrumb'
+import Profile from '@/components/molecules/Profile'
+import Footer from '@/components/organisms/Footer'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Hooks */
-import useCommonData from '@/hooks/useCommonData'
+import useMediaQuery from '@/hooks/useMediaQuery'
 /* Styles */
 import { MainWrapper, Main, Aside } from './index.styles'
 
@@ -18,19 +18,20 @@ export interface IDefaultLayout {
 }
 
 const DefaultLayout: FC<IDefaultLayout> = ({ children }) => {
-  const { breadCrumb } = useCommonData()
+  const { isPC } = useMediaQuery()
 
   return (
     <div aria-label={ARIA_LABEL.DEFAULT_LAYOUT}>
       <Seo />
       <Header />
-      {breadCrumb && <BreadCrumb breadCrumb={breadCrumb} />}
-      <MainWrapper>
+      <BreadCrumb />
+      <MainWrapper isPC={isPC}>
         <Main>{children}</Main>
-        <Aside>
+        <Aside isPC={isPC}>
           <Profile />
         </Aside>
       </MainWrapper>
+      <ScrollTopButton />
       <Footer />
     </div>
   )
