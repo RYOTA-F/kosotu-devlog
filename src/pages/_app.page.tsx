@@ -3,18 +3,14 @@ import type { AppProps } from 'next/app'
 import RootContextProvider from '@/stores/index'
 /* GTM */
 import { googleTagManagerId } from '@/libs/gtag'
-import GoogleTagManager, {
-  TGoogleTagManagerId,
-} from '@/components/organisms/GoogleTagManager'
+import GoogleTagManager from '@/components/organisms/GoogleTagManager'
 /* styles */
 import './_app.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <RootContextProvider>
-      <GoogleTagManager
-        googleTagManagerId={googleTagManagerId as TGoogleTagManagerId}
-      />
+      <GoogleTagManager googleTagManagerId={googleTagManagerId} />
       <Component {...pageProps} />
     </RootContextProvider>
   )
