@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+/* Const */
+import { PAGE } from '@/const/index'
 /* Components */
 import { TimeSvg } from '@/components/atoms/Svg'
 /* Const */
@@ -21,10 +23,10 @@ import { IBlogCard } from '@/types/index'
 const TIME_ICON_SIZE = 12 as const
 const IMAGE_ALT = 'Thumbnail'
 
-const BlogCard: FC<IBlogCard> = ({ title, url, image, publishedAt }) => {
+const BlogCard: FC<IBlogCard> = ({ title, id, image, publishedAt }) => {
   return (
     <BlogCardWrapper aria-label={ARIA_LABEL.BLOG_CARD}>
-      <Link href={url}>
+      <Link href={`${PAGE.ARTICLES}${id}`}>
         <Image
           src={image.url}
           alt={IMAGE_ALT}
