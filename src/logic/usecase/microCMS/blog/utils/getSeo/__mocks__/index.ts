@@ -23,6 +23,6 @@ export const blogDataMock: IBlog = {
 export const blogResultMock = {
   title: `${blogDataMock.title} - ${SITE.TITLE}`,
   description: blogDataMock.description,
-  url: `${SITE.URL}${PAGE.BLOG}${blogDataMock.id}`,
+  url: `${SITE.URL}${PAGE.ARTICLES}${blogDataMock.id}`,
   image: blogDataMock.image.url,
 }

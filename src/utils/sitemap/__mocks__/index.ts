@@ -97,7 +97,7 @@ export const resultMock = [
         blogs: [
           {
             title: blogsDataMock[0].title,
-            url: `${PAGE.BLOG}${blogsDataMock[0].id}`,
+            url: `${PAGE.ARTICLES}${blogsDataMock[0].id}`,
             category: blogsDataMock[0].categories[0].id,
           },
         ],
