@@ -10,7 +10,7 @@ import useCommonData from '@/hooks/useCommonData'
 const Seo: FC = () => {
   const { pathname } = useRouter()
   const { seoTitle, seoDescription, seoUrl, seoImage } = useCommonData()
-  const isBlogPage = pathname.includes(PAGE.BLOG)
+  const isBlogPage = pathname.includes(PAGE.ARTICLES)
 
   return (
     <Head>

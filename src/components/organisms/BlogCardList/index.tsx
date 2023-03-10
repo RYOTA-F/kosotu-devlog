@@ -2,7 +2,6 @@ import { FC } from 'react'
 /* Components */
 import BlogCard from '@/components/molecules/BlogCard'
 /* Const */
-import { PAGE } from '@/const/index'
 import { ARIA_LABEL } from './const'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
@@ -25,7 +24,7 @@ const BlogCardList: FC = () => {
           <BlogCardWrapper key={v.title} isSP={isSP}>
             <BlogCard
               title={v.title}
-              url={`${PAGE.BLOG}${v.id}`}
+              id={v.id}
               image={v.image}
               publishedAt={v.oldPublishedAt ? v.oldPublishedAt : v.publishedAt}
             />

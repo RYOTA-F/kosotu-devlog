@@ -7,10 +7,10 @@ export const FIXED_PAGE = {
 
 export const PAGE = {
   ROOT: '/',
-  PAGE: '/page/',
-  BLOG: '/blog/',
-  CATEGORY: '/category/',
-  TAG: '/tag/',
+  PAGE: '/pages/',
+  ARTICLES: '/articles/',
+  CATEGORY: '/categories/',
+  TAG: '/tags/',
   PROFILE: `/${FIXED_PAGE.PROFILE}`,
   SITE_MAP: `/${FIXED_PAGE.SITE_MAP}`,
   PRIVACY_POLICY: `/${FIXED_PAGE.PRIVACY_POLICY}`,
