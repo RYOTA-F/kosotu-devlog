@@ -1,9 +1,10 @@
 import { FC } from 'react'
-import Image from 'next/image'
+// import Image from 'next/image'
 import Link from 'next/link'
 /* Const */
 import { PAGE } from '@/const/index'
 /* Components */
+import DynamicImage from '@/components/atoms/DynamicImage'
 import { TimeSvg } from '@/components/atoms/Svg'
 /* Const */
 import { ARIA_LABEL } from './const'
@@ -27,12 +28,18 @@ const BlogCard: FC<IBlogCard> = ({ title, id, image, publishedAt }) => {
   return (
     <BlogCardWrapper aria-label={ARIA_LABEL.BLOG_CARD}>
       <Link href={`${PAGE.ARTICLES}${id}`}>
-        <Image
+        <DynamicImage
           src={image.url}
           alt={IMAGE_ALT}
           width={image.width}
           height={image.height}
         />
+        {/* <Image
+          src={image.url}
+          alt={IMAGE_ALT}
+          width={image.width}
+          height={image.height}
+        /> */}
         <ContentWrapper>
           <Title>{title}</Title>
           <DateWrapper>
