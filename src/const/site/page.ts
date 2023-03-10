@@ -9,7 +9,7 @@ export const PAGE = {
   ROOT: '/',
   PAGE: '/page/',
   ARTICLES: '/articles/',
-  CATEGORY: '/category/',
+  CATEGORY: '/categories/',
   TAG: '/tag/',
   PROFILE: `/${FIXED_PAGE.PROFILE}`,
   SITE_MAP: `/${FIXED_PAGE.SITE_MAP}`,
