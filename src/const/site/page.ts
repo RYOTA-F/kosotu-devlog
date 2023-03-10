@@ -8,7 +8,7 @@ export const FIXED_PAGE = {
 export const PAGE = {
   ROOT: '/',
   PAGE: '/page/',
-  BLOG: '/blog/',
+  ARTICLES: '/articles/',
   CATEGORY: '/category/',
   TAG: '/tag/',
   PROFILE: `/${FIXED_PAGE.PROFILE}`,

@@ -40,7 +40,7 @@ export const createSitemapData = (blogs: IBlog[], categories: ICategory[]) => {
 const processingBlogsData = (blogs: IBlog[]) => {
   return blogs.map((v) => ({
     title: v.title,
-    url: `${PAGE.BLOG}${v.id}`,
+    url: `${PAGE.ARTICLES}${v.id}`,
     category: v.categories[0].id,
   }))
 }
