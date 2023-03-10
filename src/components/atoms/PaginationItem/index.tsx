@@ -17,16 +17,16 @@ const PaginationItem: FC<IPaginationItem> = ({ pageNumber, isCurrentPage }) => {
 
   const linkUrl = () => {
     switch (router.pathname) {
-      case '/category/[id]':
-      case '/category/[id]/[pageId]':
+      case '/categories/[id]':
+      case '/categories/[id]/[pageId]':
         return pageNumber === 1
-          ? `/category/${String(router.query.id)}`
-          : `/category/${String(router.query.id)}/${pageNumber}`
-      case '/tag/[id]':
-      case '/tag/[id]/[pageId]':
+          ? `/categories/${String(router.query.id)}`
+          : `/categories/${String(router.query.id)}/${pageNumber}`
+      case '/tags/[id]':
+      case '/tags/[id]/[pageId]':
         return pageNumber === 1
-          ? `/tag/${String(router.query.id)}`
-          : `/tag/${String(router.query.id)}/${pageNumber}`
+          ? `/tags/${String(router.query.id)}`
+          : `/tags/${String(router.query.id)}/${pageNumber}`
       default:
         return pageNumber === 1 ? PAGE.ROOT : `${PAGE.PAGE}${pageNumber}`
     }

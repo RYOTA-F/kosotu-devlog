@@ -10,7 +10,7 @@ export const PAGE = {
   PAGE: '/page/',
   ARTICLES: '/articles/',
   CATEGORY: '/categories/',
-  TAG: '/tag/',
+  TAG: '/tags/',
   PROFILE: `/${FIXED_PAGE.PROFILE}`,
   SITE_MAP: `/${FIXED_PAGE.SITE_MAP}`,
   PRIVACY_POLICY: `/${FIXED_PAGE.PRIVACY_POLICY}`,
