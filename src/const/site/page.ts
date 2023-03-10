@@ -7,7 +7,7 @@ export const FIXED_PAGE = {
 
 export const PAGE = {
   ROOT: '/',
-  PAGE: '/page/',
+  PAGE: '/pages/',
   ARTICLES: '/articles/',
   CATEGORY: '/categories/',
   TAG: '/tags/',
