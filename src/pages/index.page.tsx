@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
 /* Layouts */
@@ -24,7 +24,7 @@ const Home: NextPage<IHome> = ({ blogs, pagination, globalMenu }) => {
   const { setGlobalMenu, resetGlobalMenu, setPagination, resetPagination } =
     useCommonData()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setBlogs(blogs)
     setPagination(pagination)
     setGlobalMenu(globalMenu)
@@ -35,6 +35,17 @@ const Home: NextPage<IHome> = ({ blogs, pagination, globalMenu }) => {
       resetGlobalMenu()
     }
   }, [blogs, pagination, globalMenu])
+  // useEffect(() => {
+  //   setBlogs(blogs)
+  //   setPagination(pagination)
+  //   setGlobalMenu(globalMenu)
+
+  //   return () => {
+  //     resetBlogs()
+  //     resetPagination()
+  //     resetGlobalMenu()
+  //   }
+  // }, [blogs, pagination, globalMenu])
 
   return (
     <DefaultLayout>
