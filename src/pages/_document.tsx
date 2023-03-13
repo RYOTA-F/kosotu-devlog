@@ -24,6 +24,7 @@ export default class CustomDocument extends Document {
       <Html prefix="og: https://ogp.me/ns#">
         <Head />
         <body>
+          <script />
           <noscript
             dangerouslySetInnerHTML={{
               __html: `
