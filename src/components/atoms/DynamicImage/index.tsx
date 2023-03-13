@@ -10,10 +10,10 @@ export interface IDynamicImage {
   loadingImageAspectRatio?: number
 }
 
-const DynamicImage: FC<IDynamicImage> = ({ src, alt, width, height }) => {
+const DynamicImage: FC<IDynamicImage> = ({ src, alt }) => {
   return (
     <Wrapper>
-      <Image src={src} alt={alt} width={width} height={height} />
+      <Image src={src} alt={alt} loading="lazy" fill />
     </Wrapper>
   )
 }
