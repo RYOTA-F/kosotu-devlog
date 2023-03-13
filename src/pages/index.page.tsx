@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react'
+import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
 /* Layouts */
@@ -7,7 +7,7 @@ import DefaultLayout from '@/components/layouts/DefaultLayout'
 import BlogCardList from '@/components/organisms/BlogCardList'
 import Pagination from '@/components/organisms/Pagination'
 /* Hooks */
-import useBlogData from '@/hooks/useBlogData'
+// import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
 /* Types */
 import { IBlog, IGlobalMenu } from '@/types/index'
@@ -20,36 +20,24 @@ interface IHome {
 }
 
 const Home: NextPage<IHome> = ({ blogs, pagination, globalMenu }) => {
-  const { setBlogs, resetBlogs } = useBlogData()
+  // const { setBlogs, resetBlogs } = useBlogData()
   const { setGlobalMenu, resetGlobalMenu, setPagination, resetPagination } =
     useCommonData()
 
-  useLayoutEffect(() => {
-    setBlogs(blogs)
+  useEffect(() => {
+    // setBlogs(blogs)
     setPagination(pagination)
     setGlobalMenu(globalMenu)
 
     return () => {
-      resetBlogs()
       resetPagination()
       resetGlobalMenu()
     }
-  }, [blogs, pagination, globalMenu])
-  // useEffect(() => {
-  //   setBlogs(blogs)
-  //   setPagination(pagination)
-  //   setGlobalMenu(globalMenu)
-
-  //   return () => {
-  //     resetBlogs()
-  //     resetPagination()
-  //     resetGlobalMenu()
-  //   }
-  // }, [blogs, pagination, globalMenu])
+  }, [pagination, globalMenu])
 
   return (
     <DefaultLayout>
-      <BlogCardList />
+      <BlogCardList blogs={blogs} />
       <Pagination />
     </DefaultLayout>
   )

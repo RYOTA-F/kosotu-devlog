@@ -10,10 +10,10 @@ export interface IDynamicImage {
   loadingImageAspectRatio?: number
 }
 
-const DynamicImage: FC<IDynamicImage> = ({ src, alt }) => {
+const DynamicImage: FC<IDynamicImage> = ({ src, alt, width, height }) => {
   return (
     <Wrapper>
-      <Image src={src} alt={alt} loading="lazy" fill />
+      <Image src={src} alt={alt} width={width} height={height} />
     </Wrapper>
   )
 }
@@ -21,7 +21,6 @@ const DynamicImage: FC<IDynamicImage> = ({ src, alt }) => {
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  aspect-ratio: 1.76 / 1;
 `
 
 export default DynamicImage

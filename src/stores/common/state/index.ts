@@ -2,7 +2,43 @@ import { ICommonState } from './types'
 import { SITE } from '@/const/index'
 
 export const initialCommonState: ICommonState = {
-  globalMenu: [],
+  globalMenu: [
+    {
+      label: 'フロントエンド',
+      url: '/categories/front-end',
+      children: [],
+    },
+    {
+      label: 'バックエンド',
+      url: '/categories/back-end',
+      children: [],
+    },
+    {
+      label: 'インフラ',
+      url: '/categories/infra',
+      children: [],
+    },
+    {
+      label: 'イベント',
+      url: '/categories/event',
+      children: [],
+    },
+    {
+      label: 'エトセトラ',
+      url: '/categories/etc',
+      children: [],
+    },
+    {
+      label: 'サイトマップ',
+      url: '/sitemap',
+      children: [],
+    },
+    {
+      label: 'プロフィール',
+      url: '/profile',
+      children: [],
+    },
+  ],
   breadClumb: undefined,
   tableOfContents: [],
   pagination: {

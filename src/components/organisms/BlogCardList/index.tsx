@@ -4,7 +4,7 @@ import BlogCard from '@/components/molecules/BlogCard'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Hooks */
-import useBlogData from '@/hooks/useBlogData'
+// import useBlogData from '@/hooks/useBlogData'
 import useMediaQuery from '@/hooks/useMediaQuery'
 /* Styles */
 import {
@@ -12,9 +12,15 @@ import {
   BlogCardItems,
   BlogCardWrapper,
 } from './index.styles'
+/* Types */
+import { IBlog } from '@/types/index'
 
-const BlogCardList: FC = () => {
-  const { blogs } = useBlogData()
+export interface IBlogCardList {
+  blogs: IBlog[]
+}
+
+const BlogCardList: FC<IBlogCardList> = ({ blogs }) => {
+  // const { blogs } = useBlogData()
   const { isSP } = useMediaQuery()
 
   return (

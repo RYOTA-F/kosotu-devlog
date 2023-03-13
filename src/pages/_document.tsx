@@ -6,6 +6,7 @@ import Document, {
   NextScript,
   DocumentInitialProps,
 } from 'next/document'
+import { extractCritical } from '@emotion/server'
 import { googleTagManagerId } from '@/libs/gtag'
 
 export default class CustomDocument extends Document {
@@ -13,9 +14,19 @@ export default class CustomDocument extends Document {
     ctx: DocumentContext
   ): Promise<DocumentInitialProps> {
     const initialProps = await Document.getInitialProps(ctx)
+    const styles = extractCritical(initialProps.html)
 
     return {
       ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          <style
+            data-emotion-css={styles.ids.join(' ')}
+            dangerouslySetInnerHTML={{ __html: styles.css }}
+          />
+        </>
+      ),
     }
   }
 
@@ -24,7 +35,6 @@ export default class CustomDocument extends Document {
       <Html prefix="og: https://ogp.me/ns#">
         <Head />
         <body>
-          <script />
           <noscript
             dangerouslySetInnerHTML={{
               __html: `
