@@ -39,7 +39,7 @@ const Page: NextPage<IPage> = ({ blogs, pagination, globalMenu }) => {
 
   return (
     <DefaultLayout>
-      <BlogCardList />
+      <BlogCardList blogs={[]} />
       <Pagination />
     </DefaultLayout>
   )

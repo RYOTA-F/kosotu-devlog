@@ -10,7 +10,7 @@ describe('BlogCardList', () => {
   beforeEach(() => {
     render(
       <BlogContextProviderMock>
-        <BlogCardList />
+        <BlogCardList blogs={[]} />
       </BlogContextProviderMock>
     )
   })
