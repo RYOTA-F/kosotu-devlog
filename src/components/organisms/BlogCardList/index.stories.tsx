@@ -11,7 +11,7 @@ export default {
 
 const Template: Story = () => (
   <Container>
-    <BlogCardList />
+    <BlogCardList blogs={[]} />
   </Container>
 )
 
