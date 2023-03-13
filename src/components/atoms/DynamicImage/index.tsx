@@ -21,7 +21,7 @@ const DynamicImage: FC<IDynamicImage> = ({ src, alt, width, height }) => {
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  aspect-ratio: 1.76;
+  aspect-ratio: 1.76 / 1;
 `
 
 export default DynamicImage
