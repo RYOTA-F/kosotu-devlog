@@ -12,7 +12,7 @@ const TagDetail: FC = () => {
     <TagDetailWrapper aria-label={ARIA_LABEL.TAG_DETAIL}>
       <TagDetailHeader />
       <BlogCardListWrapper>
-        <BlogCardList />
+        <BlogCardList blogs={[]} />
       </BlogCardListWrapper>
     </TagDetailWrapper>
   )

@@ -12,7 +12,7 @@ const CategoryDetail: FC = () => {
     <CategoryDetailWrapper aria-label={ARIA_LABEL.CATEGORY_DETAIL}>
       <CategoryDetailHeader />
       <BlogCardListWrapper>
-        <BlogCardList />
+        <BlogCardList blogs={[]} />
       </BlogCardListWrapper>
     </CategoryDetailWrapper>
   )
