@@ -12,7 +12,7 @@ import { googleTagManagerId } from '@/libs/gtag'
 import createEmotionServer from '@emotion/server/create-instance'
 import { cache } from '@emotion/css'
 
-export const renderStatic = async (html: any) => {
+export const renderStatic = async (html: string) => {
   if (html === undefined) {
     throw new Error('did you forget to return html from renderToString?')
   }
