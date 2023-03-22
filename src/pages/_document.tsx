@@ -27,7 +27,7 @@ export default class CustomDocument extends Document {
     ctx: DocumentContext
   ): Promise<DocumentInitialProps> {
     const page = await ctx.renderPage()
-    const { css, ids } = await renderStatic(page.html)
+    const { css, ids } = renderStatic(page.html)
     const initialProps = await Document.getInitialProps(ctx)
 
     return {
