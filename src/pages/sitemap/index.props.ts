@@ -1,7 +1,7 @@
 import type { GetStaticProps } from 'next'
 /* Logic */
-import { MicroCmsUsecaseBlog } from '@/src/logic/usecase/microCMS/blog'
-import { MicroCmsUsecaseCategory } from '@/src/logic/usecase/microCMS/category'
+import { MicroCmsUsecaseBlog } from '@/logic/usecase/microCMS/blog'
+import { MicroCmsUsecaseCategory } from '@/logic/usecase/microCMS/category'
 /* Utils */
 import { createSitemapData } from '@/utils/index'
 

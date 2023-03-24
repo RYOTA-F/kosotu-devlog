@@ -6,7 +6,7 @@ import {
   initialCategoryState,
 } from '@/stores/category'
 /* Types */
-import { ICategory } from '@/src/types'
+import { ICategory } from '@/types'
 
 const useCategoryData = () => {
   const { state, dispatch } = useContext(CategoryContext)

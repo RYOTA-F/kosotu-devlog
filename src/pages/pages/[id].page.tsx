@@ -2,11 +2,11 @@ import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticPaths } from './[id].paths'
 import { getStaticProps } from './[id].props'
-/* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
-import BlogCardList from '@/components/organisms/BlogCardList'
-import Pagination from '@/components/organisms/Pagination'
+import Layout from '@/components/Layout'
+import Pagination from '@/components/Pagination'
+/* Features */
+import BlogCardList from '@/features/blogs/BlogCardList'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
@@ -38,10 +38,10 @@ const Page: NextPage<IPage> = ({ blogs, pagination, globalMenu }) => {
   }, [blogs, pagination, globalMenu])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <BlogCardList />
       <Pagination />
-    </DefaultLayout>
+    </Layout>
   )
 }
 

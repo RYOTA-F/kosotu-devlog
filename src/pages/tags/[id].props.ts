@@ -5,7 +5,7 @@ import { MicroCmsUsecaseTag } from '@/logic/usecase/microCMS/tag'
 /* Types */
 import { IPaginationState } from '@/stores/common'
 /* Utils */
-import { checkContextId } from '@/src/utils/index'
+import { checkContextId } from '@/utils/index'
 
 /**
  * 静的ページ用のタグ情報を取得

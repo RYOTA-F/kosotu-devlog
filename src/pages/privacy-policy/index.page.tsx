@@ -1,16 +1,16 @@
 import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
-/* Components */
-import PrivacyPolicy, {
-  PRIVACY_POLICY,
-} from '@/components/organisms/PrivacyPolicy'
 /* Const */
 import { FIXED_PAGE } from '@/const/index'
+/* Components */
+import Layout from '@/components/Layout'
+/* Features */
+import PrivacyPolicy, {
+  PRIVACY_POLICY,
+} from '@/features/privacyPolicy/PrivacyPolicy'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
-/* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Types */
 import { IGlobalMenu } from '@/types/index'
 /* Utils */
@@ -45,9 +45,9 @@ const PrivacyPolicyPage: NextPage<IPrivacyPolicy> = ({ globalMenu }) => {
   }, [globalMenu])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <PrivacyPolicy />
-    </DefaultLayout>
+    </Layout>
   )
 }
 
