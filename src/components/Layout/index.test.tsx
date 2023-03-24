@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import DefaultLayout, { ARIA_LABEL } from '.'
+import Layout, { ARIA_LABEL } from '.'
 import CommonContextProviderMock from '@/stores/__mocks__/common'
-import { ARIA_LABEL as HEADER_ARIA_LABEL } from '@/components/organisms/Header'
-import { ARIA_LABEL as FOOTER_ARIA_LABEL } from '@/components/organisms/Footer'
-import { ARIA_LABEL as BREADCRUMB_ARIA_LABEL } from '@/components/organisms/BreadCrumb'
+import { ARIA_LABEL as HEADER_ARIA_LABEL } from '@/components/Header'
+import { ARIA_LABEL as FOOTER_ARIA_LABEL } from '@/components/Footer'
+import { ARIA_LABEL as BREADCRUMB_ARIA_LABEL } from '@/components/BreadCrumb'
 import { ARIA_LABEL as PROFILE_ARIA_LABEL } from '@/components/molecules/Profile'
 import { defaultProps } from './__mocks__'
 
@@ -17,20 +17,18 @@ jest.mock('next/router', () => ({
   },
 }))
 
-describe('DefaultLayout', () => {
+describe('Layout', () => {
   beforeEach(() => {
     render(
       <CommonContextProviderMock>
-        <DefaultLayout>{defaultProps}</DefaultLayout>
+        <Layout>{defaultProps}</Layout>
       </CommonContextProviderMock>
     )
   })
 
   test('描画される', () => {
-    const defaultLayoutElement = screen.getByLabelText(
-      ARIA_LABEL.DEFAULT_LAYOUT
-    )
-    expect(defaultLayoutElement).toBeInTheDocument()
+    const layoutElement = screen.getByLabelText(ARIA_LABEL.LAYOUT)
+    expect(layoutElement).toBeInTheDocument()
   })
 
   describe('Header', () => {

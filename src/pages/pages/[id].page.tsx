@@ -3,10 +3,10 @@ import type { NextPage } from 'next'
 import { getStaticPaths } from './[id].paths'
 import { getStaticProps } from './[id].props'
 /* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+import Layout from '@/components/Layout'
 /* Components */
-import BlogCardList from '@/src/features/blogs/BlogCardList'
-import Pagination from '@/components/organisms/Pagination'
+import BlogCardList from '@/features/blogs/components/BlogCardList'
+import Pagination from '@/components/Pagination'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
@@ -38,10 +38,10 @@ const Page: NextPage<IPage> = ({ blogs, pagination, globalMenu }) => {
   }, [blogs, pagination, globalMenu])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <BlogCardList />
       <Pagination />
-    </DefaultLayout>
+    </Layout>
   )
 }
 

@@ -10,7 +10,7 @@ import { FIXED_PAGE } from '@/const/index'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
 /* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+import Layout from '@/components/Layout'
 /* Types */
 import { IGlobalMenu } from '@/types/index'
 /* Utils */
@@ -45,9 +45,9 @@ const PrivacyPolicyPage: NextPage<IPrivacyPolicy> = ({ globalMenu }) => {
   }, [globalMenu])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <PrivacyPolicy />
-    </DefaultLayout>
+    </Layout>
   )
 }
 

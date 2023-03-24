@@ -4,13 +4,13 @@ import { getStaticPaths } from './[pageId].paths'
 import { getStaticProps } from './[pageId].props'
 /* Components */
 import TagDetail from '@/features/tags/TagDetail'
-import Pagination from '@/components/organisms/Pagination'
+import Pagination from '@/components/Pagination'
 /* Hooks */
-import useBlogData from '@/src/hooks/useBlogData'
-import useCommonData from '@/src/hooks/useCommonData'
-import useTagData from '@/src/hooks/useTagData'
+import useBlogData from '@/hooks/useBlogData'
+import useCommonData from '@/hooks/useCommonData'
+import useTagData from '@/hooks/useTagData'
 /* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+import Layout from '@/components/Layout'
 /* Types */
 import { IBlog, ITag, IBreadCrumb, IGlobalMenu } from '@/types/index'
 import { IPaginationState, ISeoState } from '@/stores/common'
@@ -64,10 +64,10 @@ const TagPage: NextPage<ITagPage> = ({
   }, [tag, blogs, breadCrumb, pagination, globalMenu, seo])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <TagDetail />
       <Pagination />
-    </DefaultLayout>
+    </Layout>
   )
 }
 

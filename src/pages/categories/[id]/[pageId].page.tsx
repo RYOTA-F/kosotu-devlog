@@ -3,10 +3,10 @@ import type { NextPage } from 'next'
 import { getStaticPaths } from './[pageId].paths'
 import { getStaticProps } from './[pageId].props'
 /* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+import Layout from '@/components/Layout'
 /* Components */
 import CategoryDetail from '@/features/categories/CategoryDetail'
-import Pagination from '@/components/organisms/Pagination'
+import Pagination from '@/components/Pagination'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCategoryData from '@/hooks/useCategoryData'
@@ -64,10 +64,10 @@ const CategoryPage: NextPage<IPage> = ({
   }, [category, blogs, breadCrumb, seo, globalMenu, pagination])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <CategoryDetail />
       <Pagination />
-    </DefaultLayout>
+    </Layout>
   )
 }
 

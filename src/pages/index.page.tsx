@@ -2,10 +2,10 @@ import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
 /* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+import Layout from '@/components/Layout'
 /* Components */
 import BlogCardList from '@/features/blogs/components/BlogCardList'
-import Pagination from '@/components/organisms/Pagination'
+import Pagination from '@/components/Pagination'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
@@ -37,10 +37,10 @@ const Home: NextPage<IHome> = ({ blogs, pagination, globalMenu }) => {
   }, [blogs, pagination, globalMenu])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <BlogCardList />
       <Pagination />
-    </DefaultLayout>
+    </Layout>
   )
 }
 

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { TwitterSvg } from '@/components/atoms/Svg'
 import HamburgerMenu from '@/components/atoms/HamburgerMenu'
 import AccordionMenu from '@/components/molecules/AccordionMenu'
-import Sidenav from '@/components/organisms/Sidenav'
+import Sidenav from '@/components/Sidenav'
 /* Const */
 import { SITE, PAGE, TWITTER } from '@/const/index'
 import { HEADER, ARIA_LABEL } from './const'

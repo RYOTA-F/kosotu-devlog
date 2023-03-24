@@ -9,7 +9,7 @@ import { FIXED_PAGE } from '@/const/index'
 import useCommonData from '@/hooks/useCommonData'
 import useSitemapData from '@/hooks/useSitemapData'
 /* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+import Layout from '@/components/Layout'
 /* Types */
 import { ISitemap, IGlobalMenu } from '@/types/index'
 /* Utils */
@@ -38,9 +38,9 @@ const SitemapPage: NextPage<ISitemapPage> = ({ sitemap, globalMenu }) => {
   }, [sitemap, globalMenu])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <SitemapDetail />
-    </DefaultLayout>
+    </Layout>
   )
 }
 

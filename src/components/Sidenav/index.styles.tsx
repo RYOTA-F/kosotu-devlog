@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { COLOR, SIZE } from '@/const/index'
-import { HEADER } from '@/components/organisms/Header/const'
+import { HEADER } from '@/components/Header/const'
 
 export const Wrapper = styled.nav<{ isView: boolean }>`
   position: fixed;

@@ -1,3 +1,3 @@
 export const ARIA_LABEL = {
-  DEFAULT_LAYOUT: 'defaultLayout',
+  LAYOUT: 'layout',
 } as const
