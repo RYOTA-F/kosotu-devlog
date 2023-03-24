@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect'
 
 import CategoryDetailHeader, { ARIA_LABEL } from '.'
 import { ARIA_LABEL as CATEGORY_ITEM_ARIA_LABEL } from '@/features/categories/CategoryItem'
-import { ARIA_LABEL as CATEGORY_LABEL_ARIA_LABEL } from '@/components/atoms/CategoryLabel'
+import { ARIA_LABEL as CATEGORY_LABEL_ARIA_LABEL } from '@/features/categories/CategoryLabel'
 import {
   FOLDER_SVG_ARIA_LABEL,
   CHEVRON_RIGHT_SVG_ARIA_LABEL,

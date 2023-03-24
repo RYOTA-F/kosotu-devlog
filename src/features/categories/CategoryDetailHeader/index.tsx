@@ -2,7 +2,7 @@ import { FC } from 'react'
 /* Components */
 import { H1 } from '@/components/atoms/Heading'
 import CategoryItem from '@/features/categories/CategoryItem'
-import CategoryLabel from '@/components/atoms/CategoryLabel'
+import CategoryLabel from '@/features/categories/CategoryLabel'
 import { ChevronRightSvg, FolderSvg } from '@/components/atoms/Svg'
 /* Const */
 import { CATEGORY_DETAIL_HEADER, ARIA_LABEL } from './const'

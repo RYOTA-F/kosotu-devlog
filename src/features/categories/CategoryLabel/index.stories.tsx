@@ -4,7 +4,7 @@ import CategoryLabel, { ICategoryLabel } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Atoms/CategoryLabel',
+  title: 'Features/Categories/CategoryLabel',
   component: CategoryLabel,
 }
 
