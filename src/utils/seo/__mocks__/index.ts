@@ -1,5 +1,5 @@
 import { PAGE, SITE } from '@/const/index'
-import { DISCLAIMER } from '@/components/organisms/Disclaimer'
+import { DISCLAIMER } from '@/features/disclaimer/DisclaimerDetail'
 import { PRIVACY_POLICY } from '@/features/privacyPolicy/PrivacyPolicy'
 import { PROFILE } from '@/features/profile/ProfileDetail'
 import { TITLE as SITEMAP_TITLE } from '@/components/organisms/Sitemap'

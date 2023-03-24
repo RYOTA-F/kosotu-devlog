@@ -36,5 +36,5 @@ export const DISCLAIMER = {
 } as const
 
 export const ARIA_LABEL = {
-  DISCLAIMER: 'disclaimer',
+  DISCLAIMER_DETAIL: 'disclaimerDetail',
 } as const

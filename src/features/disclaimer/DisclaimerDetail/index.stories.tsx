@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import Disclaimer from '.'
 
 export default {
-  title: 'Organisms/Disclaimer',
+  title: 'Features/Disclaimer/DisclaimerDetail',
   component: Disclaimer,
 }
 

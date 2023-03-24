@@ -6,9 +6,9 @@ import { DISCLAIMER, ARIA_LABEL } from './const'
 /* Styles */
 import { Wrapper, Description, Content, List, ListItem } from './index.styles'
 
-const Disclaimer: FC = () => {
+const DisclaimerDetail: FC = () => {
   return (
-    <Wrapper aria-label={ARIA_LABEL.DISCLAIMER}>
+    <Wrapper aria-label={ARIA_LABEL.DISCLAIMER_DETAIL}>
       <H1>{DISCLAIMER.TITEL}</H1>
       <Description>{DISCLAIMER.DESCRIPTION}</Description>
       {/* コメント */}
@@ -37,5 +37,5 @@ const Disclaimer: FC = () => {
   )
 }
 
-export default Disclaimer
+export default DisclaimerDetail
 export * from './const'

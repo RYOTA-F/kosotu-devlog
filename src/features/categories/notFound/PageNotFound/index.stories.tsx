@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import PageNotFound from '.'
 
 export default {
-  title: 'Organisms/PageNotFound',
+  title: 'Features/NotFound/PageNotFound',
   component: PageNotFound,
 }
 

@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 /* Components */
-import PageNotFound from '@/components/organisms/PageNotFound'
+import PageNotFound from '@/features/categories/notFound/PageNotFound'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 

@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
 /* Components */
-import Disclaimer, { DISCLAIMER } from '@/components/organisms/Disclaimer'
+import Disclaimer, { DISCLAIMER } from '@/features/disclaimer/DisclaimerDetail'
 /* Const */
 import { FIXED_PAGE } from '@/const/index'
 /* Hooks */

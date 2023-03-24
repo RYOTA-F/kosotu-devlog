@@ -1,15 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import Disclaimer, { ARIA_LABEL } from '.'
+import DisclaimerDetail, { ARIA_LABEL } from '.'
 
-describe('Disclaimer', () => {
+describe('DisclaimerDetail', () => {
   beforeEach(() => {
-    render(<Disclaimer />)
+    render(<DisclaimerDetail />)
   })
 
   test('描画される', () => {
-    const disclaimerElement = screen.getByLabelText(ARIA_LABEL.DISCLAIMER)
+    const disclaimerElement = screen.getByLabelText(
+      ARIA_LABEL.DISCLAIMER_DETAIL
+    )
     expect(disclaimerElement).toBeInTheDocument()
   })
 })
