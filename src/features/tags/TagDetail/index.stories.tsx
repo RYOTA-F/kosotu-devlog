@@ -5,7 +5,7 @@ import TagDetail from '.'
 import RootContextProvider from '@/stores/__mocks__'
 
 export default {
-  title: 'Organisms/TagDetail',
+  title: 'Features/Tags/TagDetail',
   component: TagDetail,
 }
 
