@@ -1,4 +1,4 @@
-import { ICategoryItem } from '../'
+import { ICategoryItem } from '..'
 
 export const defaultProps: ICategoryItem = {
   category: {
