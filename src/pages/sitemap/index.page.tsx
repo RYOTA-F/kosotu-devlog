@@ -1,15 +1,15 @@
 import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
-/* Components */
-import SitemapDetail from '@/features/sitemap/SitemapDetail'
 /* Const */
 import { FIXED_PAGE } from '@/const/index'
+/* Components */
+import Layout from '@/components/Layout'
+/* Features */
+import SitemapDetail from '@/features/sitemap/SitemapDetail'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
 import useSitemapData from '@/hooks/useSitemapData'
-/* Layouts */
-import Layout from '@/components/Layout'
 /* Types */
 import { ISitemap, IGlobalMenu } from '@/types/index'
 /* Utils */

@@ -1,11 +1,12 @@
 import { FC } from 'react'
-/* Components */
-import { H1 } from '@/components/Elements/Heading'
-import CategoryItem from '@/features/categories/CategoryItem'
-import CategoryLabel from '@/features/categories/CategoryLabel'
-import { ChevronRightSvg, FolderSvg } from '@/components/Elements/Svg'
 /* Const */
 import { CATEGORY_DETAIL_HEADER, ARIA_LABEL } from './const'
+/* Components */
+import { H1 } from '@/components/Elements/Heading'
+import { ChevronRightSvg, FolderSvg } from '@/components/Elements/Svg'
+/* Features */
+import CategoryItem from '@/features/categories/CategoryItem'
+import CategoryLabel from '@/features/categories/CategoryLabel'
 /* Hooks */
 import useCategoryData from '@/hooks/useCategoryData'
 import useMediaQuery from '@/hooks/useMediaQuery'

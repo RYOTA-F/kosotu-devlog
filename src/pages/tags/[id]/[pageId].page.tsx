@@ -3,14 +3,14 @@ import type { NextPage } from 'next'
 import { getStaticPaths } from './[pageId].paths'
 import { getStaticProps } from './[pageId].props'
 /* Components */
-import TagDetail from '@/features/tags/TagDetail'
+import Layout from '@/components/Layout'
 import Pagination from '@/components/Pagination'
+/* Features */
+import TagDetail from '@/features/tags/TagDetail'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
 import useTagData from '@/hooks/useTagData'
-/* Layouts */
-import Layout from '@/components/Layout'
 /* Types */
 import { IBlog, ITag, IBreadCrumb, IGlobalMenu } from '@/types/index'
 import { IPaginationState, ISeoState } from '@/stores/common'

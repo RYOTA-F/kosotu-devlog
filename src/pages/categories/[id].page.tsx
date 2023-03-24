@@ -3,14 +3,14 @@ import type { NextPage } from 'next'
 import { getStaticPaths } from './[id].paths'
 import { getStaticProps } from './[id].props'
 /* Components */
-import CategoryDetail from '@/features/categories/CategoryDetail'
+import Layout from '@/components/Layout'
 import Pagination from '@/components/Pagination'
+/* Features */
+import CategoryDetail from '@/features/categories/CategoryDetail'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCategoryData from '@/hooks/useCategoryData'
 import useCommonData from '@/hooks/useCommonData'
-/* Layouts */
-import Layout from '@/components/Layout'
 /* Types */
 import { IGlobalMenu } from '@/types/index'
 import { IBlog, IBreadCrumb } from '@/types/microCMS/blog'

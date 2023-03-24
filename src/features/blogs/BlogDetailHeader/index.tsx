@@ -1,12 +1,13 @@
 import { FC } from 'react'
 import Image from 'next/image'
-/* Components */
-import { TimeSvg } from '@/components/Elements/Svg'
-import CategoryList from '@/features/categories/CategoryList'
-import TagList from '@/features/tags/TagList'
-import TableOfContents from '@/components/TableOfContents'
 /* Const */
 import { BLOG_DETAIL, IMAGE, ARIA_LABEL, TIME_ICON_SIZE } from './const'
+/* Components */
+import { TimeSvg } from '@/components/Elements/Svg'
+import TableOfContents from '@/components/TableOfContents'
+/* Features */
+import CategoryList from '@/features/categories/CategoryList'
+import TagList from '@/features/tags/TagList'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'

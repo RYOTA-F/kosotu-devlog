@@ -1,5 +1,5 @@
 import { FC } from 'react'
-/* Components */
+/* Features */
 import BlogBody from '@/features/blogs/BlogBody'
 import BlogDetailHeader from '@/features/blogs/BlogDetailHeader'
 /* Const */

@@ -1,11 +1,11 @@
 import type { FC, ReactNode } from 'react'
 /* Components */
-import ScrollTopButton from '@/components/Elements/ScrollTopButton'
-import Seo from '@/components/Seo'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import BreadCrumb from '@/components/BreadCrumb'
 import Profile from '@/components/Profile'
-import Footer from '@/components/Footer'
+import ScrollTopButton from '@/components/Elements/ScrollTopButton'
+import Seo from '@/components/Seo'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Hooks */

@@ -1,7 +1,8 @@
 import { FC } from 'react'
 /* Components */
-import CategoryItem from '@/features/categories/CategoryItem'
 import { FolderSvg } from '@/components/Elements/Svg'
+/* Features */
+import CategoryItem from '@/features/categories/CategoryItem'
 /* Const */
 import { COLOR } from '@/const/index'
 /* Styles */

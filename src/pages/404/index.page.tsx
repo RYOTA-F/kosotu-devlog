@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 /* Components */
-import PageNotFound from '@/features/notFound/PageNotFound'
-/* Layouts */
 import Layout from '@/components/Layout'
+/* Features */
+import PageNotFound from '@/features/notFound/PageNotFound'
 
 const DisclaimerPage: NextPage = () => {
   return (

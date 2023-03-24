@@ -2,11 +2,11 @@ import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticPaths } from './[pageId].paths'
 import { getStaticProps } from './[pageId].props'
-/* Layouts */
-import Layout from '@/components/Layout'
 /* Components */
-import CategoryDetail from '@/features/categories/CategoryDetail'
+import Layout from '@/components/Layout'
 import Pagination from '@/components/Pagination'
+/* Features */
+import CategoryDetail from '@/features/categories/CategoryDetail'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCategoryData from '@/hooks/useCategoryData'

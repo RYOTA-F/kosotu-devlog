@@ -2,11 +2,11 @@ import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticPaths } from './[id].paths'
 import { getStaticProps } from './[id].props'
-/* Layouts */
-import Layout from '@/components/Layout'
 /* Components */
-import BlogCardList from '@/features/blogs/BlogCardList'
+import Layout from '@/components/Layout'
 import Pagination from '@/components/Pagination'
+/* Features */
+import BlogCardList from '@/features/blogs/BlogCardList'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'

@@ -3,8 +3,9 @@ import type { NextPage } from 'next'
 import { getStaticPaths } from './[id].paths'
 import { getStaticProps } from './[id].props'
 /* Components */
-import BlogDetail from '@/features/blogs/BlogDetail'
 import Layout from '@/components/Layout'
+/* Features */
+import BlogDetail from '@/features/blogs/BlogDetail'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'

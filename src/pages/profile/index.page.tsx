@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
-/* Components */
-import ProfileDetail, { PROFILE } from '@/features/profile/ProfileDetail'
 /* Const */
 import { FIXED_PAGE } from '@/const/index'
+/* Components */
+import Layout from '@/components/Layout'
+/* Features */
+import ProfileDetail, { PROFILE } from '@/features/profile/ProfileDetail'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
-/* Layouts */
-import Layout from '@/components/Layout'
 /* Types */
 import { IGlobalMenu } from '@/types/index'
 /* Utils */
