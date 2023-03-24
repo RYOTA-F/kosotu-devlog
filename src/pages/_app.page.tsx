@@ -5,7 +5,7 @@ import RootContextProvider from '@/stores/index'
 import { googleTagManagerId } from '@/libs/gtag'
 import GoogleTagManager from '@/components/GoogleTagManager'
 /* styles */
-import './_app.css'
+import 'assets/globals.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
