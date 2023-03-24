@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
 /* Components */
-import { ChevronRightSvg } from '@/components/atoms/Svg'
+import { ChevronRightSvg } from '@/components/Elements/Svg'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
 /* Styles */

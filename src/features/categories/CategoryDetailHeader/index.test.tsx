@@ -7,7 +7,7 @@ import { ARIA_LABEL as CATEGORY_LABEL_ARIA_LABEL } from '@/features/categories/C
 import {
   FOLDER_SVG_ARIA_LABEL,
   CHEVRON_RIGHT_SVG_ARIA_LABEL,
-} from '@/components/atoms/Svg'
+} from '@/components/Elements/Svg'
 import CategoryContextProviderMock from '@/stores/__mocks__/category'
 
 describe('CategoryDetailHeader', () => {

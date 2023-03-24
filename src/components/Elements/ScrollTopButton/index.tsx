@@ -1,6 +1,6 @@
 import { FC, useState, useCallback, useEffect } from 'react'
 /* Components */
-import { ChevronRightSvg } from '@/components/atoms/Svg'
+import { ChevronRightSvg } from '@/components/Elements/Svg'
 /* Styles */
 import { ScrollTopButtonWrapper } from './index.styles'
 

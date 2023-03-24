@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Image from 'next/image'
 /* Components */
-import { TimeSvg } from '@/components/atoms/Svg'
+import { TimeSvg } from '@/components/Elements/Svg'
 import CategoryList from '@/features/categories/CategoryList'
 import TagList from '@/features/tags/TagList'
 import TableOfContents from '@/components/TableOfContents'

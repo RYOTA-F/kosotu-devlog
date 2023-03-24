@@ -1,7 +1,7 @@
 import { FC } from 'react'
 /* Components */
 import TagItem from '@/features/tags/TagItem'
-import { TagSvg } from '@/components/atoms/Svg'
+import { TagSvg } from '@/components/Elements/Svg'
 /* Const */
 import { COLOR } from '@/const/index'
 

@@ -2,8 +2,8 @@ import { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 /* Components */
-import Button from '@/components/atoms/Button'
-import { TwitterSvg } from '@/components/atoms/Svg'
+import Button from '@/components/Elements/Button'
+import { TwitterSvg } from '@/components/Elements/Svg'
 /* Const */
 import { AUTHOR, PAGE, TWITTER } from '@/const/index'
 import { ARIA_LABEL, IMAGE, DESCRIPTION, BUTTON_LABEL, ICON } from './const'

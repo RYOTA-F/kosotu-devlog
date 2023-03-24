@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Link } from 'react-scroll' // eslint-disable-line import/named
 /* Components */
-import { ListSvg } from '@/components/atoms/Svg'
+import { ListSvg } from '@/components/Elements/Svg'
 /* Const */
 import { TOC, ARIA_LABEL, LIST_SVG } from './const'
 /* Hooks */

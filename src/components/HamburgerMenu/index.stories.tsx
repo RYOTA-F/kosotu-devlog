@@ -7,7 +7,7 @@ import CommonContextProviderMock from '@/stores/__mocks__/common'
 import { MediaQueryContext } from '@/stores/mediaQuery'
 
 export default {
-  title: 'Atoms/HamburgerMenu',
+  title: 'Components/HamburgerMenu',
   component: HamburgerMenu,
 }
 

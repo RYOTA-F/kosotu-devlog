@@ -1,6 +1,6 @@
 import { FC } from 'react'
 /* Components */
-import PaginationItem from '@/components/atoms/PaginationItem'
+import PaginationItem from '@/components/Elements/PaginationItem'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Hooks */

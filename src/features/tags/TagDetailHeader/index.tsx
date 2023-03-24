@@ -1,6 +1,6 @@
 import { FC } from 'react'
 /* Components */
-import { H1 } from '@/components/atoms/Heading'
+import { H1 } from '@/components/Elements/Heading'
 /* Const */
 import { TAG_DETAIL_HEADER, ARIA_LABEL } from './const'
 /* Hooks */

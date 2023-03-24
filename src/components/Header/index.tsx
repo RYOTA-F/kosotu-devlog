@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import Link from 'next/link'
 /* Components */
-import { TwitterSvg } from '@/components/atoms/Svg'
-import HamburgerMenu from '@/components/atoms/HamburgerMenu'
+import { TwitterSvg } from '@/components/Elements/Svg'
+import HamburgerMenu from '@/components/HamburgerMenu'
 import AccordionMenu from '@/components/AccordionMenu'
 import Sidenav from '@/components/Sidenav'
 /* Const */

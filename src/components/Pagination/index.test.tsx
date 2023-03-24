@@ -2,7 +2,7 @@
 import '@testing-library/jest-dom/extend-expect'
 
 // import Pagination, { ARIA_LABEL } from '.'
-// import { ARIA_LABEL as PAGINATION_ITEM_ARIA_LABEL } from '@/components/atoms/PaginationItem'
+// import { ARIA_LABEL as PAGINATION_ITEM_ARIA_LABEL } from '@/components/Elements/PaginationItem'
 // import CommonContextProvider from '@/stores/__mocks__/common'
 // import { paginationStateMock } from '@/stores/__mocks__/common/mock'
 

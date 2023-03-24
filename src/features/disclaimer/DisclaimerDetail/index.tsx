@@ -1,6 +1,6 @@
 import { FC } from 'react'
 /* Components */
-import { H1, H3 } from '@/components/atoms/Heading'
+import { H1, H3 } from '@/components/Elements/Heading'
 /* Const */
 import { DISCLAIMER, ARIA_LABEL } from './const'
 /* Styles */

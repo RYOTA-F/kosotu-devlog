@@ -1,11 +1,11 @@
 import React from 'react'
 import { Story } from '@storybook/react'
 
-import SitemapItem, { ISitemapItem } from './'
+import SitemapItem, { ISitemapItem } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Atoms/SitemapItem',
+  title: 'Features/Sitemap/SitemapItem',
   component: SitemapItem,
 }
 

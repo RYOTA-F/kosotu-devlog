@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
 /* Components */
-import { HomeSvg } from '@/components/atoms/Svg'
+import { HomeSvg } from '@/components/Elements/Svg'
 /* Const */
 import { PAGE } from '@/const/index'
 import { BREAD_CRUMB, ARIA_LABEL } from './const'

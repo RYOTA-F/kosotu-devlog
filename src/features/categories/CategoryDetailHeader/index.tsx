@@ -1,9 +1,9 @@
 import { FC } from 'react'
 /* Components */
-import { H1 } from '@/components/atoms/Heading'
+import { H1 } from '@/components/Elements/Heading'
 import CategoryItem from '@/features/categories/CategoryItem'
 import CategoryLabel from '@/features/categories/CategoryLabel'
-import { ChevronRightSvg, FolderSvg } from '@/components/atoms/Svg'
+import { ChevronRightSvg, FolderSvg } from '@/components/Elements/Svg'
 /* Const */
 import { CATEGORY_DETAIL_HEADER, ARIA_LABEL } from './const'
 /* Hooks */

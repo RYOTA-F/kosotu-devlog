@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react'
 /* Components */
-import ScrollTopButton from '@/components/atoms/ScrollTopButton'
+import ScrollTopButton from '@/components/Elements/ScrollTopButton'
 import Seo from '@/components/Seo'
 import Header from '@/components/Header'
 import BreadCrumb from '@/components/BreadCrumb'

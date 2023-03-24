@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import Link from 'next/link'
 /* Components */
-import { ChevronRightSvg } from '@/components/atoms/Svg'
+import { ChevronRightSvg } from '@/components/Elements/Svg'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Styles */

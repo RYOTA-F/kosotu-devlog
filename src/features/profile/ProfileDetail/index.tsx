@@ -1,8 +1,8 @@
 import { FC } from 'react'
 /* Components */
-import { H1, H2 } from '@/components/atoms/Heading'
-import Label from '@/components/atoms/Label'
-import List from '@/components/atoms/List'
+import { H1, H2 } from '@/components/Elements/Heading'
+import Label from '@/components/Elements/Label'
+import List from '@/components/Elements/List'
 /* Const */
 import { PROFILE, ARIA_LABEL } from './const'
 /* Styles */

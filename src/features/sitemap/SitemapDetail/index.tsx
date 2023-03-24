@@ -1,7 +1,7 @@
 import { FC } from 'react'
 /* Components */
-import { H1 } from '@/components/atoms/Heading'
-import SitemapItem from '@/components/atoms/SitemapItem'
+import { H1 } from '@/components/Elements/Heading'
+import SitemapItem from '@/features/sitemap/SitemapItem'
 /* Const */
 import { SITE, SITEMAP, PAGE } from '@/const/index'
 import { TITLE, ARIA_LABEL } from './const'

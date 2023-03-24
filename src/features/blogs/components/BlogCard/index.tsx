@@ -4,7 +4,7 @@ import Link from 'next/link'
 /* Const */
 import { PAGE } from '@/const/index'
 /* Components */
-import { TimeSvg } from '@/components/atoms/Svg'
+import { TimeSvg } from '@/components/Elements/Svg'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Libs */
