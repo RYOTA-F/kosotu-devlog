@@ -5,7 +5,7 @@ import AccordionMenu, { IAccordionMenu } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Molecules/AccordionMenu',
+  title: 'Components/AccordionMenu',
   component: AccordionMenu,
 }
 

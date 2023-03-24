@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect'
 import BlogDetailHeader, { ARIA_LABEL } from '.'
 import { ARIA_LABEL as CATEGORY_LIST_ARIA_LABEL } from '@/features/categories/CategoryList'
 import { ARIA_LABEL as TAG_LIST_ARIA_LABEL } from '@/features/tags/TagList'
-import { ARIA_LABEL as TABLE_OF_CONTENTS_ARIA_LABEL } from '@/components/molecules/TableOfContents'
+import { ARIA_LABEL as TABLE_OF_CONTENTS_ARIA_LABEL } from '@/components/TableOfContents'
 import RootContextProvider from '@/stores/__mocks__'
 
 describe('BlogDetailHeader', () => {

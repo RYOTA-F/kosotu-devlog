@@ -5,7 +5,7 @@ import MediaQueryContextProvider from '@/stores/mediaQuery'
 import CommonContextProviderMock from '@/stores/__mocks__/common'
 
 export default {
-  title: 'Organisms/Sidenav',
+  title: 'Components/Sidenav',
   component: Sidenav,
 }
 

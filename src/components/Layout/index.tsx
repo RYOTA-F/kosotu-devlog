@@ -4,7 +4,7 @@ import ScrollTopButton from '@/components/atoms/ScrollTopButton'
 import Seo from '@/components/Seo'
 import Header from '@/components/Header'
 import BreadCrumb from '@/components/BreadCrumb'
-import Profile from '@/components/molecules/Profile'
+import Profile from '@/components/Profile'
 import Footer from '@/components/Footer'
 /* Const */
 import { ARIA_LABEL } from './const'

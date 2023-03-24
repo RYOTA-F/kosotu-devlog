@@ -4,7 +4,7 @@ import Header from '.'
 import MediaQueryContextProvider from '@/stores/mediaQuery'
 
 export default {
-  title: 'Organisms/Header',
+  title: 'Components/Header',
   component: Header,
 }
 

@@ -6,7 +6,7 @@ import CommonContextProviderMock from '@/stores/__mocks__/common'
 import { ARIA_LABEL as HEADER_ARIA_LABEL } from '@/components/Header'
 import { ARIA_LABEL as FOOTER_ARIA_LABEL } from '@/components/Footer'
 import { ARIA_LABEL as BREADCRUMB_ARIA_LABEL } from '@/components/BreadCrumb'
-import { ARIA_LABEL as PROFILE_ARIA_LABEL } from '@/components/molecules/Profile'
+import { ARIA_LABEL as PROFILE_ARIA_LABEL } from '@/components/Profile'
 import { defaultProps } from './__mocks__'
 
 jest.mock('next/router', () => ({

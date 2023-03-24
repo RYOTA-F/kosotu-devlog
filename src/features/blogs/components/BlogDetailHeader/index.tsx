@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { TimeSvg } from '@/components/atoms/Svg'
 import CategoryList from '@/features/categories/CategoryList'
 import TagList from '@/features/tags/TagList'
-import TableOfContents from '@/components/molecules/TableOfContents'
+import TableOfContents from '@/components/TableOfContents'
 /* Const */
 import { BLOG_DETAIL, IMAGE, ARIA_LABEL, TIME_ICON_SIZE } from './const'
 /* Hooks */

@@ -3,7 +3,7 @@ import Link from 'next/link'
 /* Components */
 import { TwitterSvg } from '@/components/atoms/Svg'
 import HamburgerMenu from '@/components/atoms/HamburgerMenu'
-import AccordionMenu from '@/components/molecules/AccordionMenu'
+import AccordionMenu from '@/components/AccordionMenu'
 import Sidenav from '@/components/Sidenav'
 /* Const */
 import { SITE, PAGE, TWITTER } from '@/const/index'
