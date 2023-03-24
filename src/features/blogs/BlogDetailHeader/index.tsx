@@ -3,7 +3,7 @@ import Image from 'next/image'
 /* Components */
 import { TimeSvg } from '@/components/atoms/Svg'
 import CategoryList from '@/features/categories/CategoryList'
-import TagList from '@/components/molecules/TagList'
+import TagList from '@/features/tags/TagList'
 import TableOfContents from '@/components/molecules/TableOfContents'
 /* Const */
 import { BLOG_DETAIL, IMAGE, ARIA_LABEL, TIME_ICON_SIZE } from './const'

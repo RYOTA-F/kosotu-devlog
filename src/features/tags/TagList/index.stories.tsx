@@ -4,7 +4,7 @@ import TagList, { ITagList } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Molecules/TagList',
+  title: 'Features/Tags/TagList',
   component: TagList,
 }
 
