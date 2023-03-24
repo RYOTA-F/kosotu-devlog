@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 /* Components */
 import { TimeSvg } from '@/components/atoms/Svg'
-import CategoryList from '@/components/molecules/CategoryList'
+import CategoryList from '@/features/categories/CategoryList'
 import TagList from '@/components/molecules/TagList'
 import TableOfContents from '@/components/molecules/TableOfContents'
 /* Const */

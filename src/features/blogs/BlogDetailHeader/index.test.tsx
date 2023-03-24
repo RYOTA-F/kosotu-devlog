@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import BlogDetailHeader, { ARIA_LABEL } from '.'
-import { ARIA_LABEL as CATEGORY_LIST_ARIA_LABEL } from '@/components/molecules/CategoryList'
+import { ARIA_LABEL as CATEGORY_LIST_ARIA_LABEL } from '@/features/categories/CategoryList'
 import { ARIA_LABEL as TAG_LIST_ARIA_LABEL } from '@/components/molecules/TagList'
 import { ARIA_LABEL as TABLE_OF_CONTENTS_ARIA_LABEL } from '@/components/molecules/TableOfContents'
 import RootContextProvider from '@/stores/__mocks__'
