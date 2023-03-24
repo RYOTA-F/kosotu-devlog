@@ -3,8 +3,9 @@ import type { NextPage } from 'next'
 import { getStaticPaths } from './[id].paths'
 import { getStaticProps } from './[id].props'
 /* Components */
-import BlogDetail from '@/components/organisms/BlogDetail'
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+import Layout from '@/components/Layout'
+/* Features */
+import BlogDetail from '@/features/blogs/BlogDetail'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
@@ -72,9 +73,9 @@ const BlogPage: NextPage<IBlogPage> = ({
   }, [])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <BlogDetail />
-    </DefaultLayout>
+    </Layout>
   )
 }
 

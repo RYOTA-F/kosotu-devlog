@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
-/* Components */
-import Profile, { PROFILE } from '@/components/organisms/Profile'
 /* Const */
 import { FIXED_PAGE } from '@/const/index'
+/* Components */
+import Layout from '@/components/Layout'
+/* Features */
+import ProfileDetail, { PROFILE } from '@/features/profile/ProfileDetail'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
-/* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Types */
 import { IGlobalMenu } from '@/types/index'
 /* Utils */
@@ -43,9 +43,9 @@ const ProfilePage: NextPage<IProfile> = ({ globalMenu }) => {
   }, [globalMenu])
 
   return (
-    <DefaultLayout>
-      <Profile />
-    </DefaultLayout>
+    <Layout>
+      <ProfileDetail />
+    </Layout>
   )
 }
 

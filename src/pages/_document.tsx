@@ -6,6 +6,7 @@ import Document, {
   NextScript,
   DocumentInitialProps,
 } from 'next/document'
+/* Libs */
 import { googleTagManagerId } from '@/libs/gtag'
 
 export default class CustomDocument extends Document {

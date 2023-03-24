@@ -3,14 +3,14 @@ import type { NextPage } from 'next'
 import { getStaticPaths } from './[id].paths'
 import { getStaticProps } from './[id].props'
 /* Components */
-import CategoryDetail from '@/components/organisms/CategoryDetail'
-import Pagination from '@/components/organisms/Pagination'
+import Layout from '@/components/Layout'
+import Pagination from '@/components/Pagination'
+/* Features */
+import CategoryDetail from '@/features/categories/CategoryDetail'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCategoryData from '@/hooks/useCategoryData'
 import useCommonData from '@/hooks/useCommonData'
-/* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Types */
 import { IGlobalMenu } from '@/types/index'
 import { IBlog, IBreadCrumb } from '@/types/microCMS/blog'
@@ -68,10 +68,10 @@ const CategoryPage: NextPage<ICategoryPage> = ({
   }, [globalMenu, category, breadCrumb, seo])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <CategoryDetail />
       <Pagination />
-    </DefaultLayout>
+    </Layout>
   )
 }
 

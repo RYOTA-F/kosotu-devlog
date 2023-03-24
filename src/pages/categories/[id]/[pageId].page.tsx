@@ -2,11 +2,11 @@ import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticPaths } from './[pageId].paths'
 import { getStaticProps } from './[pageId].props'
-/* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
-import CategoryDetail from '@/components/organisms/CategoryDetail'
-import Pagination from '@/components/organisms/Pagination'
+import Layout from '@/components/Layout'
+import Pagination from '@/components/Pagination'
+/* Features */
+import CategoryDetail from '@/features/categories/CategoryDetail'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCategoryData from '@/hooks/useCategoryData'
@@ -64,10 +64,10 @@ const CategoryPage: NextPage<IPage> = ({
   }, [category, blogs, breadCrumb, seo, globalMenu, pagination])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <CategoryDetail />
       <Pagination />
-    </DefaultLayout>
+    </Layout>
   )
 }
 

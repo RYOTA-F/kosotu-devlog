@@ -1,14 +1,14 @@
 import type { NextPage } from 'next'
 /* Components */
-import PageNotFound from '@/components/organisms/PageNotFound'
-/* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+import Layout from '@/components/Layout'
+/* Features */
+import PageNotFound from '@/features/notFound/PageNotFound'
 
 const DisclaimerPage: NextPage = () => {
   return (
-    <DefaultLayout>
+    <Layout>
       <PageNotFound />
-    </DefaultLayout>
+    </Layout>
   )
 }
 

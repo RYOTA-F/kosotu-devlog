@@ -1,15 +1,15 @@
 import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
-/* Components */
-import Sitemap from '@/components/organisms/Sitemap'
 /* Const */
 import { FIXED_PAGE } from '@/const/index'
+/* Components */
+import Layout from '@/components/Layout'
+/* Features */
+import SitemapDetail from '@/features/sitemap/SitemapDetail'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
 import useSitemapData from '@/hooks/useSitemapData'
-/* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Types */
 import { ISitemap, IGlobalMenu } from '@/types/index'
 /* Utils */
@@ -38,9 +38,9 @@ const SitemapPage: NextPage<ISitemapPage> = ({ sitemap, globalMenu }) => {
   }, [sitemap, globalMenu])
 
   return (
-    <DefaultLayout>
-      <Sitemap />
-    </DefaultLayout>
+    <Layout>
+      <SitemapDetail />
+    </Layout>
   )
 }
 

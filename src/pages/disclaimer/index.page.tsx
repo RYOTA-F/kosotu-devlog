@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
-/* Components */
-import Disclaimer, { DISCLAIMER } from '@/components/organisms/Disclaimer'
 /* Const */
 import { FIXED_PAGE } from '@/const/index'
+/* Components */
+import Layout from '@/components/Layout'
+/* Features */
+import Disclaimer, { DISCLAIMER } from '@/features/disclaimer/DisclaimerDetail'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
-/* Layouts */
-import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Types */
 import { IGlobalMenu } from '@/types/index'
 /* Utils */
@@ -43,9 +43,9 @@ const DisclaimerPage: NextPage<IDisclaimer> = ({ globalMenu }) => {
   }, [globalMenu])
 
   return (
-    <DefaultLayout>
+    <Layout>
       <Disclaimer />
-    </DefaultLayout>
+    </Layout>
   )
 }
 
