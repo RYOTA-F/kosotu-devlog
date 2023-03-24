@@ -1,26 +1,26 @@
 import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
-import BlogDetailHeader from '.'
-import RootContextProvider from '@/stores/__mocks__'
+import BlogCardList from '.'
+import BlogContextProviderMock from '@/stores/__mocks__/blog'
 
 export default {
-  title: 'Organisms/BlogDetailHeader',
-  component: BlogDetailHeader,
+  title: 'Features/Blogs/BlogCardList',
+  component: BlogCardList,
 }
 
 const Template: Story = () => (
   <Container>
-    <BlogDetailHeader />
+    <BlogCardList />
   </Container>
 )
 
 export const Normal = Template.bind({})
 Normal.decorators = [
   (Story) => (
-    <RootContextProvider>
+    <BlogContextProviderMock>
       <Story />
-    </RootContextProvider>
+    </BlogContextProviderMock>
   ),
 ]
 
