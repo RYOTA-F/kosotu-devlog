@@ -5,7 +5,7 @@ import CategoryDetailHeader from '.'
 import CategoryContextProviderMock from '@/stores/__mocks__/category'
 
 export default {
-  title: 'Organisms/CategoryDetailHeader',
+  title: 'Features/Categories/CategoryDetailHeader',
   component: CategoryDetailHeader,
 }
 
