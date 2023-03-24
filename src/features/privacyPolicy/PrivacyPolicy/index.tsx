@@ -13,7 +13,7 @@ import {
   Link,
 } from './index.styles'
 
-const PrivacyPolicy: FC = () => {
+const PrivacyPolicyDetail: FC = () => {
   return (
     <Wrapper aria-label={ARIA_LABEL.PRIVACY_POLICY}>
       <H1>{PRIVACY_POLICY.TITLE}</H1>
@@ -50,5 +50,5 @@ const PrivacyPolicy: FC = () => {
   )
 }
 
-export default PrivacyPolicy
+export default PrivacyPolicyDetail
 export * from './const'

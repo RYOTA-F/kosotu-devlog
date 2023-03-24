@@ -4,7 +4,7 @@ import { getStaticProps } from './index.props'
 /* Components */
 import PrivacyPolicy, {
   PRIVACY_POLICY,
-} from '@/components/organisms/PrivacyPolicy'
+} from '@/features/privacyPolicy/PrivacyPolicy'
 /* Const */
 import { FIXED_PAGE } from '@/const/index'
 /* Hooks */

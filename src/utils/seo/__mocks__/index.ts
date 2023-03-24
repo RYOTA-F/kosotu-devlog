@@ -1,6 +1,6 @@
 import { PAGE, SITE } from '@/const/index'
 import { DISCLAIMER } from '@/components/organisms/Disclaimer'
-import { PRIVACY_POLICY } from '@/components/organisms/PrivacyPolicy'
+import { PRIVACY_POLICY } from '@/features/privacyPolicy/PrivacyPolicy'
 import { PROFILE } from '@/features/profile/ProfileDetail'
 import { TITLE as SITEMAP_TITLE } from '@/components/organisms/Sitemap'
 import { initialCommonState } from '@/stores/common'

@@ -1,16 +1,16 @@
 import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
-import PrivacyPolicy from '.'
+import PrivacyPolicyDetail from '.'
 
 export default {
-  title: 'Organisms/PrivacyPolicy',
-  component: PrivacyPolicy,
+  title: 'Features/PrivacyPolicy/PrivacyPolicyDetail',
+  component: PrivacyPolicyDetail,
 }
 
 const Template: Story = () => (
   <Wrapper>
-    <PrivacyPolicy />
+    <PrivacyPolicyDetail />
   </Wrapper>
 )
 
