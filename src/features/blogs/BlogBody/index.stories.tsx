@@ -5,7 +5,7 @@ import BlogBody from '.'
 import BlogContextProviderMock from '@/stores/__mocks__/blog'
 
 export default {
-  title: 'Organisms/BlogBody',
+  title: 'Features/Blogs/BlogBody',
   component: BlogBody,
 }
 

@@ -21,6 +21,7 @@
       "@/src/*": ["*"],
       "@/components/*": ["components/*"],
       "@/const/*": ["const/*"],
+      "@/features/*": ["features/*"],
       "@/hooks/*": ["hooks/*"],
       "@/libs/*": ["libs/*"],
       "@/logic/*": ["logic/*"],

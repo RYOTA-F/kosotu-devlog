@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect'
 
 import BlogDetail, { ARIA_LABEL } from '.'
 import { ARIA_LABEL as BLOG_DETAIL_HEADER_ARIA_LABEL } from '@/components/organisms/BlogDetailHeader'
-import { ARIA_LABEL as BLOG_BODY_ARIA_LABEL } from '@/components/organisms/BlogBody'
+import { ARIA_LABEL as BLOG_BODY_ARIA_LABEL } from '@/features/blogs/BlogBody'
 import RootContextProvider from '@/stores/__mocks__'
 
 describe('BlogDetail', () => {
