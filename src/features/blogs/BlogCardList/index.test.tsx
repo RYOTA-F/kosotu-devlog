@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import BlogCardList, { ARIA_LABEL } from '.'
-import { ARIA_LABEL as BLOG_CARD_ARIA_LABEL } from '@/features/blogs/components/BlogCard'
+import { ARIA_LABEL as BLOG_CARD_ARIA_LABEL } from '@/features/blogs/BlogCard'
 import BlogContextProviderMock from '@/stores/__mocks__/blog'
 import { blogsMock } from '@/logic/usecase/microCMS/blog/__mocks__'
 

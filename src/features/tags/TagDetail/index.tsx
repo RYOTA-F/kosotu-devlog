@@ -1,7 +1,7 @@
 import { FC } from 'react'
 /* Components */
 import TagDetailHeader from '@/features/tags/TagDetailHeader'
-import BlogCardList from '@/features/blogs/components/BlogCardList'
+import BlogCardList from '@/features/blogs/BlogCardList'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Styles */

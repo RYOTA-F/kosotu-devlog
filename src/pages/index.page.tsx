@@ -4,7 +4,7 @@ import { getStaticProps } from './index.props'
 /* Layouts */
 import Layout from '@/components/Layout'
 /* Components */
-import BlogCardList from '@/features/blogs/components/BlogCardList'
+import BlogCardList from '@/features/blogs/BlogCardList'
 import Pagination from '@/components/Pagination'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
