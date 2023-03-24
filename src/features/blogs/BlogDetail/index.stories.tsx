@@ -5,7 +5,7 @@ import BlogDetail from '.'
 import RootContextProvider from '@/stores/__mocks__'
 
 export default {
-  title: 'Organisms/BlogDetail',
+  title: 'Features/Blogs/BlogDetail',
   component: BlogDetail,
 }
 
