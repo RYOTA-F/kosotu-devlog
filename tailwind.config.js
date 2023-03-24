@@ -13,6 +13,7 @@ module.exports = {
           text: {
             t1: '#808080',
             t2: '#7e8992',
+            t3: '#5e6c77',
           },
           border: '#e2e2e2',
         },
