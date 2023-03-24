@@ -4,7 +4,7 @@ import PaginationItem, { IPaginationItem } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Atoms/PaginationItem',
+  title: 'Components/Elements/PaginationItem',
   component: PaginationItem,
 }
 

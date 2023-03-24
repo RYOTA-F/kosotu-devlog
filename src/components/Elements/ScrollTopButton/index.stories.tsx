@@ -2,7 +2,7 @@ import { Story } from '@storybook/react'
 import ScrollTopButton from '.'
 
 export default {
-  title: 'Atoms/ScrollTopButton',
+  title: 'Components/Elements/ScrollTopButton',
   component: ScrollTopButton,
 }
 

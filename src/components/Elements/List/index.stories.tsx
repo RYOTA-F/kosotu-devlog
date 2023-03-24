@@ -4,7 +4,7 @@ import List, { IList } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Atoms/List',
+  title: 'Components/Elements/List',
   component: List,
 }
 

@@ -15,7 +15,7 @@ import { defaultProps } from './__mocks__'
 const Svg = ({ children }: { children: ReactNode }) => <>{children}</>
 
 export default {
-  title: 'Atoms/Svg',
+  title: 'Components/Elements/Svg',
   component: Svg,
 }
 

@@ -7,7 +7,7 @@ import { defaultProps } from './__mocks__'
 const Heading = ({ children }: { children: ReactNode }) => <>{children}</>
 
 export default {
-  title: 'Atoms/Heading',
+  title: 'Components/Elements/Heading',
   component: Heading,
 }
 

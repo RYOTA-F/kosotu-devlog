@@ -4,7 +4,7 @@ import Label, { ILabel } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Atoms/Label',
+  title: 'Components/Elements/Label',
   component: Label,
 }
 
