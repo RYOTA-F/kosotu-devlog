@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import BlogDetail, { ARIA_LABEL } from '.'
-import { ARIA_LABEL as BLOG_BODY_ARIA_LABEL } from '@/features/blogs/BlogBody'
-import { ARIA_LABEL as BLOG_DETAIL_HEADER_ARIA_LABEL } from '@/features/blogs/BlogDetailHeader'
+import { ARIA_LABEL as BLOG_BODY_ARIA_LABEL } from '@/features/blogs/components/BlogBody'
+import { ARIA_LABEL as BLOG_DETAIL_HEADER_ARIA_LABEL } from '@/features/blogs/components/BlogDetailHeader'
 import RootContextProvider from '@/stores/__mocks__'
 
 describe('BlogDetail', () => {

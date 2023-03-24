@@ -1,6 +1,6 @@
 import { FC } from 'react'
 /* Components */
-import BlogCard from '@/features/blogs/BlogCard'
+import BlogCard from '@/features/blogs/components/BlogCard'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Hooks */

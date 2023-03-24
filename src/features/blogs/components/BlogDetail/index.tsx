@@ -1,7 +1,7 @@
 import { FC } from 'react'
 /* Components */
-import BlogBody from '@/features/blogs/BlogBody'
-import BlogDetailHeader from '@/features/blogs/BlogDetailHeader'
+import BlogBody from '@/features/blogs/components/BlogBody'
+import BlogDetailHeader from '@/features/blogs/components/BlogDetailHeader'
 /* Const */
 import { ARIA_LABEL } from './const'
 /* Styles */
