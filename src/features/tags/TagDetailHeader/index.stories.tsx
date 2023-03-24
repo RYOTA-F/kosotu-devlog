@@ -5,7 +5,7 @@ import TagDetailHeader from '.'
 import TagContextProviderMock from '@/stores/__mocks__/tag'
 
 export default {
-  title: 'Organisms/TagDetailHeader',
+  title: 'Features/Tags/TagDetailHeader',
   component: TagDetailHeader,
 }
 
