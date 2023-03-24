@@ -3,10 +3,10 @@ import { ReactNode, FC } from 'react'
 import { ButtonWrapper } from './index.styles'
 
 export const ARIA_LABEL = {
-  BUTTON: 'button',
+  ACTION_BUTTON: 'actionButton',
 }
 
-export interface IButton {
+export interface IActionButton {
   borderRadius?: number
   padding?: number
   color?: 'none' | 'default'
@@ -14,7 +14,7 @@ export interface IButton {
   onClick: () => void
 }
 
-const Button: FC<IButton> = ({
+const ActionButton: FC<IActionButton> = ({
   borderRadius = 0,
   padding = 0,
   color = 'default',
@@ -27,11 +27,11 @@ const Button: FC<IButton> = ({
       borderRadius={borderRadius}
       padding={padding}
       color={color}
-      aria-label={ARIA_LABEL.BUTTON}
+      aria-label={ARIA_LABEL.ACTION_BUTTON}
     >
       {children}
     </ButtonWrapper>
   )
 }
 
-export default Button
+export default ActionButton
