@@ -1,4 +1,4 @@
-import { ITagItem } from '../'
+import { ITagItem } from '..'
 
 export const defaultProps: ITagItem = {
   tag: {

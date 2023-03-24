@@ -4,7 +4,7 @@ import TagItem, { ITagItem } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
-  title: 'Atoms/TagItem',
+  title: 'Features/Tags/TagItem',
   component: TagItem,
 }
 
