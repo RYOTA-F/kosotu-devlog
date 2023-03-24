@@ -13,9 +13,9 @@ import {
   ListWrapper,
 } from './index.styles'
 
-const Profile: FC = () => {
+const ProfileDetail: FC = () => {
   return (
-    <Wrapper aria-label={ARIA_LABEL.PROFILE}>
+    <Wrapper aria-label={ARIA_LABEL.PROFILE_DETAIL}>
       <H1>{PROFILE.TITLE}</H1>
       <ContentWrapper>
         <Description>{PROFILE.DESCRIPTION}</Description>
@@ -55,5 +55,5 @@ const Profile: FC = () => {
   )
 }
 
-export default Profile
+export default ProfileDetail
 export * from './const'

@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import Profile from '.'
 
 export default {
-  title: 'Organisms/Profile',
+  title: 'Features/Profile/ProfileDetail',
   component: Profile,
 }
 

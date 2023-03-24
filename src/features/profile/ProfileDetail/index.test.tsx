@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import Profile, { ARIA_LABEL } from '.'
+import ProfileDetail, { ARIA_LABEL } from '.'
 
-describe('Profile', () => {
+describe('ProfileDetail', () => {
   beforeEach(() => {
-    render(<Profile />)
+    render(<ProfileDetail />)
   })
 
   test('描画される', () => {
-    const profileElement = screen.getByLabelText(ARIA_LABEL.PROFILE)
+    const profileElement = screen.getByLabelText(ARIA_LABEL.PROFILE_DETAIL)
     expect(profileElement).toBeInTheDocument()
   })
 })

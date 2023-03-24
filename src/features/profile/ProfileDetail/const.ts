@@ -64,5 +64,5 @@ export const PROFILE = {
 } as const
 
 export const ARIA_LABEL = {
-  PROFILE: 'profile',
+  PROFILE_DETAIL: 'profileDetail',
 } as const

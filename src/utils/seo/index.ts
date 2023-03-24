@@ -2,7 +2,7 @@
 import { PAGE, FIXED_PAGE, SITE, type TFixedPage } from '@/const/index'
 import { DISCLAIMER } from '@/components/organisms/Disclaimer'
 import { PRIVACY_POLICY } from '@/components/organisms/PrivacyPolicy'
-import { PROFILE } from '@/components/organisms/Profile'
+import { PROFILE } from '@/features/profile/ProfileDetail'
 import { TITLE as SITEMAP_TITLE } from '@/components/organisms/Sitemap'
 /* Store */
 import { initialCommonState } from '@/stores/common'
