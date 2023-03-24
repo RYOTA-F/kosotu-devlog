@@ -9,14 +9,6 @@ import { TimeSvg } from '@/components/Elements/Svg'
 import { ARIA_LABEL } from './const'
 /* Libs */
 import { formatDate } from '@/libs/dayjs'
-/* Styles */
-import {
-  BlogCardWrapper,
-  ContentWrapper,
-  Title,
-  DateWrapper,
-  Date,
-} from './index.styles'
 /* Types */
 import { IBlogCard } from '@/types/index'
 
@@ -25,25 +17,31 @@ const IMAGE_ALT = 'Thumbnail'
 
 const BlogCard: FC<IBlogCard> = ({ title, id, image, publishedAt }) => {
   return (
-    <BlogCardWrapper aria-label={ARIA_LABEL.BLOG_CARD}>
+    <div className="hover:opacity-70" aria-label={ARIA_LABEL.BLOG_CARD}>
       <Link href={`${PAGE.ARTICLES}${id}`}>
-        <Image
-          src={image.url}
-          alt={IMAGE_ALT}
-          width={image.width}
-          height={image.height}
-        />
-        <ContentWrapper>
-          <Title>{title}</Title>
-          <DateWrapper>
+        <div className="rounded-md overflow-hidden shadow-lg">
+          <Image
+            src={image.url}
+            alt={IMAGE_ALT}
+            width={image.width}
+            height={image.height}
+            className="duration-300 hover:scale-105"
+          />
+        </div>
+        <div className="mt-4">
+          <h2 className="text-base font-bold text-gray-text-t1">{title}</h2>
+          <div className="mt-2 flex items-center">
             <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
-            <Date dateTime={formatDate(publishedAt)}>
+            <time
+              dateTime={formatDate(publishedAt)}
+              className="ml-1 text-sm text-gray-text-t1"
+            >
               {formatDate(publishedAt)}
-            </Date>
-          </DateWrapper>
-        </ContentWrapper>
+            </time>
+          </div>
+        </div>
       </Link>
-    </BlogCardWrapper>
+    </div>
   )
 }
 
