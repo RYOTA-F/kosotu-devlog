@@ -5,7 +5,7 @@ import { getStaticProps } from './[pageId].props'
 /* Layouts */
 import DefaultLayout from '@/components/layouts/DefaultLayout'
 /* Components */
-import CategoryDetail from '@/components/organisms/CategoryDetail'
+import CategoryDetail from '@/features/categories/CategoryDetail'
 import Pagination from '@/components/organisms/Pagination'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'

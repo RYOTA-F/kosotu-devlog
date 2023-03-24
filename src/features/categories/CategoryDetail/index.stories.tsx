@@ -5,7 +5,7 @@ import CategoryDetail from '.'
 import RootContextProvider from '@/stores/__mocks__'
 
 export default {
-  title: 'Organisms/CategoryDetail',
+  title: 'Features/Categories/CategoryDetail',
   component: CategoryDetail,
 }
 

@@ -3,7 +3,7 @@ import type { NextPage } from 'next'
 import { getStaticPaths } from './[id].paths'
 import { getStaticProps } from './[id].props'
 /* Components */
-import CategoryDetail from '@/components/organisms/CategoryDetail'
+import CategoryDetail from '@/features/categories/CategoryDetail'
 import Pagination from '@/components/organisms/Pagination'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
