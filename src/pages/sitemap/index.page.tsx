@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
 /* Components */
-import Sitemap from '@/components/organisms/Sitemap'
+import SitemapDetail from '@/features/sitemap/SitemapDetail'
 /* Const */
 import { FIXED_PAGE } from '@/const/index'
 /* Hooks */
@@ -39,7 +39,7 @@ const SitemapPage: NextPage<ISitemapPage> = ({ sitemap, globalMenu }) => {
 
   return (
     <DefaultLayout>
-      <Sitemap />
+      <SitemapDetail />
     </DefaultLayout>
   )
 }

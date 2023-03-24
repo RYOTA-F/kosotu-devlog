@@ -1,18 +1,18 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import Sitemap, { ARIA_LABEL } from '.'
+import SitemapDetail, { ARIA_LABEL } from '.'
 import { ARIA_LABEL as HEADING_ARIA_LABEL } from '@/components/atoms/Heading'
 import { ARIA_LABEL as SITEMAP_ITEM_ARIA_LABEL } from '@/components/atoms/SitemapItem'
 import SitemapContextProvider from '@/stores/__mocks__/sitemap'
 import { sitemapStateMock } from '@/stores/__mocks__/sitemap/mock'
 import { SITE } from '@/const/index'
 
-describe('Sitemap', () => {
+describe('SitemapDetail', () => {
   beforeEach(() => {
     render(
       <SitemapContextProvider>
-        <Sitemap />
+        <SitemapDetail />
       </SitemapContextProvider>
     )
   })

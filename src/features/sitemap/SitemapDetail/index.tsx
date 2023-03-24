@@ -10,7 +10,7 @@ import useSitemapData from '@/hooks/useSitemapData'
 /* Styles */
 import { SitemapWrapper, List, ListItem } from './index.styles'
 
-const Sitemap: FC = () => {
+const SitemapDetail: FC = () => {
   const { sitemap } = useSitemapData()
 
   return (
@@ -66,5 +66,5 @@ const Sitemap: FC = () => {
   )
 }
 
-export default Sitemap
+export default SitemapDetail
 export * from './const'
