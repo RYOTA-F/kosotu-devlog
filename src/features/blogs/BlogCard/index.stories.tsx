@@ -2,7 +2,7 @@ import { Story } from '@storybook/react'
 import styled from '@emotion/styled'
 
 import BlogCard from '.'
-import { IBlogCard } from '@/types/index'
+import { IBlogCard } from './'
 import { defaultProps } from './__mocks__'
 
 export default {

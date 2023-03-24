@@ -16,12 +16,7 @@ const BlogCardList: FC = () => {
       <ul className="mt-[-8px] flex flex-wrap">
         {blogs.map((v) => (
           <li key={v.title} className="w-[48%] p-[1%]">
-            <BlogCard
-              title={v.title}
-              id={v.id}
-              image={v.image}
-              publishedAt={v.oldPublishedAt ? v.oldPublishedAt : v.publishedAt}
-            />
+            <BlogCard title={v.title} id={v.id} image={v.image} />
           </li>
         ))}
       </ul>
