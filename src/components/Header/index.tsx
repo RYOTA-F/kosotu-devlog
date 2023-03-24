@@ -2,34 +2,33 @@ import { FC } from 'react'
 import Link from 'next/link'
 /* Components */
 import AccordionMenu from '@/components/AccordionMenu'
-import { TwitterSvg } from '@/components/Elements/Svg'
-import HamburgerMenu from '@/components/HamburgerMenu'
-import Sidenav from '@/components/Sidenav'
+// import { TwitterSvg } from '@/components/Elements/Svg'
+// import HamburgerMenu from '@/components/HamburgerMenu'
+// import Sidenav from '@/components/Sidenav'
 /* Const */
-import { SITE, PAGE, TWITTER } from '@/const/index'
-import { HEADER, ARIA_LABEL } from './const'
+import {
+  SITE,
+  PAGE,
+  // TWITTER
+} from '@/const/index'
+import {
+  //  HEADER,
+  ARIA_LABEL,
+} from './const'
 /* Hooks */
 import useMediaQuery from '@/hooks/useMediaQuery'
 import useCommonData from '@/hooks/useCommonData'
-/* Styles */
-import {
-  HeaderBar,
-  CatchPrase,
-  IconList,
-  Icon,
-  HeaderWrapper,
-  Title,
-  MenuList,
-  MenuItem,
-} from './index.styles'
 
 const Header: FC = () => {
   const { globalMenu } = useCommonData()
-  const { isPC, isTB } = useMediaQuery()
+  const {
+    isPC,
+    // isTB
+  } = useMediaQuery()
 
   return (
     <>
-      {isPC && (
+      {/* {isPC && (
         <HeaderBar>
           <CatchPrase>{HEADER.CATCH_PHRASE}</CatchPrase>
           <IconList>
@@ -44,19 +43,22 @@ const Header: FC = () => {
             </Icon>
           </IconList>
         </HeaderBar>
-      )}
+      )} */}
 
-      <HeaderWrapper isPC={isPC} aria-label={ARIA_LABEL.HEADER}>
+      <header
+        className="sticky top-0 z-50 flex h-[72px] justify-between bg-blue-main px-[10%]"
+        aria-label={ARIA_LABEL.HEADER}
+      >
         <Link href={PAGE.ROOT}>
-          <Title isPC={isPC} isTB={isTB}>
+          <h1 className="inline-block cursor-pointer text-2xl font-bold leading-[72px] text-white no-underline">
             {SITE.TITLE}
-          </Title>
+          </h1>
         </Link>
 
         {isPC && (
-          <MenuList>
+          <ul className="flex h-[100%] leading-[72px] text-white">
             {globalMenu.map((v) => (
-              <MenuItem key={v.label}>
+              <li key={v.label} className="mx-3">
                 <AccordionMenu
                   label={v.label}
                   path={v.url}
@@ -65,18 +67,18 @@ const Header: FC = () => {
                     path: children.url,
                   }))}
                 />
-              </MenuItem>
+              </li>
             ))}
-          </MenuList>
+          </ul>
         )}
 
-        {!isPC && (
+        {/* {!isPC && (
           <>
             <HamburgerMenu />
             <Sidenav />
           </>
-        )}
-      </HeaderWrapper>
+        )} */}
+      </header>
     </>
   )
 }
