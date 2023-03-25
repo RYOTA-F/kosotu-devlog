@@ -4,13 +4,6 @@ import Link from 'next/link'
 import { ChevronRightSvg } from '@/components/Elements/Svg'
 /* Const */
 import { ARIA_LABEL } from './const'
-/* Styles */
-import {
-  AccordionMenuWrapper,
-  MenuContainer,
-  MenuItem,
-  ChevronRightSvgWrapper,
-} from './index.styles'
 
 interface Menu {
   label: string
@@ -27,27 +20,36 @@ const AccordionMenu: FC<IAccordionMenu> = ({ label, path, menuList }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <AccordionMenuWrapper
+    <div
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
+      className="mx-2 text-[14px] relative"
       aria-label={ARIA_LABEL.ACCORDION_MENU}
     >
-      <Link href={path}>{label}</Link>
+      <Link href={path} className="block text-white">
+        {label}
+      </Link>
       {isOpen && menuList.length && (
-        <MenuContainer aria-label={ARIA_LABEL.MENU_CONTAINER}>
+        <ul
+          className="bg-white absolute translate-x[25%] shadow-lg"
+          aria-label={ARIA_LABEL.MENU_CONTAINER}
+        >
           {menuList.map((v) => (
-            <MenuItem key={v.label}>
-              <Link href={v.path}>
-                <ChevronRightSvgWrapper>
+            <li key={v.label} className=" w-[200px]">
+              <Link
+                href={v.path}
+                className="flex py-5 pl-1 text-stone-600 leading-[10px] hover:bg-gray-list hover:pl-3 transition-all"
+              >
+                <span className="mr-2">
                   <ChevronRightSvg height={12} width={12} />
-                </ChevronRightSvgWrapper>
+                </span>
                 {v.label}
               </Link>
-            </MenuItem>
+            </li>
           ))}
-        </MenuContainer>
+        </ul>
       )}
-    </AccordionMenuWrapper>
+    </div>
   )
 }
 

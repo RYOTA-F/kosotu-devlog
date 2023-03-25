@@ -15,6 +15,7 @@ module.exports = {
         },
         gray: {
           footer: '#5e6c77',
+          list: '#f7f7f7',
           text: {
             t1: '#808080',
             t2: '#7e8992',
@@ -25,6 +26,9 @@ module.exports = {
       },
       fontSize: {
         sm: '0.625rem',
+      },
+      lineHeight: {
+        1: '4px',
       },
     },
   },
