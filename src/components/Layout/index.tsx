@@ -20,7 +20,7 @@ const Layout: FC<ILayout> = ({ children }) => (
     <BreadCrumb />
     <main className="max-w-full overflow-x-hidden">
       <div className="flex justify-between py-[60px] px-[5%] tb:block sp:block">
-        <div className="min-w-[75%]">{children}</div>
+        <div className="min-w-[75%] mr-8 tb:mr-0">{children}</div>
         <aside className="min-w-[25%] tb:w-[80%] tb:mx-auto tb:mt-10">
           <Profile />
         </aside>

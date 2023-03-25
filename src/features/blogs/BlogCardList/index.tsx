@@ -11,11 +11,11 @@ const BlogCardList: FC = () => {
 
   return (
     <article aria-label={ARIA_LABEL.BLOG_CARD_LIST}>
-      <ul className="mt-[-8px] flex flex-wrap sp:block">
+      <ul className="w-[100%] -mt-5 flex flex-wrap sp:block tb:-mt-10">
         {blogs.map((v) => (
           <li
             key={v.title}
-            className="w-[48%] p-[2%] tb:p-[1%] sp:w-[95%] sp:p-0 sp:mx-auto sp:[&:not(:first-of-type)]:mt-4"
+            className="w-[50%] p-[2%] tb:p-[1%] sp:w-[95%] sp:p-0 sp:mx-auto sp:[&:not(:first-of-type)]:mt-4"
           >
             <BlogCard title={v.title} id={v.id} image={v.image} />
           </li>
