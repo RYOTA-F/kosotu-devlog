@@ -11,7 +11,7 @@ const BlogCardList: FC = () => {
 
   return (
     <article aria-label={ARIA_LABEL.BLOG_CARD_LIST}>
-      <ul className="w-[100%] -mt-5 flex flex-wrap sp:block tb:-mt-10">
+      <ul className="w-[100%] -mt-5 tb:mt-0 flex flex-wrap sp:block">
         {blogs.map((v) => (
           <li
             key={v.title}

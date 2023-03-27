@@ -11,81 +11,70 @@ import TagList from '@/features/tags/TagList'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
 import useCommonData from '@/hooks/useCommonData'
-import useMediaQuery from '@/hooks/useMediaQuery'
 /* Libs */
 import { formatDate } from '@/libs/dayjs'
-/* Styles */
-import {
-  BlogDetailHeaderWrapper,
-  Title,
-  DataWrapper,
-  CategoryListWrapper,
-  TagListWrapper,
-  DateWrapper,
-  Date,
-  ImageWrapper,
-  WelcomeMessageWrapper,
-  WelcomeMessage,
-  WelcomeMessageDescription,
-  TableOfContentsWrapper,
-} from './index.styles'
 
 const BlogDetailHeader: FC = () => {
   const { blog } = useBlogData()
   const { tableOfContents } = useCommonData()
-  const { isSP } = useMediaQuery()
 
   if (!blog) return null
   return (
-    <BlogDetailHeaderWrapper aria-label={ARIA_LABEL.BLOG_DETAIL_HEADER}>
-      <Title isSP={isSP}>{blog.title}</Title>
+    <section
+      className="px-10 tb:px-0"
+      aria-label={ARIA_LABEL.BLOG_DETAIL_HEADER}
+    >
+      <h1 className="text-gray-text-t3 text-[24px] font-bold sp:text-[5vw]">
+        {blog.title}
+      </h1>
 
-      <DataWrapper isSP={isSP}>
-        <CategoryListWrapper>
+      <div className="flex flex-wrap items-center mt-5">
+        <div className="mr-5">
           <CategoryList categories={[blog.categories[0]]} />
-        </CategoryListWrapper>
-        <TagListWrapper isSP={isSP}>
+        </div>
+        <div className="mr-8">
           <TagList tags={blog.tags} />
-        </TagListWrapper>
-        <DateWrapper isSP={isSP}>
+        </div>
+        <div className="flex items-center mb-2">
           <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
-          <Date
+          <time
             dateTime={
               blog.oldPublishedAt
                 ? formatDate(blog.oldPublishedAt)
                 : formatDate(blog.publishedAt)
             }
-            isSP={isSP}
+            className="ml-1 text-gray-text-t1 text-[16px]"
           >
             {blog.oldPublishedAt
               ? formatDate(blog.oldPublishedAt)
               : formatDate(blog.publishedAt)}
-          </Date>
-        </DateWrapper>
-      </DataWrapper>
+          </time>
+        </div>
+      </div>
 
-      <ImageWrapper>
+      <figure className="mt-5 rounded overflow-hidden shadow-lg">
         <Image
           src={blog.image.url}
           alt={IMAGE.ALT}
           width={IMAGE.WIDTH}
           height={IMAGE.HEIGHT}
+          className="w-[100%] h-[auto]"
         />
-      </ImageWrapper>
-      <WelcomeMessageWrapper>
-        <WelcomeMessage>{BLOG_DETAIL.WELCOME_MESSAGE}</WelcomeMessage>
-        <WelcomeMessage>{BLOG_DETAIL.THANKS_MESSAGE}</WelcomeMessage>
-        <WelcomeMessageDescription>
+      </figure>
+      <div className="mt-8">
+        <p>{BLOG_DETAIL.WELCOME_MESSAGE}</p>
+        <p className="mt-3">{BLOG_DETAIL.THANKS_MESSAGE}</p>
+        <p className="mt-3 whitespace-pre-wrap leading-[2.2]">
           {blog.description}
-        </WelcomeMessageDescription>
-      </WelcomeMessageWrapper>
+        </p>
+      </div>
 
       {tableOfContents.length && (
-        <TableOfContentsWrapper isSP={isSP}>
+        <div className="w-[90%] sp:w-full sp:ml-[5%] mt-8 ml-[10%] ">
           <TableOfContents tableOfContents={tableOfContents} />
-        </TableOfContentsWrapper>
+        </div>
       )}
-    </BlogDetailHeaderWrapper>
+    </section>
   )
 }
 
