@@ -3,10 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 /* Const */
 import { PAGE } from '@/const/index'
+import { ARIA_LABEL } from './const'
 /* Types */
 import { IBlog } from '@/types/index'
-
-export const ARIA_LABEL = 'blogCard' as const
 
 export type IBlogCard = Pick<IBlog, 'title' | 'image'> & {
   id: string
@@ -31,3 +30,4 @@ const BlogCard: FC<IBlogCard> = ({ title, id, image }) => {
 }
 
 export default BlogCard
+export * from './const'

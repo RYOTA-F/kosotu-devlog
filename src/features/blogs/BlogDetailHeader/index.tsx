@@ -20,10 +20,7 @@ const BlogDetailHeader: FC = () => {
 
   if (!blog) return null
   return (
-    <section
-      className="px-10 tb:px-0"
-      aria-label={ARIA_LABEL.BLOG_DETAIL_HEADER}
-    >
+    <section className="px-10 tb:px-0" aria-label={ARIA_LABEL}>
       <h1 className="text-gray-text-t3 text-[24px] font-bold sp:text-[5vw]">
         {blog.title}
       </h1>

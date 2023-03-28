@@ -1,9 +1,9 @@
 import { FC } from 'react'
+/* Const */
+import { ARIA_LABEL } from './const'
 /* Features */
 import BlogBody from '@/features/blogs/BlogBody'
 import BlogDetailHeader from '@/features/blogs/BlogDetailHeader'
-
-export const ARIA_LABEL = 'blogDetail' as const
 
 const BlogDetail: FC = () => {
   return (
@@ -15,3 +15,4 @@ const BlogDetail: FC = () => {
 }
 
 export default BlogDetail
+export * from './const'

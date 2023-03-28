@@ -17,9 +17,7 @@ describe('BlogDetailHeader', () => {
   })
 
   test('描画される', () => {
-    const blogDetailHeaderElement = screen.getByLabelText(
-      ARIA_LABEL.BLOG_DETAIL_HEADER
-    )
+    const blogDetailHeaderElement = screen.getByLabelText(ARIA_LABEL)
     expect(blogDetailHeaderElement).toBeInTheDocument()
   })
 

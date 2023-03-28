@@ -1,10 +1,10 @@
 import { FC } from 'react'
 /* Features */
 import BlogCard from '@/features/blogs/BlogCard'
+/* Const */
+import { ARIA_LABEL } from './const'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
-
-export const ARIA_LABEL = 'blogCardList' as const
 
 const BlogCardList: FC = () => {
   const { blogs } = useBlogData()
@@ -26,3 +26,4 @@ const BlogCardList: FC = () => {
 }
 
 export default BlogCardList
+export * from './const'

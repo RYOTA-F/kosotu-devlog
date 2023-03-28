@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import 'highlight.js/styles/base16/onedark.css'
+/* Const */
+import { ARIA_LABEL } from './const'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
-
-export const ARIA_LABEL = 'blogBody' as const
 
 const BlogBody: FC = () => {
   const { blog } = useBlogData()
@@ -19,3 +19,4 @@ const BlogBody: FC = () => {
 }
 
 export default BlogBody
+export * from './const'

@@ -23,7 +23,7 @@ describe('BlogDetail', () => {
   describe('BlogDetailHeader', () => {
     test('描画される', () => {
       const blogDetailHeaderElement = screen.getByLabelText(
-        BLOG_DETAIL_HEADER_ARIA_LABEL.BLOG_DETAIL_HEADER
+        BLOG_DETAIL_HEADER_ARIA_LABEL
       )
       expect(blogDetailHeaderElement).toBeInTheDocument()
     })
