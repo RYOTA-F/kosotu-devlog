@@ -34,7 +34,7 @@ describe('CategoryDetail', () => {
   describe('BlogCardList', () => {
     test('描画される', () => {
       const blogCardListElement = screen.getByLabelText(
-        BLOG_CARD_LIST_ARIA_LABEL.BLOG_CARD_LIST
+        BLOG_CARD_LIST_ARIA_LABEL
       )
       expect(blogCardListElement).toBeInTheDocument()
     })

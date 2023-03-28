@@ -16,7 +16,7 @@ describe('BlogDetail', () => {
   })
 
   test('描画される', () => {
-    const blogDetailElement = screen.getByLabelText(ARIA_LABEL.BLOG_DETAIL)
+    const blogDetailElement = screen.getByLabelText(ARIA_LABEL)
     expect(blogDetailElement).toBeInTheDocument()
   })
 

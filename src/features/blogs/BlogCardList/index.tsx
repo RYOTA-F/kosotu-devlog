@@ -1,16 +1,16 @@
 import { FC } from 'react'
 /* Features */
 import BlogCard from '@/features/blogs/BlogCard'
-/* Const */
-import { ARIA_LABEL } from './const'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
+
+export const ARIA_LABEL = 'blogCardList' as const
 
 const BlogCardList: FC = () => {
   const { blogs } = useBlogData()
 
   return (
-    <article aria-label={ARIA_LABEL.BLOG_CARD_LIST}>
+    <article aria-label={ARIA_LABEL}>
       <ul className="w-[100%] -mt-5 tb:mt-0 flex flex-wrap sp:block">
         {blogs.map((v) => (
           <li
@@ -26,4 +26,3 @@ const BlogCardList: FC = () => {
 }
 
 export default BlogCardList
-export * from './const'

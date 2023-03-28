@@ -3,10 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 /* Const */
 import { PAGE } from '@/const/index'
-/* Const */
-import { ARIA_LABEL } from './const'
 /* Types */
 import { IBlog } from '@/types/index'
+
+export const ARIA_LABEL = 'blogCard' as const
 
 export type IBlogCard = Pick<IBlog, 'title' | 'image'> & {
   id: string
@@ -14,7 +14,7 @@ export type IBlogCard = Pick<IBlog, 'title' | 'image'> & {
 
 const BlogCard: FC<IBlogCard> = ({ title, id, image }) => {
   return (
-    <div className="hover:opacity-70" aria-label={ARIA_LABEL.BLOG_CARD}>
+    <div className="hover:opacity-70" aria-label={ARIA_LABEL}>
       <Link href={`${PAGE.ARTICLES}${id}`}>
         <div className="rounded-md overflow-hidden shadow-lg">
           <Image
@@ -31,4 +31,3 @@ const BlogCard: FC<IBlogCard> = ({ title, id, image }) => {
 }
 
 export default BlogCard
-export * from './const'
