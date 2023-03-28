@@ -16,9 +16,7 @@ describe('CategoryDetail', () => {
   })
 
   test('描画される', () => {
-    const categoryDetailElement = screen.getByLabelText(
-      ARIA_LABEL.CATEGORY_DETAIL
-    )
+    const categoryDetailElement = screen.getByLabelText(ARIA_LABEL)
     expect(categoryDetailElement).toBeInTheDocument()
   })
 
