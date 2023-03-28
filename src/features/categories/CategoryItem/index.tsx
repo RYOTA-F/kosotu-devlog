@@ -17,7 +17,7 @@ export interface ICategoryItem {
 
 const CategoryItem: FC<ICategoryItem> = ({ category }) => (
   <div
-    className="inline-block cursor-pointer overflow-hidden bg-blue-main border-transparent rounded-md border-[1px] box-border transition duration-400 text-[14px] hover:bg-white hover:border-blue-main"
+    className="inline-block cursor-pointer overflow-hidden bg-blue-main border-transparent rounded-md border-[1px] box-border transition duration-400 text-[14px] sp:text-[10px] hover:bg-white hover:border-blue-main"
     aria-label={ARIA_LABEL}
   >
     <Link
