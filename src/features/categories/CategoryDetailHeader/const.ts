@@ -2,7 +2,11 @@
 import { COLOR } from '@/const/index'
 
 export const CATEGORY_DETAIL_HEADER = {
-  TITLE_LABEL: 'category',
+  TITLE_LABEL: {
+    TEXT: 'category',
+    BEFORE: '- ',
+    AFTER: ' -',
+  },
   FOLDER_SVG: {
     SIZE: 16,
     COLOR: COLOR.BLUE_GROUP.MAIN,
@@ -14,6 +18,4 @@ export const CATEGORY_DETAIL_HEADER = {
   },
 } as const
 
-export const ARIA_LABEL = {
-  CATEGORY_DETAIL_HEADER: 'categoryDetailHeader',
-} as const
+export const ARIA_LABEL = 'categoryDetailHeader' as const

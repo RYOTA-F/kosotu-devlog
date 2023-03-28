@@ -20,9 +20,7 @@ describe('CategoryDetailHeader', () => {
   })
 
   test('描画される', () => {
-    const categoryDetailHeaderElement = screen.getByLabelText(
-      ARIA_LABEL.CATEGORY_DETAIL_HEADER
-    )
+    const categoryDetailHeaderElement = screen.getByLabelText(ARIA_LABEL)
 
     expect(categoryDetailHeaderElement).toBeInTheDocument()
   })
