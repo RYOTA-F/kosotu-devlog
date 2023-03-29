@@ -4,6 +4,7 @@ import {
   tableOfContentsStateMock,
   paginationStateMock,
   breadCrumbStateMock,
+  crobalMenuStateMock,
 } from './mock'
 import { IContextProvider } from '../../types'
 
@@ -16,6 +17,7 @@ const CommonContextProviderMock: FC<IContextProvider> = ({ children }) => {
           tableOfContents: tableOfContentsStateMock,
           pagination: paginationStateMock,
           breadClumb: breadCrumbStateMock,
+          globalMenu: crobalMenuStateMock,
           isViewSidenav: true,
         },
         dispatch: () => null,
