@@ -16,7 +16,7 @@ export interface ICategoryList {
 const CategoryList: FC<ICategoryList> = ({ categories }) => {
   return (
     <ul className="flex items-center" aria-label={ARIA_LABEL}>
-      <div className="mr-2 mb-2">
+      <div className="mr-2 mb-1">
         <FolderSvg
           height={SVG_SIZE}
           width={SVG_SIZE}
