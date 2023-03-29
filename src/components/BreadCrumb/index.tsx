@@ -7,46 +7,61 @@ import { PAGE } from '@/const/index'
 import { BREAD_CRUMB, ARIA_LABEL } from './const'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
-import useMediaQuery from '@/hooks/useMediaQuery'
-/* Styles */
-import { BreadCrumbWrapper, ListItem, Title, HomeWrapper } from './index.styles'
 
 const BreadCrumb: FC = () => {
   const { breadCrumb } = useCommonData()
-  const { isSP } = useMediaQuery()
 
   return (
     <>
       {breadCrumb && (
-        <BreadCrumbWrapper isSP={isSP} aria-label={ARIA_LABEL.BREAD_CRUMB}>
-          <ListItem>
-            <Link href={PAGE.ROOT}>
+        <ol
+          className="flex items-center py-2 px-[7%] sp:px-3 bg-gray-list shadow-inherit text-[12px] max-w-full whitespace-nowrap sp:overflow-x-auto text-gray-text-t1"
+          aria-label={ARIA_LABEL.BREAD_CRUMB}
+        >
+          <li>
+            <Link
+              href={PAGE.ROOT}
+              className="flex items-center hover:opacity-70 hover:underline"
+            >
               <HomeSvg
                 width={BREAD_CRUMB.HOME.SVG.SIZE}
                 height={BREAD_CRUMB.HOME.SVG.SIZE}
               />
-              <HomeWrapper>{BREAD_CRUMB.HOME.TEXT}</HomeWrapper>
+              <span className="ml-1">{BREAD_CRUMB.HOME.TEXT}</span>
             </Link>
-          </ListItem>
+          </li>
 
           {breadCrumb.categoryParentId && breadCrumb.categoryParentName && (
-            <ListItem>
-              <Link href={`${PAGE.CATEGORY}${breadCrumb.categoryParentId}`}>
+            <li className="ml-2">
+              <span className="mr-1">{' >'}</span>
+              <Link
+                href={`${PAGE.CATEGORY}${breadCrumb.categoryParentId}`}
+                className="hover:opacity-70 hover:underline"
+              >
                 {breadCrumb.categoryParentName}
               </Link>
-            </ListItem>
+            </li>
           )}
 
           {breadCrumb.categoryChildId && breadCrumb.categoryChildName && (
-            <ListItem>
-              <Link href={`${PAGE.CATEGORY}${breadCrumb.categoryChildId}`}>
+            <li className="ml-2">
+              <span className="mr-1">{' >'}</span>
+              <Link
+                href={`${PAGE.CATEGORY}${breadCrumb.categoryChildId}`}
+                className=" hover:opacity-70 hover:underline"
+              >
                 {breadCrumb.categoryChildName}
               </Link>
-            </ListItem>
+            </li>
           )}
 
-          {breadCrumb?.currentName && <Title>{breadCrumb.currentName}</Title>}
-        </BreadCrumbWrapper>
+          {breadCrumb?.currentName && (
+            <li className="ml-2">
+              <span className="mr-1">{' >'}</span>
+              {breadCrumb.currentName}
+            </li>
+          )}
+        </ol>
       )}
     </>
   )
