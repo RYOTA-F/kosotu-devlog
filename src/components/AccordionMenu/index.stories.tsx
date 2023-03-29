@@ -1,5 +1,4 @@
 import { Story } from '@storybook/react'
-import styled from '@emotion/styled'
 
 import AccordionMenu, { IAccordionMenu } from '.'
 import { defaultProps } from './__mocks__'
@@ -10,26 +9,12 @@ export default {
 }
 
 const Template: Story<IAccordionMenu> = (args) => (
-  <Container>
-    <Wrapper>
+  <div className="w-[90vw] h-[90vh] bg-blue-main">
+    <div className="absolute top-[25%] left-[50%] -translate-x-[75%]">
       <AccordionMenu {...args} />
-    </Wrapper>
-  </Container>
+    </div>
+  </div>
 )
 
 export const Normal = Template.bind({})
 Normal.args = defaultProps
-
-const Container = styled.div`
-  width: 300px;
-  height: 300px;
-  background-color: #c0c0c0;
-  position: relative;
-`
-
-const Wrapper = styled.div`
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  translate: -50%;
-`

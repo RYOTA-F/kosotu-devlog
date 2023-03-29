@@ -1,5 +1,4 @@
 import { Story } from '@storybook/react'
-import styled from '@emotion/styled'
 
 import BlogBody from '.'
 import BlogContextProviderMock from '@/stores/__mocks__/blog'
@@ -10,9 +9,9 @@ export default {
 }
 
 const Template: Story = () => (
-  <Container>
+  <div className="w-[844px]">
     <BlogBody />
-  </Container>
+  </div>
 )
 
 export const Normal = Template.bind({})
@@ -23,7 +22,3 @@ Normal.decorators = [
     </BlogContextProviderMock>
   ),
 ]
-
-const Container = styled.div`
-  width: 844px;
-`

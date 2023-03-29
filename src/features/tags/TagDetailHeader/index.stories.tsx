@@ -1,5 +1,4 @@
 import { Story } from '@storybook/react'
-import styled from '@emotion/styled'
 
 import TagDetailHeader from '.'
 import TagContextProviderMock from '@/stores/__mocks__/tag'
@@ -10,9 +9,9 @@ export default {
 }
 
 const Template: Story = () => (
-  <Container>
+  <div className="w-[844px]">
     <TagDetailHeader />
-  </Container>
+  </div>
 )
 
 export const Normal = Template.bind({})
@@ -23,7 +22,3 @@ Normal.decorators = [
     </TagContextProviderMock>
   ),
 ]
-
-const Container = styled.div`
-  width: 844px;
-`
