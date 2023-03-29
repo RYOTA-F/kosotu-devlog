@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 /* Components */
-import LinkButton from '@/components/Elements/Button/LinkButton'
+import LinkButton from '@/components/Elements/LinkButton'
 import { TwitterSvg } from '@/components/Elements/Svg'
 /* Const */
 import { AUTHOR, PAGE, TWITTER } from '@/const/index'
