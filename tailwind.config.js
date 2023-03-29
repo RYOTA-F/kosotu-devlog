@@ -14,6 +14,12 @@ module.exports = {
           sub: '#a4cafe',
           link: '#1176d4',
         },
+        yellow: {
+          list: '#fcf9ee',
+        },
+        green: {
+          list: '#85dd7b',
+        },
         gray: {
           footer: '#5e6c77',
           list: '#f7f7f7',
@@ -24,6 +30,9 @@ module.exports = {
             t4: '#63707b',
           },
           border: '#e2e2e2',
+        },
+        black: {
+          text: '#333333',
         },
       },
       fontSize: {
