@@ -23,6 +23,7 @@ module.exports = {
         gray: {
           footer: '#5e6c77',
           list: '#f7f7f7',
+          pagination: '#dedede',
           text: {
             t1: '#808080',
             t2: '#7e8992',
