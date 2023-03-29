@@ -1,5 +1,9 @@
 export const TAG_DETAIL_HEADER = {
-  TITLE_LABEL: 'tag',
+  TITLE_LABEL: {
+    TEXT: 'tag',
+    BEFORE: '- ',
+    AFTER: ' -',
+  },
 } as const
 
 export const ARIA_LABEL = {

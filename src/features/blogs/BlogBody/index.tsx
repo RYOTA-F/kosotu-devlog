@@ -4,15 +4,14 @@ import 'highlight.js/styles/base16/onedark.css'
 import { ARIA_LABEL } from './const'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
-/* Styles */
-import { BlogBodyWrapper } from './index.styles'
 
 const BlogBody: FC = () => {
   const { blog } = useBlogData()
 
   if (!blog) return null
   return (
-    <BlogBodyWrapper
+    <div
+      className="blogBody"
       dangerouslySetInnerHTML={{ __html: blog.body }}
       aria-label={ARIA_LABEL}
     />

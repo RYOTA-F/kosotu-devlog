@@ -1,8 +1,6 @@
 import { Story } from '@storybook/react'
-import styled from '@emotion/styled'
 
-import BlogCard from '.'
-import { IBlogCard } from '@/types/index'
+import BlogCard, { IBlogCard } from '.'
 import { defaultProps } from './__mocks__'
 
 export default {
@@ -11,14 +9,10 @@ export default {
 }
 
 const Template: Story<IBlogCard> = (args) => (
-  <Container>
+  <div className="w-[400px]">
     <BlogCard {...args} />
-  </Container>
+  </div>
 )
 
 export const Normal = Template.bind({})
 Normal.args = defaultProps
-
-const Container = styled.div`
-  width: 400px;
-`

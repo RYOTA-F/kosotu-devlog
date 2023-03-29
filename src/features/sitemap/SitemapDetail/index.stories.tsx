@@ -1,5 +1,4 @@
 import { Story } from '@storybook/react'
-import styled from '@emotion/styled'
 
 import SitemapDetail from '.'
 import SitemapContextProviderMock from '@/stores/__mocks__/sitemap'
@@ -10,9 +9,9 @@ export default {
 }
 
 const Template: Story = () => (
-  <Wrapper>
+  <div className="w-[844px]">
     <SitemapDetail />
-  </Wrapper>
+  </div>
 )
 
 export const Normal = Template.bind({})
@@ -23,7 +22,3 @@ Normal.decorators = [
     </SitemapContextProviderMock>
   ),
 ]
-
-const Wrapper = styled.div`
-  width: 844px;
-`

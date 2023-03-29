@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react'
 
 import Header from '.'
-import MediaQueryContextProvider from '@/stores/mediaQuery'
+import CommonContextProviderMock from '@/stores/__mocks__'
 
 export default {
   title: 'Components/Header',
@@ -13,8 +13,8 @@ const Template: Story = () => <Header />
 export const Normal = Template.bind({})
 Normal.decorators = [
   (Story) => (
-    <MediaQueryContextProvider>
+    <CommonContextProviderMock>
       <Story />
-    </MediaQueryContextProvider>
+    </CommonContextProviderMock>
   ),
 ]

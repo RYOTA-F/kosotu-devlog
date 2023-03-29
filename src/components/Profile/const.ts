@@ -41,6 +41,11 @@ export const DESCRIPTION = [
   },
 ] as const
 
+export const DECORATION = {
+  LABEL: '■ ',
+  ITEM: '・ ',
+} as const
+
 export const ICON = {
   COLOR: COLOR.GRAY_SCALE.GRAY.TEXT_1,
   HEIGHT: 14,

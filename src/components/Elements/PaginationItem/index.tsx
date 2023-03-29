@@ -4,8 +4,6 @@ import { useRouter } from 'next/router'
 /* Const */
 import { PAGE } from '@/const/index'
 import { ARIA_LABEL } from './const'
-/* Styles */
-import { PaginationItemWrapper } from './index.styles'
 
 export interface IPaginationItem {
   pageNumber: number
@@ -39,16 +37,19 @@ const PaginationItem: FC<IPaginationItem> = ({ pageNumber, isCurrentPage }) => {
   }
 
   return (
-    <PaginationItemWrapper
-      isCurrentPage={isCurrentPage}
+    <div
+      className="h-9 w-9 leading-9 text-center text-gray-text-t1 transition-all bg-gray-bg-t1 bg-gray-pagination hover:bg-blue-main hover:text-white rounded"
+      style={isCurrentPage ? { background: '#709dd8' } : {}}
       aria-label={ARIA_LABEL}
     >
       {isCurrentPage ? (
-        <>{pageNumber}</>
+        <span className="block text-white">{pageNumber}</span>
       ) : (
-        <Link href={linkUrl()}>{pageNumber}</Link>
+        <Link href={linkUrl()} className="block text-white cursor-pointer">
+          {pageNumber}
+        </Link>
       )}
-    </PaginationItemWrapper>
+    </div>
   )
 }
 

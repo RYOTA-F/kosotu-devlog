@@ -61,7 +61,3 @@ export interface IBlogImage {
   height: number
   width: number
 }
-
-export type IBlogCard = Pick<IBlog, 'title' | 'image' | 'publishedAt'> & {
-  id: string
-}

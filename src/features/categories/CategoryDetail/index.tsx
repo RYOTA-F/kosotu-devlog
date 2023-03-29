@@ -4,17 +4,15 @@ import BlogCardList from '@/features/blogs/BlogCardList'
 import CategoryDetailHeader from '@/features/categories/CategoryDetailHeader'
 /* Const */
 import { ARIA_LABEL } from './const'
-/* Styles */
-import { CategoryDetailWrapper, BlogCardListWrapper } from './index.styles'
 
 const CategoryDetail: FC = () => {
   return (
-    <CategoryDetailWrapper aria-label={ARIA_LABEL.CATEGORY_DETAIL}>
+    <section aria-label={ARIA_LABEL}>
       <CategoryDetailHeader />
-      <BlogCardListWrapper>
+      <div className="mt-10">
         <BlogCardList />
-      </BlogCardListWrapper>
-    </CategoryDetailWrapper>
+      </div>
+    </section>
   )
 }
 

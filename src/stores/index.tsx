@@ -5,7 +5,6 @@ import CategoryContextProvider from './category/context'
 import CommonContextProvider from './common/context'
 import SitemapContextProvider from './sitemap/context'
 import TagContextProvider from './tag/context'
-import MediaQueryContextProvider from './mediaQuery/context'
 /* Types */
 import { IContextProvider } from './types'
 
@@ -15,9 +14,7 @@ const RootContextProvider: FC<IContextProvider> = ({ children }) => {
       <BlogContextProvider>
         <CategoryContextProvider>
           <TagContextProvider>
-            <SitemapContextProvider>
-              <MediaQueryContextProvider>{children}</MediaQueryContextProvider>
-            </SitemapContextProvider>
+            <SitemapContextProvider>{children}</SitemapContextProvider>
           </TagContextProvider>
         </CategoryContextProvider>
       </BlogContextProvider>

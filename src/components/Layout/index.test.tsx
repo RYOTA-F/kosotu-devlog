@@ -7,7 +7,8 @@ import { ARIA_LABEL as HEADER_ARIA_LABEL } from '@/components/Header'
 import { ARIA_LABEL as FOOTER_ARIA_LABEL } from '@/components/Footer'
 import { ARIA_LABEL as BREADCRUMB_ARIA_LABEL } from '@/components/BreadCrumb'
 import { ARIA_LABEL as PROFILE_ARIA_LABEL } from '@/components/Profile'
-import { defaultProps } from './__mocks__'
+
+const defaultProps = 'test'
 
 jest.mock('next/router', () => ({
   useRouter() {

@@ -16,16 +16,14 @@ describe('CategoryDetail', () => {
   })
 
   test('描画される', () => {
-    const categoryDetailElement = screen.getByLabelText(
-      ARIA_LABEL.CATEGORY_DETAIL
-    )
+    const categoryDetailElement = screen.getByLabelText(ARIA_LABEL)
     expect(categoryDetailElement).toBeInTheDocument()
   })
 
   describe('CategoryDetailHeader', () => {
     test('描画される', () => {
       const categoryDetailHeaderElement = screen.getByLabelText(
-        CATEGORY_DETAIL_HEADER_ARIA_LABEL.CATEGORY_DETAIL_HEADER
+        CATEGORY_DETAIL_HEADER_ARIA_LABEL
       )
       expect(categoryDetailHeaderElement).toBeInTheDocument()
     })
@@ -34,7 +32,7 @@ describe('CategoryDetail', () => {
   describe('BlogCardList', () => {
     test('描画される', () => {
       const blogCardListElement = screen.getByLabelText(
-        BLOG_CARD_LIST_ARIA_LABEL.BLOG_CARD_LIST
+        BLOG_CARD_LIST_ARIA_LABEL
       )
       expect(blogCardListElement).toBeInTheDocument()
     })

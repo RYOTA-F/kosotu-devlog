@@ -14,7 +14,7 @@ const Template: Story = () => <Sidenav />
 export const Normal = Template.bind({})
 Normal.decorators = [
   (Story) => (
-    <CommonContextProviderMock>
+    <CommonContextProviderMock isViewSideNav>
       <MediaQueryContextProvider>
         <Story />
       </MediaQueryContextProvider>
