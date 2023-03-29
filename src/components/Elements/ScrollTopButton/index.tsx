@@ -4,7 +4,11 @@ import { ChevronRightSvg } from '@/components/Elements/Svg'
 /* Const */
 import { ARIA_LABEL, TOP_POSITION } from './const'
 
-const ScrollTopButton: FC = () => {
+export interface IScrollTopButton {
+  forceView?: boolean
+}
+
+const ScrollTopButton: FC<IScrollTopButton> = ({ forceView }) => {
   const [isView, setIsView] = useState(false)
 
   const onClickScrollTop = () => {
@@ -28,7 +32,7 @@ const ScrollTopButton: FC = () => {
 
   return (
     <>
-      {isView && (
+      {(isView || forceView) && (
         <button
           onClick={onClickScrollTop}
           className="h-[50px] w-[50px] pl-3 rounded-full text-center border-2 border-blue-main opacity-75 transform z-100 cursor-pointer fixed bottom-3 right-3 -rotate-90 bg-gray-list"
