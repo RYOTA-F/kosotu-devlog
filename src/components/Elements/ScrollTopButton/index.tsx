@@ -1,17 +1,11 @@
 import { FC, useState, useCallback, useEffect } from 'react'
 /* Components */
 import { ChevronRightSvg } from '@/components/Elements/Svg'
-/* Styles */
-import { ScrollTopButtonWrapper } from './index.styles'
-
-export const ARIA_LABEL = {
-  SCROLL_TOP_BUTTON: 'ScrollTopButton',
-} as const
-
-const TOP_POSITION = 0 as const
+/* Const */
+import { ARIA_LABEL, TOP_POSITION } from './const'
 
 const ScrollTopButton: FC = () => {
-  const [isView, setIsView] = useState(true)
+  const [isView, setIsView] = useState(false)
 
   const onClickScrollTop = () => {
     window.scrollTo({
@@ -35,15 +29,17 @@ const ScrollTopButton: FC = () => {
   return (
     <>
       {isView && (
-        <ScrollTopButtonWrapper
+        <button
           onClick={onClickScrollTop}
+          className="h-[50px] w-[50px] pl-3 rounded-full text-center border-2 border-blue-main opacity-75 transform z-100 cursor-pointer fixed bottom-3 right-3 -rotate-90 bg-gray-list"
           aria-label={ARIA_LABEL.SCROLL_TOP_BUTTON}
         >
           <ChevronRightSvg height={20} width={20} />
-        </ScrollTopButtonWrapper>
+        </button>
       )}
     </>
   )
 }
 
 export default ScrollTopButton
+export * from './const'
