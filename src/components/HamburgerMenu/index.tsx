@@ -18,30 +18,30 @@ const HamburgerMenu: FC = () => {
           className="inline-block absolute left-[14px] h-[2px] rounded bg-white w-[45%] transition-all duration-500"
           style={
             isViewSidenav
-              ? { top: '17px' }
-              : {
+              ? {
                   top: '16px',
                   left: '16px',
                   transform: 'translateY(6px) rotate(-45deg)',
                   width: '40%',
                 }
+              : { top: '17px' }
           }
         />
         <span
           className="inline-block absolute left-[14px] h-[2px] rounded bg-white w-[45%] transition-all duration-500"
-          style={isViewSidenav ? { top: '24px' } : { opacity: 0 }}
+          style={isViewSidenav ? { opacity: 0 } : { top: '24px' }}
         />
         <span
           className="inline-block absolute left-[14px] h-[2px] rounded bg-white w-[45%] transition-all duration-500"
           style={
             isViewSidenav
-              ? { top: '31px' }
-              : {
+              ? {
                   top: '16px',
                   left: '16px',
                   transform: 'translateY(6px) rotate(45deg)',
                   width: '40%',
                 }
+              : { top: '31px' }
           }
         />
       </div>
