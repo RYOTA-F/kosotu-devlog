@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react'
+import { useEffect } from 'react'
 import type { NextPage } from 'next'
 import { getStaticProps } from './index.props'
 /* Components */
@@ -24,7 +24,7 @@ const Home: NextPage<IHome> = ({ blogs, pagination, globalMenu }) => {
   const { setGlobalMenu, resetGlobalMenu, setPagination, resetPagination } =
     useCommonData()
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setBlogs(blogs)
     setPagination(pagination)
     setGlobalMenu(globalMenu)
