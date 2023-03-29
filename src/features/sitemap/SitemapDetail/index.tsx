@@ -7,22 +7,20 @@ import { SITE, SITEMAP, PAGE } from '@/const/index'
 import { TITLE, ARIA_LABEL } from './const'
 /* Hooks */
 import useSitemapData from '@/hooks/useSitemapData'
-/* Styles */
-import { SitemapWrapper, List, ListItem } from './index.styles'
 
 const SitemapDetail: FC = () => {
   const { sitemap } = useSitemapData()
 
   return (
-    <SitemapWrapper aria-label={ARIA_LABEL}>
+    <section aria-label={ARIA_LABEL}>
       <H1>{TITLE}</H1>
       {sitemap.length && (
-        <List>
+        <ul className="mb-5">
           <SitemapItem type={SITEMAP.TOP} label={SITE.TITLE} url={PAGE.ROOT} />
 
           {/* 親カテゴリ */}
           {sitemap.map((parent) => (
-            <ListItem key={parent.id}>
+            <li key={parent.id} className="mt-2 ml-6">
               <SitemapItem
                 type={SITEMAP.PARENT}
                 label={parent.name}
@@ -31,9 +29,9 @@ const SitemapDetail: FC = () => {
 
               {/* 子カテゴリ */}
               {parent.children.length ? (
-                <List>
+                <ul className="mb-5">
                   {parent.children.map((children) => (
-                    <ListItem key={children.id}>
+                    <li key={children.id} className="mt-2 ml-6">
                       <SitemapItem
                         type={SITEMAP.CHILDREN}
                         label={children.name}
@@ -42,27 +40,27 @@ const SitemapDetail: FC = () => {
 
                       {/* 投稿 */}
                       {children.blogs.length ? (
-                        <List>
+                        <ul className="mb-5">
                           {children.blogs.map((blog) => (
-                            <ListItem key={blog.title}>
+                            <li key={blog.title} className="mt-2 ml-6">
                               <SitemapItem
                                 type={SITEMAP.BLOG}
                                 label={blog.title}
                                 url={blog.url}
                               />
-                            </ListItem>
+                            </li>
                           ))}
-                        </List>
+                        </ul>
                       ) : null}
-                    </ListItem>
+                    </li>
                   ))}
-                </List>
+                </ul>
               ) : null}
-            </ListItem>
+            </li>
           ))}
-        </List>
+        </ul>
       )}
-    </SitemapWrapper>
+    </section>
   )
 }
 
