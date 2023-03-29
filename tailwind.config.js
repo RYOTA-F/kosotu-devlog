@@ -12,6 +12,7 @@ module.exports = {
         blue: {
           main: '#709dd8',
           sub: '#a4cafe',
+          link: '#1176d4',
         },
         gray: {
           footer: '#5e6c77',
