@@ -4,17 +4,15 @@ import TagDetailHeader from '@/features/tags/TagDetailHeader'
 import BlogCardList from '@/features/blogs/BlogCardList'
 /* Const */
 import { ARIA_LABEL } from './const'
-/* Styles */
-import { TagDetailWrapper, BlogCardListWrapper } from './index.styles'
 
 const TagDetail: FC = () => {
   return (
-    <TagDetailWrapper aria-label={ARIA_LABEL.TAG_DETAIL}>
+    <section aria-label={ARIA_LABEL.TAG_DETAIL}>
       <TagDetailHeader />
-      <BlogCardListWrapper>
+      <div className="mt-10">
         <BlogCardList />
-      </BlogCardListWrapper>
-    </TagDetailWrapper>
+      </div>
+    </section>
   )
 }
 
