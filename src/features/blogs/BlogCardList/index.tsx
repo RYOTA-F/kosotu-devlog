@@ -5,33 +5,23 @@ import BlogCard from '@/features/blogs/BlogCard'
 import { ARIA_LABEL } from './const'
 /* Hooks */
 import useBlogData from '@/hooks/useBlogData'
-import useMediaQuery from '@/hooks/useMediaQuery'
-/* Styles */
-import {
-  BlogCardListWrapper,
-  BlogCardItems,
-  BlogCardWrapper,
-} from './index.styles'
 
 const BlogCardList: FC = () => {
   const { blogs } = useBlogData()
-  const { isSP } = useMediaQuery()
 
   return (
-    <BlogCardListWrapper aria-label={ARIA_LABEL.BLOG_CARD_LIST}>
-      <BlogCardItems isSP={isSP}>
+    <article aria-label={ARIA_LABEL}>
+      <ul className="w-[100%] -mt-5 tb:mt-0 flex flex-wrap sp:block">
         {blogs.map((v) => (
-          <BlogCardWrapper key={v.title} isSP={isSP}>
-            <BlogCard
-              title={v.title}
-              id={v.id}
-              image={v.image}
-              publishedAt={v.oldPublishedAt ? v.oldPublishedAt : v.publishedAt}
-            />
-          </BlogCardWrapper>
+          <li
+            key={v.title}
+            className="w-[50%] p-[2%] tb:p-[1%] sp:w-[95%] sp:p-0 sp:mx-auto sp:[&:not(:first-of-type)]:mt-4"
+          >
+            <BlogCard title={v.title} id={v.id} image={v.image} />
+          </li>
         ))}
-      </BlogCardItems>
-    </BlogCardListWrapper>
+      </ul>
+    </article>
   )
 }
 

@@ -9,74 +9,60 @@ import Sidenav from '@/components/Sidenav'
 import { SITE, PAGE, TWITTER } from '@/const/index'
 import { HEADER, ARIA_LABEL } from './const'
 /* Hooks */
-import useMediaQuery from '@/hooks/useMediaQuery'
 import useCommonData from '@/hooks/useCommonData'
-/* Styles */
-import {
-  HeaderBar,
-  CatchPrase,
-  IconList,
-  Icon,
-  HeaderWrapper,
-  Title,
-  MenuList,
-  MenuItem,
-} from './index.styles'
 
 const Header: FC = () => {
   const { globalMenu } = useCommonData()
-  const { isPC, isTB } = useMediaQuery()
 
   return (
     <>
-      {isPC && (
-        <HeaderBar>
-          <CatchPrase>{HEADER.CATCH_PHRASE}</CatchPrase>
-          <IconList>
-            <Icon>
-              <Link href={TWITTER.URL} target="_blank">
-                <TwitterSvg
-                  height={HEADER.ICON.HEIGHT}
-                  width={HEADER.ICON.WIDTH}
-                  color={HEADER.ICON.COLOR}
-                />
-              </Link>
-            </Icon>
-          </IconList>
-        </HeaderBar>
-      )}
+      <div className="flex justify-between h-[22px] px-[7%] bg-blue-main tb:hidden">
+        <span className="py-1 text-white text-[12px]">
+          {HEADER.CATCH_PHRASE}
+        </span>
+        <ul className="flex">
+          <li className="flex justify-center items-center py-1 h-[22px] w-[22px]">
+            <Link href={TWITTER.URL} target="_blank">
+              <TwitterSvg
+                height={HEADER.ICON.HEIGHT}
+                width={HEADER.ICON.WIDTH}
+                color={HEADER.ICON.COLOR}
+              />
+            </Link>
+          </li>
+        </ul>
+      </div>
 
-      <HeaderWrapper isPC={isPC} aria-label={ARIA_LABEL.HEADER}>
+      <header
+        className="sticky top-0 z-50 flex h-[72px] justify-between bg-blue-main px-[7%] tb:justify-center tb:h-[48px]"
+        aria-label={ARIA_LABEL.HEADER}
+      >
         <Link href={PAGE.ROOT}>
-          <Title isPC={isPC} isTB={isTB}>
+          <h1 className="inline-block cursor-pointer text-2xl font-bold leading-[72px] tb:leading-[48px] text-white no-underline">
             {SITE.TITLE}
-          </Title>
+          </h1>
         </Link>
 
-        {isPC && (
-          <MenuList>
-            {globalMenu.map((v) => (
-              <MenuItem key={v.label}>
-                <AccordionMenu
-                  label={v.label}
-                  path={v.url}
-                  menuList={v.children.map((children) => ({
-                    label: children.label,
-                    path: children.url,
-                  }))}
-                />
-              </MenuItem>
-            ))}
-          </MenuList>
-        )}
+        <ul className="flex h-[100%] leading-[72px] text-white tb:hidden">
+          {globalMenu.map((v) => (
+            <li key={v.label}>
+              <AccordionMenu
+                label={v.label}
+                path={v.url}
+                menuList={v.children.map((children) => ({
+                  label: children.label,
+                  path: children.url,
+                }))}
+              />
+            </li>
+          ))}
+        </ul>
 
-        {!isPC && (
-          <>
-            <HamburgerMenu />
-            <Sidenav />
-          </>
-        )}
-      </HeaderWrapper>
+        <div className="pc:hidden">
+          <HamburgerMenu />
+          <Sidenav />
+        </div>
+      </header>
     </>
   )
 }

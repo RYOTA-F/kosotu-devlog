@@ -5,8 +5,6 @@ import PaginationItem from '@/components/Elements/PaginationItem'
 import { ARIA_LABEL } from './const'
 /* Hooks */
 import useCommonData from '@/hooks/useCommonData'
-/* Styles */
-import { PaginationWrapper, PaginationItemWrapper } from './index.styles'
 
 const Pagination: FC = () => {
   const { currentPage, totalPage } = useCommonData()
@@ -14,16 +12,16 @@ const Pagination: FC = () => {
   const pages = [...new Array(totalPage)].map((_, i) => i)
 
   return (
-    <PaginationWrapper aria-label={ARIA_LABEL}>
+    <section className="flex justify-center mt-10" aria-label={ARIA_LABEL}>
       {pages.map((v) => (
-        <PaginationItemWrapper key={v}>
+        <div key={v} className="m-1">
           <PaginationItem
             pageNumber={v + 1}
             isCurrentPage={currentPage === v + 1}
           />
-        </PaginationItemWrapper>
+        </div>
       ))}
-    </PaginationWrapper>
+    </section>
   )
 }
 

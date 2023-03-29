@@ -3,47 +3,29 @@ import Image from 'next/image'
 import Link from 'next/link'
 /* Const */
 import { PAGE } from '@/const/index'
-/* Components */
-import { TimeSvg } from '@/components/Elements/Svg'
-/* Const */
 import { ARIA_LABEL } from './const'
-/* Libs */
-import { formatDate } from '@/libs/dayjs'
-/* Styles */
-import {
-  BlogCardWrapper,
-  ContentWrapper,
-  Title,
-  DateWrapper,
-  Date,
-} from './index.styles'
 /* Types */
-import { IBlogCard } from '@/types/index'
+import { IBlog } from '@/types/index'
 
-const TIME_ICON_SIZE = 12 as const
-const IMAGE_ALT = 'Thumbnail'
+export type IBlogCard = Pick<IBlog, 'title' | 'image'> & {
+  id: string
+}
 
-const BlogCard: FC<IBlogCard> = ({ title, id, image, publishedAt }) => {
+const BlogCard: FC<IBlogCard> = ({ title, id, image }) => {
   return (
-    <BlogCardWrapper aria-label={ARIA_LABEL.BLOG_CARD}>
+    <div className="hover:opacity-70" aria-label={ARIA_LABEL}>
       <Link href={`${PAGE.ARTICLES}${id}`}>
-        <Image
-          src={image.url}
-          alt={IMAGE_ALT}
-          width={image.width}
-          height={image.height}
-        />
-        <ContentWrapper>
-          <Title>{title}</Title>
-          <DateWrapper>
-            <TimeSvg height={TIME_ICON_SIZE} width={TIME_ICON_SIZE} />
-            <Date dateTime={formatDate(publishedAt)}>
-              {formatDate(publishedAt)}
-            </Date>
-          </DateWrapper>
-        </ContentWrapper>
+        <div className="rounded-md overflow-hidden shadow-lg">
+          <Image
+            src={image.url}
+            alt={title}
+            width={image.width}
+            height={image.height}
+            className="duration-300 hover:scale-105"
+          />
+        </div>
       </Link>
-    </BlogCardWrapper>
+    </div>
   )
 }
 

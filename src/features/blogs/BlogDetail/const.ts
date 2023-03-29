@@ -1,3 +1,1 @@
-export const ARIA_LABEL = {
-  BLOG_DETAIL: 'blogDetail',
-} as const
+export const ARIA_LABEL = 'blogDetail' as const

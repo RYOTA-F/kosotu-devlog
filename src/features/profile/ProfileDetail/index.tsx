@@ -5,53 +5,57 @@ import Label from '@/components/Elements/Label'
 import List from '@/components/Elements/List'
 /* Const */
 import { PROFILE, ARIA_LABEL } from './const'
-/* Styles */
-import {
-  Wrapper,
-  ContentWrapper,
-  Description,
-  ListWrapper,
-} from './index.styles'
 
 const ProfileDetail: FC = () => {
   return (
-    <Wrapper aria-label={ARIA_LABEL.PROFILE_DETAIL}>
+    <section
+      className="w-full text-gray-text-t3"
+      aria-label={ARIA_LABEL.PROFILE_DETAIL}
+    >
       <H1>{PROFILE.TITLE}</H1>
-      <ContentWrapper>
-        <Description>{PROFILE.DESCRIPTION}</Description>
-      </ContentWrapper>
+      <div className="px-5">
+        <p className="leading-[2.5]">{PROFILE.DESCRIPTION}</p>
+      </div>
       {/* 概要 */}
       <H2>{PROFILE.ABOUT.TITLE}</H2>
-      <ContentWrapper>
-        <Description>{PROFILE.ABOUT.CONTENT}</Description>
-        <ListWrapper>
+      <div className="px-5">
+        <p className="leading-[2.5]">{PROFILE.ABOUT.CONTENT}</p>
+        <div className="mt-5 mb-10">
           <Label>{PROFILE.ABOUT.LABEL}</Label>
-          <List list={PROFILE.ABOUT.LIST.map<string>((v) => v)} />
-        </ListWrapper>
-      </ContentWrapper>
+          <div className="mt-2">
+            <List list={PROFILE.ABOUT.LIST.map<string>((v) => v)} />
+          </div>
+        </div>
+      </div>
       {/* 目的 */}
       <H2>{PROFILE.PURPOSE.TITLE}</H2>
-      <ContentWrapper>
-        <Description>{PROFILE.PURPOSE.CONTENT}</Description>
-      </ContentWrapper>
+      <div className="px-5">
+        <p className="leading-[2.5]">{PROFILE.PURPOSE.CONTENT}</p>
+      </div>
       {/* 技術スタック */}
       <H2>{PROFILE.SKILL.TITLE}</H2>
-      <ContentWrapper>
+      <div className="px-5">
         {/* フロントエンド */}
         <Label>{PROFILE.SKILL.FRONT_END.LABEL}</Label>
-        <List list={PROFILE.SKILL.FRONT_END.LIST.map<string>((v) => v)} />
+        <div className="mt-2">
+          <List list={PROFILE.SKILL.FRONT_END.LIST.map<string>((v) => v)} />
+        </div>
         {/* バックエンド */}
-        <ListWrapper>
+        <div className="mt-5 mb-10">
           <Label>{PROFILE.SKILL.BACK_END.LABEL}</Label>
-          <List list={PROFILE.SKILL.BACK_END.LIST.map<string>((v) => v)} />
-        </ListWrapper>
+          <div className="mt-2">
+            <List list={PROFILE.SKILL.BACK_END.LIST.map<string>((v) => v)} />
+          </div>
+        </div>
         {/* インフラ */}
-        <ListWrapper>
+        <div className="mt-5 mb-10">
           <Label>{PROFILE.SKILL.INFRA.LABEL}</Label>
-          <List list={PROFILE.SKILL.INFRA.LIST.map<string>((v) => v)} />
-        </ListWrapper>
-      </ContentWrapper>
-    </Wrapper>
+          <div className="mt-2">
+            <List list={PROFILE.SKILL.INFRA.LIST.map<string>((v) => v)} />
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 

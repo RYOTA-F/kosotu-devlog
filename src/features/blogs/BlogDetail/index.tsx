@@ -1,18 +1,16 @@
 import { FC } from 'react'
+/* Const */
+import { ARIA_LABEL } from './const'
 /* Features */
 import BlogBody from '@/features/blogs/BlogBody'
 import BlogDetailHeader from '@/features/blogs/BlogDetailHeader'
-/* Const */
-import { ARIA_LABEL } from './const'
-/* Styles */
-import { BlogDetailWrapper } from './index.styles'
 
 const BlogDetail: FC = () => {
   return (
-    <BlogDetailWrapper aria-label={ARIA_LABEL.BLOG_DETAIL}>
+    <article className="text-gray-text-t4" aria-label={ARIA_LABEL}>
       <BlogDetailHeader />
       <BlogBody />
-    </BlogDetailWrapper>
+    </article>
   )
 }
 

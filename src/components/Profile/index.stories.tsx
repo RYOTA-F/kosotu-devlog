@@ -1,5 +1,4 @@
 import { Story } from '@storybook/react'
-import styled from '@emotion/styled'
 import Profile from '.'
 
 export default {
@@ -8,13 +7,9 @@ export default {
 }
 
 const Template: Story = () => (
-  <Container>
+  <div className="w-[300px]">
     <Profile />
-  </Container>
+  </div>
 )
 
 export const Normal = Template.bind({})
-
-const Container = styled.div`
-  width: 300px;
-`

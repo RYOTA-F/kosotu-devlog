@@ -12,7 +12,6 @@ export const tableOfContentsStateMock: ITableOfContents[] = [
 export const paginationStateMock: ICommonState['pagination'] = {
   currentPage: 2,
   totalPage: 5,
-  type: 'blog',
 }
 
 export const breadCrumbStateMock: ICommonState['breadClumb'] = {
@@ -29,3 +28,27 @@ export const seoStateMock: ICommonState['seo'] = {
   url: `${SITE.URL}/hogehoge`,
   image: initialCommonState.seo.image,
 }
+
+export const crobalMenuStateMock: ICommonState['globalMenu'] = [
+  {
+    label: 'フロントエンド',
+    url: '/categories/front-end',
+    children: [
+      { label: 'hogehoge', url: '/hogehoge' },
+      { label: 'fugafuga', url: '/fugafuga' },
+    ],
+  },
+  {
+    label: 'バックエンド',
+    url: '/categories/back-end',
+    children: [
+      { label: 'chunchun', url: '/chunchun' },
+      { label: 'piyopityo', url: '/piyopityo' },
+    ],
+  },
+  { label: 'インフラ', url: '/categories/infra', children: [] },
+  { label: 'イベント', url: '/categories/event', children: [] },
+  { label: 'エトセトラ', url: '/categories/etc', children: [] },
+  { label: 'サイトマップ', url: '/sitemap', children: [] },
+  { label: 'プロフィール', url: '/profile', children: [] },
+]

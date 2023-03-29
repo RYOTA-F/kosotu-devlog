@@ -6,6 +6,10 @@ export default {
   component: ScrollTopButton,
 }
 
-const Template: Story = () => <ScrollTopButton />
+const Template: Story = () => (
+  <div className="h-[200vh]">
+    <ScrollTopButton forceView />
+  </div>
+)
 
 export const Normal = Template.bind({})

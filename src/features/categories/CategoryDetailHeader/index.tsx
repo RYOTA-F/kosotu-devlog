@@ -9,43 +9,34 @@ import CategoryItem from '@/features/categories/CategoryItem'
 import CategoryLabel from '@/features/categories/CategoryLabel'
 /* Hooks */
 import useCategoryData from '@/hooks/useCategoryData'
-import useMediaQuery from '@/hooks/useMediaQuery'
-/* Styles */
-import {
-  CategoryDetailHeaderWrapper,
-  HeaderWrapper,
-  HeaderLabel,
-  CategoryWrapper,
-  FolderSvgWrapper,
-  ChevronRightSvgWrapper,
-} from './index.styles'
 /* Utils */
 import { getCategoryRelation } from '@/utils/index'
 
 const CategoryDetailHeader: FC = () => {
   const { category } = useCategoryData()
-  const { isSP } = useMediaQuery()
   const { isParent, categoryParent } = getCategoryRelation(category.relation)
 
   return (
-    <CategoryDetailHeaderWrapper aria-label={ARIA_LABEL.CATEGORY_DETAIL_HEADER}>
-      <HeaderWrapper isSP={isSP}>
+    <div aria-label={ARIA_LABEL}>
+      <div className="mb-8 sp:mb-6">
         <H1>
           {category.name}
-          <HeaderLabel isSP={isSP}>
-            {CATEGORY_DETAIL_HEADER.TITLE_LABEL}
-          </HeaderLabel>
+          <span className="ml-5 text-gray-text-t1 text-base font-bold">
+            {CATEGORY_DETAIL_HEADER.TITLE_LABEL.BEFORE}
+            {CATEGORY_DETAIL_HEADER.TITLE_LABEL.TEXT}
+            {CATEGORY_DETAIL_HEADER.TITLE_LABEL.AFTER}
+          </span>
         </H1>
-      </HeaderWrapper>
-      <CategoryWrapper>
-        <FolderSvgWrapper>
+      </div>
+      <div className="flex items-center">
+        <div className="mr-2 pt-1">
           <FolderSvg
             height={CATEGORY_DETAIL_HEADER.FOLDER_SVG.SIZE}
             width={CATEGORY_DETAIL_HEADER.FOLDER_SVG.SIZE}
             color={CATEGORY_DETAIL_HEADER.FOLDER_SVG.COLOR}
             fill={CATEGORY_DETAIL_HEADER.FOLDER_SVG.FILL}
           />
-        </FolderSvgWrapper>
+        </div>
         {/* 親カテゴリの場合 親カテゴリのラベルを表示 */}
         {isParent && <CategoryLabel name={category.name} />}
         {/* 子カテゴリの場合 親カテゴリへのリンクを表示 */}
@@ -60,18 +51,18 @@ const CategoryDetailHeader: FC = () => {
         {/* 子カテゴリの場合 子カテゴリのラベルを表示 */}
         {!isParent && (
           <>
-            <ChevronRightSvgWrapper isSP={isSP}>
+            <div className="mx-2 sp:mx-1">
               <ChevronRightSvg
                 height={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.SIZE}
                 width={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.SIZE}
                 color={CATEGORY_DETAIL_HEADER.CHEVRON_RIGHT_SVG.COLOR}
               />
-            </ChevronRightSvgWrapper>
+            </div>
             <CategoryLabel name={category.name} />
           </>
         )}
-      </CategoryWrapper>
-    </CategoryDetailHeaderWrapper>
+      </div>
+    </div>
   )
 }
 

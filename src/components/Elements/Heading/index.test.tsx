@@ -29,7 +29,7 @@ describe('Heading', () => {
   describe('H3', () => {
     test('描画される', () => {
       render(<H3>{defaultProps}</H3>)
-      const h3Element = screen.getByLabelText(ARIA_LABEL.H4)
+      const h3Element = screen.getByLabelText(ARIA_LABEL.H3)
       expect(h3Element).toBeInTheDocument()
     })
 

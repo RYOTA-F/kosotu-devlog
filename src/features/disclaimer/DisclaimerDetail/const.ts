@@ -33,6 +33,9 @@ export const DISCLAIMER = {
     CONTENT:
       '当サイトに存在する、文章や画像、動画等の著作物の情報を無断転載することを禁止します。引用の範囲を超えるものについては、法的処置を行います。',
   },
+  LIST: {
+    POINTER: '・',
+  },
 } as const
 
 export const ARIA_LABEL = {

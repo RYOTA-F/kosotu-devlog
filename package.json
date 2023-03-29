@@ -16,8 +16,7 @@
     "chromatic": "npx chromatic --auto-accept-changes --project-token= "
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/react": "^11.10.6",
     "@types/node": "18.11.15",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
@@ -51,6 +50,7 @@
     "@types/jest": "^29.2.4",
     "@types/react-scroll": "^1.8.5",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "autoprefixer": "^10.4.14",
     "babel-loader": "^8.3.0",
     "chromatic": "^6.15.0",
     "eslint-config-prettier": "^8.5.0",
@@ -61,8 +61,10 @@
     "jest-environment-jsdom": "^29.3.1",
     "jest-html-reporters": "^3.0.11",
     "lint-staged": "^13.1.0",
+    "postcss": "^8.4.21",
     "prettier": "^2.8.1",
     "storybook-addon-next": "^1.7.1",
+    "tailwindcss": "^3.2.7",
     "ts-jest": "^29.0.3"
   },
   "readme": "ERROR: No README data found!",

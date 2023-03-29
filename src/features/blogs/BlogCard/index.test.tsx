@@ -10,7 +10,7 @@ describe('BlogCard', () => {
   })
 
   test('描画される', () => {
-    const blogCardElement = screen.getByLabelText(ARIA_LABEL.BLOG_CARD)
+    const blogCardElement = screen.getByLabelText(ARIA_LABEL)
     expect(blogCardElement).toBeInTheDocument()
   })
 
