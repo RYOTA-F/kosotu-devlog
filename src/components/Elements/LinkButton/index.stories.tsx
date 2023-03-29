@@ -2,7 +2,7 @@ import { Story } from '@storybook/react'
 import LinkButton, { ILinkButton } from '.'
 
 export default {
-  title: 'Components/Elements/Button/LinkButton',
+  title: 'Components/Elements/LinkButton',
   component: LinkButton,
 }
 

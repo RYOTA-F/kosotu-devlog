@@ -8,7 +8,9 @@ import {
 } from './mock'
 import { IContextProvider } from '../../types'
 
-const CommonContextProviderMock: FC<IContextProvider> = ({ children }) => {
+const CommonContextProviderMock: FC<
+  IContextProvider & { isViewSideNav?: boolean }
+> = ({ children, isViewSideNav }) => {
   return (
     <CommonContext.Provider
       value={{
@@ -18,7 +20,7 @@ const CommonContextProviderMock: FC<IContextProvider> = ({ children }) => {
           pagination: paginationStateMock,
           breadClumb: breadCrumbStateMock,
           globalMenu: crobalMenuStateMock,
-          isViewSidenav: true,
+          isViewSidenav: isViewSideNav ? isViewSideNav : false,
         },
         dispatch: () => null,
       }}
