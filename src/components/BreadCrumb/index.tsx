@@ -15,7 +15,7 @@ const BreadCrumb: FC = () => {
     <>
       {breadCrumb && (
         <ol
-          className="flex items-center py-2 pl-[7%] sp:pl-0 bg-gray-list shadow-inherit text-[12px] text-gray-text-t1 whitespace-nowrap overflow-x-hidden"
+          className="flex items-center py-2 pl-[7%] sp:pl-[3%] bg-gray-list shadow-inherit text-[12px] text-gray-text-t1 whitespace-nowrap overflow-x-hidden sp:overflow-x-scroll"
           aria-label={ARIA_LABEL.BREAD_CRUMB}
         >
           <li>
