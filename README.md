@@ -7,9 +7,9 @@
 
 ## URL
 
-[https://kosotu-devlog.vercel.app/](https://kosotu-devlog.vercel.app/)
+[https://kosotudev.com/](https://kosotudev.com/)
 
-[Storybook](https://62dd4fd7983a98740d32bdd0-fbwjukiopg.chromatic.com/)
+[Storybook](https://6424755c8b390ecb4f0503d8-clzesogeok.chromatic.com/)
 
 ## Run
 
