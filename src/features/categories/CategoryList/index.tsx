@@ -5,17 +5,9 @@ import { FolderSvg } from '@/components/Elements/Svg'
 import CategoryItem from '@/features/categories/CategoryItem'
 /* Const */
 import { COLOR } from '@/const/index'
-/* Styles */
-import {
-  CategoryListWrapper,
-  FolderSvgWrapper,
-  CategoryItemWrapper,
-} from './index.styles'
+import { ARIA_LABEL, SVG_SIZE } from './const'
 /* Types */
 import { ICategory } from '@/types/index'
-
-export const ARIA_LABEL = 'categoryList' as const
-export const SVG_SIZE = 16 as const
 
 export interface ICategoryList {
   categories: ICategory[]
@@ -23,22 +15,23 @@ export interface ICategoryList {
 
 const CategoryList: FC<ICategoryList> = ({ categories }) => {
   return (
-    <CategoryListWrapper aria-label={ARIA_LABEL}>
-      <FolderSvgWrapper>
+    <ul className="flex items-center" aria-label={ARIA_LABEL}>
+      <div className="mr-2 mb-2">
         <FolderSvg
           height={SVG_SIZE}
           width={SVG_SIZE}
           color={COLOR.BLUE_GROUP.MAIN}
           fill={COLOR.BLUE_GROUP.MAIN}
         />
-      </FolderSvgWrapper>
+      </div>
       {categories.map((v) => (
-        <CategoryItemWrapper key={v.id}>
+        <li key={v.id} className="[&:not(:first-of-type)]:ml-2">
           <CategoryItem category={v} />
-        </CategoryItemWrapper>
+        </li>
       ))}
-    </CategoryListWrapper>
+    </ul>
   )
 }
 
 export default CategoryList
+export * from './const'
