@@ -15,9 +15,8 @@ const SitemapDetail: FC = () => {
     <section aria-label={ARIA_LABEL}>
       <H1>{TITLE}</H1>
       {sitemap.length && (
-        <ul className="mb-5">
+        <ul className="my-[60px]">
           <SitemapItem type={SITEMAP.TOP} label={SITE.TITLE} url={PAGE.ROOT} />
-
           {/* 親カテゴリ */}
           {sitemap.map((parent) => (
             <li key={parent.id} className="mt-2 ml-6">

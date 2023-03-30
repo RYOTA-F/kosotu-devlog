@@ -13,9 +13,7 @@ const ProfileDetail: FC = () => {
       aria-label={ARIA_LABEL.PROFILE_DETAIL}
     >
       <H1>{PROFILE.TITLE}</H1>
-      <div className="px-5">
-        <p className="leading-[2.5]">{PROFILE.DESCRIPTION}</p>
-      </div>
+      <p className="my-[60px] px-5 leading-[2.5]">{PROFILE.DESCRIPTION}</p>
       {/* 概要 */}
       <H2>{PROFILE.ABOUT.TITLE}</H2>
       <div className="px-5">

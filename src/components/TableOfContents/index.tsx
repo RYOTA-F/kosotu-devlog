@@ -13,7 +13,7 @@ export interface ITableOfContentsProps {
 
 const TableOfContents: FC<ITableOfContentsProps> = ({ tableOfContents }) => (
   <div
-    className="w-[90%] p-8 bg-clip-padding bg-gradient-to-br from-transparent to-transparent border-double  border-b-[3px] border-t-[3px] border-gray-300 bg-gray-50"
+    className="p-8 sp:px-2 bg-clip-padding bg-gradient-to-br from-transparent to-transparent border-double  border-b-[3px] border-t-[3px] border-gray-300 bg-gray-50"
     aria-label={ARIA_LABEL}
   >
     <h2 className="flex items-center justify-center text-gray-text-t1 text-[18px]">

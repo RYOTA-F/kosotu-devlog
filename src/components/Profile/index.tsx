@@ -32,10 +32,10 @@ const Profile: FC = () => (
       </Link>
     </div>
 
-    <span className="mx-auto  mt-4 block text-base text-gray-text-t3">
+    <span className="mx-auto  mt-4 block text-xl text-gray-text-t3">
       {AUTHOR.NAME}
     </span>
-    <span className="mx-auto text-sm text-gray-text-t2">{AUTHOR.COPY}</span>
+    <span className="mx-auto text-base text-gray-text-t2">{AUTHOR.COPY}</span>
 
     <div className="mt-6 text-left text-[14px] text-gray-text-t3">
       {DESCRIPTION.map((v) => (
