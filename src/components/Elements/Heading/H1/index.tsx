@@ -7,7 +7,7 @@ import { IHeadingDefault } from '../types'
 const H1: FC<IHeadingDefault> = ({ children }) => {
   return (
     <h1
-      className="mb-[60px] pl-4 text-gray-text-t3 text-[24px] font-bold relative"
+      className="pl-4 text-gray-text-t3 text-[24px] font-bold relative"
       aria-label={ARIA_LABEL.H1}
     >
       {children}
