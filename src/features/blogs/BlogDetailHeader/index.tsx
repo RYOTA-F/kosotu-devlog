@@ -67,7 +67,7 @@ const BlogDetailHeader: FC = () => {
       </div>
 
       {tableOfContents.length && (
-        <div className="w-[90%] sp:w-full sp:ml-[5%] mt-8 ml-[10%] ">
+        <div className="w-[90%] sp:w-full mt-8 mx-auto">
           <TableOfContents tableOfContents={tableOfContents} />
         </div>
       )}
