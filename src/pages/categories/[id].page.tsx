@@ -15,14 +15,15 @@ import useCommonData from '@/hooks/useCommonData'
 import { IGlobalMenu } from '@/types/index'
 import { IBlog, IBreadCrumb } from '@/types/microCMS/blog'
 import { ICategory } from '@/types/microCMS/category'
-import { ISeoState, IPaginationState } from '@/stores/common'
+import { IPaginationState } from '@/stores/common'
+import { ISeo } from '@/components/Seo'
 
 export interface ICategoryPage {
   category: ICategory
   blogs: IBlog[]
   pagination: IPaginationState
   breadCrumb: IBreadCrumb
-  seo: ISeoState
+  seo: ISeo
   globalMenu: IGlobalMenu[]
 }
 
@@ -39,8 +40,6 @@ const CategoryPage: NextPage<ICategoryPage> = ({
     resetGlobalMenu,
     setBreadCrumb,
     resetBreadCrumb,
-    setSeo,
-    resetSeo,
     setPagination,
     resetPagination,
     onCloseIsViewSidenav,
@@ -53,7 +52,6 @@ const CategoryPage: NextPage<ICategoryPage> = ({
     setBreadCrumb(breadCrumb)
     setBlogs(blogs)
     setCategory(category)
-    setSeo(seo)
     setPagination(pagination)
     onCloseIsViewSidenav()
 
@@ -62,13 +60,12 @@ const CategoryPage: NextPage<ICategoryPage> = ({
       resetBreadCrumb()
       resetBlogs()
       resetCategory()
-      resetSeo()
       resetPagination()
     }
-  }, [globalMenu, category, breadCrumb, seo])
+  }, [globalMenu, category, breadCrumb])
 
   return (
-    <Layout>
+    <Layout seo={seo}>
       <CategoryDetail />
       <Pagination />
     </Layout>

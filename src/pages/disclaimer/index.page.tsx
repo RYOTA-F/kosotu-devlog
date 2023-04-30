@@ -19,31 +19,25 @@ interface IDisclaimer {
 }
 
 const DisclaimerPage: NextPage<IDisclaimer> = ({ globalMenu }) => {
-  const {
-    setGlobalMenu,
-    resetGlobalMenu,
-    setBreadCrumb,
-    resetBreadCrumb,
-    setSeo,
-    resetSeo,
-  } = useCommonData()
+  const { setGlobalMenu, resetGlobalMenu, setBreadCrumb, resetBreadCrumb } =
+    useCommonData()
+
+  const seo = getSeoFromFixed(FIXED_PAGE.DISCLAIMER)
 
   useEffect(() => {
     const breadCrumb = getBreadCrumbDataFromFixed(DISCLAIMER.TITEL)
-    const seo = getSeoFromFixed(FIXED_PAGE.DISCLAIMER)
+
     setBreadCrumb(breadCrumb)
-    setSeo(seo)
     setGlobalMenu(globalMenu)
 
     return () => {
       resetBreadCrumb()
-      resetSeo()
       resetGlobalMenu()
     }
   }, [globalMenu])
 
   return (
-    <Layout>
+    <Layout seo={seo}>
       <Disclaimer />
     </Layout>
   )

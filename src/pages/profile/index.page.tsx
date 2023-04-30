@@ -19,31 +19,25 @@ interface IProfile {
 }
 
 const ProfilePage: NextPage<IProfile> = ({ globalMenu }) => {
-  const {
-    setGlobalMenu,
-    resetGlobalMenu,
-    setBreadCrumb,
-    resetBreadCrumb,
-    setSeo,
-    resetSeo,
-  } = useCommonData()
+  const { setGlobalMenu, resetGlobalMenu, setBreadCrumb, resetBreadCrumb } =
+    useCommonData()
+
+  const seo = getSeoFromFixed(FIXED_PAGE.PROFILE)
 
   useEffect(() => {
     const breadCrumb = getBreadCrumbDataFromFixed(PROFILE.TITLE)
-    const seo = getSeoFromFixed(FIXED_PAGE.PROFILE)
+
     setBreadCrumb(breadCrumb)
-    setSeo(seo)
     setGlobalMenu(globalMenu)
 
     return () => {
       resetBreadCrumb()
-      resetSeo()
       resetGlobalMenu()
     }
   }, [globalMenu])
 
   return (
-    <Layout>
+    <Layout seo={seo}>
       <ProfileDetail />
     </Layout>
   )

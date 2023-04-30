@@ -21,31 +21,25 @@ interface IPrivacyPolicy {
 }
 
 const PrivacyPolicyPage: NextPage<IPrivacyPolicy> = ({ globalMenu }) => {
-  const {
-    setGlobalMenu,
-    resetGlobalMenu,
-    setBreadCrumb,
-    resetBreadCrumb,
-    setSeo,
-    resetSeo,
-  } = useCommonData()
+  const { setGlobalMenu, resetGlobalMenu, setBreadCrumb, resetBreadCrumb } =
+    useCommonData()
+
+  const seo = getSeoFromFixed(FIXED_PAGE.PRIVACY_POLICY)
 
   useEffect(() => {
     const breadCrumb = getBreadCrumbDataFromFixed(PRIVACY_POLICY.TITLE)
-    const seo = getSeoFromFixed(FIXED_PAGE.PRIVACY_POLICY)
+
     setBreadCrumb(breadCrumb)
-    setSeo(seo)
     setGlobalMenu(globalMenu)
 
     return () => {
       resetBreadCrumb()
-      resetSeo()
       resetGlobalMenu()
     }
   }, [globalMenu])
 
   return (
-    <Layout>
+    <Layout seo={seo}>
       <PrivacyPolicy />
     </Layout>
   )

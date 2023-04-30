@@ -21,24 +21,23 @@ interface ISitemapPage {
 }
 
 const SitemapPage: NextPage<ISitemapPage> = ({ sitemap, globalMenu }) => {
-  const { setGlobalMenu, resetGlobalMenu, setSeo, resetSeo } = useCommonData()
+  const { setGlobalMenu, resetGlobalMenu } = useCommonData()
   const { setSitemap, resetSitemap } = useSitemapData()
 
+  const seo = getSeoFromFixed(FIXED_PAGE.SITE_MAP)
+
   useEffect(() => {
-    const seo = getSeoFromFixed(FIXED_PAGE.SITE_MAP)
     setSitemap(sitemap)
     setGlobalMenu(globalMenu)
-    setSeo(seo)
 
     return () => {
       resetSitemap()
-      resetSeo()
       resetGlobalMenu()
     }
   }, [sitemap, globalMenu])
 
   return (
-    <Layout>
+    <Layout seo={seo}>
       <SitemapDetail />
     </Layout>
   )
