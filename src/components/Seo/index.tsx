@@ -4,23 +4,27 @@ import { useRouter } from 'next/router'
 /* Const */
 import { SITE, PAGE, TWITTER } from '@/const/index'
 import { SEO } from './const'
-/* Hooks */
-import useCommonData from '@/hooks/useCommonData'
 
-const Seo: FC = () => {
+export interface ISeo {
+  title: string
+  description: string
+  url: string
+  image: string
+}
+
+const Seo: FC<ISeo> = ({ title, description, url, image }) => {
   const { pathname } = useRouter()
-  const { seoTitle, seoDescription, seoUrl, seoImage } = useCommonData()
   const isBlogPage = pathname.includes(PAGE.ARTICLES)
 
   return (
     <Head>
-      <title>{seoTitle}</title>
-      <meta name="description" content={seoDescription} />
-      <meta property="og:title" content={seoTitle} />
-      <meta property="og:image" content={seoImage} />
-      <meta property="og:url" content={seoUrl} />
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta property="og:title" content={title} />
+      <meta property="og:image" content={image} />
+      <meta property="og:url" content={url} />
       <meta property="og:site_name" content={SITE.TITLE} />
-      <meta property="og:description" content={seoDescription} />
+      <meta property="og:description" content={description} />
       <meta
         property="og:type"
         content={isBlogPage ? SEO.OG.TYPE.ARTICLE : SEO.OG.TYPE.WEBSITE}
@@ -28,9 +32,9 @@ const Seo: FC = () => {
       <meta property="og:locale" content={SEO.OG.LOCALE} />
       <meta name="twitter:card" content={SEO.TWITTER.CARD} />
       <meta name="twitter:site" content={TWITTER.ID} />
-      <meta name="twitter:description" content={seoDescription} />
-      <meta name="twitter:title" content={seoTitle} />
-      <meta name="twitter:image" content={seoImage} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:image" content={image} />
       <link rel="icon" href={SEO.ICON} />
       <link
         rel={SEO.APPLE_TOUCH_ICON.REL}

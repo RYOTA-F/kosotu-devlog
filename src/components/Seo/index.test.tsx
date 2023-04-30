@@ -3,7 +3,6 @@ import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import Seo from '.'
-import CommonContextProviderMock from '@/stores/__mocks__/common'
 import { initialCommonState } from '@/stores/common'
 
 jest.mock('next/head', () => {
@@ -25,11 +24,7 @@ jest.mock('next/router', () => ({
 
 describe('Seo', () => {
   beforeEach(() => {
-    render(
-      <CommonContextProviderMock>
-        <Seo />
-      </CommonContextProviderMock>
-    )
+    render(<Seo {...initialCommonState.seo} />)
   })
 
   test('title が反映される', () => {
