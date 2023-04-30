@@ -27,7 +27,7 @@ describe('Seo', () => {
   beforeEach(() => {
     render(
       <CommonContextProviderMock>
-        <Seo />
+        <Seo {...initialCommonState.seo} />
       </CommonContextProviderMock>
     )
   })
