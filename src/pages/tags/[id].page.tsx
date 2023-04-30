@@ -13,14 +13,15 @@ import useCommonData from '@/hooks/useCommonData'
 import useTagData from '@/hooks/useTagData'
 /* Types */
 import { IBlog, ITag, IBreadCrumb, IGlobalMenu } from '@/types/index'
-import { ISeoState, IPaginationState } from '@/stores/common'
+import { IPaginationState } from '@/stores/common'
+import { ISeo } from '@/components/Seo'
 
 export interface ITagPage {
   tag: ITag
   blogs: IBlog[]
   pagination: IPaginationState
   breadCrumb: IBreadCrumb
-  seo: ISeoState
+  seo: ISeo
   globalMenu: IGlobalMenu[]
 }
 
@@ -38,8 +39,6 @@ const TagPage: NextPage<ITagPage> = ({
     resetGlobalMenu,
     setBreadCrumb,
     resetBreadCrumb,
-    setSeo,
-    resetSeo,
     setPagination,
     resetPagination,
     onCloseIsViewSidenav,
@@ -51,7 +50,6 @@ const TagPage: NextPage<ITagPage> = ({
     setBreadCrumb(breadCrumb)
     setTag(tag)
     setPagination(pagination)
-    setSeo(seo)
     setGlobalMenu(globalMenu)
     onCloseIsViewSidenav()
 
@@ -60,13 +58,12 @@ const TagPage: NextPage<ITagPage> = ({
       resetBreadCrumb()
       resetTag()
       resetPagination()
-      resetSeo()
       resetGlobalMenu
     }
-  }, [tag, pagination, seo, globalMenu])
+  }, [tag, pagination, globalMenu])
 
   return (
-    <Layout>
+    <Layout seo={seo}>
       <TagDetail />
       <Pagination />
     </Layout>

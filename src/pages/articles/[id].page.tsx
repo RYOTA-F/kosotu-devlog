@@ -16,13 +16,13 @@ import {
   IBreadCrumb,
   IGlobalMenu,
 } from '@/types/index'
-import { ISeoState } from '@/stores/common'
+import { ISeo } from '@/components/Seo'
 
 interface IBlogPage {
   blog: IBlog
   tableOfContents: ITableOfContents[]
   breadCrumb: IBreadCrumb
-  seo: ISeoState
+  seo: ISeo
   globalMenu: IGlobalMenu[]
 }
 
@@ -41,25 +41,21 @@ const BlogPage: NextPage<IBlogPage> = ({
     resetBreadCrumb,
     setTableOfContents,
     resetTableOfContents,
-    setSeo,
-    resetSeo,
   } = useCommonData()
 
   useEffect(() => {
     setBlogs([blog])
     setTableOfContents(tableOfContents)
     setBreadCrumb(breadCrumb)
-    setSeo(seo)
     setGlobalMenu(globalMenu)
 
     return () => {
       resetBlogs()
       resetTableOfContents()
       resetBreadCrumb()
-      resetSeo()
       resetGlobalMenu
     }
-  }, [blog, tableOfContents, breadCrumb, seo, globalMenu])
+  }, [blog, tableOfContents, breadCrumb, globalMenu])
 
   // Twitter Embed Scriptをロード
   useEffect(() => {
@@ -73,7 +69,7 @@ const BlogPage: NextPage<IBlogPage> = ({
   }, [])
 
   return (
-    <Layout>
+    <Layout seo={seo}>
       <BlogDetail />
     </Layout>
   )

@@ -13,7 +13,8 @@ import useCategoryData from '@/hooks/useCategoryData'
 import useCommonData from '@/hooks/useCommonData'
 /* Types */
 import { IBlog, IBreadCrumb, ICategory, IGlobalMenu } from '@/types/index'
-import { IPaginationState, ISeoState } from '@/stores/common'
+import { IPaginationState } from '@/stores/common'
+import { ISeo } from '@/components/Seo'
 
 interface IPage {
   category: ICategory
@@ -21,7 +22,7 @@ interface IPage {
   breadCrumb: IBreadCrumb
   pagination: IPaginationState
   globalMenu: IGlobalMenu[]
-  seo: ISeoState
+  seo: ISeo
 }
 
 const CategoryPage: NextPage<IPage> = ({
@@ -41,8 +42,6 @@ const CategoryPage: NextPage<IPage> = ({
     resetBreadCrumb,
     setPagination,
     resetPagination,
-    setSeo,
-    resetSeo,
   } = useCommonData()
 
   useEffect(() => {
@@ -51,7 +50,6 @@ const CategoryPage: NextPage<IPage> = ({
     setBreadCrumb(breadCrumb)
     setPagination(pagination)
     setGlobalMenu(globalMenu)
-    setSeo(seo)
 
     return () => {
       resetCategory()
@@ -59,12 +57,11 @@ const CategoryPage: NextPage<IPage> = ({
       resetBreadCrumb()
       resetPagination()
       resetGlobalMenu()
-      resetSeo()
     }
-  }, [category, blogs, breadCrumb, seo, globalMenu, pagination])
+  }, [category, blogs, breadCrumb, globalMenu, pagination])
 
   return (
-    <Layout>
+    <Layout seo={seo}>
       <CategoryDetail />
       <Pagination />
     </Layout>
